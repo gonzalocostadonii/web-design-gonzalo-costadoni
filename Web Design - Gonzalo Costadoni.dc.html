@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design Gonzalo Costadoni</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; background: #0A0F1F; color: #E8EDF7; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #7E9BC8; text-decoration: none; }
+  a:hover { color: #FFFFFF; }
+  input, textarea, select, button { font: inherit; }
+  ::selection { background: #1E3A6E; color: #fff; }
+  @keyframes gcmarquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes gcpulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</helmet>
+
+<div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; background: #0A0F1F; overflow-x: hidden; position: relative;">
+
+  <header style="{{ navStyle }}">
+    <nav style="{{ navInnerStyle }}">
+      <a href="#inicio" style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+        <img src="logo-gc.png" alt="GC" style="{{ logoStyle }}">
+        <span style="font-size: 13px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #E8EDF7; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif;">Web Design</span>
+      </a>
+      <div style="{{ navLinksStyle }}">
+        <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
+        <a href="#sobre" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navAbout }}</a>
+        <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
+        <a href="#metodologia" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navMethod }}</a>
+        <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
+        <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
+        <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
+        <a href="#contacto" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navContact }}</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+        <button onClick="{{ toggleLang }}" aria-label="ES / EN" style="position: relative; width: 84px; height: 34px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); cursor: pointer; padding: 0; overflow: hidden;" style-hover="border-color: rgba(30,58,110,.7);">
+          <span style="{{ langPillStyle }}"></span>
+          <span style="{{ langEsStyle }}">ES</span>
+          <span style="{{ langEnStyle }}">EN</span>
+        </button>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="{{ navCtaStyle }}" style-hover="transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,.4);">{{ t.cta }}<span style="{{ navCtaArrowStyle }}">↗</span></a>
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="{{ burgerStyle }}">
+          <span style="{{ barTopStyle }}"></span>
+          <span style="{{ barBotStyle }}"></span>
+        </button>
+      </div>
+    </nav>
+    <div style="{{ drawerStyle }}">
+      <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="5">
+        <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="{{ m.style }}" style-hover="{{ m.hoverStyle }}">{{ m.label }}</a>
+      </sc-for>
+      <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="{{ menuCtaStyle }}">{{ t.cta }}<span style="display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
+    </div>
+  </header>
+
+  <section id="inicio" style="scroll-margin-top: 110px; position: relative; padding: clamp(140px, 18vh, 220px) 0 clamp(80px, 12vh, 140px); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(30,58,110,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(30,58,110,.08) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 20%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 20%, transparent 78%); pointer-events: none;"></div>
+    <div style="position: absolute; top: -80px; right: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(30,58,110,.22), transparent 65%); filter: blur(20px); pointer-events: none;"></div>
+    <div data-reveal="1" style="position: relative;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(12px); font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #A9B6CE;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #1E3A6E;"></span>{{ t.badge }}
+      </div>
+      <h1 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 28px 0 0; font-size: clamp(40px, 7vw, 96px); line-height: .98; letter-spacing: -.045em; font-weight: 600; max-width: 16ch; text-wrap: balance;">
+        {{ t.heroL1 }}<br><span style="color: #6E7F9E;">{{ t.heroL2 }}</span>
+      </h1>
+      <p style="margin: 28px 0 0; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.7; color: #A9B6CE; max-width: 52ch;">{{ t.heroSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 32px; margin: 36px 0 0;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="{{ waLink }}" target="_blank" rel="noopener" aria-label="WhatsApp" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); transition: all .25s cubic-bezier(.2,.7,.3,1);" style-hover="background: #FFFFFF; transform: translateY(-2px); border-color: #FFFFFF;"><img src="https://cdn.simpleicons.org/whatsapp/E8EDF7" alt="WhatsApp" style="width: 18px; height: 18px;"></a>
+          <a href="https://instagram.com/gonzalocostadonii" target="_blank" rel="noopener" aria-label="Instagram" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); transition: all .25s cubic-bezier(.2,.7,.3,1);" style-hover="background: #FFFFFF; transform: translateY(-2px); border-color: #FFFFFF;"><img src="https://cdn.simpleicons.org/instagram/E8EDF7" alt="Instagram" style="width: 18px; height: 18px;"></a>
+          <a href="mailto:gonzalocostadonii@gmail.com" aria-label="Gmail" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); transition: all .25s cubic-bezier(.2,.7,.3,1);" style-hover="background: #FFFFFF; transform: translateY(-2px); border-color: #FFFFFF;"><img src="https://cdn.simpleicons.org/gmail/E8EDF7" alt="Gmail" style="width: 18px; height: 18px;"></a>
+        </div>
+        
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin: 44px 0 0;">
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.cta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="overflow: hidden; background: #FFFFFF; padding: 16px 0; margin-top: clamp(20px, 4vh, 48px); user-select: none;">
+    <div style="display: flex; width: max-content; animation: gcmarquee 26s linear infinite;">
+      <sc-for list="{{ marqueeTrack }}" as="w" hint-placeholder-count="16">
+        <div style="display: flex; align-items: center; gap: 34px; padding-right: 34px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: clamp(15px, 1.5vw, 20px); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0F2549; white-space: nowrap;">
+          <span style="color: #0F2549; opacity: .45;">·</span>{{ w.text }}
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <section id="sobre" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(01) {{ t.s1Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 26ch;">{{ t.s1Title }}<span style="color: #6E7F9E;">{{ t.s1TitleMuted }}</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; margin-top: 56px; background: rgba(255,255,255,.06);">
+      <sc-for list="{{ pains }}" as="p" hint-placeholder-count="3">
+        <div style="background: #0D1526; padding: 34px 30px 40px; transition: background .35s;" style-hover="background: #12203A;">
+          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
+          <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #C9D4E6;">{{ p.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="transformacion" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(02) {{ t.s2Label }}</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); margin-top: 44px; align-items: stretch;">
+      <div style="padding: 40px 34px; border-radius: 14px; background: rgba(255,255,255,.02);">
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #6E7F9E;">{{ t.before }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 18px 0 22px; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; letter-spacing: -.02em; font-weight: 600; color: #8E9CB5;">{{ t.beforeTitle }}</h3>
+        <sc-for list="{{ beforeList }}" as="b" hint-placeholder-count="3">
+          <div style="display: flex; gap: 12px; padding: 11px 0; font-size: 15px; color: #7C8AA3; border-top: 1px solid rgba(255,255,255,.05); transition: color .25s;" style-hover="color: #A9B6CE;"><span style="color: #4E5D78;">—</span>{{ b.text }}</div>
+        </sc-for>
+      </div>
+      <div style="padding: 40px 34px; border-radius: 14px; background: linear-gradient(160deg, rgba(30,58,110,.14), rgba(30,58,110,.03)); box-shadow: 0 24px 60px -30px rgba(30,58,110,.6);">
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #7E9BC8;">{{ t.after }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 18px 0 22px; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; letter-spacing: -.02em; font-weight: 600; color: #FFFFFF;">{{ t.afterTitle }}</h3>
+        <sc-for list="{{ afterList }}" as="a" hint-placeholder-count="3">
+          <div style="display: flex; gap: 12px; padding: 11px 0; font-size: 15px; color: #DCE5F3; border-top: 1px solid rgba(255,255,255,.08); transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ a.text }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicio" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(03) {{ t.s3Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s3Title }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 18px; margin-top: 52px;">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="8">
+        <div style="padding: 30px 26px 34px; border-radius: 14px; background: #FFFFFF; transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s;" style-hover="transform: translateY(-4px); box-shadow: 0 22px 50px -26px rgba(0,0,0,.7);">
+          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; color: #7183A0;">{{ f.n }}</div>
+          <h4 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 20px 0 10px; font-size: 18px; font-weight: 600; letter-spacing: -.01em; color: #0F2549;">{{ f.title }}</h4>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.65; color: #4A5B75;">{{ f.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="metodologia" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(04) {{ t.s4Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.18; letter-spacing: -.03em; font-weight: 600; max-width: 30ch;">{{ t.s4Title }}<span style="color: #6E7F9E;">{{ t.s4TitleMuted }}</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 60px; background: rgba(255,255,255,.12);">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="background: #16305C; padding: 36px 30px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; letter-spacing: .1em; color: #7E9BC8;">{{ s.n }} &nbsp;{{ s.title }}</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #C2D0E6; flex: 1;">{{ s.desc }}</p>
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-top: 12px;">
+            <div style="font-size: clamp(34px, 3.6vw, 46px); font-weight: 700; letter-spacing: -.04em; color: #FFFFFF;">{{ s.metric }}</div>
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; line-height: 1.5; color: #A9BCD8; max-width: 16ch;">{{ s.metricLabel }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(05) {{ t.s5Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
+    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <div style="{{ p.cardStyle }}">
+          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
+            <div style="flex: 1; min-width: 180px;">
+              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
+              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
+            </div>
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
+            <div style="{{ p.arrowStyle }}">↓</div>
+          </div>
+          <div style="{{ p.bodyStyle }}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
+              <div style="display: flex; flex-direction: column; gap: 26px;">
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
+                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
+                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
+                </a>
+                <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
+                  <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
+                  <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="mantenimiento" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
+      <div>
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.bonusLabel }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.bonusTitle }}</h3>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.bonusDesc }}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ bonusItems }}" as="b" hint-placeholder-count="3">
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
+            <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
+            <span style="color: #0F2549; text-align: right;">{{ b.v }}</span>
+            <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ t.visitSite }} ↗</a></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s6Title }}</h2>
+    <div style="display: flex; flex-direction: column; margin-top: 52px; border-top: 1px solid rgba(255,255,255,.09);">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+        <div style="border-bottom: 1px solid rgba(255,255,255,.09);">
+          <div onClick="{{ q.toggle }}" style="display: flex; align-items: center; gap: clamp(14px, 2vw, 26px); padding: clamp(20px, 2.2vw, 28px) 4px; cursor: pointer; transition: opacity .25s;" style-hover="opacity: .75;">
+            <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; color: #6E7F9E; min-width: 22px;">{{ q.n }}</span>
+            <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; flex: 1; margin: 0; font-size: clamp(17px, 1.7vw, 21px); font-weight: 500; letter-spacing: -.015em; color: #E8EDF7;">{{ q.q }}</h3>
+            <span style="{{ q.iconStyle }}">+</span>
+          </div>
+          <div style="{{ q.bodyStyle }}">
+            <p style="margin: 0; padding: 0 clamp(14px, 2vw, 48px) clamp(24px, 2.6vw, 34px); max-width: 78ch; font-size: 15.5px; line-height: 1.75; color: #A9B6CE;">{{ q.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="planes" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(07) {{ t.s7Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s7Title }}</h2>
+    <div style="display: inline-flex; margin-top: 34px; padding: 5px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.1); position: relative;">
+      <span style="{{ planPillStyle }}"></span>
+      <button onClick="{{ selectBase }}" style="{{ planBaseTabStyle }}">{{ t.planBase }}</button>
+      <button onClick="{{ selectPremium }}" style="{{ planPremiumTabStyle }}">{{ t.planPremium }}</button>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
+      <div style="{{ baseCardStyle }}">
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.02em;">{{ t.planBase }}</h3>
+        <p style="margin: 12px 0 26px; font-size: 14.5px; line-height: 1.65; color: #8E9CB5;">{{ t.planBaseDesc }}</p>
+        <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <sc-for list="{{ baseFeatures }}" as="f" hint-placeholder-count="6">
+            <div style="display: flex; gap: 12px; font-size: 14.5px; color: #C9D4E6; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
+          </sc-for>
+        </div>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: rgba(255,255,255,.06); color: #E8EDF7; font-size: 14.5px; transition: all .25s;" style-hover="background: rgba(255,255,255,.12); color: #fff;">{{ t.consult }}</a>
+      </div>
+      <div style="{{ premiumCardStyle }}">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.02em;">{{ t.planPremium }}</h3>
+          <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(30,58,110,.5);">{{ t.recommended }}</span>
+        </div>
+        <p style="margin: 12px 0 26px; font-size: 14.5px; line-height: 1.65; color: #A9B6CE;">{{ t.planPremiumDesc }}</p>
+        <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <sc-for list="{{ premiumFeatures }}" as="f" hint-placeholder-count="4">
+            <div style="display: flex; gap: 12px; font-size: 14.5px; color: #DCE5F3; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
+          </sc-for>
+        </div>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-weight: 500; font-size: 14.5px; transition: all .25s;" style-hover="transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.consult }}</a>
+      </div>
+    </div>
+    <p style="margin: 26px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; line-height: 1.7; color: #6E7F9E; max-width: 60ch;">{{ t.priceNote }}</p>
+  </section>
+
+  <section id="contacto" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 130px) 0 clamp(60px, 8vh, 100px); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 72px);">
+      <div>
+        <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(30px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -.035em; font-weight: 700; max-width: 18ch; text-wrap: balance;">{{ t.finalL1 }}<br><span style="color: #6E7F9E;">{{ t.finalL2 }}</span></h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px;">
+          <a href="{{ waLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s;" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.cta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
+          <a href="mailto:gonzalocostadonii@gmail.com" style="display: inline-flex; align-items: center; padding: 16px 28px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: #E8EDF7; font-size: 15px;" style-hover="background: rgba(255,255,255,.1); color: #fff;">gonzalocostadonii@gmail.com</a>
+        </div>
+        <div style="margin-top: 44px; display: flex; flex-direction: column; gap: 10px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .06em; color: #6E7F9E;">
+          <div>{{ t.based }}</div>
+          <div><a href="https://instagram.com/gonzalocostadonii" target="_blank" rel="noopener">@gonzalocostadonii</a></div>
+        </div>
+      </div>
+      <form onSubmit="{{ submitForm }}" style="padding: clamp(26px, 3vw, 40px); border-radius: 16px; background: rgba(255,255,255,.03); display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #7E9BC8;">{{ t.formLabel }}</div>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8E9CB5;">{{ t.fName }}
+          <input name="nombre" required="" style="padding: 14px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,.1); background: rgba(10,15,31,.6); color: #E8EDF7; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; letter-spacing: normal; text-transform: none;" style-focus="outline: none; border-color: #1E3A6E; box-shadow: 0 0 0 3px rgba(30,58,110,.18);">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8E9CB5;">{{ t.fEmail }}
+          <input name="email" type="email" required="" style="padding: 14px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,.1); background: rgba(10,15,31,.6); color: #E8EDF7; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; letter-spacing: normal; text-transform: none;" style-focus="outline: none; border-color: #1E3A6E; box-shadow: 0 0 0 3px rgba(30,58,110,.18);">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8E9CB5;">{{ t.fType }}
+          <select name="tipo" style="padding: 14px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,.1); background: rgba(10,15,31,.6); color: #E8EDF7; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; letter-spacing: normal; text-transform: none;" style-focus="outline: none; border-color: #1E3A6E;">
+            <sc-for list="{{ projectTypes }}" as="o" hint-placeholder-count="4">
+              <option value="{{ o.text }}">{{ o.text }}</option>
+            </sc-for>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8E9CB5;">{{ t.fMsg }}
+          <textarea name="mensaje" rows="4" style="padding: 14px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,.1); background: rgba(10,15,31,.6); color: #E8EDF7; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; letter-spacing: normal; text-transform: none; resize: vertical;" style-focus="outline: none; border-color: #1E3A6E; box-shadow: 0 0 0 3px rgba(30,58,110,.18);"></textarea>
+        </label>
+        <button type="submit" style="margin-top: 6px; padding: 16px; border-radius: 999px; border: 0; background: #FFFFFF; color: #0A0F1F; font-weight: 500; font-size: 15px; cursor: pointer; transition: all .25s;" style-hover="transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.45);">{{ t.fSend }}</button>
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; line-height: 1.6; color: #6E7F9E;">{{ t.fNote }}</div>
+      </form>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(40px, 6vh, 70px) 0; border-top: 1px solid rgba(15,37,73,.12); background: #FFFFFF; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="{{ footerRowStyle }}">
+      <div style="{{ footerBrandStyle }}">
+        <img src="logo-gc.png" alt="GC" style="width: 40px; height: 40px; border-radius: 50%;">
+        <div>
+          <div style="font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: #0F2549;">Web Design Gonzalo Costadoni</div>
+          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #5C6E8C; margin-top: 4px;">General Roca, Río Negro, Argentina</div>
+        </div>
+      </div>
+      <div style="{{ footerLinksStyle }}">
+        <a href="#sobre" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navAbout }}</a>
+        <a href="#metodologia" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navMethod }}</a>
+        <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
+        <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
+        <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
+        <a href="#contacto" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navContact }}</a>
+      </div>
+      <div style="{{ footerSocialStyle }}">
+        <a href="https://instagram.com/gonzalocostadonii" target="_blank" rel="noopener" style="font-size: 14px; color: #2A5091; transition: color .25s;" style-hover="color: #0F2549;">Instagram</a>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="font-size: 14px; color: #2A5091; transition: color .25s;" style-hover="color: #0F2549;">WhatsApp</a>
+        <button onClick="{{ toggleLang }}" style="margin-top: 4px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(15,37,73,.2); background: transparent; color: #33455F; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; cursor: pointer;" style-hover="color: #0F2549; border-color: #0F2549;">{{ langLabel }}</button>
+      </div>
+    </div>
+    <div style="{{ footerCopyStyle }} font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .06em; color: #7183A0;">© 2026 Web Design Gonzalo Costadoni · General Roca, Río Negro, Argentina — {{ t.rights }}</div>
+  </footer>
+
+  <a href="{{ waLink }}" target="_blank" rel="noopener" aria-label="WhatsApp" style="position: fixed; right: clamp(16px, 3vw, 32px); bottom: clamp(16px, 3vw, 32px); z-index: 90; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #08240F; font-weight: 700; font-size: 13px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; animation: gcpulse 2.8s ease-out infinite; transition: transform .25s;" style-hover="transform: scale(1.08);"><img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp" style="width: 28px; height: 28px;"></a>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0F2549&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1E3A6E&quot;,&quot;#16305C&quot;,&quot;#0F2549&quot;,&quot;#2A5091&quot;]},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5492984893772&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const COPY = {
+  es: {
+    navHome: "Inicio", navAbout: "Sobre mí", navService: "Servicio", navMethod: "Metodología", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
+    cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado",
+    badge: "General Roca, Río Negro, Argentina",
+    heroL1: "Tu negocio ya es profesional.",
+    heroL2: "Ahora, hagamos que tu web lo demuestre.",
+    heroSub: "Diseño y desarrollo web a medida para negocios que necesitan una presencia digital moderna, que genere confianza desde el primer clic.",
+    heroB1: "[placeholder] proyectos entregados",
+    heroB2: "[placeholder] rubros distintos",
+    heroTrust: "Testimonios validados\nde clientes reales",
+    s1Label: "El problema",
+    s1Title: "No tener web —o tener una vieja, lenta y genérica— ",
+    s1TitleMuted: "hoy te cuesta clientes frente a tu competencia.",
+    pains: [
+      "“Quiero que la gente confíe apenas entra.” Si tu única vidriera es Instagram, la decisión de compra queda en manos del algoritmo.",
+      "“No quiero que parezca plantilla.” Una web genérica comunica exactamente eso: que tu servicio también podría ser genérico.",
+      "Sitios lentos, no responsivos o desactualizados hacen que el cliente se vaya antes de leer lo que ofrecés."
+    ],
+    s2Label: "La transformación",
+    before: "Antes", after: "Después",
+    beforeTitle: "Otro emprendedor más en Instagram",
+    afterTitle: "Una marca con presencia digital sólida",
+    beforeList: ["Sin dominio propio ni lugar donde te encuentren", "Consultas que se pierden entre DMs", "La misma estética que todos", "Cada venta arranca explicando quién sos"],
+    afterList: ["Un sitio propio que ordena y explica tu servicio", "Formulario y WhatsApp que generan consultas reales", "Diseño hecho a medida de tu marca", "Llegan preguntando por el precio, no por tu seriedad"],
+    s3Label: "Qué incluye",
+    s3Title: "Todo lo necesario para que tu web trabaje, no solo exista.",
+    features: [
+      ["Diseño responsive", "Se ve impecable en computadora, tablet y celular, sin versiones a medias."],
+      ["SEO técnico", "Estructura, velocidad y metadatos listos para que Google te encuentre."],
+      ["Formulario avanzado", "Consultas segmentadas por tipo de proyecto, directo a tu correo."],
+      ["Botón de WhatsApp", "Flotante y siempre visible: la conversación arranca en un clic."],
+      ["Instagram y WhatsApp Business", "Conexión completa con tus canales, sin costo extra."],
+      ["Estructura estratégica", "El orden de las secciones sigue el recorrido de decisión de tu cliente."],
+      ["Ajuste de copy", "Revisión y reescritura de los textos para que vendan con tu voz."],
+      ["Mantenimiento post-lanzamiento", "Acompañamiento después de la entrega, no un adiós."]
+    ],
+    s4Label: "Metodología",
+    s4Title: "Un proceso enfocado en claridad, velocidad ",
+    s4TitleMuted: "y resultados consistentes.",
+    steps: [
+      ["01", "Estrategia & dirección", "Empezamos entendiendo el negocio, el cliente ideal y el objetivo, para alinear estructura, mensaje y visual antes de diseñar.", "10/10", "Alineación desde el primer día"],
+      ["02", "Diseño & desarrollo", "Diseño y desarrollo avanzan en paralelo, con feedback temprano y entregas visibles en cada etapa.", "2x", "De concepto a listo para lanzar"],
+      ["03", "Lanzamiento & optimización", "Después del lanzamiento refinamos detalles, mejoramos performance y dejamos todo listo para crecer.", "35%", "Menos retrabajo post-lanzamiento"]
+    ],
+    s5Label: "Proyectos",
+    s5Title: "Tres casos, tres puntos de partida distintos.",
+    s5Hint: "Toca cada proyecto para abrir el caso completo",
+    pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
+    projects: [
+      {
+        n: "(01)", name: "Patagonia Dental", sector: "Insumos odontológicos · General Roca, Río Negro", tag: "Proveedor odontológico",
+        shot: "[imagen] Home Patagonia Dental",
+        problem: "Más de 40 años de trayectoria atendiendo profesionales y estudiantes de toda Argentina, sin un sitio propio que estuviera a la altura de esa historia.",
+        work: "Sitio institucional con catálogo por categorías (instrumental, ortodoncia, bioseguridad, entre otras), sección de preguntas frecuentes y formulario de contacto segmentado por tipo de cliente.",
+        result: "Una vidriera clara y ordenada, donde cada tipo de cliente encuentra su categoría y llega al contacto correcto.",
+        quote: "Desde el primer momento se notó la dedicación y profesionalismo... la página quedó hermosa, moderna y tal como la imaginaba",
+        author: "Gonzalo, cliente — vía WhatsApp"
+      },
+      {
+        n: "(02)", name: "RZA Fragancias", sector: "Perfumes árabes, decants y body splash", tag: "Sitio catálogo",
+        shot: "[imagen] Catálogo RZA Fragancias",
+        problem: "Romeo arrancó el emprendimiento siendo estudiante, para costear sus estudios, con todo el catálogo disperso en historias y mensajes.",
+        work: "Sitio catálogo con secciones por línea de producto (masculino, femenino, unisex y decants) y contacto directo por WhatsApp e Instagram.",
+        result: "Un catálogo navegable que ordena la oferta y acompañó su crecimiento en ventas.",
+        quote: "Quedó muy buena la página, no sabés lo que me ayudó a crecer con las ventas, muy buena y accesible en cuanto a precio y calidad",
+        author: "Romeo Zain Alvarez — reseña parafraseada"
+      },
+      {
+        n: "(03)", name: "Lucio Viamonte", sector: "Creador de contenido · Patagonia", tag: "Portfolio digital",
+        shot: "[imagen] Portfolio Lucio Viamonte",
+        problem: "Vlogs, entrevistas y coberturas de eventos con buenos resultados para marcas, pero sin un lugar donde mostrarlos ordenados.",
+        work: "Portfolio digital con sus casos de éxito junto a marcas —por ejemplo, una campaña con más de 150.000 visitas orgánicas— y contacto directo para nuevas propuestas.",
+        result: "Una carta de presentación que funciona como puerta de entrada para marcas interesadas en trabajar con él.",
+        quote: "La web quedó épica, es literal mi portfolio para llegar a más marcas; súper balanceado en calidad-precio",
+        author: "Lucio Viamonte — reseña parafraseada"
+      }
+    ],
+    bonusLabel: "Servicio destacado",
+    bonusTitle: "Mantenimiento, SEO y rebranding",
+    bonusDesc: "No todo empieza de cero. También acompaño marcas que ya están funcionando: mantenimiento web continuo, optimización SEO y rebranding de la presencia digital.",
+    bonusItems: [["Cliente", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Rubro", "Psicoterapia — España"], ["Servicio", "Mantenimiento continuo, SEO y rebranding"], ["Punto de partida", "Sitio y marca ya en funcionamiento"]],
+    s6Label: "Preguntas frecuentes",
+    s6Title: "Preguntas y respuestas.",
+    marquee: ["Diseño web", "Desarrollo", "SEO", "UI/UX", "Branding", "Mantenimiento"],
+    faqs: [
+      ["¿Cuánto cuesta una web?", "No hay precios publicados porque cada proyecto tiene un alcance distinto. Cotizo según cantidad de secciones, funcionalidades y contenido, en una conversación por WhatsApp. Sin sorpresas ni letra chica."],
+      ["¿Cuánto tarda el proceso?", "Depende del alcance y de la rapidez con la que llegue el contenido. Trabajamos con entregas visibles en cada etapa, así siempre sabés en qué punto está tu sitio."],
+      ["¿Qué incluye el servicio?", "Diseño 100% a medida, desarrollo responsive, SEO técnico de base, formulario de contacto avanzado, botón de WhatsApp y conexión con Instagram y WhatsApp Business."],
+      ["¿Y si ya tengo una web?", "También trabajo sobre sitios existentes: rediseño, mantenimiento continuo, optimización SEO y rebranding de la presencia digital."],
+      ["¿Puedo editar el sitio después?", "Sí. Te dejo el sitio explicado y, si preferís no tocarlo, el Plan Premium incluye actualizaciones y ajustes de contenido todos los meses."],
+      ["¿Qué pasa después de la entrega?", "Nunca es entregar y desaparecer. Seguimos ajustando detalles después del lanzamiento y quedo disponible por WhatsApp."]
+    ],
+    s7Label: "Planes",
+    s7Title: "Dos formas de trabajar juntos.",
+    planBase: "Plan Base", planPremium: "Plan Premium",
+    planBaseDesc: "Tu sitio web completo, diseñado a medida y listo para recibir consultas.",
+    planPremiumDesc: "Todo el Plan Base más acompañamiento mensual: tu web sigue evolucionando.",
+    baseFeatures: ["Sitio web completo", "Diseño 100% a medida", "Responsive en desktop, tablet y mobile", "SEO técnico de base", "Formulario de contacto avanzado", "Conexión con Instagram y WhatsApp Business"],
+    premiumFeatures: ["Todo lo incluido en el Plan Base", "Mantenimiento mensual", "Actualizaciones y ajustes de contenido", "Soporte continuo por WhatsApp"],
+    priceNote: "Sin precios en la web: cada proyecto se cotiza según alcance real, en una conversación por WhatsApp. Sin sorpresas ni letra chica.",
+    finalL1: "Tu negocio ya es profesional.",
+    finalL2: "Ahora, hagamos que tu web lo demuestre desde el primer clic.",
+    based: "General Roca, Río Negro, Argentina — trabajo remoto con clientes de toda Argentina",
+    formLabel: "Formulario de contacto",
+    fName: "Nombre", fEmail: "Email", fType: "Tipo de proyecto", fMsg: "Contame tu proyecto", fSend: "Enviar consulta",
+    fNote: "También podés escribirme directo por WhatsApp. Respondo en el día.",
+    projectTypes: ["Sitio web desde cero", "Rediseño de sitio existente", "Mantenimiento y SEO", "Portfolio o catálogo", "Otro"],
+    visitSite: "Ver sitio", rights: "Todos los derechos reservados."
+  },
+  en: {
+    navHome: "Home", navAbout: "About", navService: "Service", navMethod: "Process", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
+    cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended",
+    badge: "General Roca, Río Negro, Argentina",
+    heroL1: "Your business is already professional.",
+    heroL2: "Now let's make your website show it.",
+    heroSub: "Custom web design and development for businesses that need a modern digital presence — one that earns trust from the first click.",
+    heroB1: "[placeholder] projects delivered",
+    heroB2: "[placeholder] different industries",
+    heroTrust: "Verified testimonials\nfrom real clients",
+    s1Label: "The problem",
+    s1Title: "Having no website —or an old, slow, generic one— ",
+    s1TitleMuted: "costs you clients against your competition.",
+    pains: [
+      "“I want people to trust me the moment they land.” If Instagram is your only storefront, the algorithm decides who sees you.",
+      "“I don't want it to look like a template.” A generic site says exactly that: your service might be generic too.",
+      "Slow, non-responsive or outdated sites make visitors leave before they read what you offer."
+    ],
+    s2Label: "The transformation",
+    before: "Before", after: "After",
+    beforeTitle: "One more small business on Instagram",
+    afterTitle: "A brand with a solid digital presence",
+    beforeList: ["No domain of your own, nowhere to be found", "Enquiries lost in the DMs", "The same look as everyone else", "Every sale starts by explaining who you are"],
+    afterList: ["A site that organises and explains your service", "Form and WhatsApp that bring in real enquiries", "Design built around your brand", "People arrive asking about price, not credibility"],
+    s3Label: "What's included",
+    s3Title: "Everything your site needs to work, not just exist.",
+    features: [
+      ["Responsive design", "Flawless on desktop, tablet and mobile — no half-finished versions."],
+      ["Technical SEO", "Structure, speed and metadata ready for Google to find you."],
+      ["Advanced form", "Enquiries segmented by project type, straight to your inbox."],
+      ["WhatsApp button", "Floating and always visible: the conversation starts in one tap."],
+      ["Instagram & WhatsApp Business", "Full connection to your channels, at no extra cost."],
+      ["Strategic structure", "Section order follows your client's real decision path."],
+      ["Copy polish", "Your texts reviewed and rewritten to sell in your own voice."],
+      ["Post-launch maintenance", "Support after delivery, not a goodbye."]
+    ],
+    s4Label: "Process",
+    s4Title: "A focused process built for clarity, speed ",
+    s4TitleMuted: "and consistent results.",
+    steps: [
+      ["01", "Strategy & direction", "We start with the business, the ideal client and the goal, aligning structure, message and visuals before any design.", "10/10", "Clear alignment from day one"],
+      ["02", "Design & build", "Design and development run in parallel, with early feedback and visible progress at every stage.", "2x", "From concept to launch-ready"],
+      ["03", "Launch & optimise", "After launch we refine details, improve performance and leave everything ready to grow.", "35%", "Less rework after launch"]
+    ],
+    s5Label: "Work",
+    s5Title: "Three cases, three different starting points.",
+    s5Hint: "Tap any project to open the full case study",
+    pProblem: "The problem", pWork: "What was done", pResult: "Result",
+    projects: [
+      {
+        n: "(01)", name: "Patagonia Dental", sector: "Dental supplies · General Roca, Río Negro", tag: "Institutional site",
+        shot: "[image] Patagonia Dental home",
+        problem: "Over 40 years serving professionals and students across Argentina, without a site that matched that history.",
+        work: "Institutional site with a catalogue by category (instruments, orthodontics, biosafety and more), an FAQ section and a contact form segmented by client type.",
+        result: "A clear, organised storefront where each type of client finds their category and reaches the right contact.",
+        quote: "From the very first moment the dedication and professionalism showed... the site came out beautiful, modern, exactly as I pictured it",
+        author: "Gonzalo, client — via WhatsApp"
+      },
+      {
+        n: "(02)", name: "RZA Fragancias", sector: "Arabic perfumes, decants and body splash", tag: "Catalogue site",
+        shot: "[image] RZA Fragancias catalogue",
+        problem: "Romeo started the business as a student to fund his studies, with the whole catalogue scattered across stories and messages.",
+        work: "Catalogue site with sections per product line (men's, women's, unisex and decants) and direct contact via WhatsApp and Instagram.",
+        result: "A browsable catalogue that organises the offer and supported his growth in sales.",
+        quote: "The site came out great — you have no idea how much it helped my sales grow, great value for the price and quality",
+        author: "Romeo Zain Alvarez — paraphrased review"
+      },
+      {
+        n: "(03)", name: "Lucio Viamonte", sector: "Content creator · Patagonia", tag: "Digital portfolio",
+        shot: "[image] Lucio Viamonte portfolio",
+        problem: "Vlogs, interviews and event coverage with real results for brands, but nowhere to present them properly.",
+        work: "A digital portfolio with his brand case studies — including a campaign with over 150,000 organic views — and direct contact for new proposals.",
+        result: "A calling card that works as the front door for brands interested in working with him.",
+        quote: "The site turned out epic, it's literally my portfolio to reach more brands; super balanced on quality and price",
+        author: "Lucio Viamonte — paraphrased review"
+      }
+    ],
+    bonusLabel: "Featured service",
+    bonusTitle: "Maintenance, SEO and rebranding",
+    bonusDesc: "Not everything starts from scratch. I also support brands already up and running: ongoing web maintenance, SEO optimisation and rebranding of their digital presence.",
+    bonusItems: [["Client", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Field", "Psychotherapy — Spain"], ["Service", "Ongoing maintenance, SEO and rebranding"], ["Starting point", "An existing site and brand"]],
+    s6Label: "Frequently asked questions",
+    s6Title: "Questions and answers.",
+    marquee: ["Web design", "Development", "SEO", "UI/UX", "Branding", "Maintenance"],
+    faqs: [
+      ["How much does a website cost?", "There are no published prices because every project has a different scope. I quote based on sections, features and content, in a WhatsApp conversation. No surprises, no fine print."],
+      ["How long does the process take?", "It depends on scope and how quickly the content arrives. We work with visible deliveries at every stage, so you always know where your site stands."],
+      ["What does the service include?", "100% custom design, responsive development, technical SEO foundation, advanced contact form, WhatsApp button and Instagram / WhatsApp Business connection."],
+      ["What if I already have a website?", "I also work on existing sites: redesign, ongoing maintenance, SEO optimisation and rebranding of the digital presence."],
+      ["Can I edit the site later?", "Yes. I hand the site over explained and, if you'd rather not touch it, the Premium Plan includes monthly content updates and adjustments."],
+      ["What happens after delivery?", "Never a hand-off and disappear. We keep refining details after launch and I stay available on WhatsApp."]
+    ],
+    s7Label: "Plans",
+    s7Title: "Two ways to work together.",
+    planBase: "Base Plan", planPremium: "Premium Plan",
+    planBaseDesc: "Your complete website, custom designed and ready to receive enquiries.",
+    planPremiumDesc: "Everything in the Base Plan plus monthly support: your site keeps evolving.",
+    baseFeatures: ["Complete website", "100% custom design", "Responsive on desktop, tablet and mobile", "Technical SEO foundation", "Advanced contact form", "Instagram and WhatsApp Business connection"],
+    premiumFeatures: ["Everything in the Base Plan", "Monthly maintenance", "Content updates and adjustments", "Ongoing WhatsApp support"],
+    priceNote: "No prices on the site: every project is quoted on real scope, in a WhatsApp conversation. No surprises, no fine print.",
+    finalL1: "Your business is already professional.",
+    finalL2: "Now let's make your website show it from the first click.",
+    based: "General Roca, Río Negro, Argentina — working remotely with clients across Argentina and Spain",
+    formLabel: "Contact form",
+    fName: "Name", fEmail: "Email", fType: "Project type", fMsg: "Tell me about your project", fSend: "Send enquiry",
+    fNote: "You can also message me directly on WhatsApp. I reply the same day.",
+    projectTypes: ["Website from scratch", "Redesign of an existing site", "Maintenance and SEO", "Portfolio or catalogue", "Other"],
+    visitSite: "Visit site", rights: "All rights reserved."
+  }
+};
+
+class Component extends DCLogic {
+  state = { lang: "es", scrolled: false, open: null, faq: null, plan: "base", menu: false, narrow: false };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const s = window.scrollY > 40;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    this._onResize = () => {
+      const n = window.innerWidth < 1000;
+      if (n !== this.state.narrow) this.setState({ narrow: n, menu: false });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    window.addEventListener("resize", this._onResize);
+    this._onResize();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+      const els = Array.from(document.querySelectorAll("[data-reveal]"));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = "1";
+            e.target.style.transform = "none";
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
+      els.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top > window.innerHeight * 0.9) {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(28px)";
+          el.style.transition = "opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1)";
+        }
+        io.observe(el);
+      });
+      this._io = io;
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("resize", this._onResize);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const c = COPY[lang];
+    const accent = this.props.accent || "#1E3A6E";
+    const phone = this.props.whatsapp || "542984893772";
+    const waMsg = lang === "es" ? "Hola Gonzalo, quiero consultarte por una web." : "Hi Gonzalo, I'd like to ask about a website.";
+    const scrolled = this.state.scrolled;
+    const narrow = this.state.narrow;
+
+    const t = Object.assign({}, c);
+
+    return {
+      t,
+      lang,
+      langLabel: lang === "es" ? "ES / EN" : "EN / ES",
+      waLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg),
+      toggleLang: () => this.setState({ lang: lang === "es" ? "en" : "es" }),
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      closeMenu: () => this.setState({ menu: false }),
+
+      navStyle: "position: fixed; top: " + (scrolled ? "10px" : "18px") + "; left: 0; right: 0; z-index: 100; transition: all .45s cubic-bezier(.2,.7,.3,1); padding: 0 clamp(12px, 3vw, 32px);",
+      navInnerStyle: "position: relative; z-index: 2; max-width: " + (scrolled ? "1080px" : "1340px") + "; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: " + (scrolled ? "8px 10px 8px 16px" : "10px 12px 10px 18px") + "; border-radius: 999px; background: rgba(10,15,31,.72); backdrop-filter: blur(18px); border: 1px solid " + (scrolled ? "rgba(255,255,255,.10)" : "rgba(255,255,255,.06)") + "; box-shadow: " + (scrolled ? "0 18px 50px -24px rgba(0,0,0,.8)" : "none") + "; transition: all .45s cubic-bezier(.2,.7,.3,1);",
+      logoStyle: "width: " + (scrolled ? "32px" : "38px") + "; height: " + (scrolled ? "32px" : "38px") + "; border-radius: 50%; transition: all .4s cubic-bezier(.2,.7,.3,1);",
+      navLinksStyle: "display: " + (narrow ? "none" : "flex") + "; align-items: center; flex-wrap: nowrap; gap: clamp(12px, 1.6vw, 28px);",
+      navCtaStyle: "display: " + (narrow ? "none" : "inline-flex") + "; align-items: center; gap: 10px; padding: 5px 5px 5px 20px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 14px; font-weight: 500; transition: all .3s cubic-bezier(.2,.7,.3,1);",
+      footerRowStyle: "display: flex; flex-wrap: wrap; gap: 32px; justify-content: " + (narrow ? "center" : "space-between") + "; align-items: " + (narrow ? "center" : "flex-start") + "; text-align: " + (narrow ? "center" : "left") + ";",
+      footerBrandStyle: "display: flex; align-items: center; gap: 14px; flex-direction: " + (narrow ? "column" : "row") + "; text-align: " + (narrow ? "center" : "left") + ";",
+      footerLinksStyle: "display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: " + (narrow ? "center" : "flex-start") + ";",
+      footerSocialStyle: "display: flex; flex-direction: column; gap: 10px; align-items: " + (narrow ? "center" : "flex-start") + ";",
+      footerCopyStyle: "margin-top: 44px; text-align: " + (narrow ? "center" : "left") + ";",
+      navCtaArrowStyle: "display: grid; place-items: center; width: " + (scrolled ? "28px" : "32px") + "; height: " + (scrolled ? "28px" : "32px") + "; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 13px; transition: all .3s cubic-bezier(.2,.7,.3,1);",
+      burgerStyle: "position: relative; z-index: 3; display: " + (narrow ? "grid" : "none") + "; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); background: " + (this.state.menu ? "#FFFFFF" : "transparent") + "; cursor: pointer; transition: background .35s;",
+      barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
+      barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
+      drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
+      menuItems: [["#sobre", c.navAbout], ["#servicio", c.navService], ["#metodologia", c.navMethod], ["#proyectos", c.navWork], ["#faq", c.navFaq], ["#planes", c.navPlans], ["#contacto", c.navContact]].map((m, i) => ({
+        href: m[0], label: m[1],
+        hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
+        style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"
+      })),
+      menuCtaStyle: "margin-top: 38px; align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; padding: 6px 6px 6px 26px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 16px; font-weight: 500; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "20px") + "); transition: all .55s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? ".42s" : "0s") + ";",
+      langPillStyle: "position: absolute; top: 3px; left: " + (lang === "es" ? "3px" : "41px") + "; width: 40px; height: 26px; border-radius: 999px; background: " + accent + "; transition: left .35s cubic-bezier(.2,.7,.3,1);",
+      langEsStyle: "position: absolute; left: 3px; top: 3px; width: 40px; height: 26px; display: grid; place-items: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: " + (lang === "es" ? "#fff" : "#8E9CB5") + "; transition: color .3s;",
+      langEnStyle: "position: absolute; left: 41px; top: 3px; width: 40px; height: 26px; display: grid; place-items: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: " + (lang === "en" ? "#fff" : "#8E9CB5") + "; transition: color .3s;",
+
+      pains: c.pains.map((text, i) => ({ n: "(0" + (i + 1) + ")", text })),
+      beforeList: c.beforeList.map((text) => ({ text })),
+      afterList: c.afterList.map((text) => ({ text })),
+      features: c.features.map((f, i) => ({ n: "(0" + (i + 1) + ")", title: f[0], desc: f[1] })),
+      steps: c.steps.map((s) => ({ n: s[0], title: s[1], desc: s[2], metric: s[3], metricLabel: s[4] })),
+      bonusItems: c.bonusItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2] })),
+      marqueeTrack: c.marquee.concat(c.marquee).concat(c.marquee).concat(c.marquee).map((text) => ({ text })),
+      faqs: c.faqs.map((q, i) => {
+        const open = this.state.faq === i;
+        return {
+          n: (i + 1 < 10 ? "0" : "") + (i + 1), q: q[0], a: q[1],
+          toggle: () => this.setState({ faq: open ? null : i }),
+          iconStyle: "display: grid; place-items: center; width: 30px; height: 30px; font-size: 20px; font-weight: 300; color: " + (open ? "#FFFFFF" : "#8E9CB5") + "; transform: rotate(" + (open ? "135deg" : "0deg") + "); transition: all .4s cubic-bezier(.2,.7,.3,1);",
+          bodyStyle: "overflow: hidden; max-height: " + (open ? "420px" : "0px") + "; opacity: " + (open ? "1" : "0") + "; transition: max-height .5s cubic-bezier(.2,.7,.3,1), opacity .4s ease " + (open ? ".08s" : "0s") + ";"
+        };
+      }),
+      baseFeatures: c.baseFeatures.map((text) => ({ text })),
+      premiumFeatures: c.premiumFeatures.map((text) => ({ text })),
+      projectTypes: c.projectTypes.map((text) => ({ text })),
+
+      projects: c.projects.map((p, i) => {
+        const open = this.state.open === i;
+        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte"];
+        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/"];
+        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", ""];
+        return Object.assign({}, p, {
+          slotId: slotIds[i],
+          url: siteUrls[i],
+          shotSrc: shotSrcs[i],
+          toggle: () => this.setState({ open: open ? null : i }),
+          cardStyle: "border-radius: 16px; overflow: hidden; background: " + (open ? "rgba(30,58,110,.08)" : "rgba(255,255,255,.028)") + "; transition: background .4s cubic-bezier(.2,.7,.3,1); box-shadow: " + (open ? "0 30px 70px -40px rgba(30,58,110,.8)" : "none") + ";",
+          bodyStyle: "overflow: hidden; max-height: " + (open ? "1600px" : "0px") + "; opacity: " + (open ? "1" : "0") + "; transition: max-height .6s cubic-bezier(.2,.7,.3,1), opacity .45s ease " + (open ? ".1s" : "0s") + ";",
+          arrowStyle: "display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: " + (open ? accent : "rgba(255,255,255,.06)") + "; color: " + (open ? "#fff" : "#A9B6CE") + "; font-size: 14px; transform: rotate(" + (open ? "180deg" : "0deg") + "); transition: all .4s cubic-bezier(.2,.7,.3,1);"
+        });
+      }),
+
+      selectBase: () => this.setState({ plan: "base" }),
+      selectPremium: () => this.setState({ plan: "premium" }),
+      planPillStyle: "position: absolute; top: 5px; left: " + (this.state.plan === "base" ? "5px" : "calc(50% + 1px)") + "; width: calc(50% - 6px); height: calc(100% - 10px); border-radius: 999px; background: #FFFFFF; transition: left .35s cubic-bezier(.2,.7,.3,1);",
+      planBaseTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === "base" ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
+      planPremiumTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === "premium" ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
+      baseCardStyle: "display: " + (narrow && this.state.plan !== "base" ? "none" : "flex") + "; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.07); transition: all .4s cubic-bezier(.2,.7,.3,1); opacity: " + (narrow || this.state.plan === "base" ? "1" : ".55") + "; transform: scale(" + (this.state.plan === "base" ? "1" : ".985") + ");",
+      premiumCardStyle: "display: " + (narrow && this.state.plan !== "premium" ? "none" : "flex") + "; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 30px 70px -40px rgba(0,0,0,.9); transition: all .4s cubic-bezier(.2,.7,.3,1); opacity: " + (narrow || this.state.plan === "premium" ? "1" : ".7") + "; transform: scale(" + (this.state.plan === "premium" ? "1" : ".985") + ");",
+
+      submitForm: (e) => {
+        e.preventDefault();
+        const f = e.target;
+        const msg = (lang === "es" ? "Hola Gonzalo, soy " : "Hi Gonzalo, I'm ") + (f.nombre.value || "") + " (" + (f.email.value || "") + "). " + (f.tipo.value || "") + ". " + (f.mensaje.value || "");
+        window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

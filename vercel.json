@@ -1,0 +1,6 @@
+{
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/", "destination": "/Web%20Design%20-%20Gonzalo%20Costadoni.dc.html" }
+  ]
+}

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "echo Static dc.html site - no bundling needed, deploying repo as-is",
     "preview": "vite preview"
   },
   "devDependencies": {

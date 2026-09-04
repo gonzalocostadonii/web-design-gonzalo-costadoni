@@ -620,7 +620,12 @@ class Component extends DCLogic {
       if (s !== this.state.scrolled) this.setState({ scrolled: s });
     };
     this._onResize = () => {
-      const n = window.innerWidth < 1180;
+      // Use clientWidth (excludes the scrollbar) instead of window.innerWidth
+      // (includes it on Windows' classic, non-overlay scrollbar). At the old
+      // threshold the two differed by the scrollbar's ~15-17px, enough to
+      // let the CTA button poke out of the pill before the layout switched
+      // to the hamburger menu.
+      const n = document.documentElement.clientWidth < 1220;
       if (n !== this.state.narrow) this.setState({ narrow: n, menu: false });
     };
     window.addEventListener("scroll", this._onScroll, { passive: true });

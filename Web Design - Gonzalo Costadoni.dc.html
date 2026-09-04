@@ -216,10 +216,12 @@
                   <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
                   <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
                 </a>
-                <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
-                  <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
-                  <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
-                </blockquote>
+                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
+                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
+                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
+                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
+                  </blockquote>
+                </sc-if>
               </div>
             </div>
           </div>
@@ -453,8 +455,8 @@ const COPY = {
         problem: "Juana es Ingeniera Agrimensora matriculada y necesitaba un sitio a la altura de su matrícula, que generara confianza inmediata en quien busca resolver un límite o una escritura, sin perderse en jerga técnica.",
         work: "Sitio institucional que presenta sus cinco servicios —mensura y amojonamiento, verificación de estado parcelario, subdivisión en PH, fraccionamiento y proyectos de urbanización— en lenguaje claro, con WhatsApp como canal directo de consulta.",
         result: "Una presencia digital que transmite sus tres pilares —prolijidad, calidez y respuesta rápida— y le da a cada propietario la seguridad de que su límite queda en manos de una profesional matriculada.",
-        quote: "[placeholder] testimonio de la clienta",
-        author: "[placeholder] pendiente de agregar"
+        quote: "",
+        author: ""
       }
     ],
     bonusLabel: "Servicio destacado",
@@ -571,8 +573,8 @@ const COPY = {
         problem: "Juana is a licensed land surveyor who needed a site that matched her credentials — one that builds instant trust with people trying to resolve a boundary or a deed, without technical jargon getting in the way.",
         work: "Institutional site presenting her five services — boundary survey and marking, parcel status verification, horizontal property subdivision, land subdivision and urban development planning — in plain language, with WhatsApp as the direct enquiry channel.",
         result: "A digital presence that reflects her three pillars — tidiness, warmth and fast response — giving every property owner confidence that their boundary is in a licensed professional's hands.",
-        quote: "[placeholder] client testimonial",
-        author: "[placeholder] pending to add"
+        quote: "",
+        author: ""
       }
     ],
     bonusLabel: "Featured service",
@@ -729,6 +731,7 @@ class Component extends DCLogic {
           slotId: slotIds[i],
           url: siteUrls[i],
           shotSrc: shotSrcs[i],
+          hasQuote: !!p.quote,
           toggle: () => this.setState({ open: open ? null : i }),
           cardStyle: "border-radius: 16px; overflow: hidden; background: " + (open ? "rgba(30,58,110,.08)" : "rgba(255,255,255,.028)") + "; transition: background .4s cubic-bezier(.2,.7,.3,1); box-shadow: " + (open ? "0 30px 70px -40px rgba(30,58,110,.8)" : "none") + ";",
           bodyStyle: "overflow: hidden; max-height: " + (open ? "1600px" : "0px") + "; opacity: " + (open ? "1" : "0") + "; transition: max-height .6s cubic-bezier(.2,.7,.3,1), opacity .45s ease " + (open ? ".1s" : "0s") + ";",

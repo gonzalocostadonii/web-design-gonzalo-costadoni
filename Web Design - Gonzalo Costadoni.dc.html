@@ -184,7 +184,7 @@
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
     <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
     <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
         <div style="{{ p.cardStyle }}">
           <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
             <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
@@ -416,7 +416,7 @@ const COPY = {
       ["03", "Lanzamiento & optimización", "Después del lanzamiento refinamos detalles, mejoramos performance y dejamos todo listo para crecer.", "35%", "Menos retrabajo post-lanzamiento"]
     ],
     s5Label: "Proyectos",
-    s5Title: "Tres casos, tres puntos de partida distintos.",
+    s5Title: "Cuatro casos, cuatro puntos de partida distintos.",
     s5Hint: "Toca cada proyecto para abrir el caso completo",
     pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
     projects: [
@@ -446,6 +446,15 @@ const COPY = {
         result: "Una carta de presentación que funciona como puerta de entrada para marcas interesadas en trabajar con él.",
         quote: "La web quedó épica, es literal mi portfolio para llegar a más marcas; súper balanceado en calidad-precio",
         author: "Lucio Viamonte — reseña parafraseada"
+      },
+      {
+        n: "(04)", name: "Groma Agrimensura", sector: "Agrimensura · Alto Valle y Valle Medio, Río Negro", tag: "Estudio de agrimensura",
+        shot: "[imagen] Home Groma Agrimensura",
+        problem: "Juana es Ingeniera Agrimensora matriculada y necesitaba un sitio a la altura de su matrícula, que generara confianza inmediata en quien busca resolver un límite o una escritura, sin perderse en jerga técnica.",
+        work: "Sitio institucional que presenta sus cinco servicios —mensura y amojonamiento, verificación de estado parcelario, subdivisión en PH, fraccionamiento y proyectos de urbanización— en lenguaje claro, con WhatsApp como canal directo de consulta.",
+        result: "Una presencia digital que transmite sus tres pilares —prolijidad, calidez y respuesta rápida— y le da a cada propietario la seguridad de que su límite queda en manos de una profesional matriculada.",
+        quote: "[placeholder] testimonio de la clienta",
+        author: "[placeholder] pendiente de agregar"
       }
     ],
     bonusLabel: "Servicio destacado",
@@ -525,7 +534,7 @@ const COPY = {
       ["03", "Launch & optimise", "After launch we refine details, improve performance and leave everything ready to grow.", "35%", "Less rework after launch"]
     ],
     s5Label: "Work",
-    s5Title: "Three cases, three different starting points.",
+    s5Title: "Four cases, four different starting points.",
     s5Hint: "Tap any project to open the full case study",
     pProblem: "The problem", pWork: "What was done", pResult: "Result",
     projects: [
@@ -555,6 +564,15 @@ const COPY = {
         result: "A calling card that works as the front door for brands interested in working with him.",
         quote: "The site turned out epic, it's literally my portfolio to reach more brands; super balanced on quality and price",
         author: "Lucio Viamonte — paraphrased review"
+      },
+      {
+        n: "(04)", name: "Groma Agrimensura", sector: "Land surveying · Alto Valle & Valle Medio, Río Negro", tag: "Surveying practice",
+        shot: "[image] Groma Agrimensura home",
+        problem: "Juana is a licensed land surveyor who needed a site that matched her credentials — one that builds instant trust with people trying to resolve a boundary or a deed, without technical jargon getting in the way.",
+        work: "Institutional site presenting her five services — boundary survey and marking, parcel status verification, horizontal property subdivision, land subdivision and urban development planning — in plain language, with WhatsApp as the direct enquiry channel.",
+        result: "A digital presence that reflects her three pillars — tidiness, warmth and fast response — giving every property owner confidence that their boundary is in a licensed professional's hands.",
+        quote: "[placeholder] client testimonial",
+        author: "[placeholder] pending to add"
       }
     ],
     bonusLabel: "Featured service",
@@ -704,9 +722,9 @@ class Component extends DCLogic {
 
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
-        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte"];
-        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/"];
-        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", ""];
+        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura"];
+        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/"];
+        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", "", ""];
         return Object.assign({}, p, {
           slotId: slotIds[i],
           url: siteUrls[i],

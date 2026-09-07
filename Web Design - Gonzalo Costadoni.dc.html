@@ -184,7 +184,7 @@
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
     <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
     <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
         <div style="{{ p.cardStyle }}">
           <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
             <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
@@ -418,7 +418,7 @@ const COPY = {
       ["03", "Lanzamiento & optimización", "Después del lanzamiento refinamos detalles, mejoramos performance y dejamos todo listo para crecer.", "35%", "Menos retrabajo post-lanzamiento"]
     ],
     s5Label: "Proyectos",
-    s5Title: "Cuatro casos, cuatro puntos de partida distintos.",
+    s5Title: "Cinco casos, cinco puntos de partida distintos.",
     s5Hint: "Toca cada proyecto para abrir el caso completo",
     pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
     projects: [
@@ -455,6 +455,15 @@ const COPY = {
         problem: "Juana es Ingeniera Agrimensora matriculada y necesitaba un sitio a la altura de su matrícula, que generara confianza inmediata en quien busca resolver un límite o una escritura, sin perderse en jerga técnica.",
         work: "Sitio institucional que presenta sus cinco servicios —mensura y amojonamiento, verificación de estado parcelario, subdivisión en PH, fraccionamiento y proyectos de urbanización— en lenguaje claro, con WhatsApp como canal directo de consulta.",
         result: "Una presencia digital que transmite sus tres pilares —prolijidad, calidez y respuesta rápida— y le da a cada propietario la seguridad de que su límite queda en manos de una profesional matriculada.",
+        quote: "",
+        author: ""
+      },
+      {
+        n: "(05)", name: "PronoAgro", sector: "Meteorología para pulverización agrícola · Buenos Aires, Argentina", tag: "Servicio meteorológico",
+        shot: "[imagen] Home PronoAgro",
+        problem: "Agus quería bajar la información meteorológica al campo de una forma más cercana, clara y práctica: el productor y el aplicador reciben datos contradictorios de varias fuentes y terminan adivinando cuándo conviene pulverizar.",
+        work: "Sitio institucional que presenta el servicio —pronósticos personalizados por zona que llegan por WhatsApp, con un índice de pulverización por hora del 0 al 100, una línea de tiempo operativa a cinco días y el análisis de siete factores de riesgo: temperatura, viento y ráfagas, humedad, rocío, inversión térmica, lluvia y lavado— en lenguaje claro, con WhatsApp como canal directo de consulta con el meteorólogo.",
+        result: "Una presencia digital que ordena la propuesta para sus tres perfiles de cliente —productores, contratistas y agrónomos, y pilotos de avión y dron— y deja claro que detrás de cada informe hay una persona real, no un algoritmo.",
         quote: "",
         author: ""
       }
@@ -536,7 +545,7 @@ const COPY = {
       ["03", "Launch & optimise", "After launch we refine details, improve performance and leave everything ready to grow.", "35%", "Less rework after launch"]
     ],
     s5Label: "Work",
-    s5Title: "Four cases, four different starting points.",
+    s5Title: "Five cases, five different starting points.",
     s5Hint: "Tap any project to open the full case study",
     pProblem: "The problem", pWork: "What was done", pResult: "Result",
     projects: [
@@ -573,6 +582,15 @@ const COPY = {
         problem: "Juana is a licensed land surveyor who needed a site that matched her credentials — one that builds instant trust with people trying to resolve a boundary or a deed, without technical jargon getting in the way.",
         work: "Institutional site presenting her five services — boundary survey and marking, parcel status verification, horizontal property subdivision, land subdivision and urban development planning — in plain language, with WhatsApp as the direct enquiry channel.",
         result: "A digital presence that reflects her three pillars — tidiness, warmth and fast response — giving every property owner confidence that their boundary is in a licensed professional's hands.",
+        quote: "",
+        author: ""
+      },
+      {
+        n: "(05)", name: "PronoAgro", sector: "Weather forecasting for agricultural spraying · Buenos Aires, Argentina", tag: "Forecasting service",
+        shot: "[image] PronoAgro home",
+        problem: "Agus wanted to bring weather information down to the field in a closer, clearer and more practical way: producers and applicators get contradictory data from several sources and end up guessing when it's safe to spray.",
+        work: "Institutional site presenting the service — zone-specific personalised forecasts delivered via WhatsApp, with an hourly spraying index from 0 to 100, a five-day operational timeline and an analysis of seven risk factors: temperature, wind and gusts, humidity, dew, thermal inversion, rain and washoff — in plain language, with WhatsApp as the direct line to the meteorologist.",
+        result: "A digital presence that organises the offer for its three client profiles — producers, contractors and agronomists, and plane and drone pilots — and makes clear that behind every report is a real person, not an algorithm.",
         quote: "",
         author: ""
       }
@@ -729,9 +747,9 @@ class Component extends DCLogic {
 
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
-        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura"];
-        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/"];
-        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", "", "./captura-de-pantalla-2026-09-02-143538.png"];
+        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];
+        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/", "https://pronoagro.com/"];
+        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", "", "./captura-de-pantalla-2026-09-02-143538.png", "./pronoagro-com-home.png"];
         return Object.assign({}, p, {
           slotId: slotIds[i],
           url: siteUrls[i],

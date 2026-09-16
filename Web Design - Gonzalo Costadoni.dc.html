@@ -230,6 +230,31 @@
     </div>
   </section>
 
+  <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
+      <div>
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.tiendaLabel }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.tiendaTitle }}</h3>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.tiendaDesc }}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <a href="{{ tiendaUrl }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(15,37,73,.4);">
+          <image-slot id="{{ tiendaSlotId }}" shape="rounded" radius="12" src="{{ tiendaShotSrc }}" placeholder="{{ t.tiendaShot }}"></image-slot>
+          <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
+        </a>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <sc-for list="{{ tiendaItems }}" as="b" hint-placeholder-count="4">
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
+              <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
+              <span style="color: #0F2549; text-align: right;">{{ b.v }}</span>
+              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="mantenimiento" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
       <div>
@@ -470,13 +495,18 @@ const COPY = {
         author: "Agus — PronoAgro"
       }
     ],
+    tiendaLabel: "Nuevo servicio",
+    tiendaTitle: "Tiendas Online",
+    tiendaDesc: "También diseño y desarrollo tiendas online completas, con catálogo, carrito y checkout funcionando de punta a punta. El primer caso: Reyes Performance, la tienda de suplementos y accesorios para trail running de Ignacio “Nacho” Reyes —corredor de la selección argentina de trail running—, donde además hice el branding de su Instagram.",
+    tiendaShot: "[imagen] Home Reyes Performance",
+    tiendaItems: [["Cliente", "Reyes Performance", "https://reyesperformance.com/", "Ver sitio"], ["Rubro", "Suplementos y accesorios para trail running · Cipolletti, Río Negro"], ["Servicio", "Tienda online (catálogo, carrito y checkout) + branding de Instagram"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "Ver Instagram"]],
     bonusLabel: "Servicio destacado",
     bonusTitle: "Mantenimiento, SEO y rebranding",
     bonusDesc: "No todo empieza de cero. También acompaño marcas que ya están funcionando: mantenimiento web continuo, optimización SEO y rebranding de la presencia digital.",
     bonusItems: [["Cliente", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Rubro", "Psicoterapia — España"], ["Servicio", "Mantenimiento continuo, SEO y rebranding"], ["Punto de partida", "Sitio y marca ya en funcionamiento"]],
     s6Label: "Preguntas frecuentes",
     s6Title: "Preguntas y respuestas.",
-    marquee: ["Diseño web", "Desarrollo", "SEO", "UI/UX", "Branding", "Mantenimiento"],
+    marquee: ["Diseño web", "Desarrollo", "Tiendas online", "SEO", "UI/UX", "Branding", "Mantenimiento"],
     faqs: [
       ["¿Cuánto cuesta una web?", "No hay precios publicados porque cada proyecto tiene un alcance distinto. Cotizo según cantidad de secciones, funcionalidades y contenido, en una conversación por WhatsApp. Sin sorpresas ni letra chica."],
       ["¿Cuánto tarda el proceso?", "Depende del alcance y de la rapidez con la que llegue el contenido. Trabajamos con entregas visibles en cada etapa, así siempre sabés en qué punto está tu sitio."],
@@ -597,13 +627,18 @@ const COPY = {
         author: "Agus — PronoAgro"
       }
     ],
+    tiendaLabel: "New service",
+    tiendaTitle: "Online Stores",
+    tiendaDesc: "I also design and build complete online stores, with a catalogue, cart and checkout working end to end. First case: Reyes Performance, the trail running supplements and gear store from Ignacio “Nacho” Reyes — a runner on Argentina's national trail running team — where I also handled the Instagram branding.",
+    tiendaShot: "[image] Reyes Performance home",
+    tiendaItems: [["Client", "Reyes Performance", "https://reyesperformance.com/", "Visit site"], ["Industry", "Trail running supplements & gear · Cipolletti, Río Negro"], ["Service", "Online store (catalog, cart & checkout) + Instagram branding"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "View Instagram"]],
     bonusLabel: "Featured service",
     bonusTitle: "Maintenance, SEO and rebranding",
     bonusDesc: "Not everything starts from scratch. I also support brands already up and running: ongoing web maintenance, SEO optimisation and rebranding of their digital presence.",
     bonusItems: [["Client", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Field", "Psychotherapy — Spain"], ["Service", "Ongoing maintenance, SEO and rebranding"], ["Starting point", "An existing site and brand"]],
     s6Label: "Frequently asked questions",
     s6Title: "Questions and answers.",
-    marquee: ["Web design", "Development", "SEO", "UI/UX", "Branding", "Maintenance"],
+    marquee: ["Web design", "Development", "Online stores", "SEO", "UI/UX", "Branding", "Maintenance"],
     faqs: [
       ["How much does a website cost?", "There are no published prices because every project has a different scope. I quote based on sections, features and content, in a WhatsApp conversation. No surprises, no fine print."],
       ["How long does the process take?", "It depends on scope and how quickly the content arrives. We work with visible deliveries at every stage, so you always know where your site stands."],
@@ -733,6 +768,10 @@ class Component extends DCLogic {
       features: c.features.map((f, i) => ({ n: "(0" + (i + 1) + ")", title: f[0], desc: f[1] })),
       steps: c.steps.map((s) => ({ n: s[0], title: s[1], desc: s[2], metric: s[3], metricLabel: s[4] })),
       bonusItems: c.bonusItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2] })),
+      tiendaSlotId: "tienda-reyes-performance",
+      tiendaUrl: "https://reyesperformance.com/",
+      tiendaShotSrc: "",
+      tiendaItems: c.tiendaItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2], linkLabel: b[3] || c.visitSite })),
       marqueeTrack: c.marquee.concat(c.marquee).concat(c.marquee).concat(c.marquee).map((text) => ({ text })),
       faqs: c.faqs.map((q, i) => {
         const open = this.state.faq === i;

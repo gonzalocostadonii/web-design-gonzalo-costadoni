@@ -459,13 +459,13 @@ const COPY = {
         author: "Gonzalo, cliente — vía WhatsApp"
       },
       {
-        n: "(02)", name: "RZA Fragancias", sector: "Perfumes árabes, decants y body splash", tag: "Sitio catálogo",
-        shot: "[imagen] Catálogo RZA Fragancias",
-        problem: "Romeo arrancó el emprendimiento siendo estudiante, para costear sus estudios, con todo el catálogo disperso en historias y mensajes.",
-        work: "Sitio catálogo con secciones por línea de producto (masculino, femenino, unisex y decants) y contacto directo por WhatsApp e Instagram.",
-        result: "Un catálogo navegable que ordena la oferta y acompañó su crecimiento en ventas.",
-        quote: "Quedó muy buena la página, no sabés lo que me ayudó a crecer con las ventas, muy buena y accesible en cuanto a precio y calidad",
-        author: "Romeo Zain Alvarez — reseña parafraseada"
+        n: "(02)", name: "Gustavo Mardones", sector: "Fotografía de autor · Neuquén y Alto Valle, Argentina", tag: "Portfolio fotográfico",
+        shot: "[imagen] Home Gustavo Mardones",
+        problem: "Más de 20 años de trayectoria en cine, televisión y fotografía, con premios internacionales, pero sin un sitio que reuniera su obra y sus servicios en un solo lugar.",
+        work: "Portfolio de autor con sus cuatro líneas de trabajo —fotografía de producto y gastronómica, eventos, retrato y moda, y fotografía corporal—, sección de obras y exposiciones, preguntas frecuentes y contacto directo por WhatsApp.",
+        result: "Una vidriera visual que deja que las imágenes hablen primero y le da a cada cliente el camino directo para consultar por el servicio que busca.",
+        quote: "",
+        author: ""
       },
       {
         n: "(03)", name: "Lucio Viamonte", sector: "Creador de contenido · Patagonia", tag: "Portfolio digital",
@@ -591,13 +591,13 @@ const COPY = {
         author: "Gonzalo, client — via WhatsApp"
       },
       {
-        n: "(02)", name: "RZA Fragancias", sector: "Arabic perfumes, decants and body splash", tag: "Catalogue site",
-        shot: "[image] RZA Fragancias catalogue",
-        problem: "Romeo started the business as a student to fund his studies, with the whole catalogue scattered across stories and messages.",
-        work: "Catalogue site with sections per product line (men's, women's, unisex and decants) and direct contact via WhatsApp and Instagram.",
-        result: "A browsable catalogue that organises the offer and supported his growth in sales.",
-        quote: "The site came out great — you have no idea how much it helped my sales grow, great value for the price and quality",
-        author: "Romeo Zain Alvarez — paraphrased review"
+        n: "(02)", name: "Gustavo Mardones", sector: "Author photography · Neuquén & Alto Valle, Argentina", tag: "Photography portfolio",
+        shot: "[image] Gustavo Mardones home",
+        problem: "Over 20 years in cinema, television and photography, with international awards, but no site bringing his work and services together in one place.",
+        work: "Author portfolio presenting his four lines of work — product and food photography, events, portrait and fashion, and body photography — with a works and exhibitions section, an FAQ and direct contact via WhatsApp.",
+        result: "A visual storefront that lets the images speak first and gives each client a direct path to enquire about the service they need.",
+        quote: "",
+        author: ""
       },
       {
         n: "(03)", name: "Lucio Viamonte", sector: "Content creator · Patagonia", tag: "Digital portfolio",
@@ -788,9 +788,9 @@ class Component extends DCLogic {
 
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
-        const slotIds = ["proyecto-patagonia-dental", "proyecto-rza-fragancias", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];
-        const siteUrls = ["https://patagoniadentalgr.com/", "https://rzafragancias.framer.website/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/", "https://pronoagro.com/"];
-        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "", "", "./captura-de-pantalla-2026-09-02-143538.png", "./pronoagro-com-home.png"];
+        const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];
+        const siteUrls = ["https://patagoniadentalgr.com/", "https://gustavomardones.com/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/", "https://pronoagro.com/"];
+        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "./gustavomardones-com-home.jpeg", "", "./captura-de-pantalla-2026-09-02-143538.png", "./pronoagro-com-home.png"];
         return Object.assign({}, p, {
           slotId: slotIds[i],
           url: siteUrls[i],

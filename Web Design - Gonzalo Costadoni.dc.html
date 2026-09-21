@@ -46,12 +46,11 @@
       </a>
       <div style="{{ navLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
-        <a href="#sobre" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navAbout }}</a>
         <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
         <a href="#metodologia" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navMethod }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
-        <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
         <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
+        <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navContact }}</a>
       </div>
       <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
@@ -115,21 +114,8 @@
     </div>
   </div>
 
-  <section id="sobre" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(01) {{ t.s1Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 26ch;">{{ t.s1Title }}<span style="color: #6E7F9E;">{{ t.s1TitleMuted }}</span></h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; margin-top: 56px; background: rgba(255,255,255,.06);">
-      <sc-for list="{{ pains }}" as="p" hint-placeholder-count="3">
-        <div style="background: #0D1526; padding: 34px 30px 40px; transition: background .35s;" style-hover="background: #12203A;">
-          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
-          <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #C9D4E6;">{{ p.text }}</p>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
   <section id="transformacion" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(02) {{ t.s2Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(01) {{ t.s2Label }}</div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); margin-top: 44px; align-items: stretch;">
       <div style="padding: 40px 34px; border-radius: 14px; background: rgba(255,255,255,.02);">
         <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #6E7F9E;">{{ t.before }}</div>
@@ -149,7 +135,7 @@
   </section>
 
   <section id="servicio" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(03) {{ t.s3Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(02) {{ t.s3Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s3Title }}</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 18px; margin-top: 52px;">
       <sc-for list="{{ features }}" as="f" hint-placeholder-count="8">
@@ -163,7 +149,7 @@
   </section>
 
   <section id="metodologia" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(04) {{ t.s4Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(03) {{ t.s4Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.18; letter-spacing: -.03em; font-weight: 600; max-width: 30ch;">{{ t.s4Title }}<span style="color: #6E7F9E;">{{ t.s4TitleMuted }}</span></h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 60px; background: rgba(255,255,255,.12);">
       <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
@@ -180,7 +166,7 @@
   </section>
 
   <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(05) {{ t.s5Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
     <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
     <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
@@ -232,7 +218,7 @@
 
   <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
-      <div>
+      <div style="{{ tiendaTextStyle }}">
         <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.tiendaLabel }}</div>
         <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.tiendaTitle }}</h3>
         <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.tiendaDesc }}</p>
@@ -244,10 +230,10 @@
         </a>
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <sc-for list="{{ tiendaItems }}" as="b" hint-placeholder-count="4">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
+            <div style="{{ tiendaRowStyle }} padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
               <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
-              <span style="min-width: 0; overflow-wrap: anywhere; text-align: right; color: #0F2549;">{{ b.v }}</span>
-              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
+              <span style="min-width: 0; overflow-wrap: anywhere; color: #0F2549;">{{ b.v }}</span>
+              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; justify-self: {{ tiendaLinkJustify }}; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
             </div>
           </sc-for>
         </div>
@@ -274,6 +260,38 @@
     </div>
   </section>
 
+  <section id="planes" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(05) {{ t.s7Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s7Title }}</h2>
+    <div style="display: inline-flex; margin-top: 34px; padding: 5px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.1); position: relative;">
+      <span style="{{ planPillStyle }}"></span>
+      <button onClick="{{ selectLanding }}" style="{{ planLandingTabStyle }}">{{ planTab0 }}</button>
+      <button onClick="{{ selectTienda }}" style="{{ planTiendaTabStyle }}">{{ planTab1 }}</button>
+    </div>
+    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12.5px; letter-spacing: .04em; color: #8FA9CF;">{{ planTime }}</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; margin-top: 30px; align-items: stretch;">
+      <sc-for list="{{ planCards }}" as="pc" hint-placeholder-count="3">
+        <div style="{{ pc.cardStyle }}">
+          <div style="min-height: 26px; margin-bottom: 14px;"><sc-if value="{{ pc.popular }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(126,155,200,.45);">{{ t.recommended }}</span></sc-if></div>
+          <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -.02em;">{{ pc.name }}</h3>
+          <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; margin-top: 18px;">
+            <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: clamp(34px, 3.4vw, 42px); font-weight: 600; letter-spacing: -.03em; color: #FFFFFF;">{{ pc.price }}</span>
+            <span style="font-size: 13px; color: #8FA9CF;">USD</span>
+          </div>
+          <div style="min-height: 22px; margin-top: 6px; font-size: 14px; font-weight: 500; color: #C9D4E6;">{{ pc.monthly }}</div>
+          <p style="margin: 14px 0 24px; font-size: 14.5px; line-height: 1.65; color: #A9B6CE;">{{ pc.desc }}</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <sc-for list="{{ pc.features }}" as="f" hint-placeholder-count="8">
+              <div style="display: flex; gap: 12px; font-size: 14.5px; color: #DCE5F3; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
+            </sc-for>
+          </div>
+          <a href="{{ pc.waLink }}" target="_blank" rel="noopener" style="{{ pc.btnStyle }}">{{ t.consult }}</a>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 26px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; line-height: 1.7; color: #6E7F9E; max-width: 70ch;">{{ t.priceNote }}</p>
+  </section>
+
   <section id="faq" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s6Title }}</h2>
@@ -291,42 +309,6 @@
         </div>
       </sc-for>
     </div>
-  </section>
-
-  <section id="planes" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(07) {{ t.s7Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s7Title }}</h2>
-    <div style="display: inline-flex; margin-top: 34px; padding: 5px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.1); position: relative;">
-      <span style="{{ planPillStyle }}"></span>
-      <button onClick="{{ selectBase }}" style="{{ planBaseTabStyle }}">{{ t.planBase }}</button>
-      <button onClick="{{ selectPremium }}" style="{{ planPremiumTabStyle }}">{{ t.planPremium }}</button>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
-      <div style="{{ baseCardStyle }}">
-        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.02em;">{{ t.planBase }}</h3>
-        <p style="margin: 12px 0 26px; font-size: 14.5px; line-height: 1.65; color: #8E9CB5;">{{ t.planBaseDesc }}</p>
-        <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
-          <sc-for list="{{ baseFeatures }}" as="f" hint-placeholder-count="6">
-            <div style="display: flex; gap: 12px; font-size: 14.5px; color: #C9D4E6; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
-          </sc-for>
-        </div>
-        <a href="{{ waLink }}" target="_blank" rel="noopener" style="margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: rgba(255,255,255,.06); color: #E8EDF7; font-size: 14.5px; transition: all .25s;" style-hover="background: rgba(255,255,255,.12); color: #fff;">{{ t.consult }}</a>
-      </div>
-      <div style="{{ premiumCardStyle }}">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-          <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.02em;">{{ t.planPremium }}</h3>
-          <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(30,58,110,.5);">{{ t.recommended }}</span>
-        </div>
-        <p style="margin: 12px 0 26px; font-size: 14.5px; line-height: 1.65; color: #A9B6CE;">{{ t.planPremiumDesc }}</p>
-        <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
-          <sc-for list="{{ premiumFeatures }}" as="f" hint-placeholder-count="4">
-            <div style="display: flex; gap: 12px; font-size: 14.5px; color: #DCE5F3; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
-          </sc-for>
-        </div>
-        <a href="{{ waLink }}" target="_blank" rel="noopener" style="margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-weight: 500; font-size: 14.5px; transition: all .25s;" style-hover="transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.consult }}</a>
-      </div>
-    </div>
-    <p style="margin: 26px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; line-height: 1.7; color: #6E7F9E; max-width: 60ch;">{{ t.priceNote }}</p>
   </section>
 
   <section id="contacto" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 130px) 0 clamp(60px, 8vh, 100px); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
@@ -377,12 +359,11 @@
       </div>
       <div style="{{ footerLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navHome }}</a>
-        <a href="#sobre" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navAbout }}</a>
         <a href="#servicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navService }}</a>
         <a href="#metodologia" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navMethod }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
-        <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
         <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
+        <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navContact }}</a>
       </div>
       <div style="{{ footerSocialStyle }}">
@@ -401,7 +382,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0F2549&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1E3A6E&quot;,&quot;#16305C&quot;,&quot;#0F2549&quot;,&quot;#2A5091&quot;]},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5492984893772&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const COPY = {
   es: {
-    navHome: "Inicio", navAbout: "Sobre mí", navService: "Servicio", navMethod: "Metodología", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
+    navHome: "Inicio", navService: "Servicio", navMethod: "Metodología", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
     cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Tu negocio ya es profesional.",
@@ -410,14 +391,6 @@ const COPY = {
     heroB1: "[placeholder] proyectos entregados",
     heroB2: "[placeholder] rubros distintos",
     heroTrust: "Testimonios validados\nde clientes reales",
-    s1Label: "El problema",
-    s1Title: "No tener web —o tener una vieja, lenta y genérica— ",
-    s1TitleMuted: "hoy te cuesta clientes frente a tu competencia.",
-    pains: [
-      "“Quiero que la gente confíe apenas entra.” Si tu única vidriera es Instagram, la decisión de compra queda en manos del algoritmo.",
-      "“No quiero que parezca plantilla.” Una web genérica comunica exactamente eso: que tu servicio también podría ser genérico.",
-      "Sitios lentos, no responsivos o desactualizados hacen que el cliente se vaya antes de leer lo que ofrecés."
-    ],
     s2Label: "La transformación",
     before: "Antes", after: "Después",
     beforeTitle: "Otro emprendedor más en Instagram",
@@ -508,21 +481,34 @@ const COPY = {
     s6Title: "Preguntas y respuestas.",
     marquee: ["Diseño web", "Desarrollo", "Tiendas online", "SEO", "UI/UX", "Branding", "Mantenimiento"],
     faqs: [
-      ["¿Cuánto cuesta una web?", "No hay precios publicados porque cada proyecto tiene un alcance distinto. Cotizo según cantidad de secciones, funcionalidades y contenido, en una conversación por WhatsApp. Sin sorpresas ni letra chica."],
+      ["¿Cuánto cuesta una web?", "Las landing pages arrancan en 200 USD y las tiendas online en 300 USD. Está todo detallado en la sección Planes; si tu proyecto necesita algo distinto, lo cotizamos por WhatsApp. Sin sorpresas ni letra chica."],
       ["¿Cuánto tarda el proceso?", "Depende del alcance y de la rapidez con la que llegue el contenido. Trabajamos con entregas visibles en cada etapa, así siempre sabés en qué punto está tu sitio."],
       ["¿Qué incluye el servicio?", "Diseño 100% a medida, desarrollo responsive, SEO técnico de base, formulario de contacto avanzado, botón de WhatsApp y conexión con Instagram y WhatsApp Business."],
       ["¿Y si ya tengo una web?", "También trabajo sobre sitios existentes: rediseño, mantenimiento continuo, optimización SEO y rebranding de la presencia digital."],
-      ["¿Puedo editar el sitio después?", "Sí. Te dejo el sitio explicado y, si preferís no tocarlo, el Plan Premium incluye actualizaciones y ajustes de contenido todos los meses."],
+      ["¿Puedo editar el sitio después?", "Sí. Te dejo el sitio explicado y, si preferís no tocarlo, los planes con mantenimiento incluyen actualizaciones y ajustes de contenido todos los meses."],
       ["¿Qué pasa después de la entrega?", "Nunca es entregar y desaparecer. Seguimos ajustando detalles después del lanzamiento y quedo disponible por WhatsApp."]
     ],
     s7Label: "Planes",
-    s7Title: "Dos formas de trabajar juntos.",
-    planBase: "Plan Base", planPremium: "Plan Premium",
-    planBaseDesc: "Tu sitio web completo, diseñado a medida y listo para recibir consultas.",
-    planPremiumDesc: "Todo el Plan Base más acompañamiento mensual: tu web sigue evolucionando.",
-    baseFeatures: ["Sitio web completo", "Diseño 100% a medida", "Responsive en desktop, tablet y mobile", "SEO técnico de base", "Formulario de contacto avanzado", "Conexión con Instagram y WhatsApp Business"],
-    premiumFeatures: ["Todo lo incluido en el Plan Base", "Mantenimiento mensual", "Actualizaciones y ajustes de contenido", "Soporte continuo por WhatsApp"],
-    priceNote: "Sin precios en la web: cada proyecto se cotiza según alcance real, en una conversación por WhatsApp. Sin sorpresas ni letra chica.",
+    s7Title: "Elegí cómo arrancar.",
+    planTabs: ["Landing Page", "Tienda Online"],
+    planTimes: ["Tomo proyectos de Landing Page de 3 a 7 días hábiles aproximadamente.", "Tomo proyectos de Tienda Online de 5 a 14 días hábiles aproximadamente."],
+    planIncludes: [
+      ["Diseño 100% a medida", "Diseño responsive: desktop, tablet y celular", "SEO técnico de base", "Google Search Console configurado", "Formulario de contacto avanzado", "Botón de WhatsApp flotante", "Instagram y WhatsApp Business conectados", "Estructura estratégica de secciones", "Ajuste de copy para que venda con tu voz", "Acompañamiento post-lanzamiento"],
+      ["Diseño 100% a medida", "Catálogo, carrito y checkout", "Diseño responsive: desktop, tablet y celular", "SEO técnico de base", "Google Search Console configurado", "Formulario de contacto avanzado", "Botón de WhatsApp flotante", "Instagram y WhatsApp Business conectados", "Estructura estratégica de secciones", "Ajuste de copy para que venda con tu voz", "Acompañamiento post-lanzamiento"]
+    ],
+    plansData: [
+      [
+        { name: "Sin mantenimiento", price: "200", monthly: "Pago único", desc: "Tu landing page completa, lista para recibir consultas.", extras: ["Landing page completa"] },
+        { name: "Con mantenimiento", price: "200", monthly: "+ 50 USD por mes", desc: "Tu landing page completa más acompañamiento mensual: tu web sigue evolucionando.", extras: ["Landing page completa", "Mantenimiento mensual", "Actualizaciones y ajustes de contenido", "Soporte continuo por WhatsApp"], popular: true },
+        { name: "Landing Page y Branding", price: "250", monthly: "Pago único", desc: "Tu landing page completa junto con el armado de tu marca.", extras: ["Landing page completa", "Branding armado para tu marca"] }
+      ],
+      [
+        { name: "Sin cargar productos", price: "300", monthly: "Pago único", desc: "Armado web de tu tienda online, lista para que cargues tus productos.", extras: ["Tienda online completa", "Los productos los cargás vos"] },
+        { name: "Con productos cargados", price: "350", monthly: "Pago único", desc: "Armado web de tu tienda online con tus productos ya cargados.", extras: ["Tienda online completa", "Carga de tus productos", "Lista para vender desde el día uno"] },
+        { name: "Con productos y mantenimiento", price: "350", monthly: "+ 50 USD por mes", desc: "Tienda online con productos cargados y mantenimiento web mensual.", extras: ["Tienda online completa", "Carga de tus productos", "Mantenimiento web mensual", "Actualizaciones y ajustes", "Soporte continuo por WhatsApp"], popular: true }
+      ]
+    ],
+    priceNote: "Precios en dólares estadounidenses (USD). Los plazos son aproximados y dependen de la rapidez con la que llegue el contenido. Sin sorpresas ni letra chica.",
     finalL1: "Tu negocio ya es profesional.",
     finalL2: "Ahora, hagamos que tu web lo demuestre desde el primer clic.",
     based: "General Roca, Río Negro, Argentina — trabajo remoto con clientes de toda Argentina",
@@ -533,7 +519,7 @@ const COPY = {
     visitSite: "Ver sitio", rights: "Todos los derechos reservados."
   },
   en: {
-    navHome: "Home", navAbout: "About", navService: "Service", navMethod: "Process", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
+    navHome: "Home", navService: "Service", navMethod: "Process", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
     cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Your business is already professional.",
@@ -542,14 +528,6 @@ const COPY = {
     heroB1: "[placeholder] projects delivered",
     heroB2: "[placeholder] different industries",
     heroTrust: "Verified testimonials\nfrom real clients",
-    s1Label: "The problem",
-    s1Title: "Having no website —or an old, slow, generic one— ",
-    s1TitleMuted: "costs you clients against your competition.",
-    pains: [
-      "“I want people to trust me the moment they land.” If Instagram is your only storefront, the algorithm decides who sees you.",
-      "“I don't want it to look like a template.” A generic site says exactly that: your service might be generic too.",
-      "Slow, non-responsive or outdated sites make visitors leave before they read what you offer."
-    ],
     s2Label: "The transformation",
     before: "Before", after: "After",
     beforeTitle: "One more small business on Instagram",
@@ -640,21 +618,34 @@ const COPY = {
     s6Title: "Questions and answers.",
     marquee: ["Web design", "Development", "Online stores", "SEO", "UI/UX", "Branding", "Maintenance"],
     faqs: [
-      ["How much does a website cost?", "There are no published prices because every project has a different scope. I quote based on sections, features and content, in a WhatsApp conversation. No surprises, no fine print."],
+      ["How much does a website cost?", "Landing pages start at 200 USD and online stores at 300 USD. Everything is detailed in the Plans section; if your project needs something different, we quote it over WhatsApp. No surprises, no fine print."],
       ["How long does the process take?", "It depends on scope and how quickly the content arrives. We work with visible deliveries at every stage, so you always know where your site stands."],
       ["What does the service include?", "100% custom design, responsive development, technical SEO foundation, advanced contact form, WhatsApp button and Instagram / WhatsApp Business connection."],
       ["What if I already have a website?", "I also work on existing sites: redesign, ongoing maintenance, SEO optimisation and rebranding of the digital presence."],
-      ["Can I edit the site later?", "Yes. I hand the site over explained and, if you'd rather not touch it, the Premium Plan includes monthly content updates and adjustments."],
+      ["Can I edit the site later?", "Yes. I hand the site over explained and, if you'd rather not touch it, the plans with maintenance include monthly content updates and adjustments."],
       ["What happens after delivery?", "Never a hand-off and disappear. We keep refining details after launch and I stay available on WhatsApp."]
     ],
     s7Label: "Plans",
-    s7Title: "Two ways to work together.",
-    planBase: "Base Plan", planPremium: "Premium Plan",
-    planBaseDesc: "Your complete website, custom designed and ready to receive enquiries.",
-    planPremiumDesc: "Everything in the Base Plan plus monthly support: your site keeps evolving.",
-    baseFeatures: ["Complete website", "100% custom design", "Responsive on desktop, tablet and mobile", "Technical SEO foundation", "Advanced contact form", "Instagram and WhatsApp Business connection"],
-    premiumFeatures: ["Everything in the Base Plan", "Monthly maintenance", "Content updates and adjustments", "Ongoing WhatsApp support"],
-    priceNote: "No prices on the site: every project is quoted on real scope, in a WhatsApp conversation. No surprises, no fine print.",
+    s7Title: "Choose how to start.",
+    planTabs: ["Landing Page", "Online Store"],
+    planTimes: ["I take on Landing Page projects in roughly 3 to 7 business days.", "I take on Online Store projects in roughly 5 to 14 business days."],
+    planIncludes: [
+      ["100% custom design", "Responsive design: desktop, tablet and mobile", "Technical SEO foundation", "Google Search Console set up", "Advanced contact form", "Floating WhatsApp button", "Instagram and WhatsApp Business connected", "Strategic section structure", "Copy polish to sell in your own voice", "Post-launch support"],
+      ["100% custom design", "Catalogue, cart and checkout", "Responsive design: desktop, tablet and mobile", "Technical SEO foundation", "Google Search Console set up", "Advanced contact form", "Floating WhatsApp button", "Instagram and WhatsApp Business connected", "Strategic section structure", "Copy polish to sell in your own voice", "Post-launch support"]
+    ],
+    plansData: [
+      [
+        { name: "Without maintenance", price: "200", monthly: "One-time payment", desc: "Your complete landing page, ready to receive enquiries.", extras: ["Complete landing page"] },
+        { name: "With maintenance", price: "200", monthly: "+ 50 USD per month", desc: "Your complete landing page plus monthly support: your site keeps evolving.", extras: ["Complete landing page", "Monthly maintenance", "Content updates and adjustments", "Ongoing WhatsApp support"], popular: true },
+        { name: "Landing Page and Branding", price: "250", monthly: "One-time payment", desc: "Your complete landing page together with your brand set up.", extras: ["Complete landing page", "Brand set up for your business"] }
+      ],
+      [
+        { name: "Without loading products", price: "300", monthly: "One-time payment", desc: "Web build of your online store, ready for you to load your products.", extras: ["Complete online store", "You load the products yourself"] },
+        { name: "With products loaded", price: "350", monthly: "One-time payment", desc: "Web build of your online store with your products already loaded.", extras: ["Complete online store", "Your products loaded", "Ready to sell from day one"] },
+        { name: "With products and maintenance", price: "350", monthly: "+ 50 USD per month", desc: "Online store with products loaded and monthly web maintenance.", extras: ["Complete online store", "Your products loaded", "Monthly web maintenance", "Updates and adjustments", "Ongoing WhatsApp support"], popular: true }
+      ]
+    ],
+    priceNote: "Prices in US dollars (USD). Timeframes are approximate and depend on how quickly the content arrives. No surprises, no fine print.",
     finalL1: "Your business is already professional.",
     finalL2: "Now let's make your website show it from the first click.",
     based: "General Roca, Río Negro, Argentina — working remotely with clients across Argentina and Spain",
@@ -667,7 +658,7 @@ const COPY = {
 };
 
 class Component extends DCLogic {
-  state = { lang: "es", scrolled: false, open: null, faq: null, plan: "base", menu: false, narrow: false };
+  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, menu: false, narrow: false, phone: false };
 
   componentDidMount() {
     this._onScroll = () => {
@@ -681,7 +672,8 @@ class Component extends DCLogic {
       // let the CTA button poke out of the pill before the layout switched
       // to the hamburger menu.
       const n = document.documentElement.clientWidth < 1220;
-      if (n !== this.state.narrow) this.setState({ narrow: n, menu: false });
+      const ph = document.documentElement.clientWidth < 700;
+      if (n !== this.state.narrow || ph !== this.state.phone) this.setState({ narrow: n, phone: ph, menu: n !== this.state.narrow ? false : this.state.menu });
     };
     window.addEventListener("scroll", this._onScroll, { passive: true });
     window.addEventListener("resize", this._onResize);
@@ -752,7 +744,7 @@ class Component extends DCLogic {
       barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
-      menuItems: [["#sobre", c.navAbout], ["#servicio", c.navService], ["#metodologia", c.navMethod], ["#proyectos", c.navWork], ["#faq", c.navFaq], ["#planes", c.navPlans], ["#contacto", c.navContact]].map((m, i) => ({
+      menuItems: [["#servicio", c.navService], ["#metodologia", c.navMethod], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
         href: m[0], label: m[1],
         hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
         style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"
@@ -762,12 +754,14 @@ class Component extends DCLogic {
       langEsStyle: "position: absolute; left: 3px; top: 3px; width: 40px; height: 26px; display: grid; place-items: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: " + (lang === "es" ? "#fff" : "#8E9CB5") + "; transition: color .3s;",
       langEnStyle: "position: absolute; left: 41px; top: 3px; width: 40px; height: 26px; display: grid; place-items: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: " + (lang === "en" ? "#fff" : "#8E9CB5") + "; transition: color .3s;",
 
-      pains: c.pains.map((text, i) => ({ n: "(0" + (i + 1) + ")", text })),
       beforeList: c.beforeList.map((text) => ({ text })),
       afterList: c.afterList.map((text) => ({ text })),
       features: c.features.map((f, i) => ({ n: "(0" + (i + 1) + ")", title: f[0], desc: f[1] })),
       steps: c.steps.map((s) => ({ n: s[0], title: s[1], desc: s[2], metric: s[3], metricLabel: s[4] })),
       bonusItems: c.bonusItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2] })),
+      tiendaTextStyle: "text-align: " + (this.state.phone ? "center" : "left") + ";",
+      tiendaRowStyle: "display: grid; grid-template-columns: " + (this.state.phone ? "1fr" : "minmax(90px, 130px) minmax(0, 1fr) auto") + "; justify-items: " + (this.state.phone ? "center" : "start") + "; text-align: " + (this.state.phone ? "center" : "left") + "; align-items: baseline; gap: " + (this.state.phone ? "6px" : "6px 16px") + ";",
+      tiendaLinkJustify: this.state.phone ? "center" : "end",
       tiendaSlotId: "tienda-reyes-performance",
       tiendaUrl: "https://reyesperformance.com/",
       tiendaShotSrc: "./reyesperformance-com-home.jpeg",
@@ -782,8 +776,6 @@ class Component extends DCLogic {
           bodyStyle: "overflow: hidden; max-height: " + (open ? "420px" : "0px") + "; opacity: " + (open ? "1" : "0") + "; transition: max-height .5s cubic-bezier(.2,.7,.3,1), opacity .4s ease " + (open ? ".08s" : "0s") + ";"
         };
       }),
-      baseFeatures: c.baseFeatures.map((text) => ({ text })),
-      premiumFeatures: c.premiumFeatures.map((text) => ({ text })),
       projectTypes: c.projectTypes.map((text) => ({ text })),
 
       projects: c.projects.map((p, i) => {
@@ -803,13 +795,26 @@ class Component extends DCLogic {
         });
       }),
 
-      selectBase: () => this.setState({ plan: "base" }),
-      selectPremium: () => this.setState({ plan: "premium" }),
-      planPillStyle: "position: absolute; top: 5px; left: " + (this.state.plan === "base" ? "5px" : "calc(50% + 1px)") + "; width: calc(50% - 6px); height: calc(100% - 10px); border-radius: 999px; background: #FFFFFF; transition: left .35s cubic-bezier(.2,.7,.3,1);",
-      planBaseTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === "base" ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
-      planPremiumTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === "premium" ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
-      baseCardStyle: "display: " + (narrow && this.state.plan !== "base" ? "none" : "flex") + "; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.07); transition: all .4s cubic-bezier(.2,.7,.3,1); opacity: " + (narrow || this.state.plan === "base" ? "1" : ".55") + "; transform: scale(" + (this.state.plan === "base" ? "1" : ".985") + ");",
-      premiumCardStyle: "display: " + (narrow && this.state.plan !== "premium" ? "none" : "flex") + "; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 30px 70px -40px rgba(0,0,0,.9); transition: all .4s cubic-bezier(.2,.7,.3,1); opacity: " + (narrow || this.state.plan === "premium" ? "1" : ".7") + "; transform: scale(" + (this.state.plan === "premium" ? "1" : ".985") + ");",
+      selectLanding: () => this.setState({ plan: 0 }),
+      selectTienda: () => this.setState({ plan: 1 }),
+      planTab0: c.planTabs[0],
+      planTab1: c.planTabs[1],
+      planPillStyle: "position: absolute; top: 5px; left: " + (this.state.plan === 0 ? "5px" : "calc(50% + 1px)") + "; width: calc(50% - 6px); height: calc(100% - 10px); border-radius: 999px; background: #FFFFFF; transition: left .35s cubic-bezier(.2,.7,.3,1);",
+      planLandingTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === 0 ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
+      planTiendaTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === 1 ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
+      planTime: c.planTimes[this.state.plan],
+      planCards: c.plansData[this.state.plan].map((pl) => ({
+        name: pl.name, price: pl.price, monthly: pl.monthly, desc: pl.desc,
+        popular: !!pl.popular,
+        features: pl.extras.concat(c.planIncludes[this.state.plan]).map((text) => ({ text })),
+        waLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent((lang === "es" ? "Hola Gonzalo, quiero consultarte por: " : "Hi Gonzalo, I'd like to ask about: ") + c.planTabs[this.state.plan] + " — " + pl.name),
+        cardStyle: pl.popular
+          ? "display: flex; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 30px 70px -40px rgba(0,0,0,.9);"
+          : "display: flex; flex-direction: column; padding: clamp(28px, 3vw, 40px); border-radius: 16px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.07);",
+        btnStyle: pl.popular
+          ? "margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-weight: 500; font-size: 14.5px; transition: all .25s;"
+          : "margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: rgba(255,255,255,.06); color: #E8EDF7; font-size: 14.5px; transition: all .25s;"
+      })),
 
       submitForm: (e) => {
         e.preventDefault();

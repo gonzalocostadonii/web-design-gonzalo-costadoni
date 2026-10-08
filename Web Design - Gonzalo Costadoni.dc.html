@@ -155,7 +155,6 @@
       <div style="{{ navLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
-        <a href="#metodologia" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navMethod }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
@@ -272,111 +271,24 @@
     </div>
   </section>
 
-  <section id="metodologia" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(03) {{ t.s4Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.18; letter-spacing: -.03em; font-weight: 600; max-width: 30ch;">{{ t.s4Title }}<span style="color: #6E7F9E;">{{ t.s4TitleMuted }}</span></h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 60px; background: rgba(255,255,255,.12);">
-      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
-        <div style="background: #16305C; padding: 36px 30px 40px; display: flex; flex-direction: column; gap: 18px;">
-          <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; letter-spacing: .1em; color: #7E9BC8;">{{ s.n }} &nbsp;{{ s.title }}</div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #C2D0E6; flex: 1;">{{ s.desc }}</p>
-          <div style="display: flex; align-items: baseline; gap: 14px; margin-top: 12px;">
-            <div style="font-size: clamp(34px, 3.6vw, 46px); font-weight: 700; letter-spacing: -.04em; color: #FFFFFF;">{{ s.metric }}</div>
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; line-height: 1.5; color: #A9BCD8; max-width: 16ch;">{{ s.metricLabel }}</div>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-  <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
-    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
-    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <div style="{{ p.cardStyle }}">
-          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
-            <div style="flex: 1; min-width: 180px;">
-              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
-              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
-            </div>
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
-            <div style="{{ p.arrowStyle }}">↓</div>
-          </div>
-          <div style="{{ p.bodyStyle }}">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
-              <div style="display: flex; flex-direction: column; gap: 26px;">
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 20px;">
-                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
-                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
-                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
-                </a>
-                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
-                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
-                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
-                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
-                  </blockquote>
-                </sc-if>
-              </div>
-            </div>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-  <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
-      <div style="{{ tiendaTextStyle }}">
-        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.tiendaLabel }}</div>
-        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.tiendaTitle }}</h3>
-        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.tiendaDesc }}</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <a href="{{ tiendaUrl }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(15,37,73,.4);">
-          <image-slot id="{{ tiendaSlotId }}" shape="rounded" radius="12" src="{{ tiendaShotSrc }}" placeholder="{{ t.tiendaShot }}"></image-slot>
-          <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
-        </a>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <sc-for list="{{ tiendaItems }}" as="b" hint-placeholder-count="4">
-            <div style="{{ tiendaRowStyle }} padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
-              <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
-              <span style="min-width: 0; overflow-wrap: anywhere; color: #0F2549;">{{ b.v }}</span>
-              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; justify-self: {{ tiendaLinkJustify }}; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="panel-admin" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(60px, 9vh, 110px) 0; background: linear-gradient(180deg, #E9EEF7 0%, #F5F7FB 100%); color: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(36px, 5vw, 80px); align-items: center;">
       <div style="{{ panelTextStyle }}">
         <div style="display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #2A5091; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #2A5091;"></span>{{ t.panelLabel }}</div>
-        <h2 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; color: #0F2549;">{{ t.panelTitleA }}<span style="color: #2A5091;">{{ t.panelTitleB }}</span></h2>
+        <h2 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; color: #0F2549;">{{ t.panelTitleA }}<span style="display: block; color: #2A5091;">{{ t.panelTitleB }}</span></h2>
         <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #4A5B75; max-width: 46ch; {{ panelDescAlign }}">{{ t.panelDesc }}</p>
         <div style="margin-top: 26px; text-align: left;">
           <sc-for list="{{ panelFeats }}" as="pf" hint-placeholder-count="4">
             <div class="pd-feat"><span class="pd-check">✓</span><span>{{ pf.text }}</span></div>
           </sc-for>
         </div>
-        <a href="{{ panelWaLink }}" target="_blank" rel="noopener" style="margin-top: 28px; display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #0F2549; color: #FFFFFF; font-size: 15px; font-weight: 500; transition: all .3s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(15,37,73,.6); color: #FFFFFF;">{{ t.panelCta }}<span style="display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; color: #0F2549; font-size: 14px;">↗</span></a>
+        <div style="margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; {{ panelRowJustify }}">
+        <div style="display: flex; align-items: baseline; gap: 8px; color: #0F2549;">
+          <span style="font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.035em;">100</span>
+          <span style="font-size: 14px; font-weight: 500; color: #4A5B75;">{{ t.panelPriceUnit }}</span>
+        </div>
+        <a href="{{ panelWaLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #0F2549; color: #FFFFFF; font-size: 15px; font-weight: 500; transition: all .3s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(15,37,73,.6); color: #FFFFFF;">{{ t.panelCta }}<span style="display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; color: #0F2549; font-size: 14px;">↗</span></a>
+        </div>
       </div>
 
       <div class="pd-stage">
@@ -460,6 +372,82 @@
     </div>
   </section>
 
+  <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(03) {{ t.s5Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
+    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+        <div style="{{ p.cardStyle }}">
+          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
+            <div style="flex: 1; min-width: 180px;">
+              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
+              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
+            </div>
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
+            <div style="{{ p.arrowStyle }}">↓</div>
+          </div>
+          <div style="{{ p.bodyStyle }}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
+              <div style="display: flex; flex-direction: column; gap: 26px;">
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
+                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
+                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
+                </a>
+                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
+                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
+                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
+                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
+                  </blockquote>
+                </sc-if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
+      <div style="{{ tiendaTextStyle }}">
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.tiendaLabel }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.tiendaTitle }}</h3>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.tiendaDesc }}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <a href="{{ tiendaUrl }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(15,37,73,.4);">
+          <image-slot id="{{ tiendaSlotId }}" shape="rounded" radius="12" src="{{ tiendaShotSrc }}" placeholder="{{ t.tiendaShot }}"></image-slot>
+          <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
+        </a>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <sc-for list="{{ tiendaItems }}" as="b" hint-placeholder-count="4">
+            <div style="{{ tiendaRowStyle }} padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
+              <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
+              <span style="min-width: 0; overflow-wrap: anywhere; color: #0F2549;">{{ b.v }}</span>
+              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; justify-self: {{ tiendaLinkJustify }}; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="mantenimiento" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
       <div style="{{ tiendaTextStyle }}">
@@ -480,7 +468,7 @@
   </section>
 
   <section id="planes" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(05) {{ t.s7Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(04) {{ t.s7Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s7Title }}</h2>
     <div style="display: inline-flex; margin-top: 34px; padding: 5px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.1); position: relative;">
       <span style="{{ planPillStyle }}"></span>
@@ -512,7 +500,7 @@
   </section>
 
   <section id="faq" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(05) {{ t.s6Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s6Title }}</h2>
     <div style="display: flex; flex-direction: column; margin-top: 52px; border-top: 1px solid rgba(255,255,255,.09);">
       <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
@@ -579,7 +567,6 @@
       <div style="{{ footerLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navService }}</a>
-        <a href="#metodologia" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navMethod }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
@@ -601,7 +588,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0F2549&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1E3A6E&quot;,&quot;#16305C&quot;,&quot;#0F2549&quot;,&quot;#2A5091&quot;]},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5492984893772&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const COPY = {
   es: {
-    navHome: "Inicio", navService: "Servicio", navMethod: "Metodología", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
+    navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
     cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Tu negocio ya es profesional.",
@@ -616,7 +603,7 @@ const COPY = {
     afterTitle: "Una marca con presencia digital sólida",
     beforeList: ["Sin dominio propio ni lugar donde te encuentren", "Consultas que se pierden entre DMs", "La misma estética que todos", "Cada venta arranca explicando quién sos"],
     afterList: ["Un sitio propio que ordena y explica tu servicio", "Formulario y WhatsApp que generan consultas reales", "Diseño hecho a medida de tu marca", "Llegan preguntando por el precio, no por tu seriedad"],
-    s3Label: "Qué incluye",
+    s3Label: "Servicios",
     s3Title: "Todo lo necesario para que tu web trabaje, no solo exista.",
     features: [
       ["Diseño responsive", "Se ve impecable en computadora, tablet y celular, sin versiones a medias."],
@@ -627,14 +614,6 @@ const COPY = {
       ["Estructura estratégica", "El orden de las secciones sigue el recorrido de decisión de tu cliente."],
       ["Ajuste de copy", "Revisión y reescritura de los textos para que vendan con tu voz."],
       ["Mantenimiento post-lanzamiento", "Acompañamiento después de la entrega, no un adiós."]
-    ],
-    s4Label: "Metodología",
-    s4Title: "Un proceso enfocado en claridad, velocidad ",
-    s4TitleMuted: "y resultados consistentes.",
-    steps: [
-      ["01", "Estrategia & dirección", "Empezamos entendiendo el negocio, el cliente ideal y el objetivo, para alinear estructura, mensaje y visual antes de diseñar.", "10/10", "Alineación desde el primer día"],
-      ["02", "Diseño & desarrollo", "Diseño y desarrollo avanzan en paralelo, con feedback temprano y entregas visibles en cada etapa.", "2x", "De concepto a listo para lanzar"],
-      ["03", "Lanzamiento & optimización", "Después del lanzamiento refinamos detalles, mejoramos performance y dejamos todo listo para crecer.", "35%", "Menos retrabajo post-lanzamiento"]
     ],
     s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
@@ -692,8 +671,8 @@ const COPY = {
     tiendaDesc: "También diseño y desarrollo tiendas online completas, con catálogo, carrito y checkout funcionando de punta a punta. El primer caso: Reyes Performance, la tienda de suplementos y accesorios para trail running de Ignacio “Nacho” Reyes —corredor de la selección argentina de trail running—, donde además hice el branding de su Instagram.",
     tiendaShot: "[imagen] Home Reyes Performance",
     tiendaItems: [["Cliente", "Reyes Performance", "https://reyesperformance.com/", "Ver sitio"], ["Rubro", "Suplementos y accesorios para trail running · Cipolletti, Río Negro"], ["Servicio", "Tienda online (catálogo, carrito y checkout) + branding de Instagram"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "Ver Instagram"]],
-    panelLabel: "Nuevo servicio · Panel de administración",
-    panelTitleA: "Todo en un ",
+    panelLabel: "Panel de administración",
+    panelTitleA: "Todo en un",
     panelTitleB: "solo lugar.",
     panelDesc: "Un panel de gestión hecho a medida de tu negocio: ventas, clientes, pedidos y productos ordenados en una sola pantalla, para que decidas con números y no a ojo.",
     panelFeats: [
@@ -702,6 +681,7 @@ const COPY = {
       "Acceso privado con usuario para vos y para mí",
       "Diseñado según cómo trabajás, no una plantilla genérica"
     ],
+    panelPriceUnit: "USD por panel",
     panelCta: "Quiero mi panel",
     panelWaMsg: "Hola Gonzalo, quiero consultarte por un panel de administración para mi negocio.",
     panelDemoAria: "Ejemplo de panel de administración de un almacén, con ingresos, ventas, clientes y pedidos",
@@ -759,7 +739,7 @@ const COPY = {
     visitSite: "Ver sitio", rights: "Todos los derechos reservados."
   },
   en: {
-    navHome: "Home", navService: "Service", navMethod: "Process", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
+    navHome: "Home", navService: "Services", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
     cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Your business is already professional.",
@@ -774,7 +754,7 @@ const COPY = {
     afterTitle: "A brand with a solid digital presence",
     beforeList: ["No domain of your own, nowhere to be found", "Enquiries lost in the DMs", "The same look as everyone else", "Every sale starts by explaining who you are"],
     afterList: ["A site that organises and explains your service", "Form and WhatsApp that bring in real enquiries", "Design built around your brand", "People arrive asking about price, not credibility"],
-    s3Label: "What's included",
+    s3Label: "Services",
     s3Title: "Everything your site needs to work, not just exist.",
     features: [
       ["Responsive design", "Flawless on desktop, tablet and mobile — no half-finished versions."],
@@ -785,14 +765,6 @@ const COPY = {
       ["Strategic structure", "Section order follows your client's real decision path."],
       ["Copy polish", "Your texts reviewed and rewritten to sell in your own voice."],
       ["Post-launch maintenance", "Support after delivery, not a goodbye."]
-    ],
-    s4Label: "Process",
-    s4Title: "A focused process built for clarity, speed ",
-    s4TitleMuted: "and consistent results.",
-    steps: [
-      ["01", "Strategy & direction", "We start with the business, the ideal client and the goal, aligning structure, message and visuals before any design.", "10/10", "Clear alignment from day one"],
-      ["02", "Design & build", "Design and development run in parallel, with early feedback and visible progress at every stage.", "2x", "From concept to launch-ready"],
-      ["03", "Launch & optimise", "After launch we refine details, improve performance and leave everything ready to grow.", "35%", "Less rework after launch"]
     ],
     s5Label: "Work",
     s5Title: "A selection of the main projects.",
@@ -850,8 +822,8 @@ const COPY = {
     tiendaDesc: "I also design and build complete online stores, with a catalogue, cart and checkout working end to end. First case: Reyes Performance, the trail running supplements and gear store from Ignacio “Nacho” Reyes — a runner on Argentina's national trail running team — where I also handled the Instagram branding.",
     tiendaShot: "[image] Reyes Performance home",
     tiendaItems: [["Client", "Reyes Performance", "https://reyesperformance.com/", "Visit site"], ["Industry", "Trail running supplements & gear · Cipolletti, Río Negro"], ["Service", "Online store (catalog, cart & checkout) + Instagram branding"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "View Instagram"]],
-    panelLabel: "New service · Admin panel",
-    panelTitleA: "Everything in ",
+    panelLabel: "Admin panel",
+    panelTitleA: "Everything in",
     panelTitleB: "one place.",
     panelDesc: "A management panel built around your business: sales, clients, orders and products organised on a single screen, so you decide with numbers instead of guesswork.",
     panelFeats: [
@@ -860,6 +832,7 @@ const COPY = {
       "Private access with logins for both you and me",
       "Designed around how you work, not a generic template"
     ],
+    panelPriceUnit: "USD per panel",
     panelCta: "I want my panel",
     panelWaMsg: "Hi Gonzalo, I'd like to ask about an admin panel for my business.",
     panelDemoAria: "Example admin panel for a grocery store, showing income, sales, clients and orders",
@@ -1063,7 +1036,7 @@ class Component extends DCLogic {
       barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
-      menuItems: [["#servicio", c.navService], ["#metodologia", c.navMethod], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
+      menuItems: [["#servicio", c.navService], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
         href: m[0], label: m[1],
         hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
         style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"
@@ -1084,7 +1057,6 @@ class Component extends DCLogic {
       fanNext: () => this.cycleFan("right"),
       fanPrevLabel: lang === "es" ? "Anterior" : "Previous",
       fanNextLabel: lang === "es" ? "Siguiente" : "Next",
-      steps: c.steps.map((s) => ({ n: s[0], title: s[1], desc: s[2], metric: s[3], metricLabel: s[4] })),
       bonusItems: c.bonusItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2] })),
       tiendaTextStyle: "text-align: " + (this.state.phone ? "center" : "left") + ";",
       tiendaRowStyle: "display: grid; grid-template-columns: " + (this.state.phone ? "1fr" : "minmax(90px, 130px) minmax(0, 1fr) auto") + "; justify-items: " + (this.state.phone ? "center" : "start") + "; text-align: " + (this.state.phone ? "center" : "left") + "; align-items: baseline; gap: " + (this.state.phone ? "6px" : "6px 16px") + ";",
@@ -1097,6 +1069,7 @@ class Component extends DCLogic {
       panelWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(c.panelWaMsg),
       panelTextStyle: "text-align: " + (this.state.phone ? "center" : "left") + ";",
       panelDescAlign: this.state.phone ? "margin-left: auto; margin-right: auto;" : "",
+      panelRowJustify: "justify-content: " + (this.state.phone ? "center" : "flex-start") + ";",
       tiendaSlotId: "tienda-reyes-performance",
       tiendaUrl: "https://reyesperformance.com/",
       tiendaShotSrc: "./reyesperformance-com-home.jpeg",

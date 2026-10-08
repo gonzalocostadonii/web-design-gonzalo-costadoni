@@ -12,6 +12,11 @@
 
   const MAX_VISIBLE = 7;
   const HALF = 3;
+  // Below this width only 3 cards show (center + one peeking on each side) instead of the 7-card fan.
+  const COMPACT_BREAKPOINT = 768;
+
+  const isCompact = () => window.innerWidth < COMPACT_BREAKPOINT;
+  const maxVisible = () => (isCompact() ? 3 : MAX_VISIBLE);
 
   const FAN_POSITIONS = [
     { rot: -21, scale: 0.7756, x: -30, y: 7.3, zIndex: 1 },
@@ -46,6 +51,19 @@
     return available / idealPx;
   }
 
+  // Compact (phone) layout: a flat row of 3, side cards slightly smaller and tilted, peeking from the edges.
+  // x is in rem of the card width so it tracks the .fan-layout --card-w breakpoints.
+  function getCompactConfig(slot, cardW) {
+    const side = slot - 1;
+    return {
+      rot: side * 6,
+      scale: side === 0 ? 1 : 0.86,
+      x: side * cardW * 0.74,
+      y: side === 0 ? 0 : 1.1,
+      zIndex: side === 0 ? 10 : 2,
+    };
+  }
+
   function getSlotConfig(totalCards, slot) {
     if (totalCards >= MAX_VISIBLE) return FAN_POSITIONS[slot];
     const center = totalCards >> 1;
@@ -64,6 +82,11 @@
     return totalCards > MAX_VISIBLE ? HALF : totalCards >> 1;
   }
 
+  // Whether the arrows/swipe should cycle at the current width.
+  function canPaginate(totalCards) {
+    return totalCards > maxVisible();
+  }
+
   function create(container, opts) {
     const gsap = window.gsap;
     const onSwipe = (opts && opts.onSwipe) || null;
@@ -71,17 +94,21 @@
     let entered = false;
     let prevVisible = new Set();
     let cleanup = null;
+    let lastCenter = 0;
+    let lastCompact = isCompact();
 
     const cards = () => Array.from(container.querySelectorAll(".fan-card"));
+    const cardWidthRem = () => parseFloat(getComputedStyle(container).getPropertyValue("--card-w")) || 14;
 
-    function getVisibleMap(center, totalCards) {
+    function getVisibleMap(center, totalCards, visible) {
       const map = new Map();
-      if (totalCards <= MAX_VISIBLE) {
+      if (totalCards <= visible) {
         for (let i = 0; i < totalCards; i++) map.set(i, i);
         return map;
       }
-      for (let slot = 0; slot < MAX_VISIBLE; slot++) {
-        map.set(((center + slot - HALF) % totalCards + totalCards) % totalCards, slot);
+      const half = visible >> 1;
+      for (let slot = 0; slot < visible; slot++) {
+        map.set(((center + slot - half) % totalCards + totalCards) % totalCards, slot);
       }
       return map;
     }
@@ -92,14 +119,20 @@
       const totalCards = cardElements.length;
       if (!gsap || !totalCards) return;
 
-      const needsPagination = totalCards > MAX_VISIBLE;
-      const visibleMap = getVisibleMap(centerIndex, totalCards);
+      lastCenter = centerIndex;
+      const compact = isCompact();
+      lastCompact = compact;
+      const visible = maxVisible();
+      const needsPagination = totalCards > visible;
+      const visibleMap = getVisibleMap(centerIndex, totalCards, visible);
       const previouslyVisible = prevVisible;
       const isFirstMount = !entered;
-      const multiplier = getResponsiveMultiplier(window.innerWidth);
+      // Compact positions are already in rem; the fan scales its rem offsets by the viewport.
+      const multiplier = compact ? 1 : getResponsiveMultiplier(window.innerWidth);
       const hMult = getHeightMultiplier(window.innerWidth);
-      const slotCount = needsPagination ? MAX_VISIBLE : totalCards;
-      const config = (slot) => getSlotConfig(slotCount, slot);
+      const slotCount = needsPagination ? visible : totalCards;
+      const cardW = cardWidthRem();
+      const config = (slot) => (compact && slotCount === 3 ? getCompactConfig(slot, cardW) : getSlotConfig(slotCount, slot));
 
       animating = true;
 
@@ -160,7 +193,8 @@
       const centerSlot = visibleEntries.length >> 1;
 
       const updateHoverLayout = (hoveredSlot) => {
-        const mult = getResponsiveMultiplier(window.innerWidth);
+        if (compact) hoveredSlot = null; // no hover spread in the 3-card phone row
+        const mult = compact ? 1 : getResponsiveMultiplier(window.innerWidth);
         const hM = getHeightMultiplier(window.innerWidth);
 
         visibleEntries.forEach(({ el, slot }) => {
@@ -222,7 +256,12 @@
       };
       container.addEventListener("mouseleave", onMouseLeave);
 
-      const onResize = () => { if (!animating) updateHoverLayout(activeSlot); };
+      // Crossing the phone breakpoint changes how many cards show, so re-lay out the whole set.
+      const onResize = () => {
+        if (animating) return;
+        if (isCompact() !== lastCompact) update(lastCenter, null);
+        else updateHoverLayout(activeSlot);
+      };
       window.addEventListener("resize", onResize);
 
       // Horizontal swipe cycles the fan on touch screens
@@ -260,5 +299,5 @@
     };
   }
 
-  window.CardFanCarousel = { create, initialCenter, MAX_VISIBLE };
+  window.CardFanCarousel = { create, initialCenter, canPaginate, MAX_VISIBLE };
 })();

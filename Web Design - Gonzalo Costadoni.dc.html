@@ -500,10 +500,15 @@
           </div>
           <div style="min-height: 22px; margin-top: 6px; font-size: 14px; font-weight: 500; color: #C9D4E6;">{{ pc.monthly }}</div>
           <p style="margin: 14px 0 24px; font-size: 14.5px; line-height: 1.65; color: #A9B6CE;">{{ pc.desc }}</p>
-          <div style="display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <sc-for list="{{ pc.features }}" as="f" hint-placeholder-count="8">
-              <div style="display: flex; gap: 12px; font-size: 14.5px; color: #DCE5F3; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
-            </sc-for>
+          <div style="flex: 1;">
+            <button onClick="{{ pc.toggle }}" aria-expanded="{{ pc.expanded }}" style="display: inline-flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; cursor: pointer; font-size: 14px; font-weight: 500; color: #C9D4E6; transition: color .25s;" style-hover="color: #FFFFFF;">{{ pc.toggleLabel }}<span style="{{ pc.chevronStyle }}">↓</span></button>
+            <div style="{{ pc.detailsStyle }}">
+              <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 18px;">
+                <sc-for list="{{ pc.features }}" as="f" hint-placeholder-count="8">
+                  <div style="display: flex; gap: 12px; font-size: 14.5px; color: #DCE5F3; transition: color .25s;" style-hover="color: #FFFFFF;"><span style="color: #7E9BC8;">✓</span>{{ f.text }}</div>
+                </sc-for>
+              </div>
+            </div>
           </div>
           <a href="{{ pc.waLink }}" target="_blank" rel="noopener" style="{{ pc.btnStyle }}">{{ t.consult }}</a>
         </div>
@@ -602,7 +607,7 @@
 const COPY = {
   es: {
     navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
-    cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado",
+    cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado", planMore: "Ver más detalles", planLess: "Ver menos",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Tu negocio ya es profesional.",
     heroL2: "Ahora, hagamos que tu web lo demuestre.",
@@ -753,7 +758,7 @@ const COPY = {
   },
   en: {
     navHome: "Home", navService: "Services", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
-    cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended",
+    cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended", planMore: "See more details", planLess: "See less",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Your business is already professional.",
     heroL2: "Now let's make your website show it.",
@@ -905,7 +910,7 @@ const COPY = {
 };
 
 class Component extends DCLogic {
-  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, menu: false, narrow: false, phone: false, panelIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
+  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
 
   // (02) card fan: GSAP owns the card transforms; the template only renders content.
   cycleFan(direction) {
@@ -1124,9 +1129,19 @@ class Component extends DCLogic {
       planLandingTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === 0 ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
       planTiendaTabStyle: "position: relative; z-index: 1; padding: 10px 26px; border: 0; background: transparent; cursor: pointer; font-size: 14px; font-weight: 500; color: " + (this.state.plan === 1 ? "#0F2549" : "#A9B6CE") + "; transition: color .3s;",
       planTime: c.planTimes[this.state.plan],
-      planCards: c.plansData[this.state.plan].map((pl) => ({
+      planCards: c.plansData[this.state.plan].map((pl, i) => {
+        // Phone: each card opens on its own. Wider screens: the cards sit side by side, so they open together
+        // (keeps them the same height and lets you compare). The key includes the tab so Landing and Tienda are independent.
+        const key = this.state.plan + "-" + (this.state.phone ? i : "all");
+        const expanded = !!this.state.planOpen[key];
+        return {
         name: pl.name, price: pl.price, monthly: pl.monthly, desc: pl.desc,
         popular: !!pl.popular,
+        expanded: expanded ? "true" : "false",
+        toggle: () => this.setState({ planOpen: Object.assign({}, this.state.planOpen, { [key]: !expanded }) }),
+        toggleLabel: expanded ? c.planLess : c.planMore,
+        chevronStyle: "display: inline-block; font-size: 13px; transform: rotate(" + (expanded ? "180deg" : "0deg") + "); transition: transform .4s cubic-bezier(.2,.7,.3,1);",
+        detailsStyle: "overflow: hidden; max-height: " + (expanded ? "900px" : "0px") + "; opacity: " + (expanded ? "1" : "0") + "; transition: max-height .55s cubic-bezier(.2,.7,.3,1), opacity .4s ease " + (expanded ? ".08s" : "0s") + ";",
         features: pl.extras.concat(c.planIncludes[this.state.plan]).map((text) => ({ text })),
         waLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent((lang === "es" ? "Hola Gonzalo, quiero consultarte por: " : "Hi Gonzalo, I'd like to ask about: ") + c.planTabs[this.state.plan] + " — " + pl.name),
         cardStyle: pl.popular
@@ -1135,7 +1150,8 @@ class Component extends DCLogic {
         btnStyle: pl.popular
           ? "margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-weight: 500; font-size: 14.5px; transition: all .25s;"
           : "margin-top: 32px; display: block; text-align: center; padding: 15px; border-radius: 999px; background: rgba(255,255,255,.06); color: #E8EDF7; font-size: 14.5px; transition: all .25s;"
-      })),
+        };
+      }),
 
       submitForm: (e) => {
         e.preventDefault();

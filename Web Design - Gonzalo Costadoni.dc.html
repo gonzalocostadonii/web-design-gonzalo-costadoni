@@ -140,6 +140,57 @@
   .pd-feat .pd-check { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #0F2549; color: #FFFFFF; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
   @media (max-width: 479px) { .pd { grid-template-columns: 46px 1fr; border-radius: 18px; } .pd-logo { width: 30px; height: 30px; } .pd-ico { width: 28px; height: 28px; } .pd-body { padding: 10px; gap: 8px; } .pd-kpis, .pd-charts { gap: 8px; } .pd-kpi, .pd-card { padding: 10px; } .pd-kpi-top { font-size: 11.5px; } .pd-sub { font-size: 10.5px; } }
   @media (prefers-reduced-motion: reduce) { .pd-kpi, .pd-card, .pd-fade, .pd-line .area, .pd-line .dot { opacity: 1 !important; transform: none !important; transition: none !important; } .pd-count { --pd-n: var(--pd-to); transition: none; } .pd-line .path { stroke-dashoffset: 0; transition: none; } .pd-donut .seg { stroke-dasharray: var(--len) 100; transition: none; } }
+  /* Servicios (Tiendas online y Mantenimiento) con el mismo esquema que el Panel de administración */
+  .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(36px, 5vw, 80px); align-items: center; }
+  @media (min-width: 700px) { .svc-grid--rev > :first-child { order: 2; } }
+  .svc-price { display: flex; align-items: baseline; gap: 8px; color: #0F2549; }
+  .svc-price small { font-size: 14px; font-weight: 500; color: #4A5B75; }
+  .svc-price strong { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.035em; }
+  .svc-browser { border-radius: 18px; overflow: hidden; background: #FFFFFF; box-shadow: 0 40px 80px -40px rgba(15,37,73,.45), 0 0 0 1px rgba(15,37,73,.06); }
+  .svc-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #F3F5F9; border-bottom: 1px solid rgba(15,37,73,.08); }
+  .svc-bar i { width: 9px; height: 9px; border-radius: 50%; background: #D3DAE6; flex-shrink: 0; }
+  .svc-url { flex: 1; margin-left: 8px; padding: 5px 12px; border-radius: 999px; background: #FFFFFF; font-size: 11.5px; color: #6B7A93; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .svc-shot { position: relative; display: block; aspect-ratio: 16 / 10; }
+  .svc-case { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-top: 16px; font-size: 13.5px; color: #4A5B75; text-align: left; }
+  .svc-case b { display: block; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #7183A0; margin-bottom: 3px; }
+  .svc-case span { color: #0F2549; }
+  .svc-case nav { display: flex; gap: 16px; flex-shrink: 0; }
+  .mt + .svc-case { max-width: 520px; margin-left: auto; margin-right: auto; }
+  .svc-case a { color: #2A5091; font-weight: 500; font-size: 13px; }
+  .svc-case a:hover { color: #0F2549; }
+  /* Reporte mensual de ejemplo (Mantenimiento) — se anima con .mt--in */
+  .mt { container-type: inline-size; width: 100%; max-width: 520px; margin: 0 auto; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 40px 80px -40px rgba(15,37,73,.45), 0 0 0 1px rgba(15,37,73,.06); color: #0F2549; text-align: left; }
+  .mt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: #0F2549; color: #FFFFFF; }
+  .mt-head strong { display: block; font-size: 15px; font-weight: 600; }
+  .mt-head small { font-size: 11.5px; color: #8FA9CF; }
+  .mt-badge { padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.12); font-size: 11px; font-weight: 500; white-space: nowrap; }
+  .mt-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #F3F5F9; }
+  .mt-card { background: #FFFFFF; border: 1px solid rgba(15,37,73,.08); border-radius: 12px; padding: 14px; opacity: 0; transform: translateY(10px); }
+  .mt-card h5 { margin: 0 0 10px; font-size: 13px; font-weight: 600; }
+  .mt-rings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+  .mt-ring { position: relative; width: min(74px, 100%); aspect-ratio: 1; margin: 0 auto 6px; }
+  .mt-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+  .mt-ring .track { fill: none; stroke: #E6F4EC; stroke-width: 3.2; }
+  .mt-ring .val { fill: none; stroke: #1F8A5B; stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 1.3s cubic-bezier(.4,.1,.2,1); }
+  .mt-ring span { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(15px, 4.2cqw, 20px); font-weight: 600; }
+  .mt-rings small { font-size: 11px; color: #4A5B75; }
+  .mt-row { display: grid; grid-template-columns: 1fr 1.1fr; gap: 10px; }
+  .mt-num { font-size: clamp(18px, 5cqw, 24px); font-weight: 600; letter-spacing: -.03em; }
+  .mt-sub { font-size: 11px; color: #6B7A93; }
+  .mt-sub b { color: #1F8A5B; font-weight: 600; }
+  .mt-spark { width: 100%; height: 44px; display: block; margin-top: 6px; overflow: visible; }
+  .mt-spark path { fill: none; stroke: #0F2549; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.4s cubic-bezier(.4,.1,.2,1) .5s; }
+  .mt-task { display: flex; align-items: center; gap: 9px; font-size: 12px; padding: 5px 0; color: #33435E; }
+  .mt-check { display: grid; place-items: center; width: 17px; height: 17px; border-radius: 5px; border: 1.6px solid #C5CEDC; color: transparent; font-size: 10px; flex-shrink: 0; transition: all .35s ease; }
+  .mt--in .mt-card { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1); }
+  .mt--in .mt-card:nth-child(2) { transition-delay: .12s; } .mt--in .mt-card:nth-child(3) { transition-delay: .24s; }
+  .mt--in .mt-ring .val { stroke-dasharray: var(--v) 100; }
+  .mt--in .mt-spark path { stroke-dashoffset: 0; }
+  .mt--in .mt-check { background: #1F8A5B; border-color: #1F8A5B; color: #FFFFFF; }
+  .mt--in .mt-task:nth-child(2) .mt-check { transition-delay: .9s; } .mt--in .mt-task:nth-child(3) .mt-check { transition-delay: 1.2s; }
+  .mt--in .mt-task:nth-child(4) .mt-check { transition-delay: 1.5s; } .mt--in .mt-task:nth-child(5) .mt-check { transition-delay: 1.8s; }
+  @media (prefers-reduced-motion: reduce) { .mt-card { opacity: 1 !important; transform: none !important; transition: none !important; } .mt-ring .val { stroke-dasharray: var(--v) 100; transition: none; } .mt-spark path { stroke-dashoffset: 0; transition: none; } .mt-check { background: #1F8A5B; border-color: #1F8A5B; color: #FFFFFF; transition: none; } }
+
   /* Celular: todo el contenido centrado (mismo corte que state.phone, 700px).
      Las secciones usan estilos inline, por eso se apunta por atributo y con !important donde hace falta. */
   @media (max-width: 699px) {
@@ -148,9 +199,12 @@
     section[id] [style*="display: flex"]:not([style*="flex-direction: column"]) { justify-content: center; }
     section[id] [style*="flex-direction: column"][style*="align-items: flex-start"] { align-items: center !important; }
     section[id] input, section[id] textarea, section[id] select { text-align: left; }
-    #panel-admin [style*="text-align: left"] { text-align: center !important; }
+    #panel-admin [style*="text-align: left"], #tiendas-online [style*="text-align: left"], #mantenimiento [style*="text-align: left"] { text-align: center !important; }
     .pd-feat { justify-content: center; }
-    .pd, .pd * { text-align: left; }
+    .pd, .pd *, .mt, .mt * { text-align: left; }
+    .mt-rings, .mt-rings * { text-align: center; }
+    .svc-case { justify-content: center; text-align: center; }
+    .svc-case nav { justify-content: center; width: 100%; }
     .pd-donut-c { text-align: center; }
   }
   @media (max-width: 479px) { .fan-layout { --card-w: 12.5rem; --card-h: 16.5rem; height: min(23rem, 72vh); } .fan-card { padding: 18px 16px 20px; border-radius: 16px; } .fan-card__icon { width: 38px; height: 38px; border-radius: 10px; } .fan-card__icon span { width: 19px; height: 19px; } .fan-card__title { font-size: 16px; margin-bottom: 8px; } .fan-card__desc { font-size: 13px; line-height: 1.5; } }
@@ -385,6 +439,100 @@
     </div>
   </section>
 
+  <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(60px, 9vh, 110px) 0; background: linear-gradient(180deg, #F5F7FB 0%, #E9EEF7 100%); border-top: 1px solid rgba(15,37,73,.06); color: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div class="svc-grid svc-grid--rev">
+      <div style="{{ panelTextStyle }}">
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #2A5091; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #2A5091;"></span>{{ t.tiendaLabel }}</div>
+        <h2 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; color: #0F2549;">{{ t.tiendaTitleA }}<span style="display: block; color: #2A5091;">{{ t.tiendaTitleB }}</span></h2>
+        <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #4A5B75; max-width: 46ch; {{ panelDescAlign }}">{{ t.tiendaDesc }}</p>
+        <div style="margin-top: 26px; text-align: left;">
+          <sc-for list="{{ tiendaFeats }}" as="tf" hint-placeholder-count="4">
+            <div class="pd-feat"><span class="pd-check">✓</span><span>{{ tf.text }}</span></div>
+          </sc-for>
+        </div>
+        <div style="margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; {{ panelRowJustify }}">
+          <div class="svc-price"><small>{{ t.tiendaPricePre }}</small><strong>300</strong><small>{{ t.tiendaPriceUnit }}</small></div>
+          <a href="{{ tiendaWaLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #0F2549; color: #FFFFFF; font-size: 15px; font-weight: 500; transition: all .3s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(15,37,73,.6); color: #FFFFFF;">{{ t.tiendaCta }}<span style="display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; color: #0F2549; font-size: 14px;">↗</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="svc-browser">
+          <div class="svc-bar"><i></i><i></i><i></i><span class="svc-url">reyesperformance.com</span></div>
+          <a href="{{ tiendaUrl }}" target="_blank" rel="noopener" class="svc-shot" aria-label="{{ t.visitSite }}: Reyes Performance">
+            <image-slot id="{{ tiendaSlotId }}" shape="rounded" radius="0" src="{{ tiendaShotSrc }}" placeholder="{{ t.tiendaShot }}"></image-slot>
+          </a>
+        </div>
+        <div class="svc-case">
+          <div><b>{{ t.caseLabel }}</b><span>{{ t.tiendaCase }}</span></div>
+          <nav><a href="{{ tiendaUrl }}" target="_blank" rel="noopener">{{ t.visitSite }} ↗</a><a href="https://www.instagram.com/reyes_performance1/" target="_blank" rel="noopener">Instagram ↗</a></nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mantenimiento" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(60px, 9vh, 110px) 0; background: linear-gradient(180deg, #E9EEF7 0%, #F5F7FB 100%); border-top: 1px solid rgba(15,37,73,.06); color: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div class="svc-grid">
+      <div style="{{ panelTextStyle }}">
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #2A5091; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #2A5091;"></span>{{ t.bonusLabel }}</div>
+        <h2 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; color: #0F2549;">{{ t.mantTitleA }}<span style="display: block; color: #2A5091;">{{ t.mantTitleB }}</span></h2>
+        <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #4A5B75; max-width: 46ch; {{ panelDescAlign }}">{{ t.bonusDesc }}</p>
+        <div style="margin-top: 26px; text-align: left;">
+          <sc-for list="{{ mantFeats }}" as="mf" hint-placeholder-count="4">
+            <div class="pd-feat"><span class="pd-check">✓</span><span>{{ mf.text }}</span></div>
+          </sc-for>
+        </div>
+        <div style="margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; {{ panelRowJustify }}">
+          <div class="svc-price"><strong>50</strong><small>{{ t.mantPriceUnit }}</small></div>
+          <a href="{{ mantWaLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #0F2549; color: #FFFFFF; font-size: 15px; font-weight: 500; transition: all .3s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(15,37,73,.6); color: #FFFFFF;">{{ t.mantCta }}<span style="display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; color: #0F2549; font-size: 14px;">↗</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div id="gc-mant-demo" class="{{ mantDemoClass }}" role="img" aria-label="{{ t.mtAria }}">
+          <div class="mt-head">
+            <div><strong>{{ t.mtTitle }}</strong><small>tuweb.com.ar · {{ t.mtMonth }}</small></div>
+            <span class="mt-badge">{{ t.mtBadge }}</span>
+          </div>
+          <div class="mt-body">
+            <div class="mt-card">
+              <h5>PageSpeed</h5>
+              <div class="mt-rings">
+                <sc-for list="{{ mtScores }}" as="sc" hint-placeholder-count="3">
+                  <div>
+                    <div class="mt-ring">
+                      <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="track" cx="18" cy="18" r="15.915"/><circle class="val" cx="18" cy="18" r="15.915" style="{{ sc.style }}"/></svg>
+                      <span>{{ sc.v }}</span>
+                    </div>
+                    <small>{{ sc.label }}</small>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div class="mt-row">
+              <div class="mt-card">
+                <h5>{{ t.mtClicks }}</h5>
+                <div class="mt-num">1.240</div>
+                <div class="mt-sub"><b>+32%</b> {{ t.mtClicksSub }}</div>
+                <svg class="mt-spark" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2,38 C14,36 22,30 34,31 C46,32 52,24 64,22 C76,20 84,16 96,10 C104,7 112,5 118,4"/></svg>
+              </div>
+              <div class="mt-card">
+                <h5>{{ t.mtTasksTitle }}</h5>
+                <sc-for list="{{ mtTasks }}" as="tk" hint-placeholder-count="4">
+                  <div class="mt-task"><span class="mt-check">✓</span><span>{{ tk.text }}</span></div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="svc-case">
+          <div><b>{{ t.caseLabel }}</b><span>{{ t.mantCase }}</span></div>
+          <nav><a href="https://psicoterapiacristinacabrera.com/" target="_blank" rel="noopener">{{ t.visitSite }} ↗</a></nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(03) {{ t.s5Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
@@ -433,50 +581,6 @@
           </div>
         </div>
       </sc-for>
-    </div>
-  </section>
-
-  <section id="tiendas-online" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
-      <div style="{{ tiendaTextStyle }}">
-        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.tiendaLabel }}</div>
-        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.tiendaTitle }}</h3>
-        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.tiendaDesc }}</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <a href="{{ tiendaUrl }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(15,37,73,.4);">
-          <image-slot id="{{ tiendaSlotId }}" shape="rounded" radius="12" src="{{ tiendaShotSrc }}" placeholder="{{ t.tiendaShot }}"></image-slot>
-          <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
-        </a>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <sc-for list="{{ tiendaItems }}" as="b" hint-placeholder-count="4">
-            <div style="{{ tiendaRowStyle }} padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
-              <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
-              <span style="min-width: 0; overflow-wrap: anywhere; color: #0F2549;">{{ b.v }}</span>
-              <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; justify-self: {{ tiendaLinkJustify }}; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ b.linkLabel }} ↗</a></sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="mantenimiento" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(50px, 7vh, 90px) 0; background: #F5F7FB; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(24px, 3vw, 56px); padding: clamp(30px, 4vw, 52px); border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px -30px rgba(15,37,73,.35); align-items: center;">
-      <div style="{{ tiendaTextStyle }}">
-        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #2A5091;">{{ t.bonusLabel }}</div>
-        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 16px 0 12px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em; color: #0F2549;">{{ t.bonusTitle }}</h3>
-        <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: #4A5B75;">{{ t.bonusDesc }}</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 14px;">
-        <sc-for list="{{ bonusItems }}" as="b" hint-placeholder-count="3">
-          <div style="{{ bonusRowStyle }} padding-bottom: 12px; border-bottom: 1px solid rgba(15,37,73,.14); font-size: 14.5px; transition: border-color .25s;" style-hover="border-color: rgba(15,37,73,.4);">
-            <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7183A0;">{{ b.k }}</span>
-            <span style="{{ bonusValStyle }}">{{ b.v }}</span>
-            <sc-if value="{{ b.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #2A5091; font-weight: 500; transition: color .25s;" style-hover="color: #0F2549;">{{ t.visitSite }} ↗</a></sc-if>
-          </div>
-        </sc-for>
-      </div>
     </div>
   </section>
 
@@ -684,11 +788,22 @@ const COPY = {
         author: "Agus — PronoAgro"
       }
     ],
-    tiendaLabel: "Nuevo servicio",
-    tiendaTitle: "Tiendas Online",
-    tiendaDesc: "También diseño y desarrollo tiendas online completas, con catálogo, carrito y checkout funcionando de punta a punta. El primer caso: Reyes Performance, la tienda de suplementos y accesorios para trail running de Ignacio “Nacho” Reyes —corredor de la selección argentina de trail running—, donde además hice el branding de su Instagram.",
+    tiendaLabel: "Tiendas online",
+    tiendaTitleA: "Tu tienda,",
+    tiendaTitleB: "vendiendo 24/7.",
+    tiendaDesc: "Diseño y desarrollo tiendas online completas, con catálogo, carrito y checkout funcionando de punta a punta, listas para vender desde el primer día.",
     tiendaShot: "[imagen] Home Reyes Performance",
-    tiendaItems: [["Cliente", "Reyes Performance", "https://reyesperformance.com/", "Ver sitio"], ["Rubro", "Suplementos y accesorios para trail running · Cipolletti, Río Negro"], ["Servicio", "Tienda online (catálogo, carrito y checkout) + branding de Instagram"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "Ver Instagram"]],
+    tiendaFeats: [
+      "Catálogo con categorías y fichas de producto",
+      "Carrito y checkout funcionando de punta a punta",
+      "Carga de tus productos con fotos, precios y stock",
+      "Integración con Instagram y WhatsApp"
+    ],
+    tiendaPricePre: "Desde", tiendaPriceUnit: "USD",
+    tiendaCta: "Quiero mi tienda",
+    tiendaWaMsg: "Hola Gonzalo, quiero consultarte por una tienda online.",
+    tiendaCase: "Reyes Performance · suplementos para trail running + branding de Instagram",
+    caseLabel: "Caso real",
     panelLabel: "Panel de administración",
     panelTitleA: "Todo en un",
     panelTitleB: "solo lugar.",
@@ -711,10 +826,26 @@ const COPY = {
     pdChart: "Ventas por mes", pdChartSub: "En pesos", pdMonths: ["Jul", "Ago", "Sep", "Oct"],
     pdDonut: "Por rubro", pdDonutUnit: "ventas",
     pdCat1: "Almacén", pdCat2: "Bebidas", pdCat3: "Limpieza", pdCat4: "Otros",
-    bonusLabel: "Servicio destacado",
-    bonusTitle: "Mantenimiento, SEO y rebranding",
+    bonusLabel: "Mantenimiento, SEO y rebranding",
+    mantTitleA: "Tu web,",
+    mantTitleB: "siempre al día.",
     bonusDesc: "No todo empieza de cero. También acompaño marcas que ya están funcionando: mantenimiento web continuo, optimización SEO y rebranding de la presencia digital.",
-    bonusItems: [["Cliente", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Rubro", "Psicoterapia — España"], ["Servicio", "Mantenimiento continuo, SEO y rebranding"], ["Punto de partida", "Sitio y marca ya en funcionamiento"]],
+    mantFeats: [
+      "Actualizaciones y ajustes de contenido todos los meses",
+      "SEO y seguimiento en Google Search Console",
+      "Velocidad y rendimiento medidos con PageSpeed",
+      "Panel de administración con usuario para vos y para mí"
+    ],
+    mantPriceUnit: "USD por mes",
+    mantCta: "Quiero mantenimiento",
+    mantWaMsg: "Hola Gonzalo, quiero consultarte por mantenimiento, SEO o rebranding de mi web.",
+    mantCase: "Cristina Cabrera · Conversarnos Sierra, psicoterapia en España",
+    mtAria: "Ejemplo de reporte mensual de mantenimiento con puntajes de PageSpeed, clics en Google y tareas realizadas",
+    mtTitle: "Reporte mensual", mtMonth: "Octubre", mtBadge: "Al día",
+    mtScores: [["Rendimiento", 96], ["SEO", 100], ["Accesibilidad", 98]],
+    mtClicks: "Clics en Google", mtClicksSub: "vs. mes anterior",
+    mtTasksTitle: "Este mes",
+    mtTasks: ["Contenido actualizado", "Copia de seguridad", "Revisión SEO", "Sitemap enviado"],
     s6Label: "Preguntas frecuentes",
     s6Title: "Preguntas y respuestas.",
     marquee: ["Diseño web", "Desarrollo", "Tiendas online", "SEO", "UI/UX", "Branding", "Mantenimiento"],
@@ -753,7 +884,7 @@ const COPY = {
     formLabel: "Formulario de contacto",
     fName: "Nombre", fEmail: "Email", fType: "Tipo de proyecto", fMsg: "Contame tu proyecto", fSend: "Enviar consulta",
     fNote: "También podés escribirme directo por WhatsApp. Respondo en el día.",
-    projectTypes: ["Sitio web desde cero", "Rediseño de sitio existente", "Panel de administración", "Mantenimiento y SEO", "Portfolio o catálogo", "Otro"],
+    projectTypes: ["Landing page", "Tienda online", "Panel de administración", "Mantenimiento, SEO y rebranding", "Rediseño de un sitio existente", "Otro"],
     visitSite: "Ver sitio", rights: "Todos los derechos reservados."
   },
   en: {
@@ -835,11 +966,22 @@ const COPY = {
         author: "Agus — PronoAgro"
       }
     ],
-    tiendaLabel: "New service",
-    tiendaTitle: "Online Stores",
-    tiendaDesc: "I also design and build complete online stores, with a catalogue, cart and checkout working end to end. First case: Reyes Performance, the trail running supplements and gear store from Ignacio “Nacho” Reyes — a runner on Argentina's national trail running team — where I also handled the Instagram branding.",
+    tiendaLabel: "Online stores",
+    tiendaTitleA: "Your store,",
+    tiendaTitleB: "selling 24/7.",
+    tiendaDesc: "I design and build complete online stores, with a catalogue, cart and checkout working end to end, ready to sell from day one.",
     tiendaShot: "[image] Reyes Performance home",
-    tiendaItems: [["Client", "Reyes Performance", "https://reyesperformance.com/", "Visit site"], ["Industry", "Trail running supplements & gear · Cipolletti, Río Negro"], ["Service", "Online store (catalog, cart & checkout) + Instagram branding"], ["Instagram", "@reyes_performance1", "https://www.instagram.com/reyes_performance1/", "View Instagram"]],
+    tiendaFeats: [
+      "Catalogue with categories and product pages",
+      "Cart and checkout working end to end",
+      "Your products loaded with photos, prices and stock",
+      "Instagram and WhatsApp integration"
+    ],
+    tiendaPricePre: "From", tiendaPriceUnit: "USD",
+    tiendaCta: "I want my store",
+    tiendaWaMsg: "Hi Gonzalo, I would like to ask about an online store.",
+    tiendaCase: "Reyes Performance · trail running supplements + Instagram branding",
+    caseLabel: "Real case",
     panelLabel: "Admin panel",
     panelTitleA: "Everything in",
     panelTitleB: "one place.",
@@ -862,10 +1004,26 @@ const COPY = {
     pdChart: "Sales by month", pdChartSub: "In pesos", pdMonths: ["Jul", "Aug", "Sep", "Oct"],
     pdDonut: "By category", pdDonutUnit: "sales",
     pdCat1: "Grocery", pdCat2: "Drinks", pdCat3: "Cleaning", pdCat4: "Other",
-    bonusLabel: "Featured service",
-    bonusTitle: "Maintenance, SEO and rebranding",
+    bonusLabel: "Maintenance, SEO and rebranding",
+    mantTitleA: "Your website,",
+    mantTitleB: "always up to date.",
     bonusDesc: "Not everything starts from scratch. I also support brands already up and running: ongoing web maintenance, SEO optimisation and rebranding of their digital presence.",
-    bonusItems: [["Client", "Cristina Cabrera · Conversarnos Sierra", "https://psicoterapiacristinacabrera.com/"], ["Field", "Psychotherapy — Spain"], ["Service", "Ongoing maintenance, SEO and rebranding"], ["Starting point", "An existing site and brand"]],
+    mantFeats: [
+      "Content updates and adjustments every month",
+      "SEO and Google Search Console monitoring",
+      "Speed and performance measured with PageSpeed",
+      "Admin panel with logins for you and me"
+    ],
+    mantPriceUnit: "USD per month",
+    mantCta: "I want maintenance",
+    mantWaMsg: "Hi Gonzalo, I would like to ask about maintenance, SEO or rebranding for my website.",
+    mantCase: "Cristina Cabrera · Conversarnos Sierra, psychotherapy in Spain",
+    mtAria: "Example monthly maintenance report with PageSpeed scores, Google clicks and completed tasks",
+    mtTitle: "Monthly report", mtMonth: "October", mtBadge: "Up to date",
+    mtScores: [["Performance", 96], ["SEO", 100], ["Accessibility", 98]],
+    mtClicks: "Google clicks", mtClicksSub: "vs. last month",
+    mtTasksTitle: "This month",
+    mtTasks: ["Content updated", "Backup", "SEO review", "Sitemap submitted"],
     s6Label: "Frequently asked questions",
     s6Title: "Questions and answers.",
     marquee: ["Web design", "Development", "Online stores", "SEO", "UI/UX", "Branding", "Maintenance"],
@@ -904,13 +1062,13 @@ const COPY = {
     formLabel: "Contact form",
     fName: "Name", fEmail: "Email", fType: "Project type", fMsg: "Tell me about your project", fSend: "Send enquiry",
     fNote: "You can also message me directly on WhatsApp. I reply the same day.",
-    projectTypes: ["Website from scratch", "Redesign of an existing site", "Admin panel", "Maintenance and SEO", "Portfolio or catalogue", "Other"],
+    projectTypes: ["Landing page", "Online store", "Admin panel", "Maintenance, SEO and rebranding", "Redesign of an existing site", "Other"],
     visitSite: "Visit site", rights: "All rights reserved."
   }
 };
 
 class Component extends DCLogic {
-  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
+  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
 
   // (02) card fan: GSAP owns the card transforms; the template only renders content.
   cycleFan(direction) {
@@ -985,6 +1143,16 @@ class Component extends DCLogic {
       }, { threshold: 0.3 });
       this._panelIo.observe(demo);
     }
+    // Maintenance report demo: rings, sparkline and task checks animate once when it scrolls into view.
+    const mant = document.getElementById("gc-mant-demo");
+    if (mant) {
+      this._mantIo = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        this._mantIo.disconnect();
+        this.setState({ mantIn: true });
+      }, { threshold: 0.3 });
+      this._mantIo.observe(mant);
+    }
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduce) {
       const els = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -1016,6 +1184,7 @@ class Component extends DCLogic {
     if (this._io) this._io.disconnect();
     if (this._fanIo) this._fanIo.disconnect();
     if (this._panelIo) this._panelIo.disconnect();
+    if (this._mantIo) this._mantIo.disconnect();
     if (this._fan) this._fan.destroy();
   }
 
@@ -1075,12 +1244,6 @@ class Component extends DCLogic {
       fanNext: () => this.cycleFan("right"),
       fanPrevLabel: lang === "es" ? "Anterior" : "Previous",
       fanNextLabel: lang === "es" ? "Siguiente" : "Next",
-      bonusItems: c.bonusItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2] })),
-      tiendaTextStyle: "text-align: " + (this.state.phone ? "center" : "left") + ";",
-      tiendaRowStyle: "display: grid; grid-template-columns: " + (this.state.phone ? "1fr" : "minmax(90px, 130px) minmax(0, 1fr) auto") + "; justify-items: " + (this.state.phone ? "center" : "start") + "; text-align: " + (this.state.phone ? "center" : "left") + "; align-items: baseline; gap: " + (this.state.phone ? "6px" : "6px 16px") + ";",
-      bonusRowStyle: this.state.phone ? "display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;" : "display: flex; justify-content: space-between; gap: 16px;",
-      bonusValStyle: "color: #0F2549; text-align: " + (this.state.phone ? "center" : "right") + ";",
-      tiendaLinkJustify: this.state.phone ? "center" : "end",
       panelDemoClass: "pd" + (this.state.panelIn ? " pd--in" : ""),
       panelFeats: c.panelFeats.map((text) => ({ text })),
       pdMonths: c.pdMonths.map((text) => ({ text })),
@@ -1088,10 +1251,16 @@ class Component extends DCLogic {
       panelTextStyle: "text-align: " + (this.state.phone ? "center" : "left") + ";",
       panelDescAlign: this.state.phone ? "margin-left: auto; margin-right: auto;" : "",
       panelRowJustify: "justify-content: " + (this.state.phone ? "center" : "flex-start") + ";",
+      tiendaFeats: c.tiendaFeats.map((text) => ({ text })),
+      tiendaWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(c.tiendaWaMsg),
+      mantFeats: c.mantFeats.map((text) => ({ text })),
+      mantWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(c.mantWaMsg),
+      mantDemoClass: "mt" + (this.state.mantIn ? " mt--in" : ""),
+      mtScores: c.mtScores.map(([label, v]) => ({ label, v, style: "--v: " + v + ";" })),
+      mtTasks: c.mtTasks.map((text) => ({ text })),
       tiendaSlotId: "tienda-reyes-performance",
       tiendaUrl: "https://reyesperformance.com/",
       tiendaShotSrc: "./reyesperformance-com-home.jpeg",
-      tiendaItems: c.tiendaItems.map((b) => ({ k: b[0], v: b[1], url: b[2] || "", isLink: !!b[2], linkLabel: b[3] || c.visitSite })),
       marqueeTrack: c.marquee.concat(c.marquee).concat(c.marquee).concat(c.marquee).map((text) => ({ text })),
       faqs: c.faqs.map((q, i) => {
         const open = this.state.faq === i;

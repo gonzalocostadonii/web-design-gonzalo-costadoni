@@ -200,7 +200,14 @@
     section[id] [style*="flex-direction: column"][style*="align-items: flex-start"] { align-items: center !important; }
     section[id] input, section[id] textarea, section[id] select { text-align: left; }
     #panel-admin [style*="text-align: left"], #tiendas-online [style*="text-align: left"], #mantenimiento [style*="text-align: left"] { text-align: center !important; }
-    .pd-feat { justify-content: center; }
+    /* Listas con ícono (✓ / —): el ícono va en línea con el texto, así el texto queda en el centro real
+       de la pantalla y no corrido por la columna del ícono. */
+    .pd-feat, #transformacion [style*="display: flex; gap: 12px"], #planes [style*="display: flex; gap: 12px"] { display: block !important; text-align: center !important; }
+    .pd-feat .pd-check { display: inline-grid; vertical-align: -5px; margin-right: 8px; }
+    #transformacion [style*="display: flex; gap: 12px"] > span:first-child, #planes [style*="display: flex; gap: 12px"] > span:first-child { margin-right: 8px; }
+    /* Proyectos: el número arriba, en su propia línea, para que el título quede centrado */
+    #proyectos [style*="cursor: pointer"][style*="flex-wrap: wrap"] > :first-child { flex-basis: 100%; text-align: center; }
+    #proyectos [style*="cursor: pointer"][style*="flex-wrap: wrap"] { row-gap: 10px !important; }
     .pd, .pd *, .mt, .mt * { text-align: left; }
     .mt-rings, .mt-rings * { text-align: center; }
     .svc-case { justify-content: center; text-align: center; }

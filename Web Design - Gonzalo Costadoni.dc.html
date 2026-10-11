@@ -215,6 +215,19 @@
     .pd-donut-c { text-align: center; }
   }
   @media (max-width: 479px) { .fan-layout { --card-w: 12.5rem; --card-h: 16.5rem; height: min(23rem, 72vh); } .fan-card { padding: 18px 16px 20px; border-radius: 16px; } .fan-card__icon { width: 38px; height: 38px; border-radius: 10px; } .fan-card__icon span { width: 19px; height: 19px; } .fan-card__title { font-size: 16px; margin-bottom: 8px; } .fan-card__desc { font-size: 13px; line-height: 1.5; } }
+  /* (04) Apps: tarjetas que abren cada micro app */
+  .gc-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: 44px; }
+  .gc-app { display: flex; flex-direction: column; gap: 12px; padding: 26px 24px 24px; border-radius: 16px; background: rgba(255,255,255,.028); border: 1px solid rgba(255,255,255,.07); color: #E8EDF7; transition: background .35s cubic-bezier(.2,.7,.3,1), border-color .35s, transform .35s cubic-bezier(.2,.7,.3,1); }
+  .gc-app:hover { color: #E8EDF7; background: rgba(30,58,110,.14); border-color: rgba(143,169,207,.35); transform: translateY(-3px); }
+  .gc-app__top { display: flex; align-items: center; gap: 10px; }
+  .gc-app__dot { width: 34px; height: 34px; border-radius: 10px; flex: none; }
+  .gc-app__tag { font-size: 10.5px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; }
+  .gc-app__name { font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; letter-spacing: -.025em; }
+  .gc-app__desc { font-size: 15px; line-height: 1.6; color: #A9B6CE; }
+  .gc-app__for { font-size: 12px; line-height: 1.6; color: #6E7F9E; }
+  .gc-app__go { margin-top: auto; padding-top: 8px; font-size: 13.5px; font-weight: 500; color: #8FA9CF; }
+  .gc-app:hover .gc-app__go { color: #FFFFFF; }
+  @media (max-width: 699px) { .gc-app { align-items: center; text-align: center; } .gc-app__top { flex-direction: column; } }
 </style>
 </helmet>
 
@@ -230,6 +243,7 @@
         <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
+        <a href="#apps" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navApps }}</a>
         <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navContact }}</a>
@@ -591,8 +605,29 @@
     </div>
   </section>
 
+  <section id="apps" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(04) {{ t.s8Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s8Title }}</h2>
+    <p style="margin: 18px 0 0; font-size: clamp(15px, 1.25vw, 17px); line-height: 1.7; color: #A9B6CE; max-width: 58ch;">{{ t.s8Sub }}</p>
+    <div class="gc-apps">
+      <sc-for list="{{ appsList }}" as="ap" hint-placeholder-count="3">
+        <a href="{{ ap.url }}" target="_blank" rel="noopener" class="gc-app">
+          <span class="gc-app__top"><span class="gc-app__dot" style="{{ ap.dotStyle }}"></span><span class="gc-app__tag">{{ ap.tag }}</span></span>
+          <span class="gc-app__name">{{ ap.name }}</span>
+          <span class="gc-app__desc">{{ ap.desc }}</span>
+          <span class="gc-app__for">{{ ap.who }}</span>
+          <span class="gc-app__go">{{ t.appsOpen }} ↗</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin: 44px 0 0;">
+      <a href="{{ appsUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.appsCta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
+      <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.appsNote }}</span>
+    </div>
+  </section>
+
   <section id="planes" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0F2549; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(04) {{ t.s7Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #FFFFFF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>(05) {{ t.s7Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s7Title }}</h2>
     <div style="display: inline-flex; margin-top: 34px; padding: 5px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.1); position: relative;">
       <span style="{{ planPillStyle }}"></span>
@@ -629,7 +664,7 @@
   </section>
 
   <section id="faq" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(05) {{ t.s6Label }}</div>
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s6Title }}</h2>
     <div style="display: flex; flex-direction: column; margin-top: 52px; border-top: 1px solid rgba(255,255,255,.09);">
       <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
@@ -697,6 +732,7 @@
         <a href="#inicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navService }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
+        <a href="#apps" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navApps }}</a>
         <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navContact }}</a>
@@ -717,7 +753,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0F2549&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1E3A6E&quot;,&quot;#16305C&quot;,&quot;#0F2549&quot;,&quot;#2A5091&quot;]},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5492984893772&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const COPY = {
   es: {
-    navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
+    navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navApps: "Apps", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
     cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado", planMore: "Ver más detalles", planLess: "Ver menos",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Tu negocio ya es profesional.",
@@ -743,6 +779,15 @@ const COPY = {
       ["Estructura estratégica", "El orden de las secciones sigue el recorrido de decisión de tu cliente."],
       ["Ajuste de copy", "Revisión y reescritura de los textos para que vendan con tu voz."],
       ["Mantenimiento post-lanzamiento", "Acompañamiento después de la entrega, no un adiós."]
+    ],
+    s8Label: "Apps",
+    s8Title: "Micro apps para negocios de la Patagonia.",
+    s8Sub: "Además de webs, hago apps chicas que resuelven un solo problema del día a día. Se abren desde el celular, no piden registrarse y guardan los datos en el teléfono. Son gratis: probalas.",
+    appsOpen: "Abrir app", appsCta: "Ver todas las apps", appsNote: "Funcionan sin internet una vez instaladas",
+    apps: [
+      { name: "Rinde", tag: "Costeo y precios", desc: "Si sube la harina, ¿cuánto tenés que cobrar el pan? Rinde calcula el costo por unidad y arma la lista de precios.", who: "Panaderías, pastelerías, rotiserías y cervecerías" },
+      { name: "Tero", tag: "Recordatorios", desc: "Te dice a quién escribirle hoy, con el mensaje de WhatsApp ya armado, para que tus clientes vuelvan.", who: "Veterinarias, nutricionistas y contadores" },
+      { name: "Tiza", tag: "Fiado y cobranzas", desc: "Quién te debe, cuánto y desde cuándo, sin cuaderno. Y el mensaje para cobrar, listo para mandar.", who: "Almacenes, ferreterías, talleres y estudios" }
     ],
     s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
@@ -895,7 +940,7 @@ const COPY = {
     visitSite: "Ver sitio", rights: "Todos los derechos reservados."
   },
   en: {
-    navHome: "Home", navService: "Services", navWork: "Work", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
+    navHome: "Home", navService: "Services", navWork: "Work", navApps: "Apps", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
     cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended", planMore: "See more details", planLess: "See less",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Your business is already professional.",
@@ -921,6 +966,15 @@ const COPY = {
       ["Strategic structure", "Section order follows your client's real decision path."],
       ["Copy polish", "Your texts reviewed and rewritten to sell in your own voice."],
       ["Post-launch maintenance", "Support after delivery, not a goodbye."]
+    ],
+    s8Label: "Apps",
+    s8Title: "Micro apps for Patagonian businesses.",
+    s8Sub: "Besides websites, I build small apps that solve one everyday problem. They open from your phone, need no sign-up and keep your data on the device. They're free: give them a try.",
+    appsOpen: "Open app", appsCta: "See all apps", appsNote: "They work offline once installed",
+    apps: [
+      { name: "Rinde", tag: "Costing & prices", desc: "Flour went up? Rinde works out the cost per unit and builds your price list.", who: "Bakeries, pastry shops, delis and breweries" },
+      { name: "Tero", tag: "Reminders", desc: "Tells you who to message today, with the WhatsApp text ready, so your clients come back.", who: "Vets, nutritionists and accountants" },
+      { name: "Tiza", tag: "Credit & collections", desc: "Who owes you, how much and since when, without a notebook. Plus the collection message, ready to send.", who: "Corner stores, hardware stores, workshops and studios" }
     ],
     s5Label: "Work",
     s5Title: "A selection of the main projects.",
@@ -1230,7 +1284,7 @@ class Component extends DCLogic {
       barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
-      menuItems: [["#servicio", c.navService], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
+      menuItems: [["#servicio", c.navService], ["#proyectos", c.navWork], ["#apps", c.navApps], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
         href: m[0], label: m[1],
         hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
         style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"
@@ -1280,6 +1334,11 @@ class Component extends DCLogic {
       }),
       projectTypes: c.projectTypes.map((text) => ({ text })),
 
+      appsUrl: "https://gc-micro-apps.vercel.app/",
+      appsList: c.apps.map((a, i) => Object.assign({}, a, {
+        url: "https://gc-micro-apps.vercel.app/" + ["rinde", "tero", "tiza"][i] + "/",
+        dotStyle: "background: " + ["#16305c", "#E7F6ED", "#1f5c4d"][i] + "; border: 1px solid rgba(255,255,255,.12);"
+      })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
         const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];

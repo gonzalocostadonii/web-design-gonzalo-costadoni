@@ -225,8 +225,14 @@
   .gc-app__name { font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; letter-spacing: -.025em; }
   .gc-app__desc { font-size: 15px; line-height: 1.6; color: #A9B6CE; }
   .gc-app__for { font-size: 12px; line-height: 1.6; color: #6E7F9E; }
-  .gc-app__go { margin-top: auto; padding-top: 8px; font-size: 13.5px; font-weight: 500; color: #8FA9CF; }
+  .gc-app__go { padding-top: 2px; font-size: 13.5px; font-weight: 500; color: #8FA9CF; }
   .gc-app:hover .gc-app__go { color: #FFFFFF; }
+  .gc-app__price { margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07); font-size: 13px; color: #A9B6CE; }
+  .gc-app__price b { font-size: 17px; font-weight: 600; color: #FFFFFF; letter-spacing: -.01em; }
+  .gc-app__price i { font-style: normal; color: #4E5D78; margin: 0 4px; }
+  .gc-app__mine { font-size: 13px; color: #6E7F9E; }
+  .gc-app__mine a { color: #8FA9CF; }
+  .gc-app__mine a:hover { color: #FFFFFF; }
   @media (max-width: 699px) { .gc-app { align-items: center; text-align: center; } .gc-app__top { flex-direction: column; } }
 </style>
 </helmet>
@@ -616,13 +622,17 @@
           <span class="gc-app__name">{{ ap.name }}</span>
           <span class="gc-app__desc">{{ ap.desc }}</span>
           <span class="gc-app__for">{{ ap.who }}</span>
+          <span class="gc-app__price"><b>USD 10</b> {{ t.appsMonth }} <i>·</i> <b>USD 100</b> {{ t.appsYear }}</span>
           <span class="gc-app__go">{{ t.appsOpen }} ↗</span>
         </a>
       </sc-for>
     </div>
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin: 44px 0 0;">
-      <a href="{{ appsUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.appsCta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
-      <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.appsNote }}</span>
+      <a href="{{ appsWaLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.appsCta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
+      <div style="display: grid; gap: 6px;">
+        <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.appsNote }}</span>
+        <span class="gc-app__mine">{{ t.appsMine }} <a href="https://gc-micro-apps.vercel.app/rinde/" target="_blank" rel="noopener">Rinde</a> · <a href="https://gc-micro-apps.vercel.app/tero/" target="_blank" rel="noopener">Tero</a> · <a href="https://gc-micro-apps.vercel.app/tiza/" target="_blank" rel="noopener">Tiza</a></span>
+      </div>
     </div>
   </section>
 
@@ -782,8 +792,10 @@ const COPY = {
     ],
     s8Label: "Apps",
     s8Title: "Micro apps para negocios de la Patagonia.",
-    s8Sub: "Además de webs, hago apps chicas que resuelven un solo problema del día a día. Se abren desde el celular, no piden registrarse y guardan los datos en el teléfono. Son gratis: probalas.",
-    appsOpen: "Abrir app", appsCta: "Ver todas las apps", appsNote: "Funcionan sin internet una vez instaladas",
+    s8Sub: "Además de webs, hago apps chicas que resuelven un solo problema del día a día. Se usan desde el celular, funcionan sin internet y tus datos quedan en tu teléfono. Probalas 7 días gratis.",
+    appsOpen: "Probar 7 días gratis", appsMonth: "por mes", appsYear: "por año",
+    appsCta: "Quiero una app a medida", appsNote: "Se cobra en pesos por Mercado Pago · Cancelás cuando quieras",
+    appsMine: "¿Ya tenés tu código? Abrí",
     apps: [
       { name: "Rinde", tag: "Costeo y precios", desc: "Si sube la harina, ¿cuánto tenés que cobrar el pan? Rinde calcula el costo por unidad y arma la lista de precios.", who: "Panaderías, pastelerías, rotiserías y cervecerías" },
       { name: "Tero", tag: "Recordatorios", desc: "Te dice a quién escribirle hoy, con el mensaje de WhatsApp ya armado, para que tus clientes vuelvan.", who: "Veterinarias, nutricionistas y contadores" },
@@ -969,8 +981,10 @@ const COPY = {
     ],
     s8Label: "Apps",
     s8Title: "Micro apps for Patagonian businesses.",
-    s8Sub: "Besides websites, I build small apps that solve one everyday problem. They open from your phone, need no sign-up and keep your data on the device. They're free: give them a try.",
-    appsOpen: "Open app", appsCta: "See all apps", appsNote: "They work offline once installed",
+    s8Sub: "Besides websites, I build small apps that solve one everyday problem. They run on your phone, work offline and keep your data on the device. Try them free for 7 days.",
+    appsOpen: "Try 7 days free", appsMonth: "per month", appsYear: "per year",
+    appsCta: "I want a custom app", appsNote: "Billed in ARS through Mercado Pago · Cancel anytime",
+    appsMine: "Already have your code? Open",
     apps: [
       { name: "Rinde", tag: "Costing & prices", desc: "Flour went up? Rinde works out the cost per unit and builds your price list.", who: "Bakeries, pastry shops, delis and breweries" },
       { name: "Tero", tag: "Reminders", desc: "Tells you who to message today, with the WhatsApp text ready, so your clients come back.", who: "Vets, nutritionists and accountants" },
@@ -1334,9 +1348,9 @@ class Component extends DCLogic {
       }),
       projectTypes: c.projectTypes.map((text) => ({ text })),
 
-      appsUrl: "https://gc-micro-apps.vercel.app/",
+      appsWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(lang === "es" ? "Hola Gonzalo, quiero una app a medida para mi negocio." : "Hi Gonzalo, I'd like a custom app for my business."),
       appsList: c.apps.map((a, i) => Object.assign({}, a, {
-        url: "https://gc-micro-apps.vercel.app/" + ["rinde", "tero", "tiza"][i] + "/",
+        url: "https://gc-micro-apps.vercel.app/suscribir/?app=" + ["rinde", "tero", "tiza"][i],
         dotStyle: "background: " + ["#16305c", "#E7F6ED", "#1f5c4d"][i] + "; border: 1px solid rgba(255,255,255,.12);"
       })),
       projects: c.projects.map((p, i) => {

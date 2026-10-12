@@ -215,7 +215,7 @@
     .pd-donut-c { text-align: center; }
   }
   @media (max-width: 479px) { .fan-layout { --card-w: 12.5rem; --card-h: 16.5rem; height: min(23rem, 72vh); } .fan-card { padding: 18px 16px 20px; border-radius: 16px; } .fan-card__icon { width: 38px; height: 38px; border-radius: 10px; } .fan-card__icon span { width: 19px; height: 19px; } .fan-card__title { font-size: 16px; margin-bottom: 8px; } .fan-card__desc { font-size: 13px; line-height: 1.5; } }
-  /* (04) Apps: tarjetas que abren cada micro app */
+  /* (03) Apps: tarjetas que abren cada micro app */
   .gc-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: 44px; }
   .gc-app { display: flex; flex-direction: column; gap: 12px; padding: 26px 24px 24px; border-radius: 16px; background: rgba(255,255,255,.028); border: 1px solid rgba(255,255,255,.07); color: #E8EDF7; transition: background .35s cubic-bezier(.2,.7,.3,1), border-color .35s, transform .35s cubic-bezier(.2,.7,.3,1); }
   .gc-app:hover { color: #E8EDF7; background: rgba(30,58,110,.14); border-color: rgba(143,169,207,.35); transform: translateY(-3px); }
@@ -249,7 +249,7 @@
   .gc-app:hover .gc-app__arrow { transform: translate(3px, -3px); }
   .gc-app:hover .gc-app__go { color: var(--c, #FFFFFF); }
 
-  /* (04) Apps: vitrina con el video de cada app. La paleta de la app elegida vive en --ax-* y se anima al cambiar. */
+  /* (03) Apps: vitrina con el video de cada app. La paleta de la app elegida vive en --ax-* y se anima al cambiar. */
   @property --ax-a { syntax: '<color>'; inherits: true; initial-value: #F5B335; }
   @property --ax-b { syntax: '<color>'; inherits: true; initial-value: #2F5AA8; }
   @property --ax-bg { syntax: '<color>'; inherits: true; initial-value: #0B1630; }
@@ -368,8 +368,8 @@
       <div style="{{ navLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
-        <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
         <a href="#apps" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navApps }}</a>
+        <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navContact }}</a>
@@ -680,60 +680,9 @@
     </div>
   </section>
 
-  <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(03) {{ t.s5Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
-    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
-    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <div style="{{ p.cardStyle }}">
-          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
-            <div style="flex: 1; min-width: 180px;">
-              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
-              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
-            </div>
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
-            <div style="{{ p.arrowStyle }}">↓</div>
-          </div>
-          <div style="{{ p.bodyStyle }}">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
-              <div style="display: flex; flex-direction: column; gap: 26px;">
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 20px;">
-                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
-                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
-                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
-                </a>
-                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
-                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
-                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
-                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
-                  </blockquote>
-                </sc-if>
-              </div>
-            </div>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
   <section id="apps" data-reveal="1" class="ax" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); {{ axVars }}">
     <div class="ax-bg" aria-hidden="true"><span class="ax-grid"></span><span class="ax-blob ax-blob--1"></span><span class="ax-blob ax-blob--2"></span></div>
-    <div class="ax-label" data-ax="head"><i></i>(04) {{ t.s8Label }}</div>
+    <div class="ax-label" data-ax="head"><i></i>(03) {{ t.s8Label }}</div>
     <h2 class="ax-title" data-ax="head">{{ t.s8Title }}</h2>
     <p class="ax-sub" data-ax="head">{{ t.s8Sub }}</p>
     <div class="ax-marquee" data-ax="head" aria-hidden="true">
@@ -803,6 +752,57 @@
         <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.appsNote }}</span>
         <span class="gc-app__mine">{{ t.appsMine }} <a href="https://gc-micro-apps.vercel.app/rinde/" target="_blank" rel="noopener">Rinde</a> · <a href="https://gc-micro-apps.vercel.app/tero/" target="_blank" rel="noopener">Tero</a> · <a href="https://gc-micro-apps.vercel.app/tiza/" target="_blank" rel="noopener">Tiza</a></span>
       </div>
+    </div>
+  </section>
+
+  <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
+    <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+        <div style="{{ p.cardStyle }}">
+          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
+            <div style="flex: 1; min-width: 180px;">
+              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
+              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
+            </div>
+            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
+            <div style="{{ p.arrowStyle }}">↓</div>
+          </div>
+          <div style="{{ p.bodyStyle }}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
+              <div style="display: flex; flex-direction: column; gap: 26px;">
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
+                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
+                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
+                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
+                </a>
+                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
+                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
+                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
+                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
+                  </blockquote>
+                </sc-if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
     </div>
   </section>
 
@@ -911,8 +911,8 @@
       <div style="{{ footerLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navService }}</a>
-        <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
         <a href="#apps" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navApps }}</a>
+        <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
         <a href="#contacto" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navContact }}</a>
@@ -1324,7 +1324,7 @@ const COPY = {
   }
 };
 
-// (04) Apps: palette of each micro app (a = accent, b = brand glow, bg = section tint), same order as COPY.apps.
+// (03) Apps: palette of each micro app (a = accent, b = brand glow, bg = section tint), same order as COPY.apps.
 const APP_THEMES = [
   { id: "rinde", a: "#F5B335", b: "#2F5AA8", bg: "#0B1630" },
   { id: "tero", a: "#34C873", b: "#2D5C96", bg: "#0A1A26" },
@@ -1382,7 +1382,7 @@ class Component extends DCLogic {
     });
   }
 
-  // (04) Apps showcase: template values for the selected app (palette, tabs, explainer video, steps).
+  // (03) Apps showcase: template values for the selected app (palette, tabs, explainer video, steps).
   axVals(c, lang) {
     const i = this.state.axApp, th = APP_THEMES[i], a = c.apps[i], paused = this.state.axPaused;
     const groupStart = { 0: 0, 4: 1, 7: 2 }; // rubros list: Rinde 0-3, Tero 4-6, Tiza 7-10
@@ -1689,7 +1689,7 @@ class Component extends DCLogic {
       barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
-      menuItems: [["#servicio", c.navService], ["#proyectos", c.navWork], ["#apps", c.navApps], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
+      menuItems: [["#servicio", c.navService], ["#apps", c.navApps], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
         href: m[0], label: m[1],
         hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
         style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"

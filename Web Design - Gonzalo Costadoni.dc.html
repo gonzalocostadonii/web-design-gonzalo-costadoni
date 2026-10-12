@@ -11,6 +11,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="./card-fan-carousel.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design Gonzalo Costadoni</title>
+<meta name="description" content="Diseño y desarrollo web a medida, tiendas online y micro apps para negocios. General Roca, Río Negro, Argentina.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Web Design Gonzalo Costadoni">
+<meta property="og:title" content="Web Design Gonzalo Costadoni">
+<meta property="og:description" content="Webs a medida, tiendas online y micro apps para negocios. General Roca, Río Negro.">
+<meta property="og:url" content="https://web-design-gonzalo-costadoni.vercel.app/">
+<meta property="og:image" content="https://web-design-gonzalo-costadoni.vercel.app/og-web.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -215,6 +227,66 @@
     .pd-donut-c { text-align: center; }
   }
   @media (max-width: 479px) { .fan-layout { --card-w: 12.5rem; --card-h: 16.5rem; height: min(23rem, 72vh); } .fan-card { padding: 18px 16px 20px; border-radius: 16px; } .fan-card__icon { width: 38px; height: 38px; border-radius: 10px; } .fan-card__icon span { width: 19px; height: 19px; } .fan-card__title { font-size: 16px; margin-bottom: 8px; } .fan-card__desc { font-size: 13px; line-height: 1.5; } }
+  /* Tero: mini landing (#tero), con la paleta de la app */
+  .tl { --ta: #34C873; --tg: #2D5C96; position: relative; overflow: hidden; background: radial-gradient(900px 600px at 90% 0%, rgba(45,92,150,.35), transparent 70%), linear-gradient(180deg, #0A1A26, #0A0F1F 80%); }
+  .tl-hero { display: grid; gap: clamp(36px, 5vw, 72px); align-items: center; }
+  @media (min-width: 900px) { .tl-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
+  .tl-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: .16em; font-weight: 500; text-transform: uppercase; color: var(--ta); }
+  .tl-label img { border-radius: 8px; }
+  .tl-title { margin: 18px 0 0; font-size: clamp(34px, 5vw, 62px); line-height: 1.04; letter-spacing: -.04em; font-weight: 600; text-wrap: balance; color: #FFFFFF; }
+  .tl-sub { margin: 20px 0 0; max-width: 54ch; font-size: clamp(16px, 1.35vw, 18px); line-height: 1.7; color: #A9B6CE; }
+  .tl-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
+  .tl-cta { display: inline-flex; align-items: center; gap: 14px; padding: 7px 7px 7px 26px; border-radius: 999px; background: var(--ta); color: #06210F; font-size: 16px; font-weight: 600; transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s cubic-bezier(.2,.7,.3,1); }
+  .tl-cta:hover { color: #06210F; transform: translateY(-2px); box-shadow: 0 18px 44px -14px var(--ta); }
+  .tl-cta__ico { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px; }
+  .tl-note { font-size: 13px; color: #8E9CB5; }
+  .tl-media { position: relative; justify-self: center; width: min(100%, 420px); }
+  .tl-glow { position: absolute; inset: 12% 8%; border-radius: 50%; background: var(--ta); filter: blur(90px); opacity: .22; }
+  .tl-video { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; border: 1px solid rgba(255,255,255,.08); background: #0A1A26; }
+  .tl-h3 { margin: 0 0 18px; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -.025em; font-weight: 600; color: #FFFFFF; }
+  .tl-h3--c { margin-top: clamp(56px, 8vh, 90px); }
+  .tl-pains { margin-top: clamp(56px, 8vh, 90px); padding: clamp(22px, 3vw, 34px); border-radius: 20px; border: 1px solid rgba(240,164,147,.18); background: rgba(240,164,147,.05); }
+  .tl-pains__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  @media (min-width: 900px) { .tl-pains__list { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+  .tl-pains__list li { position: relative; padding-left: 26px; font-size: 15.5px; line-height: 1.6; color: #D5DDEB; }
+  .tl-pains__list li::before { content: "✕"; position: absolute; left: 0; top: 0; color: #F0A493; font-weight: 600; }
+  .tl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(14px, 1.8vw, 22px); }
+  .tl-card { display: grid; gap: 10px; align-content: start; padding: 24px 22px; border-radius: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); }
+  .tl-card__n { font-size: 11px; letter-spacing: .1em; color: var(--ta); font-weight: 500; }
+  .tl-card b { font-size: 18px; font-weight: 600; letter-spacing: -.015em; color: #FFFFFF; }
+  .tl-card p { margin: 0; font-size: 14.5px; line-height: 1.65; color: #A9B6CE; }
+  .tl-split { display: grid; gap: clamp(36px, 5vw, 64px); align-items: center; margin-top: clamp(56px, 8vh, 90px); }
+  @media (min-width: 900px) { .tl-split { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
+  .tl-result { display: grid; gap: 12px; }
+  .tl-result__label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8E9CB5; }
+  .tl-result__box { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 24px; border-radius: 20px; background: linear-gradient(135deg, rgba(52,200,115,.16), rgba(45,92,150,.18)); border: 1px solid rgba(52,200,115,.28); }
+  .tl-result__box b { font-size: clamp(40px, 5vw, 56px); font-weight: 600; letter-spacing: -.04em; color: var(--ta); }
+  .tl-result__box p { margin: 0; font-size: 15.5px; line-height: 1.6; color: #E8EDF7; }
+  .tl-result__note { font-size: 12px; color: #6E7F9E; }
+  .tl-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .tl-steps li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; font-size: 15px; line-height: 1.6; color: #A9B6CE; }
+  .tl-steps b { display: block; color: #FFFFFF; font-weight: 500; }
+  .tl-steps__n { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(52,200,115,.5); color: var(--ta); font-size: 13px; }
+  .tl-price { display: grid; gap: 24px; align-items: center; margin-top: clamp(56px, 8vh, 90px); padding: clamp(24px, 3.5vw, 40px); border-radius: 24px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); }
+  @media (min-width: 900px) { .tl-price { grid-template-columns: auto 1fr auto; gap: 40px; } }
+  .tl-price .tl-h3 { margin-bottom: 8px; }
+  .tl-price__big { margin: 0; font-size: 16px; color: #A9B6CE; }
+  .tl-price__big b { font-size: clamp(36px, 4vw, 48px); font-weight: 600; letter-spacing: -.035em; color: #FFFFFF; }
+  .tl-price__alt { margin: 4px 0 0; font-size: 13.5px; color: #8E9CB5; }
+  .tl-price__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .tl-price__list li { position: relative; padding-left: 26px; font-size: 14.5px; line-height: 1.55; color: #D5DDEB; }
+  .tl-price__list li::before { content: "✓"; position: absolute; left: 0; color: var(--ta); font-weight: 600; }
+  .tl-faq { margin-top: clamp(56px, 8vh, 90px); max-width: 860px; }
+  .tl-faq__item { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .tl-faq__item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 16.5px; font-weight: 500; color: #E8EDF7; }
+  .tl-faq__item summary::-webkit-details-marker { display: none; }
+  .tl-faq__item summary::after { content: "+"; font-size: 22px; font-weight: 300; line-height: 1; color: #8E9CB5; transition: transform .3s; }
+  .tl-faq__item[open] summary::after { transform: rotate(45deg); color: #FFFFFF; }
+  .tl-faq__item p { margin: 0 0 18px; font-size: 15px; line-height: 1.7; color: #A9B6CE; max-width: 70ch; }
+  .tl-faq__item summary:focus-visible { outline: 2px solid var(--ta); outline-offset: 4px; }
+  @media (max-width: 899px) { .tl-copy, .tl-pains, .tl-split, .tl-price, .tl-h3--c { text-align: center; } .tl-ctas { justify-content: center; } .tl-label { justify-content: center; } .tl-sub { margin-left: auto; margin-right: auto; } .tl-pains__list li, .tl-price__list li, .tl-steps li, .tl-faq, .tl-faq * { text-align: left; } .tl-price .tl-cta { justify-self: center; } }
+  @media (prefers-reduced-motion: reduce) { .tl-cta { transition: none; } }
+
   /* (03) Apps: tarjetas que abren cada micro app */
   .gc-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: 44px; }
   .gc-app { display: flex; flex-direction: column; gap: 12px; padding: 26px 24px 24px; border-radius: 16px; background: rgba(255,255,255,.028); border: 1px solid rgba(255,255,255,.07); color: #E8EDF7; transition: background .35s cubic-bezier(.2,.7,.3,1), border-color .35s, transform .35s cubic-bezier(.2,.7,.3,1); }
@@ -755,6 +827,72 @@
     </div>
   </section>
 
+  <!-- Tero: mini landing para la campaña de anuncios (los anuncios llevan a #tero) -->
+  <section id="tero" data-reveal="1" class="tl" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div class="tl-hero">
+      <div class="tl-copy">
+        <div class="tl-label"><img src="app-tero-logo.png" alt="" width="28" height="28">{{ tero.label }}</div>
+        <h2 class="tl-title">{{ tero.title }}</h2>
+        <p class="tl-sub">{{ tero.sub }}</p>
+        <div class="tl-ctas">
+          <a class="tl-cta" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta }}<span class="tl-cta__ico">↗</span></a>
+          <span class="tl-note">{{ tero.note }}</span>
+        </div>
+      </div>
+      <div class="tl-media">
+        <span class="tl-glow" aria-hidden="true"></span>
+        <video class="tl-video" src="app-tero.mp4" poster="app-tero.jpg" muted loop playsinline autoplay preload="metadata" aria-label="{{ tero.videoAria }}"></video>
+      </div>
+    </div>
+
+    <div class="tl-pains">
+      <h3 class="tl-h3">{{ tero.painsTitle }}</h3>
+      <ul class="tl-pains__list">
+        <sc-for list="{{ teroPains }}" as="pn" hint-placeholder-count="3"><li>{{ pn.text }}</li></sc-for>
+      </ul>
+    </div>
+
+    <h3 class="tl-h3 tl-h3--c">{{ tero.benefitsTitle }}</h3>
+    <div class="tl-grid">
+      <sc-for list="{{ teroBenefits }}" as="bf" hint-placeholder-count="4">
+        <div class="tl-card"><span class="tl-card__n">{{ bf.n }}</span><b>{{ bf.title }}</b><p>{{ bf.text }}</p></div>
+      </sc-for>
+    </div>
+
+    <div class="tl-split">
+      <div class="tl-result">
+        <span class="tl-result__label">{{ tero.resultLabel }}</span>
+        <div class="tl-result__box"><b>67%</b><p>{{ tero.resultText }}</p></div>
+        <span class="tl-result__note">{{ tero.resultNote }}</span>
+      </div>
+      <div>
+        <h3 class="tl-h3">{{ tero.stepsTitle }}</h3>
+        <ol class="tl-steps">
+          <sc-for list="{{ teroSteps }}" as="sp" hint-placeholder-count="3"><li><span class="tl-steps__n">{{ sp.n }}</span><span><b>{{ sp.title }}</b>{{ sp.text }}</span></li></sc-for>
+        </ol>
+      </div>
+    </div>
+
+    <div class="tl-price">
+      <div>
+        <h3 class="tl-h3">{{ tero.priceTitle }}</h3>
+        <p class="tl-price__big"><b>USD 10</b> {{ tero.priceMonth }}</p>
+        <p class="tl-price__alt">{{ tero.priceYear }}</p>
+      </div>
+      <ul class="tl-price__list">
+        <sc-for list="{{ teroPriceList }}" as="pl" hint-placeholder-count="4"><li>{{ pl.text }}</li></sc-for>
+      </ul>
+      <a class="tl-cta" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta }}<span class="tl-cta__ico">↗</span></a>
+    </div>
+
+    <div class="tl-faq">
+      <h3 class="tl-h3">{{ tero.faqTitle }}</h3>
+      <sc-for list="{{ teroFaq }}" as="fq" hint-placeholder-count="5">
+        <details class="tl-faq__item"><summary>{{ fq.q }}</summary><p>{{ fq.a }}</p></details>
+      </sc-for>
+    </div>
+  </section>
+
   <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
@@ -977,6 +1115,37 @@ const COPY = {
       { name: "Tiza", tag: "Fiado y cobranzas", desc: "Quién te debe, cuánto y desde cuándo, sin cuaderno. Y el mensaje para cobrar con tu alias, listo para mandar.", who: "Almacenes, ferreterías, talleres y estudios",
         steps: [["Anotás cada fiado", "Y cada pago, sin cuaderno ni cuentas a mano."], ["Ves quién te debe", "Cuánto en total, quién debe más y desde cuándo."], ["Cobrás con un toque", "El botón Cobrar arma el mensaje para mandar por WhatsApp."]] }
     ],
+    tero: {
+      label: "Tero · La libreta que avisa",
+      title: "Que tus clientes vuelvan, sin tener que acordarte de escribirles.",
+      sub: "Tero te dice cada día a quién avisarle (turnos, controles, cuotas, cumpleaños) y te deja el WhatsApp ya escrito. Vos solo tocás enviar.",
+      cta: "Probar Tero 7 días gratis", note: "Hoy no pagás nada · Cancelás cuando quieras",
+      videoAria: "Video: Tero en el celular",
+      painsTitle: "¿Te pasa esto?",
+      pains: ["Se te pasó avisarle a un cliente y el turno quedó vacío.", "Tenés los recordatorios en la cabeza, en un cuaderno y en el WhatsApp, todo mezclado.", "Hay clientes que dejaron de venir y nadie les escribió."],
+      benefitsTitle: "Lo que hace Tero por tu negocio",
+      benefits: [
+        ["Te avisa a vos primero", "Cada día ves a quién escribirle. En Android te llega una notificación y el ícono muestra cuántos avisos tenés."],
+        ["El mensaje ya está escrito", "Con el nombre del cliente, la fecha y tu alias o link de turnos. Lo cambiás si querés y lo mandás por WhatsApp."],
+        ["Recupera a los que no vuelven", "Te muestra quién hace mucho que no viene y te recuerda saludar a cada cliente en su cumpleaños."],
+        ["Sabés qué funciona", "A cuántos avisaste en el mes, cuántos volvieron y quién te confirmó que viene."]
+      ],
+      resultLabel: "Así lo ves en la app",
+      resultText: "Este mes avisaste a 24 clientes y 16 volvieron.",
+      resultNote: "Ejemplo ilustrativo: tus números salen de tus propios avisos.",
+      stepsTitle: "Empezás en 5 minutos",
+      steps: [["Elegís tu rubro", "Peluquería, consultorio, veterinaria, taller, gimnasio o el tuyo, con tus propios tipos de aviso."], ["Cargás a tus clientes", "Desde los contactos del teléfono, un Excel o de a uno."], ["Mandás los avisos", "Cada mañana abrís «Hoy» y avisás a todos, uno atrás de otro."]],
+      priceTitle: "Un precio simple", priceMonth: "por mes", priceYear: "o USD 100 por año (2 meses gratis)",
+      priceList: ["7 días gratis para probarla", "Se cobra en pesos por Mercado Pago", "Sin permanencia: cancelás cuando quieras", "Funciona sin internet y tus datos quedan en tu teléfono"],
+      faqTitle: "Preguntas frecuentes",
+      faq: [
+        ["¿Los mensajes se mandan solos?", "No. Tero arma el mensaje y abre WhatsApp con el texto listo, y vos tocás enviar. Así salen de tu número y tus clientes te reconocen."],
+        ["¿Sirve para mi rubro?", "Sirve para cualquier negocio con clientes que vuelven. Trae rubros listos y podés crear tus propios tipos de aviso y los datos que quieras guardar."],
+        ["¿Dónde quedan mis datos?", "En tu teléfono. No hay cuentas ni servidores con la información de tus clientes. Podés descargar una copia cuando quieras."],
+        ["¿Funciona en iPhone?", "Sí, en iPhone y en Android, desde el navegador o instalada como app. La notificación diaria por ahora funciona solo en Android."],
+        ["¿Cómo cancelo?", "Desde Mercado Pago o desde el botón de baja de esta web, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo."]
+      ]
+    },
     s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
     s5Hint: "Hay más trabajos detrás, estos son los principales. Toca cada proyecto para abrir el caso completo",
@@ -1172,6 +1341,37 @@ const COPY = {
       { name: "Tiza", tag: "Credit & collections", desc: "Who owes you, how much and since when, without a notebook. Plus the collection message with your payment alias, ready to send.", who: "Corner stores, hardware stores, workshops and studios",
         steps: [["Log every tab", "And every payment, no notebook or mental math."], ["See who owes you", "The total, who owes the most and since when."], ["Collect in one tap", "The Collect button builds the WhatsApp message for you."]] }
     ],
+    tero: {
+      label: "Tero · The notebook that reminds you",
+      title: "Bring your clients back without having to remember to message them.",
+      sub: "Every day Tero tells you who to contact (appointments, check-ups, payments, birthdays) and leaves the WhatsApp message already written. You just tap send.",
+      cta: "Try Tero free for 7 days", note: "Nothing to pay today · Cancel anytime",
+      videoAria: "Video: Tero on a phone",
+      painsTitle: "Sound familiar?",
+      pains: ["You forgot to remind a client and the slot stayed empty.", "Your reminders live in your head, a notebook and WhatsApp, all mixed up.", "Some clients stopped coming and nobody reached out."],
+      benefitsTitle: "What Tero does for your business",
+      benefits: [
+        ["It reminds you first", "Every day you see who to message. On Android you get a notification and the icon shows how many reminders are due."],
+        ["The message is already written", "With the client's name, the date and your payment alias or booking link. Edit it if you like and send it on WhatsApp."],
+        ["It wins back lost clients", "It shows who hasn't come in a long time and reminds you to greet each client on their birthday."],
+        ["You see what works", "How many clients you reminded this month, how many came back and who confirmed."]
+      ],
+      resultLabel: "How it looks in the app",
+      resultText: "This month you reminded 24 clients and 16 came back.",
+      resultNote: "Illustrative example: your numbers come from your own reminders.",
+      stepsTitle: "Up and running in 5 minutes",
+      steps: [["Pick your business type", "Hair salon, clinic, vet, garage, gym or your own, with your own reminder types."], ["Add your clients", "From your phone contacts, a spreadsheet or one by one."], ["Send the reminders", "Every morning open «Today» and message everyone, one after another."]],
+      priceTitle: "Simple pricing", priceMonth: "per month", priceYear: "or USD 100 per year (2 months free)",
+      priceList: ["7-day free trial", "Charged in Argentine pesos via Mercado Pago", "No commitment: cancel anytime", "Works offline and your data stays on your phone"],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        ["Are messages sent automatically?", "No. Tero writes the message and opens WhatsApp with the text ready, and you tap send. That way it comes from your number and clients recognise you."],
+        ["Does it work for my business?", "It works for any business with returning clients. It comes with ready-made business types and you can create your own reminder types and fields."],
+        ["Where is my data stored?", "On your phone. There are no accounts or servers holding your clients' information. You can download a copy anytime."],
+        ["Does it work on iPhone?", "Yes, on iPhone and Android, in the browser or installed as an app. The daily notification currently works on Android only."],
+        ["How do I cancel?", "From Mercado Pago or with the cancel button on this site, no questions asked. If you change your mind within 10 days, you get a full refund."]
+      ]
+    },
     s5Label: "Work",
     s5Title: "A selection of the main projects.",
     s5Hint: "There is more work behind these — these are the main ones. Tap any project to open the full case study",
@@ -1749,6 +1949,16 @@ class Component extends DCLogic {
         cardVars: "--c: " + APP_THEMES[i].a + ";"
       })),
       ...this.axVals(c, lang),
+      // Tero (#tero): las UTM del anuncio pasan a la página de suscripción para saber de qué anuncio vino cada prueba.
+      tero: c.tero,
+      teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
+        try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
+      })(),
+      teroPains: c.tero.pains.map((text) => ({ text })),
+      teroBenefits: c.tero.benefits.map((b, i) => ({ n: "0" + (i + 1), title: b[0], text: b[1] })),
+      teroSteps: c.tero.steps.map((s, i) => ({ n: i + 1, title: s[0], text: s[1] })),
+      teroPriceList: c.tero.priceList.map((text) => ({ text })),
+      teroFaq: c.tero.faq.map((f) => ({ q: f[0], a: f[1] })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
         const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];

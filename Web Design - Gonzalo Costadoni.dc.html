@@ -264,6 +264,7 @@
   .tm-pill { font-style: normal; grid-row: span 2; grid-column: 2; padding: 4px 10px; border-radius: 999px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
   .tm-pill--ok { background: rgba(52,200,115,.16); color: #5FE29A; }
   .tm-pill--pronto { background: rgba(143,169,207,.14); color: #A9C1E4; }
+  .tm-pill--nuevo { background: rgba(245,179,53,.16); color: #F5C462; }
   .tm-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 28px; }
   .tm-cta { display: inline-flex; align-items: center; gap: 14px; padding: 7px 7px 7px 26px; border-radius: 999px; background: var(--ta); color: #06210F; font-size: 16px; font-weight: 600; transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s cubic-bezier(.2,.7,.3,1); }
   .tm-cta:hover { color: #06210F; transform: translateY(-2px); box-shadow: 0 18px 44px -14px var(--ta); }
@@ -874,9 +875,9 @@ const COPY = {
     tero: {
       label: "Tero · La app de tu negocio",
       title: "Una sola app para manejar tu negocio desde el celular.",
-      sub: "Tero arrancó avisándote a quién escribirle cada día. Ahora crece para que tengas todo en un mismo lugar: tus clientes, sus avisos, lo que te deben y cuánto cobrar cada cosa.",
-      mods: [["Avisos y clientes", "A quién escribirle hoy, con el WhatsApp ya armado.", 1], ["Cuentas y fiado", "Quién te debe, cuánto y el mensaje para cobrar.", 0], ["Precios y costos", "Cuánto te cuesta cada producto y cuánto cobrarlo.", 0]],
-      ok: "Disponible", pronto: "Próximamente",
+      sub: "Tus clientes, sus avisos, lo que te deben y cuánto cobrar cada cosa, en un mismo lugar. Al empezar elegís para qué la vas a usar y Tero prende solo lo que te sirve.",
+      mods: [["Avisos y clientes", "A quién escribirle hoy, con el WhatsApp ya armado.", 1], ["Cuentas y fiado", "Quién te debe, cuánto y el mensaje para cobrar.", 1], ["Precios y costos", "Cuánto te cuesta cada producto y cuánto cobrarlo.", 1], ["Se arma a tu medida", "Elegís qué querés resolver y Tero se ordena sola.", 2]],
+      ok: "Disponible", pronto: "Próximamente", nuevo: "Nuevo",
       cta: "Conocé Tero", cta2: "Probar 7 días gratis", mediaGo: "Ver cómo funciona ↗",
       note: "USD 10 por mes, todo incluido · Cancelás cuando quieras",
       medida: "¿Necesitás una app a medida para tu negocio?", medidaLink: "Escribime",
@@ -1064,9 +1065,9 @@ const COPY = {
     tero: {
       label: "Tero · Your business app",
       title: "One app to run your business from your phone.",
-      sub: "Tero started by telling you who to message each day. Now it is growing so you have everything in one place: your clients, their reminders, who owes you and what to charge for each thing.",
-      mods: [["Reminders & clients", "Who to message today, with the WhatsApp text ready.", 1], ["Accounts & credit", "Who owes you, how much and the message to collect.", 0], ["Prices & costs", "What each product costs you and what to charge.", 0]],
-      ok: "Available", pronto: "Coming soon",
+      sub: "Your clients, their reminders, who owes you and what to charge for each thing, in one place. When you start you pick what you need and Tero turns on only what helps you.",
+      mods: [["Reminders & clients", "Who to message today, with the WhatsApp text ready.", 1], ["Accounts & credit", "Who owes you, how much and the message to collect.", 1], ["Prices & costs", "What each product costs you and what to charge.", 1], ["Built around you", "Pick what you want to solve and Tero sets itself up.", 2]],
+      ok: "Available", pronto: "Coming soon", nuevo: "New",
       cta: "Discover Tero", cta2: "Try free for 7 days", mediaGo: "See how it works ↗",
       note: "USD 10 per month, everything included · Cancel anytime",
       medida: "Need a custom app for your business?", medidaLink: "Message me",
@@ -1459,7 +1460,7 @@ class Component extends DCLogic {
       teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
         try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
       })(),
-      teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
+      teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] === 2 ? c.tero.nuevo : m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] === 2 ? "tm-pill--nuevo" : m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
         const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];

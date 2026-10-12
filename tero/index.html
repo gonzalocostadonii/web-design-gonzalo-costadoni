@@ -44,13 +44,34 @@ section{position:relative}
 .grito{position:absolute;padding:6px 12px;border-radius:14px 14px 14px 4px;background:#fff;color:#0A1A26;font-size:13px;font-weight:700;white-space:nowrap;pointer-events:none;opacity:0;z-index:3}
 
 /* ---------- barra ---------- */
-.barra{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 0;transition:background .3s,backdrop-filter .3s,padding .3s}
-.barra.is-scroll{background:rgba(10,15,31,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:8px 0;border-bottom:1px solid var(--line)}
-.barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.marca{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.02em}
-.marca img{width:36px;height:36px;border-radius:10px}
-@media(max-width:420px){.marca small{display:none!important}}
-.marca small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+/* Barra siempre sólida: los teros pasan por debajo de ella, nunca por encima del logo o los botones. */
+.barra{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,15,31,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding .3s}
+.barra__in{display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:68px;transition:min-height .3s}
+.barra.is-scroll .barra__in{min-height:58px}
+.volver-web{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:13px;color:var(--ink2);white-space:nowrap;transition:color .2s,border-color .2s}
+.volver-web:hover{color:#fff;border-color:rgba(255,255,255,.35)}
+.volver-web img{width:24px;height:24px;border-radius:50%}
+.marca{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+.marca img{width:34px;height:34px;border-radius:10px}
+.menu{display:flex;align-items:center;gap:clamp(14px,2vw,28px);margin-left:auto;font-size:14.5px;color:var(--ink2)}
+.menu a{transition:color .2s}.menu a:hover{color:#fff}
+.menu__web{display:none}
+.barra__acc{display:flex;align-items:center;gap:10px}
+.btn--sm{font-size:14px;padding:5px 5px 5px 18px}.btn--sm i{width:32px;height:32px}
+.hamb{display:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:transparent;cursor:pointer;place-content:center;gap:6px}
+.hamb span{display:block;width:18px;height:1.5px;background:#fff;transition:transform .3s}
+.hamb[aria-expanded=true] span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.hamb[aria-expanded=true] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+@media(max-width:1023px){
+  .volver-web b{display:none}
+  .menu{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 22px;background:rgba(10,15,31,.97);border-bottom:1px solid var(--line);font-size:20px;font-weight:600;color:#E8EDF7;transform:translateY(-110%);visibility:hidden;transition:transform .35s var(--ease),visibility .35s}
+  .menu.is-open{transform:none;visibility:visible}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu__web{display:block;font-size:15px;font-weight:500;color:var(--ta);border-bottom:0!important}
+  .hamb{display:grid}
+  .barra__acc{margin-left:auto}
+}
+@media(max-width:420px){.barra__in{gap:8px}.barra__acc{gap:6px}.barra__acc .btn--sm{padding:0 14px;min-height:38px;font-size:13px}.barra__acc .btn--sm i{display:none}.volver-web{padding:6px 8px}.volver-web img{display:none}.marca{font-size:17px}.marca img{width:30px;height:30px}.hamb{width:38px;height:38px}}
 .btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;background:var(--ta);color:#06210F;font-weight:600;font-size:15px;transition:transform .28s var(--ease),box-shadow .28s var(--ease);white-space:nowrap}
 .btn:hover{transform:translateY(-2px);box-shadow:0 18px 44px -14px var(--ta)}
 .btn i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#0A0F1F;color:#fff;font-style:normal;font-size:14px}
@@ -59,10 +80,10 @@ section{position:relative}
 .btn--ghost:hover{box-shadow:none;border-color:rgba(255,255,255,.5)}
 
 /* ---------- hero ---------- */
-.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;background:radial-gradient(900px 620px at 85% 20%,rgba(45,92,150,.45),transparent 70%),radial-gradient(700px 500px at 5% 95%,rgba(52,200,115,.14),transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg) 90%)}
+.hero{min-height:100svh;display:flex;align-items:center;padding:clamp(190px,24vh,230px) 0 80px;overflow:hidden;background:radial-gradient(900px 620px at 85% 20%,rgba(45,92,150,.45),transparent 70%),radial-gradient(700px 500px at 5% 95%,rgba(52,200,115,.14),transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg) 90%)}
 .hero .wrap{position:relative;z-index:2;display:grid;gap:clamp(40px,6vw,80px);align-items:center}
 @media(min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
-.hero h1{margin-top:20px;font-size:clamp(40px,6.6vw,92px);line-height:.98;letter-spacing:-.05em;font-weight:700;color:#fff}
+.hero h1{margin-top:18px;font-size:clamp(38px,5.4vw,76px);line-height:.98;letter-spacing:-.05em;font-weight:700;color:#fff}
 .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
 .hero h1 .w>span{display:inline-block}
 .hero h1 em{font-style:normal;color:var(--ta)}
@@ -174,7 +195,7 @@ section{position:relative}
 .aro__val{stroke:var(--ta);stroke-linecap:round}
 .aro__txt{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
 .aro__txt b{font-size:clamp(48px,6vw,72px);font-weight:700;letter-spacing:-.05em;color:#fff;line-height:1}
-.aro__txt span{font-size:13px;color:var(--ink2);margin-top:6px}
+.aro__txt>span{font-size:14px;color:var(--ink2);margin-top:8px}
 .res-nota{margin-top:14px;font-size:12.5px;color:var(--ink3)}
 
 /* ---------- precio ---------- */
@@ -189,14 +210,21 @@ section{position:relative}
 .lista li::before{content:"✓";position:absolute;left:0;color:var(--ta);font-weight:700}
 
 /* ---------- preguntas ---------- */
-.faq{padding:clamp(70px,10vh,120px) 0}
-.faq-list{margin-top:34px;max-width:880px}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-size:17px;font-weight:500;color:#fff}
+/* Preguntas: título a la izquierda y tarjetas que se abren con animación a la derecha */
+.faq{padding:clamp(80px,11vh,130px) 0}
+.faq-in{display:grid;gap:34px}
+@media(min-width:960px){.faq-in{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}.faq-cab{position:sticky;top:110px}}
+.faq-cab p.lead{margin-top:16px}
+.faq-cab a{color:var(--ta);text-decoration:underline;text-underline-offset:3px}
+.faq-list{display:grid;gap:12px}
+.faq details{border-radius:18px;background:rgba(255,255,255,.035);border:1px solid var(--line);transition:background .3s,border-color .3s}
+.faq details[open]{background:rgba(52,200,115,.06);border-color:rgba(52,200,115,.3)}
+.faq summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;font-size:16.5px;font-weight:500;color:#fff}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;font-weight:300;line-height:1;color:var(--ink3);transition:transform .3s}
-.faq details[open] summary::after{transform:rotate(45deg);color:#fff}
-.faq details p{padding-bottom:20px;font-size:15.5px;color:var(--ink2);max-width:70ch}
+.faq summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .35s var(--ease),background-color .3s}
+.faq details[open] summary::after{transform:rotate(135deg);background-color:var(--ta)}
+.faq-resp{overflow:hidden}
+.faq-resp p{padding:0 22px 20px;font-size:15.5px;color:var(--ink2);max-width:62ch}
 
 /* ---------- final ---------- */
 .final{padding:clamp(110px,16vh,190px) 0;text-align:center;overflow:hidden;background:radial-gradient(800px 500px at 50% 100%,rgba(52,200,115,.22),transparent 70%),linear-gradient(180deg,var(--bg),var(--bg2))}
@@ -233,7 +261,7 @@ section{position:relative}
     <path d="M121 36 L133 37.6 L121 39.8 Z" fill="#E98A96"/><path d="M129 37.1 L133 37.6 L129 38.6 Z" fill="#0E1114"/>
     <g class="tero-ala">
       <path d="M90 44 C86 22 74 6 52 0 C46 1 48 9 53 16 C60 28 70 40 80 50 Z" fill="#46525C"/>
-      <path d="M64 13 C70 22 77 33 83 44 L78 46 C71 36 64 25 59 16 Z" fill="#F4F6F8"/>
+      <path d="M57 7 C62 13 66 19 69 25 L66.5 26.5 C63 20 59 14 55 9.5 Z" fill="#F4F6F8"/>
       <path d="M52 0 C46 1 48 9 53 16 C56 10 56 4 52 0 Z" fill="#0E1114"/>
       <path d="M80 50 C82 44 86 41 90 44 L89 50 Z" fill="#8C6A47"/>
     </g>
@@ -241,9 +269,17 @@ section{position:relative}
 </svg>
 
 <header class="barra" id="barra">
-  <div class="wrap">
-    <a class="marca" href="../#tero"><img src="../app-tero-logo.png" alt="" width="36" height="36"><span>Tero<small>por GC Web Design</small></span></a>
-    <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+  <div class="wrap barra__in">
+    <a class="volver-web" href="../" aria-label="Volver a GC Web Design"><span aria-hidden="true">←</span><img src="../logo-gc.png" alt="" width="30" height="30"><b>GC Web Design</b></a>
+    <a class="marca" href="#inicio"><img src="../app-tero-logo.png" alt="" width="36" height="36"><span>Tero</span></a>
+    <nav class="menu" id="menu" aria-label="Secciones">
+      <a href="#como">Cómo funciona</a><a href="#modulos">Herramientas</a><a href="#precio">Precio</a><a href="#preguntas">Preguntas</a>
+      <a class="menu__web" href="../">← Volver a GC Web Design</a>
+    </nav>
+    <div class="barra__acc">
+      <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+      <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -409,14 +445,16 @@ section{position:relative}
   <!-- PREGUNTAS -->
   <section class="faq" id="preguntas">
     <div class="wrap">
-      <p class="eti" data-rev>Preguntas frecuentes</p>
+      <div class="faq-in">
+      <div class="faq-cab"><p class="eti" data-rev>Preguntas frecuentes</p><h2 style="margin-top:16px" data-rev>Lo que más nos preguntan.</h2><p class="lead" data-rev>¿Te quedó otra duda? <a href="https://wa.me/5492984893772?text=Hola%20Gonzalo%2C%20tengo%20una%20consulta%20sobre%20Tero." target="_blank" rel="noopener">Escribime por WhatsApp</a>.</p></div>
       <div class="faq-list">
-        <details><summary>¿Los mensajes se mandan solos?</summary><p>No. Tero arma el mensaje y abre WhatsApp con el texto listo, y vos tocás enviar. Así salen de tu número y tus clientes te reconocen.</p></details>
-        <details><summary>¿Sirve para mi rubro?</summary><p>Sirve para cualquier negocio con clientes que vuelven. Trae rubros listos y podés crear tus propios tipos de aviso y los datos que quieras guardar.</p></details>
-        <details><summary>¿Dónde quedan mis datos?</summary><p>En tu teléfono. No hay cuentas ni servidores con la información de tus clientes. Podés descargar una copia cuando quieras.</p></details>
-        <details><summary>¿Funciona en iPhone?</summary><p>Sí, en iPhone y en Android, desde el navegador o instalada como app. La notificación diaria por ahora funciona solo en Android.</p></details>
-        <details><summary>¿Cuándo llegan Cuentas y fiado y Precios y costos?</summary><p>Están en desarrollo. Si ya tenés Tero, se suman solos a tu app cuando estén listos, sin pagar más.</p></details>
-        <details><summary>¿Cómo cancelo?</summary><p>Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.</p></details>
+        <details><summary>¿Los mensajes se mandan solos?</summary><div class="faq-resp"><p>No. Tero arma el mensaje y abre WhatsApp con el texto listo, y vos tocás enviar. Así salen de tu número y tus clientes te reconocen.</p></div></details>
+        <details><summary>¿Sirve para mi rubro?</summary><div class="faq-resp"><p>Sirve para cualquier negocio con clientes que vuelven. Trae rubros listos y podés crear tus propios tipos de aviso y los datos que quieras guardar.</p></div></details>
+        <details><summary>¿Dónde quedan mis datos?</summary><div class="faq-resp"><p>En tu teléfono. No hay cuentas ni servidores con la información de tus clientes. Podés descargar una copia cuando quieras.</p></div></details>
+        <details><summary>¿Funciona en iPhone?</summary><div class="faq-resp"><p>Sí, en iPhone y en Android, desde el navegador o instalada como app. La notificación diaria por ahora funciona solo en Android.</p></div></details>
+        <details><summary>¿Cuándo llegan Cuentas y fiado y Precios y costos?</summary><div class="faq-resp"><p>Están en desarrollo. Si ya tenés Tero, se suman solos a tu app cuando estén listos, sin pagar más.</p></div></details>
+        <details><summary>¿Cómo cancelo?</summary><div class="faq-resp"><p>Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.</p></div></details>
+      </div>
       </div>
     </div>
   </section>
@@ -451,6 +489,23 @@ section{position:relative}
   } catch (e) { /* sin UTM */ }
 
   var barra = document.getElementById('barra');
+  /* Menú del celular */
+  var hamb = document.getElementById('hamb'), menu = document.getElementById('menu');
+  function cerrarMenu() { menu.classList.remove('is-open'); hamb.setAttribute('aria-expanded', 'false'); hamb.setAttribute('aria-label', 'Abrir menú'); }
+  hamb.addEventListener('click', function () { var abrir = !menu.classList.contains('is-open'); menu.classList.toggle('is-open', abrir); hamb.setAttribute('aria-expanded', String(abrir)); hamb.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú'); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) cerrarMenu(); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrarMenu(); });
+
+  /* Preguntas: abren y cierran con una animación de alto (si el navegador no tiene GSAP, funcionan igual). */
+  document.querySelectorAll('.faq details').forEach(function (d) {
+    var s = d.querySelector('summary'), r = d.querySelector('.faq-resp');
+    s.addEventListener('click', function (e) {
+      if (!window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      e.preventDefault();
+      if (d.open) gsap.to(r, { height: 0, duration: .3, ease: 'power2.in', onComplete: function () { d.open = false; gsap.set(r, { clearProps: 'height' }); } });
+      else { d.open = true; gsap.from(r, { height: 0, duration: .4, ease: 'power3.out', clearProps: 'height' }); }
+    });
+  });
   addEventListener('scroll', function () { barra.classList.toggle('is-scroll', scrollY > 30); }, { passive: true });
 
   /* El título se parte en palabras para que entren una por una. */
@@ -488,7 +543,9 @@ section{position:relative}
         t.style.opacity = gsap.utils.mapRange(opts.min, opts.max, .45, .95, ancho);
         function vuelo(primera) {
           /* Vuelan por las franjas libres de cielo (arriba y abajo del texto) para no tapar lo que hay que leer. */
-          var banda = opts.bandas[i % opts.bandas.length], y0 = gsap.utils.random(banda[0], banda[1]) * H(), sube = gsap.utils.random(-.04, .04) * H();
+          /* Valores > 1 son píxeles desde arriba de la sección; los demás, fracción del alto. */
+          var banda = opts.bandas[i % opts.bandas.length], px = function (v) { return v > 1 ? v : v * H(); };
+          var y0 = gsap.utils.random(px(banda[0]), px(banda[1])), sube = gsap.utils.random(-8, 8);
           var path = [{ x: -ancho - 40, y: y0 }, { x: W() * .33, y: y0 + sube * .6 }, { x: W() * .66, y: y0 + sube }, { x: W() + ancho + 40, y: y0 + sube * .4 }];
           gsap.fromTo(t, { x: path[0].x, y: path[0].y }, {
             motionPath: { path: path, curviness: 1.25, autoRotate: false },
@@ -530,7 +587,7 @@ section{position:relative}
     }
 
     /* Hero: entra la bandada, el título palabra por palabra y el celular flotando. */
-    var heroTeros = bandada(document.getElementById('bandada-hero'), chico ? 4 : 7, { min: chico ? 54 : 70, max: chico ? 96 : 150, dmin: 9, dmax: 15, escalon: .55, pausa: 2.5, bandas: chico ? [[.02, .055], [.96, .985]] : [[.012, .055], [.015, .065]] });
+    var heroTeros = bandada(document.getElementById('bandada-hero'), chico ? 4 : 7, { min: chico ? 54 : 70, max: chico ? 96 : 150, dmin: 9, dmax: 15, escalon: .55, pausa: 2.5, bandas: chico ? [[80, 150], [.965, .985]] : [[84, 165], [80, 150]] });
     gritos(document.getElementById('bandada-hero'), heroTeros);
     gsap.timeline({ defaults: { ease: 'power4.out' } })
       .from('#titulo .w > span', { yPercent: 110, duration: 1.1, stagger: .06 })

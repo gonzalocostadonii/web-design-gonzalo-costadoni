@@ -12,11 +12,11 @@
 <script src="./card-fan-carousel.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Web Design Gonzalo Costadoni</title>
-<meta name="description" content="Diseño y desarrollo web a medida, tiendas online y micro apps para negocios. General Roca, Río Negro, Argentina.">
+<meta name="description" content="Diseño y desarrollo web a medida, tiendas online y Tero, la app para manejar tu negocio. General Roca, Río Negro, Argentina.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Web Design Gonzalo Costadoni">
 <meta property="og:title" content="Web Design Gonzalo Costadoni">
-<meta property="og:description" content="Webs a medida, tiendas online y micro apps para negocios. General Roca, Río Negro.">
+<meta property="og:description" content="Webs a medida, tiendas online y Tero, la app para manejar tu negocio.">
 <meta property="og:url" content="https://web-design-gonzalo-costadoni.vercel.app/">
 <meta property="og:image" content="https://web-design-gonzalo-costadoni.vercel.app/og-web.png">
 <meta property="og:image:width" content="1200">
@@ -227,205 +227,47 @@
     .pd-donut-c { text-align: center; }
   }
   @media (max-width: 479px) { .fan-layout { --card-w: 12.5rem; --card-h: 16.5rem; height: min(23rem, 72vh); } .fan-card { padding: 18px 16px 20px; border-radius: 16px; } .fan-card__icon { width: 38px; height: 38px; border-radius: 10px; } .fan-card__icon span { width: 19px; height: 19px; } .fan-card__title { font-size: 16px; margin-bottom: 8px; } .fan-card__desc { font-size: 13px; line-height: 1.5; } }
-  /* Tero: mini landing (#tero), con la paleta de la app */
-  .tl { --ta: #34C873; --tg: #2D5C96; position: relative; overflow: hidden; background: radial-gradient(900px 600px at 90% 0%, rgba(45,92,150,.35), transparent 70%), linear-gradient(180deg, #0A1A26, #0A0F1F 80%); }
-  .tl-hero { display: grid; gap: clamp(36px, 5vw, 72px); align-items: center; }
-  @media (min-width: 900px) { .tl-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
-  .tl-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: .16em; font-weight: 500; text-transform: uppercase; color: var(--ta); }
-  .tl-label img { border-radius: 8px; }
-  .tl-title { margin: 18px 0 0; font-size: clamp(34px, 5vw, 62px); line-height: 1.04; letter-spacing: -.04em; font-weight: 600; text-wrap: balance; color: #FFFFFF; }
-  .tl-sub { margin: 20px 0 0; max-width: 54ch; font-size: clamp(16px, 1.35vw, 18px); line-height: 1.7; color: #A9B6CE; }
-  .tl-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
-  .tl-cta { display: inline-flex; align-items: center; gap: 14px; padding: 7px 7px 7px 26px; border-radius: 999px; background: var(--ta); color: #06210F; font-size: 16px; font-weight: 600; transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s cubic-bezier(.2,.7,.3,1); }
-  .tl-cta:hover { color: #06210F; transform: translateY(-2px); box-shadow: 0 18px 44px -14px var(--ta); }
-  .tl-cta__ico { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px; }
-  .tl-note { font-size: 13px; color: #8E9CB5; }
-  .tl-media { position: relative; justify-self: center; width: min(100%, 420px); }
-  .tl-glow { position: absolute; inset: 12% 8%; border-radius: 50%; background: var(--ta); filter: blur(90px); opacity: .22; }
-  .tl-video { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; border: 1px solid rgba(255,255,255,.08); background: #0A1A26; }
-  .tl-h3 { margin: 0 0 18px; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -.025em; font-weight: 600; color: #FFFFFF; }
-  .tl-h3--c { margin-top: clamp(56px, 8vh, 90px); }
-  .tl-pains { margin-top: clamp(56px, 8vh, 90px); padding: clamp(22px, 3vw, 34px); border-radius: 20px; border: 1px solid rgba(240,164,147,.18); background: rgba(240,164,147,.05); }
-  .tl-pains__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  @media (min-width: 900px) { .tl-pains__list { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
-  .tl-pains__list li { position: relative; padding-left: 26px; font-size: 15.5px; line-height: 1.6; color: #D5DDEB; }
-  .tl-pains__list li::before { content: "✕"; position: absolute; left: 0; top: 0; color: #F0A493; font-weight: 600; }
-  .tl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(14px, 1.8vw, 22px); }
-  .tl-card { display: grid; gap: 10px; align-content: start; padding: 24px 22px; border-radius: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); }
-  .tl-card__n { font-size: 11px; letter-spacing: .1em; color: var(--ta); font-weight: 500; }
-  .tl-card b { font-size: 18px; font-weight: 600; letter-spacing: -.015em; color: #FFFFFF; }
-  .tl-card p { margin: 0; font-size: 14.5px; line-height: 1.65; color: #A9B6CE; }
-  .tl-split { display: grid; gap: clamp(36px, 5vw, 64px); align-items: center; margin-top: clamp(56px, 8vh, 90px); }
-  @media (min-width: 900px) { .tl-split { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
-  .tl-result { display: grid; gap: 12px; }
-  .tl-result__label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8E9CB5; }
-  .tl-result__box { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 24px; border-radius: 20px; background: linear-gradient(135deg, rgba(52,200,115,.16), rgba(45,92,150,.18)); border: 1px solid rgba(52,200,115,.28); }
-  .tl-result__box b { font-size: clamp(40px, 5vw, 56px); font-weight: 600; letter-spacing: -.04em; color: var(--ta); }
-  .tl-result__box p { margin: 0; font-size: 15.5px; line-height: 1.6; color: #E8EDF7; }
-  .tl-result__note { font-size: 12px; color: #6E7F9E; }
-  .tl-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
-  .tl-steps li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; font-size: 15px; line-height: 1.6; color: #A9B6CE; }
-  .tl-steps b { display: block; color: #FFFFFF; font-weight: 500; }
-  .tl-steps__n { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(52,200,115,.5); color: var(--ta); font-size: 13px; }
-  .tl-price { display: grid; gap: 24px; align-items: center; margin-top: clamp(56px, 8vh, 90px); padding: clamp(24px, 3.5vw, 40px); border-radius: 24px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); }
-  @media (min-width: 900px) { .tl-price { grid-template-columns: auto 1fr auto; gap: 40px; } }
-  .tl-price .tl-h3 { margin-bottom: 8px; }
-  .tl-price__big { margin: 0; font-size: 16px; color: #A9B6CE; }
-  .tl-price__big b { font-size: clamp(36px, 4vw, 48px); font-weight: 600; letter-spacing: -.035em; color: #FFFFFF; }
-  .tl-price__alt { margin: 4px 0 0; font-size: 13.5px; color: #8E9CB5; }
-  .tl-price__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .tl-price__list li { position: relative; padding-left: 26px; font-size: 14.5px; line-height: 1.55; color: #D5DDEB; }
-  .tl-price__list li::before { content: "✓"; position: absolute; left: 0; color: var(--ta); font-weight: 600; }
-  .tl-faq { margin-top: clamp(56px, 8vh, 90px); max-width: 860px; }
-  .tl-faq__item { border-bottom: 1px solid rgba(255,255,255,.08); }
-  .tl-faq__item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 16.5px; font-weight: 500; color: #E8EDF7; }
-  .tl-faq__item summary::-webkit-details-marker { display: none; }
-  .tl-faq__item summary::after { content: "+"; font-size: 22px; font-weight: 300; line-height: 1; color: #8E9CB5; transition: transform .3s; }
-  .tl-faq__item[open] summary::after { transform: rotate(45deg); color: #FFFFFF; }
-  .tl-faq__item p { margin: 0 0 18px; font-size: 15px; line-height: 1.7; color: #A9B6CE; max-width: 70ch; }
-  .tl-faq__item summary:focus-visible { outline: 2px solid var(--ta); outline-offset: 4px; }
-  @media (max-width: 899px) { .tl-copy, .tl-pains, .tl-split, .tl-price, .tl-h3--c { text-align: center; } .tl-ctas { justify-content: center; } .tl-label { justify-content: center; } .tl-sub { margin-left: auto; margin-right: auto; } .tl-pains__list li, .tl-price__list li, .tl-steps li, .tl-faq, .tl-faq * { text-align: left; } .tl-price .tl-cta { justify-self: center; } }
-  @media (prefers-reduced-motion: reduce) { .tl-cta { transition: none; } }
-
-  /* (03) Apps: tarjetas que abren cada micro app */
-  .gc-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: 44px; }
-  .gc-app { display: flex; flex-direction: column; gap: 12px; padding: 26px 24px 24px; border-radius: 16px; background: rgba(255,255,255,.028); border: 1px solid rgba(255,255,255,.07); color: #E8EDF7; transition: background .35s cubic-bezier(.2,.7,.3,1), border-color .35s, transform .35s cubic-bezier(.2,.7,.3,1); }
-  .gc-app:hover { color: #E8EDF7; background: rgba(30,58,110,.14); border-color: rgba(143,169,207,.35); transform: translateY(-3px); }
-  /* The clips are 4:5 with the phone centred; a square crop keeps the card compact without cutting the phone or its chips. */
-  .gc-app__media { display: block; align-self: stretch; margin: -26px -24px 6px; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px 16px 0 0; border-bottom: 1px solid rgba(255,255,255,.07); background: #0A0F1F; }
-  .gc-app__vid { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .gc-app__top { display: flex; align-items: center; gap: 10px; }
-  .gc-app__tag { font-size: 10.5px; letter-spacing: .12em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; }
-  .gc-app__name { font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; letter-spacing: -.025em; }
-  .gc-app__desc { font-size: 15px; line-height: 1.6; color: #A9B6CE; }
-  .gc-app__for { font-size: 12px; line-height: 1.6; color: #6E7F9E; }
-  .gc-app__go { padding-top: 2px; font-size: 13.5px; font-weight: 500; color: #8FA9CF; }
-  .gc-app:hover .gc-app__go { color: #FFFFFF; }
-  .gc-app__price { margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07); font-size: 13px; color: #A9B6CE; }
-  .gc-app__price b { font-size: 17px; font-weight: 600; color: #FFFFFF; letter-spacing: -.01em; }
-  .gc-app__price i { font-style: normal; color: #4E5D78; margin: 0 4px; }
-  .gc-app__mine { font-size: 13px; color: #6E7F9E; }
-  .gc-app__mine a { color: #8FA9CF; }
-  .gc-app__mine a:hover { color: #FFFFFF; }
-  @media (max-width: 699px) { .gc-app { align-items: center; text-align: center; } .gc-app__top { flex-direction: column; } }
-  /* Logo de cada app en su tarjeta, color propio (--c) en el hover y un brillo que sigue al mouse (--mx/--my) */
-  .gc-app { position: relative; overflow: hidden; isolation: isolate; }
-  .gc-app::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--c, #8FA9CF) 22%, transparent), transparent 60%); transition: opacity .4s ease; pointer-events: none; }
-  .gc-app:hover::before { opacity: 1; }
-  .gc-app:hover { border-color: color-mix(in srgb, var(--c, #8FA9CF) 55%, transparent); box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--c, #8FA9CF) 45%, transparent); }
-  .gc-app__logo { width: 40px; height: 40px; border-radius: 11px; flex: none; object-fit: cover; box-shadow: 0 8px 20px -8px rgba(0,0,0,.6); transition: transform .5s cubic-bezier(.2,.7,.3,1); }
-  .gc-app:hover .gc-app__logo { transform: rotate(-8deg) scale(1.12); }
-  .gc-app__vid { transition: transform .8s cubic-bezier(.2,.7,.3,1); }
-  .gc-app:hover .gc-app__vid { transform: scale(1.05); }
-  .gc-app__arrow { display: inline-block; transition: transform .3s cubic-bezier(.2,.7,.3,1); }
-  .gc-app:hover .gc-app__arrow { transform: translate(3px, -3px); }
-  .gc-app:hover .gc-app__go { color: var(--c, #FFFFFF); }
-
-  /* (03) Apps: vitrina con el video de cada app. La paleta de la app elegida vive en --ax-* y se anima al cambiar. */
-  @property --ax-a { syntax: '<color>'; inherits: true; initial-value: #F5B335; }
-  @property --ax-b { syntax: '<color>'; inherits: true; initial-value: #2F5AA8; }
-  @property --ax-bg { syntax: '<color>'; inherits: true; initial-value: #0B1630; }
-  .ax { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, #0A0F1F 0%, var(--ax-bg) 45%, #0A0F1F 100%); transition: --ax-a .9s ease, --ax-b .9s ease, --ax-bg .9s ease; }
-  .ax-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-  .ax-blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .5; will-change: transform; }
-  .ax-blob--1 { width: 46vw; height: 46vw; max-width: 640px; max-height: 640px; right: -8vw; top: 18%; background: radial-gradient(circle, var(--ax-b), transparent 68%); animation: axdrift1 18s ease-in-out infinite alternate; }
-  .ax-blob--2 { width: 34vw; height: 34vw; max-width: 480px; max-height: 480px; left: -10vw; bottom: 8%; background: radial-gradient(circle, color-mix(in srgb, var(--ax-a) 55%, transparent), transparent 70%); opacity: .28; animation: axdrift2 22s ease-in-out infinite alternate; }
-  .ax-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(143,169,207,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(143,169,207,.06) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse 70% 55% at 70% 45%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 55% at 70% 45%, #000 20%, transparent 75%); animation: axgrid 12s linear infinite; }
-  @keyframes axdrift1 { from { transform: translate(0, 0) scale(1); } to { transform: translate(-6vw, 8vh) scale(1.15); } }
-  @keyframes axdrift2 { from { transform: translate(0, 0) scale(1); } to { transform: translate(8vw, -6vh) scale(1.2); } }
-  @keyframes axgrid { from { background-position: 0 0; } to { background-position: 0 64px; } }
-  .ax-label { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase; }
-  .ax-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--ax-a); box-shadow: 0 0 0 0 var(--ax-a); animation: axping 2.4s ease-out infinite; }
-  @keyframes axping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ax-a) 60%, transparent); } 80%, 100% { box-shadow: 0 0 0 10px transparent; } }
-  .ax-title { margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch; }
-  .ax-title em { font-style: normal; color: var(--ax-a); }
-  .ax-sub { margin: 18px 0 0; font-size: clamp(15px, 1.25vw, 17px); line-height: 1.7; color: #A9B6CE; max-width: 58ch; }
-  /* cinta de rubros */
-  .ax-marquee { margin: 38px 0 0; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-  .ax-marquee__track { display: flex; width: max-content; animation: gcmarquee 38s linear infinite; }
-  .ax-marquee:hover .ax-marquee__track { animation-play-state: paused; }
-  .ax-mq { display: inline-flex; align-items: center; gap: 14px; padding: 0 14px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #8E9CB5; white-space: nowrap; }
-  .ax-mq img { width: 26px; height: 26px; border-radius: 8px; }
-  .ax-mq b { width: 4px; height: 4px; border-radius: 50%; background: rgba(143,169,207,.4); }
-  /* vitrina */
-  .ax-show { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 5vw, 80px); align-items: center; margin-top: clamp(44px, 6vw, 72px); }
-  .ax-tabs { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: 5px; border-radius: 999px; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.1); max-width: 440px; }
-  .ax-tabs__pill { position: absolute; top: 5px; bottom: 5px; left: 5px; width: calc((100% - 10px) / 3); border-radius: 999px; background: var(--ax-a); box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--ax-a) 70%, transparent); transition: transform .55s cubic-bezier(.7,0,.2,1); }
-  .ax-tab { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 6px 10px; border: 0; border-radius: 999px; background: none; color: #C9D4E6; font-size: 15px; font-weight: 500; cursor: pointer; overflow: hidden; transition: color .4s ease; }
-  .ax-tab:hover { color: #FFFFFF; }
-  .ax-tab--on, .ax-tab--on:hover { color: #0A0F1F; }
-  .ax-tab img { width: 26px; height: 26px; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.7,.3,1); }
-  .ax-tab--on img { transform: rotate(-10deg) scale(1.1); }
-  .ax-tab:focus-visible { outline: 3px solid var(--ax-a); outline-offset: 3px; }
-  .ax-tab__bar { position: absolute; left: 18%; right: 18%; bottom: 5px; height: 2px; border-radius: 2px; background: rgba(10,15,31,.18); overflow: hidden; opacity: 0; transition: opacity .3s; }
-  .ax-tab--on .ax-tab__bar { opacity: 1; }
-  .ax-tab__bar b { position: absolute; inset: 0; background: #0A0F1F; transform-origin: left; transform: scaleX(0); }
-  .ax-meta { display: flex; align-items: center; gap: 16px; margin-top: 34px; }
-  .ax-logo { width: 64px; height: 64px; border-radius: 18px; flex: none; box-shadow: 0 18px 40px -14px color-mix(in srgb, var(--ax-a) 60%, transparent), 0 0 0 1px rgba(255,255,255,.08); }
-  .ax-tag { display: block; font-size: 11px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: var(--ax-a); }
-  .ax-name { margin: 2px 0 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; font-weight: 600; letter-spacing: -.035em; }
-  .ax-desc { margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #A9B6CE; max-width: 48ch; }
-  .ax-how { margin-top: 28px; font-size: 11px; letter-spacing: .16em; font-weight: 500; text-transform: uppercase; color: #8E9CB5; }
-  .ax-steps { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 4px; max-width: 52ch; counter-reset: ax; }
-  .ax-step { position: relative; display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; padding: 12px 0; font-size: 15px; line-height: 1.55; color: #A9B6CE; }
-  .ax-step + .ax-step { border-top: 1px solid rgba(255,255,255,.06); }
-  .ax-step b { display: block; color: #FFFFFF; font-weight: 600; }
-  .ax-step__n { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--ax-a) 60%, transparent); color: var(--ax-a); font-size: 13px; font-weight: 600; }
-  .ax-for { margin: 16px 0 0; font-size: 12.5px; color: #6E7F9E; }
-  .ax-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 26px; }
-  .ax-cta { white-space: nowrap; display: inline-flex; align-items: center; gap: 14px; padding: 7px 7px 7px 24px; border-radius: 999px; background: var(--ax-a); color: #0A0F1F; font-size: 15.5px; font-weight: 600; box-shadow: 0 16px 40px -16px color-mix(in srgb, var(--ax-a) 80%, transparent); transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s; }
-  .ax-cta:hover { color: #0A0F1F; transform: translateY(-2px); box-shadow: 0 22px 50px -16px color-mix(in srgb, var(--ax-a) 95%, transparent); }
-  .ax-cta__ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #FFFFFF; font-size: 15px; transition: transform .3s cubic-bezier(.2,.7,.3,1); }
-  .ax-cta:hover .ax-cta__ico { transform: rotate(45deg); }
-  .ax-price { font-size: 13px; color: #A9B6CE; }
-  .ax-price b { font-size: 17px; font-weight: 600; color: #FFFFFF; }
-  /* escenario del celular: inclinación con el mouse (--rx/--ry), flotación continua y entrada con GSAP en capas separadas */
-  .ax-stage { position: relative; display: grid; place-items: center; min-height: clamp(520px, 52vw, 680px); perspective: 1200px; }
-  .ax-ring { position: absolute; width: min(520px, 92%); aspect-ratio: 1; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 20%, color-mix(in srgb, var(--ax-a) 55%, transparent) 35%, transparent 50% 70%, color-mix(in srgb, var(--ax-b) 80%, transparent) 85%, transparent); -webkit-mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%); mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%); animation: axspin 14s linear infinite; }
-  .ax-ring--2 { width: min(400px, 74%); animation-duration: 20s; animation-direction: reverse; opacity: .6; }
-  .ax-glow { position: absolute; width: min(380px, 70%); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--ax-a) 30%, transparent), transparent 65%); filter: blur(30px); animation: axbreathe 5s ease-in-out infinite; }
-  @keyframes axspin { to { transform: rotate(360deg); } }
-  @keyframes axbreathe { 0%, 100% { transform: scale(.9); opacity: .7; } 50% { transform: scale(1.08); opacity: 1; } }
-  .ax-tilt { position: relative; z-index: 2; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.7,.3,1); }
-  .ax-float { perspective: 1000px; animation: axfloat 6s ease-in-out infinite; }
-  @keyframes axfloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-  .ax-phone { position: relative; width: clamp(240px, 22vw, 300px); aspect-ratio: 9 / 16; border-radius: 40px; padding: 9px; background: #131C33; border: 1.5px solid rgba(143,169,207,.3); box-shadow: 0 60px 120px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.04), 0 30px 80px -30px color-mix(in srgb, var(--ax-a) 45%, transparent); }
-  .ax-phone::before { content: ""; position: absolute; top: 18px; left: 50%; width: 70px; height: 20px; margin-left: -35px; border-radius: 999px; background: #0A0F1F; z-index: 2; }
-  .ax-phone video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px; background: #0A0F1F; }
-  .ax-play { position: absolute; right: 18px; bottom: 18px; z-index: 3; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(10,15,31,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #FFFFFF; font-size: 13px; cursor: pointer; transition: background .3s, transform .3s; }
-  .ax-play:hover { background: rgba(10,15,31,.8); transform: scale(1.08); }
-  .ax-play:focus-visible { outline: 3px solid var(--ax-a); outline-offset: 2px; }
-  .ax-badge { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 14px; background: rgba(13,21,38,.72); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.7); font-size: 13px; font-weight: 500; color: #E8EDF7; white-space: nowrap; animation: axbob 5s ease-in-out infinite; }
-  .ax-badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--ax-a); box-shadow: 0 0 12px var(--ax-a); }
-  .ax-badge--0 { left: 0; top: 16%; }
-  .ax-badge--1 { right: 0; top: 70%; animation-delay: -1.7s; }
-  .ax-badge--2 { left: 2%; bottom: 10%; animation-delay: -3.3s; }
-  @keyframes axbob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
-  /* Celular/tablet: pestañas arriba, después el teléfono y abajo el texto. Las etiquetas pasan a una fila bajo el teléfono. */
-  @media (max-width: 899px) {
-    .ax-show { grid-template-columns: 1fr; gap: 0; }
-    .ax-copy { display: contents; }
-    .ax-tabs { order: -2; margin: 0 auto; width: 100%; }
-    .ax-stage { order: -1; min-height: 0; padding: 40px 0 8px; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 8px; }
-    .ax-tilt { flex-basis: 100%; display: grid; place-items: center; margin-bottom: 18px; }
-    .ax-ring, .ax-glow { top: 40px; }
-    .ax-badge { position: relative; inset: auto; animation: none; }
-    .ax-meta { margin-top: 30px; }
-  }
-  @media (max-width: 699px) {
-    .ax-meta { justify-content: center; text-align: left; }
-    .ax-steps { margin-left: auto; margin-right: auto; text-align: left; }
-    .ax-row { justify-content: center; }
-    .ax-phone { width: min(250px, 64vw); border-radius: 34px; padding: 7px; }
-    .ax-phone video { border-radius: 28px; }
-    .ax-badge { padding: 8px 11px; font-size: 11.5px; gap: 7px; border-radius: 11px; }
-    .ax-tab { font-size: 14px; gap: 7px; } .ax-tab img { width: 22px; height: 22px; }
-  }
-  @media (max-width: 380px) { .ax-tab img { display: none; } }
-  @media (prefers-reduced-motion: reduce) {
-    .ax-blob, .ax-grid, .ax-ring, .ax-glow, .ax-float, .ax-badge, .ax-label i, .ax-marquee__track { animation: none !important; }
-    .ax-tilt { transform: none !important; }
-  }
+  /* Tero (#tero): sección corta de la super app; la landing completa está en /tero */
+  .tm { --ta: #34C873; position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(900px 560px at 88% 10%, rgba(45,92,150,.38), transparent 70%), linear-gradient(180deg, #0A1A26, #0A0F1F 85%); }
+  .tm-cielo { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .tm-ave { position: absolute; left: 0; width: 120px; height: auto; opacity: .8; animation: tm-vuelo var(--d, 22s) linear infinite; animation-delay: var(--dl, 0s); }
+  .tm-ave:nth-child(1) { top: 2.5%; --d: 26s; --dl: -4s; }
+  .tm-ave:nth-child(2) { top: 6%; width: 84px; opacity: .55; --d: 34s; --dl: -18s; }
+  .tm-ave:nth-child(3) { top: 91%; width: 96px; opacity: .45; --d: 30s; --dl: -11s; }
+  .tm-ave:nth-child(4) { top: 95.5%; width: 64px; opacity: .35; --d: 40s; --dl: -27s; }
+  @keyframes tm-vuelo { from { transform: translate(-140px, 0); } 50% { transform: translate(50vw, -8px); } to { transform: translate(calc(100vw + 140px), 6px); } }
+  .tero-ala { transform-box: view-box; transform-origin: 86px 46px; animation: tero-aleteo .5s ease-in-out infinite alternate; }
+  .tero-ala--lejos { animation-delay: -.12s; }
+  @keyframes tero-aleteo { from { transform: scaleY(1); } to { transform: scaleY(-.55); } }
+  .tm-in { display: grid; gap: clamp(36px, 5vw, 72px); align-items: center; }
+  @media (min-width: 900px) { .tm-in { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+  .tm-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: .16em; font-weight: 500; text-transform: uppercase; color: var(--ta); }
+  .tm-label img { border-radius: 8px; }
+  .tm-title { margin: 18px 0 0; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.04em; font-weight: 600; text-wrap: balance; color: #FFFFFF; }
+  .tm-sub { margin: 18px 0 0; max-width: 54ch; font-size: clamp(15.5px, 1.3vw, 17.5px); line-height: 1.7; color: #A9B6CE; }
+  .tm-mods { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; max-width: 560px; }
+  .tm-mod { display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; align-items: center; padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.07); }
+  .tm-mod b { font-size: 15.5px; font-weight: 600; color: #FFFFFF; }
+  .tm-mod span { grid-column: 1; font-size: 13.5px; color: #A9B6CE; }
+  .tm-pill { font-style: normal; grid-row: span 2; grid-column: 2; padding: 4px 10px; border-radius: 999px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
+  .tm-pill--ok { background: rgba(52,200,115,.16); color: #5FE29A; }
+  .tm-pill--pronto { background: rgba(143,169,207,.14); color: #A9C1E4; }
+  .tm-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 28px; }
+  .tm-cta { display: inline-flex; align-items: center; gap: 14px; padding: 7px 7px 7px 26px; border-radius: 999px; background: var(--ta); color: #06210F; font-size: 16px; font-weight: 600; transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s cubic-bezier(.2,.7,.3,1); }
+  .tm-cta:hover { color: #06210F; transform: translateY(-2px); box-shadow: 0 18px 44px -14px var(--ta); }
+  .tm-cta__ico { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px; }
+  .tm-cta2 { display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #E8EDF7; font-size: 15px; font-weight: 500; }
+  .tm-cta2:hover { color: #FFFFFF; border-color: rgba(255,255,255,.45); }
+  .tm-note { margin-top: 14px; font-size: 12.5px; color: #8E9CB5; }
+  .tm-medida { margin-top: 6px; font-size: 13px; color: #6E7F9E; }
+  .tm-medida a { color: #8FA9CF; }
+  .tm-media { position: relative; display: block; justify-self: center; width: min(100%, 400px); }
+  .tm-media::before { content: ""; position: absolute; inset: 14% 10%; border-radius: 50%; background: var(--ta); filter: blur(90px); opacity: .22; }
+  .tm-media img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; border: 1px solid rgba(255,255,255,.08); transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+  .tm-media:hover img { transform: translateY(-6px) rotate(-1deg); }
+  .tm-media__go { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); padding: 10px 18px; border-radius: 999px; background: rgba(10,15,31,.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #FFFFFF; font-size: 13.5px; font-weight: 500; white-space: nowrap; border: 1px solid rgba(255,255,255,.12); }
+  @media (max-width: 899px) { .tm-copy { text-align: center; } .tm-label, .tm-ctas { justify-content: center; } .tm-sub, .tm-mods { margin-left: auto; margin-right: auto; } .tm-mod { text-align: left; } }
+  @media (prefers-reduced-motion: reduce) { .tm-ave, .tero-ala { animation: none; } .tm-ave { display: none; } .tm-cta, .tm-media img { transition: none; } }
 </style>
 </helmet>
 
@@ -440,7 +282,7 @@
       <div style="{{ navLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #A9B6CE; letter-spacing: .01em; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navService }}</a>
-        <a href="#apps" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navApps }}</a>
+        <a href="#tero" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #FFFFFF;">{{ t.navApps }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #C9D4E6;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #A9B6CE; white-space: nowrap; transition: color .25s;" style-hover="color: #8FA9CF;">{{ t.navFaq }}</a>
@@ -752,144 +594,56 @@
     </div>
   </section>
 
-  <section id="apps" data-reveal="1" class="ax" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); {{ axVars }}">
-    <div class="ax-bg" aria-hidden="true"><span class="ax-grid"></span><span class="ax-blob ax-blob--1"></span><span class="ax-blob ax-blob--2"></span></div>
-    <div class="ax-label" data-ax="head"><i></i>(03) {{ t.s8Label }}</div>
-    <h2 class="ax-title" data-ax="head">{{ t.s8Title }}</h2>
-    <p class="ax-sub" data-ax="head">{{ t.s8Sub }}</p>
-    <div class="ax-marquee" data-ax="head" aria-hidden="true">
-      <div class="ax-marquee__track">
-        <sc-for list="{{ axMarquee }}" as="mq" hint-placeholder-count="12"><span class="ax-mq"><sc-if value="{{ mq.logo }}" hint-placeholder-val="{{ false }}"><img src="{{ mq.logo }}" alt=""></sc-if>{{ mq.text }}<b></b></span></sc-for>
-      </div>
-    </div>
-
-    <div class="ax-show">
-      <div class="ax-copy">
-        <div class="ax-tabs" role="tablist" aria-label="{{ t.axTabsAria }}" data-ax="tabs">
-          <span class="ax-tabs__pill" style="{{ axPillStyle }}"></span>
-          <sc-for list="{{ axTabs }}" as="tb" hint-placeholder-count="3">
-            <button type="button" role="tab" aria-selected="{{ tb.on }}" class="{{ tb.cls }}" onClick="{{ tb.pick }}"><img src="{{ tb.logo }}" alt=""><span>{{ tb.name }}</span><i class="ax-tab__bar"><b data-ax-bar="{{ tb.i }}"></b></i></button>
+  <!-- Tero: la super app. Sección corta; "Conocé Tero" abre la landing animada /tero en otra pestaña. -->
+  <section id="tero" data-reveal="1" class="tm" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="tero-ave" viewBox="0 0 160 90">
+    <g class="tero-ala tero-ala--lejos">
+      <path d="M86 44 C82 26 72 12 56 6 C52 6 52 12 56 18 C62 28 70 38 78 48 Z" fill="#2A333B"/>
+      <path d="M56 6 C52 6 52 12 56 18 C58 13 59 9 56 6 Z" fill="#0E1114"/>
+    </g>
+    <path d="M56 56 L36 64 M58 57 L39 67" stroke="#E07A88" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M50 46 L30 42 L27 50 L30 58 L50 54 Z" fill="#F4F6F8"/>
+    <path d="M35 43 L29 42 L26 50 L29 58 L35 57 Z" fill="#0E1114"/>
+    <path d="M46 50 C54 40 82 37 104 41 C112 43 113 52 105 56 C90 63 62 62 46 54 Z" fill="#F4F6F8"/>
+    <path d="M46 50 C54 40 82 37 104 41 C108 42 110 45 109 48 C92 46 66 47 46 52 Z" fill="#8E979C"/>
+    <path d="M100 41 C108 42 112 49 109 56 C105 54 101 48 100 41 Z" fill="#0E1114"/>
+    <circle cx="114" cy="37" r="8.5" fill="#A3ACB1"/>
+    <path d="M110 30 C102 21 92 18 82 20 C92 22 101 26 107 34 Z" fill="#0E1114"/>
+    <path d="M121 34 C121 40 116 46 107 48 L104 43 C110 42 114 39 116 33 Z" fill="#0E1114"/>
+    <path d="M115 29 C119 29 122 31 122 34 L118 34 C117 32 116 31 115 29 Z" fill="#0E1114"/>
+    <circle cx="116.5" cy="35" r="2" fill="#D7263D"/><circle cx="116.5" cy="35" r=".9" fill="#0E1114"/>
+    <path d="M121 36 L133 37.6 L121 39.8 Z" fill="#E98A96"/><path d="M129 37.1 L133 37.6 L129 38.6 Z" fill="#0E1114"/>
+    <g class="tero-ala">
+      <path d="M90 44 C86 22 74 6 52 0 C46 1 48 9 53 16 C60 28 70 40 80 50 Z" fill="#46525C"/>
+      <path d="M64 13 C70 22 77 33 83 44 L78 46 C71 36 64 25 59 16 Z" fill="#F4F6F8"/>
+      <path d="M52 0 C46 1 48 9 53 16 C56 10 56 4 52 0 Z" fill="#0E1114"/>
+      <path d="M80 50 C82 44 86 41 90 44 L89 50 Z" fill="#8C6A47"/>
+    </g>
+  </symbol>
+    </svg>
+    <div class="tm-cielo" aria-hidden="true"><svg class="tm-ave" viewBox="0 0 160 90" aria-hidden="true"><use href="#tero-ave"/></svg><svg class="tm-ave" viewBox="0 0 160 90" aria-hidden="true"><use href="#tero-ave"/></svg><svg class="tm-ave" viewBox="0 0 160 90" aria-hidden="true"><use href="#tero-ave"/></svg><svg class="tm-ave" viewBox="0 0 160 90" aria-hidden="true"><use href="#tero-ave"/></svg></div>
+    <div class="tm-in">
+      <div class="tm-copy">
+        <div class="tm-label"><img src="app-tero-logo.png" alt="" width="28" height="28">{{ tero.label }}</div>
+        <h2 class="tm-title">{{ tero.title }}</h2>
+        <p class="tm-sub">{{ tero.sub }}</p>
+        <ul class="tm-mods">
+          <sc-for list="{{ teroMods }}" as="md" hint-placeholder-count="3">
+            <li class="tm-mod"><b>{{ md.name }}</b><span>{{ md.text }}</span><i class="{{ md.cls }}">{{ md.estado }}</i></li>
           </sc-for>
+        </ul>
+        <div class="tm-ctas">
+          <a class="tm-cta" href="tero/" target="_blank" rel="noopener">{{ tero.cta }}<span class="tm-cta__ico">↗</span></a>
+          <a class="tm-cta2" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta2 }}</a>
         </div>
-        <div class="ax-meta" data-ax="swap">
-          <img class="ax-logo" src="{{ ax.logo }}" alt="{{ ax.logoAlt }}">
-          <div><span class="ax-tag">{{ ax.tag }}</span><h3 class="ax-name">{{ ax.name }}</h3></div>
-        </div>
-        <p class="ax-desc" data-ax="swap">{{ ax.desc }}</p>
-        <div class="ax-how" data-ax="swap">{{ t.axHow }}</div>
-        <ol class="ax-steps">
-          <sc-for list="{{ ax.steps }}" as="st" hint-placeholder-count="3">
-            <li class="ax-step" data-ax="swap"><span class="ax-step__n">{{ st.n }}</span><span><b>{{ st.title }}</b>{{ st.text }}</span></li>
-          </sc-for>
-        </ol>
-        <p class="ax-for" data-ax="swap">{{ ax.who }}</p>
-        <div class="ax-row" data-ax="swap">
-          <a class="ax-cta" href="{{ ax.url }}" target="_blank" rel="noopener">{{ t.appsOpen }}<span class="ax-cta__ico">↗</span></a>
-          <span class="ax-price"><b>USD 10</b> {{ t.appsMonth }} · <b>USD 100</b> {{ t.appsYear }}</span>
-        </div>
+        <p class="tm-note">{{ tero.note }}</p>
+        <p class="tm-medida">{{ tero.medida }} <a href="{{ appsWaLink }}" target="_blank" rel="noopener">{{ tero.medidaLink }}</a></p>
       </div>
-
-      <div class="ax-stage" id="ax-stage">
-        <span class="ax-glow" aria-hidden="true"></span>
-        <span class="ax-ring" aria-hidden="true" data-ax="ring"></span>
-        <span class="ax-ring ax-ring--2" aria-hidden="true" data-ax="ring"></span>
-        <div class="ax-tilt">
-          <div class="ax-float">
-            <div class="ax-phone" id="ax-phone" data-ax="phone">
-              <video id="ax-video" src="{{ ax.video }}" poster="{{ ax.poster }}" muted playsinline preload="none" aria-label="{{ ax.videoAria }}"></video>
-              <button type="button" class="ax-play" onClick="{{ axTogglePlay }}" aria-label="{{ axPlayLabel }}">{{ axPlayIcon }}</button>
-            </div>
-          </div>
-        </div>
-        <sc-for list="{{ axBadges }}" as="bd" hint-placeholder-count="3"><span class="{{ bd.cls }}" data-ax="badge"><i></i>{{ bd.text }}</span></sc-for>
-      </div>
-    </div>
-
-    <div class="gc-apps">
-      <sc-for list="{{ appsList }}" as="ap" hint-placeholder-count="3">
-        <a href="{{ ap.url }}" target="_blank" rel="noopener" class="gc-app" style="{{ ap.cardVars }}" data-ax="card">
-          <span class="gc-app__media"><video class="gc-app__vid" src="{{ ap.video }}" poster="{{ ap.poster }}" muted loop playsinline preload="none" aria-label="{{ ap.videoAria }}"></video></span>
-          <span class="gc-app__top"><img class="gc-app__logo" src="{{ ap.logo }}" alt=""><span class="gc-app__tag">{{ ap.tag }}</span></span>
-          <span class="gc-app__name">{{ ap.name }}</span>
-          <span class="gc-app__desc">{{ ap.desc }}</span>
-          <span class="gc-app__for">{{ ap.who }}</span>
-          <span class="gc-app__price"><b>USD 10</b> {{ t.appsMonth }} <i>·</i> <b>USD 100</b> {{ t.appsYear }}</span>
-          <span class="gc-app__go">{{ t.appsOpen }} <span class="gc-app__arrow">↗</span></span>
-        </a>
-      </sc-for>
-    </div>
-    <div data-ax="foot" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin: 44px 0 0;">
-      <a href="{{ appsWaLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 8px 8px 8px 28px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 15.5px; font-weight: 500; transition: all .28s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,.45); color: #0A0F1F;">{{ t.appsCta }}<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 15px;">↗</span></a>
-      <div style="display: grid; gap: 6px;">
-        <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.appsNote }}</span>
-        <span class="gc-app__mine">{{ t.appsMine }} <a href="https://gc-micro-apps.vercel.app/rinde/" target="_blank" rel="noopener">Rinde</a> · <a href="https://gc-micro-apps.vercel.app/tero/" target="_blank" rel="noopener">Tero</a> · <a href="https://gc-micro-apps.vercel.app/tiza/" target="_blank" rel="noopener">Tiza</a></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tero: mini landing para la campaña de anuncios (los anuncios llevan a #tero) -->
-  <section id="tero" data-reveal="1" class="tl" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div class="tl-hero">
-      <div class="tl-copy">
-        <div class="tl-label"><img src="app-tero-logo.png" alt="" width="28" height="28">{{ tero.label }}</div>
-        <h2 class="tl-title">{{ tero.title }}</h2>
-        <p class="tl-sub">{{ tero.sub }}</p>
-        <div class="tl-ctas">
-          <a class="tl-cta" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta }}<span class="tl-cta__ico">↗</span></a>
-          <span class="tl-note">{{ tero.note }}</span>
-        </div>
-      </div>
-      <div class="tl-media">
-        <span class="tl-glow" aria-hidden="true"></span>
-        <video class="tl-video" src="app-tero.mp4" poster="app-tero.jpg" muted loop playsinline autoplay preload="metadata" aria-label="{{ tero.videoAria }}"></video>
-      </div>
-    </div>
-
-    <div class="tl-pains">
-      <h3 class="tl-h3">{{ tero.painsTitle }}</h3>
-      <ul class="tl-pains__list">
-        <sc-for list="{{ teroPains }}" as="pn" hint-placeholder-count="3"><li>{{ pn.text }}</li></sc-for>
-      </ul>
-    </div>
-
-    <h3 class="tl-h3 tl-h3--c">{{ tero.benefitsTitle }}</h3>
-    <div class="tl-grid">
-      <sc-for list="{{ teroBenefits }}" as="bf" hint-placeholder-count="4">
-        <div class="tl-card"><span class="tl-card__n">{{ bf.n }}</span><b>{{ bf.title }}</b><p>{{ bf.text }}</p></div>
-      </sc-for>
-    </div>
-
-    <div class="tl-split">
-      <div class="tl-result">
-        <span class="tl-result__label">{{ tero.resultLabel }}</span>
-        <div class="tl-result__box"><b>67%</b><p>{{ tero.resultText }}</p></div>
-        <span class="tl-result__note">{{ tero.resultNote }}</span>
-      </div>
-      <div>
-        <h3 class="tl-h3">{{ tero.stepsTitle }}</h3>
-        <ol class="tl-steps">
-          <sc-for list="{{ teroSteps }}" as="sp" hint-placeholder-count="3"><li><span class="tl-steps__n">{{ sp.n }}</span><span><b>{{ sp.title }}</b>{{ sp.text }}</span></li></sc-for>
-        </ol>
-      </div>
-    </div>
-
-    <div class="tl-price">
-      <div>
-        <h3 class="tl-h3">{{ tero.priceTitle }}</h3>
-        <p class="tl-price__big"><b>USD 10</b> {{ tero.priceMonth }}</p>
-        <p class="tl-price__alt">{{ tero.priceYear }}</p>
-      </div>
-      <ul class="tl-price__list">
-        <sc-for list="{{ teroPriceList }}" as="pl" hint-placeholder-count="4"><li>{{ pl.text }}</li></sc-for>
-      </ul>
-      <a class="tl-cta" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta }}<span class="tl-cta__ico">↗</span></a>
-    </div>
-
-    <div class="tl-faq">
-      <h3 class="tl-h3">{{ tero.faqTitle }}</h3>
-      <sc-for list="{{ teroFaq }}" as="fq" hint-placeholder-count="5">
-        <details class="tl-faq__item"><summary>{{ fq.q }}</summary><p>{{ fq.a }}</p></details>
-      </sc-for>
+      <a class="tm-media" href="tero/" target="_blank" rel="noopener" aria-label="{{ tero.cta }}">
+        <img src="app-tero.jpg" alt="{{ tero.imgAlt }}" width="400" height="500" loading="lazy">
+        <span class="tm-media__go">{{ tero.mediaGo }}</span>
+      </a>
     </div>
   </section>
 
@@ -1049,7 +803,7 @@
       <div style="{{ footerLinksStyle }}">
         <a href="#inicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navHome }}</a>
         <a href="#servicio" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navService }}</a>
-        <a href="#apps" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navApps }}</a>
+        <a href="#tero" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navApps }}</a>
         <a href="#proyectos" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navWork }}</a>
         <a href="#planes" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navPlans }}</a>
         <a href="#faq" style="font-size: 14px; color: #33455F; transition: color .25s;" style-hover="color: #0F2549;">{{ t.navFaq }}</a>
@@ -1071,7 +825,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0F2549&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1E3A6E&quot;,&quot;#16305C&quot;,&quot;#0F2549&quot;,&quot;#2A5091&quot;]},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5492984893772&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const COPY = {
   es: {
-    navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navApps: "Apps", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
+    navHome: "Inicio", navService: "Servicios", navWork: "Proyectos", navApps: "Tero", navFaq: "FAQ", navPlans: "Planes", navContact: "Contacto",
     cta: "Iniciar conversación", consult: "Consultar", recommended: "Recomendado", planMore: "Ver más detalles", planLess: "Ver menos",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Tu negocio ya es profesional.",
@@ -1098,55 +852,18 @@ const COPY = {
       ["Ajuste de copy", "Revisión y reescritura de los textos para que vendan con tu voz."],
       ["Mantenimiento post-lanzamiento", "Acompañamiento después de la entrega, no un adiós."]
     ],
-    s8Label: "Apps",
-    s8Title: "Micro apps para negocios de la Patagonia.",
-    s8Sub: "Además de webs, hago apps chicas que resuelven un solo problema del día a día. Se usan desde el celular, funcionan sin internet y tus datos quedan en tu teléfono. Probalas 7 días gratis.",
-    appsOpen: "Probar 7 días gratis", appsMonth: "por mes", appsYear: "por año",
-    appsCta: "Quiero una app a medida", appsNote: "Se cobra en pesos por Mercado Pago · Cancelás cuando quieras",
-    appsMine: "¿Ya tenés tu código? Abrí",
-    axHow: "Cómo se usa", axTabsAria: "Elegí una app", axPlay: "Reproducir video", axPause: "Pausar video",
-    axBadges: ["Funciona sin internet", "Tus datos en tu teléfono", "Se instala como app"],
-    axRubros: ["Gastronomía", "Cosmética", "Velas", "Indumentaria", "Peluquerías", "Consultorios", "Veterinarias", "Talleres", "Gimnasios", "Almacenes", "Ferreterías", "Estudios"],
-    apps: [
-      { name: "Rinde", tag: "Costeo y precios", desc: "Si sube la harina, ¿cuánto tenés que cobrar el pan? Rinde calcula el costo por unidad y arma la lista de precios.", who: "Gastronomía, cosmética, velas, ropa, muebles y todo lo que fabriques",
-        steps: [["Cargás tus insumos", "Materia prima, envases, horas de trabajo: lo que pagaste por cada cosa."], ["Armás la receta", "Cuánto lleva cada producto y cuántas unidades rinde."], ["Sabés cuánto cobrar", "Costo por unidad, precio sugerido y tu margen real, al instante."]] },
-      { name: "Tero", tag: "Recordatorios", desc: "Te dice a quién escribirle hoy, con el WhatsApp ya armado: turnos, controles, cuotas, cumpleaños y los clientes que hace mucho no vienen.", who: "Peluquerías, consultorios, veterinarias, talleres, gimnasios y cualquier negocio con clientes que vuelven",
-        steps: [["Anotás a tus clientes", "Y cuándo les toca volver: turno, control, cuota o vencimiento."], ["Ves a quién avisar hoy", "Los de hoy primero, y los vencidos bien a la vista."], ["Avisás por WhatsApp", "El mensaje ya está armado. Lo mandás y lo marcás como avisado."]] },
-      { name: "Tiza", tag: "Fiado y cobranzas", desc: "Quién te debe, cuánto y desde cuándo, sin cuaderno. Y el mensaje para cobrar con tu alias, listo para mandar.", who: "Almacenes, ferreterías, talleres y estudios",
-        steps: [["Anotás cada fiado", "Y cada pago, sin cuaderno ni cuentas a mano."], ["Ves quién te debe", "Cuánto en total, quién debe más y desde cuándo."], ["Cobrás con un toque", "El botón Cobrar arma el mensaje para mandar por WhatsApp."]] }
-    ],
     tero: {
-      label: "Tero · La libreta que avisa",
-      title: "Que tus clientes vuelvan, sin tener que acordarte de escribirles.",
-      sub: "Tero te dice cada día a quién avisarle (turnos, controles, cuotas, cumpleaños) y te deja el WhatsApp ya escrito. Vos solo tocás enviar.",
-      cta: "Probar Tero 7 días gratis", note: "Hoy no pagás nada · Cancelás cuando quieras",
-      videoAria: "Video: Tero en el celular",
-      painsTitle: "¿Te pasa esto?",
-      pains: ["Se te pasó avisarle a un cliente y el turno quedó vacío.", "Tenés los recordatorios en la cabeza, en un cuaderno y en el WhatsApp, todo mezclado.", "Hay clientes que dejaron de venir y nadie les escribió."],
-      benefitsTitle: "Lo que hace Tero por tu negocio",
-      benefits: [
-        ["Te avisa a vos primero", "Cada día ves a quién escribirle. En Android te llega una notificación y el ícono muestra cuántos avisos tenés."],
-        ["El mensaje ya está escrito", "Con el nombre del cliente, la fecha y tu alias o link de turnos. Lo cambiás si querés y lo mandás por WhatsApp."],
-        ["Recupera a los que no vuelven", "Te muestra quién hace mucho que no viene y te recuerda saludar a cada cliente en su cumpleaños."],
-        ["Sabés qué funciona", "A cuántos avisaste en el mes, cuántos volvieron y quién te confirmó que viene."]
-      ],
-      resultLabel: "Así lo ves en la app",
-      resultText: "Este mes avisaste a 24 clientes y 16 volvieron.",
-      resultNote: "Ejemplo ilustrativo: tus números salen de tus propios avisos.",
-      stepsTitle: "Empezás en 5 minutos",
-      steps: [["Elegís tu rubro", "Peluquería, consultorio, veterinaria, taller, gimnasio o el tuyo, con tus propios tipos de aviso."], ["Cargás a tus clientes", "Desde los contactos del teléfono, un Excel o de a uno."], ["Mandás los avisos", "Cada mañana abrís «Hoy» y avisás a todos, uno atrás de otro."]],
-      priceTitle: "Un precio simple", priceMonth: "por mes", priceYear: "o USD 100 por año (2 meses gratis)",
-      priceList: ["7 días gratis para probarla", "Se cobra en pesos por Mercado Pago", "Sin permanencia: cancelás cuando quieras", "Funciona sin internet y tus datos quedan en tu teléfono"],
-      faqTitle: "Preguntas frecuentes",
-      faq: [
-        ["¿Los mensajes se mandan solos?", "No. Tero arma el mensaje y abre WhatsApp con el texto listo, y vos tocás enviar. Así salen de tu número y tus clientes te reconocen."],
-        ["¿Sirve para mi rubro?", "Sirve para cualquier negocio con clientes que vuelven. Trae rubros listos y podés crear tus propios tipos de aviso y los datos que quieras guardar."],
-        ["¿Dónde quedan mis datos?", "En tu teléfono. No hay cuentas ni servidores con la información de tus clientes. Podés descargar una copia cuando quieras."],
-        ["¿Funciona en iPhone?", "Sí, en iPhone y en Android, desde el navegador o instalada como app. La notificación diaria por ahora funciona solo en Android."],
-        ["¿Cómo cancelo?", "Desde Mercado Pago o desde el botón de baja de esta web, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo."]
-      ]
+      label: "Tero · La app de tu negocio",
+      title: "Una sola app para manejar tu negocio desde el celular.",
+      sub: "Tero arrancó avisándote a quién escribirle cada día. Ahora crece para que tengas todo en un mismo lugar: tus clientes, sus avisos, lo que te deben y cuánto cobrar cada cosa.",
+      mods: [["Avisos y clientes", "A quién escribirle hoy, con el WhatsApp ya armado.", 1], ["Cuentas y fiado", "Quién te debe, cuánto y el mensaje para cobrar.", 0], ["Precios y costos", "Cuánto te cuesta cada producto y cuánto cobrarlo.", 0]],
+      ok: "Disponible", pronto: "Próximamente",
+      cta: "Conocé Tero", cta2: "Probar 7 días gratis", mediaGo: "Ver cómo funciona ↗",
+      note: "USD 10 por mes, todo incluido · Cancelás cuando quieras",
+      medida: "¿Necesitás una app a medida para tu negocio?", medidaLink: "Escribime",
+      imgAlt: "Tero en el celular: la pantalla Hoy con los avisos del día"
     },
-    s5Label: "Proyectos",
+    s5Label: "Proyectos",    s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
     s5Hint: "Hay más trabajos detrás, estos son los principales. Toca cada proyecto para abrir el caso completo",
     pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
@@ -1297,7 +1014,7 @@ const COPY = {
     visitSite: "Ver sitio", rights: "Todos los derechos reservados.", regret: "Botón de arrepentimiento", cancelSub: "Baja de suscripción", terms: "Términos de las apps", privacy: "Privacidad"
   },
   en: {
-    navHome: "Home", navService: "Services", navWork: "Work", navApps: "Apps", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
+    navHome: "Home", navService: "Services", navWork: "Work", navApps: "Tero", navFaq: "FAQ", navPlans: "Plans", navContact: "Contact",
     cta: "Start a conversation", consult: "Get in touch", recommended: "Recommended", planMore: "See more details", planLess: "See less",
     badge: "General Roca, Río Negro, Argentina",
     heroL1: "Your business is already professional.",
@@ -1324,55 +1041,18 @@ const COPY = {
       ["Copy polish", "Your texts reviewed and rewritten to sell in your own voice."],
       ["Post-launch maintenance", "Support after delivery, not a goodbye."]
     ],
-    s8Label: "Apps",
-    s8Title: "Micro apps for Patagonian businesses.",
-    s8Sub: "Besides websites, I build small apps that solve one everyday problem. They run on your phone, work offline and keep your data on the device. Try them free for 7 days.",
-    appsOpen: "Try 7 days free", appsMonth: "per month", appsYear: "per year",
-    appsCta: "I want a custom app", appsNote: "Billed in ARS through Mercado Pago · Cancel anytime",
-    appsMine: "Already have your code? Open",
-    axHow: "How it works", axTabsAria: "Pick an app", axPlay: "Play video", axPause: "Pause video",
-    axBadges: ["Works offline", "Your data stays on your phone", "Installs like an app"],
-    axRubros: ["Food makers", "Cosmetics", "Candles", "Apparel", "Salons", "Clinics", "Vets", "Garages", "Gyms", "Corner stores", "Hardware stores", "Studios"],
-    apps: [
-      { name: "Rinde", tag: "Costing & prices", desc: "Flour went up? Rinde works out the cost per unit and builds your price list.", who: "Food, cosmetics, candles, apparel, furniture and anything you make",
-        steps: [["Load your supplies", "Raw materials, packaging, hours of work: what you paid for each one."], ["Build the recipe", "How much each product takes and how many units it yields."], ["Know what to charge", "Unit cost, suggested price and your real margin, instantly."]] },
-      { name: "Tero", tag: "Reminders", desc: "Tells you who to message today, with the WhatsApp text ready: appointments, check-ups, fees, birthdays and clients who stopped coming.", who: "Salons, clinics, vets, garages, gyms and any business with returning clients",
-        steps: [["Add your clients", "And when they're due back: appointment, check-up, fee or deadline."], ["See who to remind today", "Today's first, with overdue ones in plain sight."], ["Send it on WhatsApp", "The message is ready. Send it and mark it as done."]] },
-      { name: "Tiza", tag: "Credit & collections", desc: "Who owes you, how much and since when, without a notebook. Plus the collection message with your payment alias, ready to send.", who: "Corner stores, hardware stores, workshops and studios",
-        steps: [["Log every tab", "And every payment, no notebook or mental math."], ["See who owes you", "The total, who owes the most and since when."], ["Collect in one tap", "The Collect button builds the WhatsApp message for you."]] }
-    ],
     tero: {
-      label: "Tero · The notebook that reminds you",
-      title: "Bring your clients back without having to remember to message them.",
-      sub: "Every day Tero tells you who to contact (appointments, check-ups, payments, birthdays) and leaves the WhatsApp message already written. You just tap send.",
-      cta: "Try Tero free for 7 days", note: "Nothing to pay today · Cancel anytime",
-      videoAria: "Video: Tero on a phone",
-      painsTitle: "Sound familiar?",
-      pains: ["You forgot to remind a client and the slot stayed empty.", "Your reminders live in your head, a notebook and WhatsApp, all mixed up.", "Some clients stopped coming and nobody reached out."],
-      benefitsTitle: "What Tero does for your business",
-      benefits: [
-        ["It reminds you first", "Every day you see who to message. On Android you get a notification and the icon shows how many reminders are due."],
-        ["The message is already written", "With the client's name, the date and your payment alias or booking link. Edit it if you like and send it on WhatsApp."],
-        ["It wins back lost clients", "It shows who hasn't come in a long time and reminds you to greet each client on their birthday."],
-        ["You see what works", "How many clients you reminded this month, how many came back and who confirmed."]
-      ],
-      resultLabel: "How it looks in the app",
-      resultText: "This month you reminded 24 clients and 16 came back.",
-      resultNote: "Illustrative example: your numbers come from your own reminders.",
-      stepsTitle: "Up and running in 5 minutes",
-      steps: [["Pick your business type", "Hair salon, clinic, vet, garage, gym or your own, with your own reminder types."], ["Add your clients", "From your phone contacts, a spreadsheet or one by one."], ["Send the reminders", "Every morning open «Today» and message everyone, one after another."]],
-      priceTitle: "Simple pricing", priceMonth: "per month", priceYear: "or USD 100 per year (2 months free)",
-      priceList: ["7-day free trial", "Charged in Argentine pesos via Mercado Pago", "No commitment: cancel anytime", "Works offline and your data stays on your phone"],
-      faqTitle: "Frequently asked questions",
-      faq: [
-        ["Are messages sent automatically?", "No. Tero writes the message and opens WhatsApp with the text ready, and you tap send. That way it comes from your number and clients recognise you."],
-        ["Does it work for my business?", "It works for any business with returning clients. It comes with ready-made business types and you can create your own reminder types and fields."],
-        ["Where is my data stored?", "On your phone. There are no accounts or servers holding your clients' information. You can download a copy anytime."],
-        ["Does it work on iPhone?", "Yes, on iPhone and Android, in the browser or installed as an app. The daily notification currently works on Android only."],
-        ["How do I cancel?", "From Mercado Pago or with the cancel button on this site, no questions asked. If you change your mind within 10 days, you get a full refund."]
-      ]
+      label: "Tero · Your business app",
+      title: "One app to run your business from your phone.",
+      sub: "Tero started by telling you who to message each day. Now it is growing so you have everything in one place: your clients, their reminders, who owes you and what to charge for each thing.",
+      mods: [["Reminders & clients", "Who to message today, with the WhatsApp text ready.", 1], ["Accounts & credit", "Who owes you, how much and the message to collect.", 0], ["Prices & costs", "What each product costs you and what to charge.", 0]],
+      ok: "Available", pronto: "Coming soon",
+      cta: "Discover Tero", cta2: "Try free for 7 days", mediaGo: "See how it works ↗",
+      note: "USD 10 per month, everything included · Cancel anytime",
+      medida: "Need a custom app for your business?", medidaLink: "Message me",
+      imgAlt: "Tero on a phone: the Today screen with the day's reminders"
     },
-    s5Label: "Work",
+    s5Label: "Work",    s5Label: "Work",
     s5Title: "A selection of the main projects.",
     s5Hint: "There is more work behind these — these are the main ones. Tap any project to open the full case study",
     pProblem: "The problem", pWork: "What was done", pResult: "Result",
@@ -1524,15 +1204,8 @@ const COPY = {
   }
 };
 
-// (03) Apps: palette of each micro app (a = accent, b = brand glow, bg = section tint), same order as COPY.apps.
-const APP_THEMES = [
-  { id: "rinde", a: "#F5B335", b: "#2F5AA8", bg: "#0B1630" },
-  { id: "tero", a: "#34C873", b: "#2D5C96", bg: "#0A1A26" },
-  { id: "tiza", a: "#F0D27A", b: "#2B7A66", bg: "#0B1D19" }
-];
-
 class Component extends DCLogic {
-  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, axApp: 0, axPaused: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
+  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
 
   // (02) card fan: GSAP owns the card transforms; the template only renders content.
   cycleFan(direction) {
@@ -1557,198 +1230,7 @@ class Component extends DCLogic {
     this._fanIo.observe(el);
   }
 
-  // App card clips (preload="none", poster shown until then) play only while on screen and pause when
-  // scrolled away. Re-run after renders so videos replaced by a re-render (e.g. language switch) get watched.
-  watchAppVideos() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (!this._appVidIo) {
-      this._appVids = new WeakSet();
-      this._appVidIo = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.play().catch(() => {});
-          else e.target.pause();
-        });
-      }, { threshold: 0.4 });
-    }
-    document.querySelectorAll(".gc-app__vid").forEach((v) => {
-      if (this._appVids.has(v)) return;
-      this._appVids.add(v);
-      // The template drops boolean attributes like muted/playsinline; browsers only autoplay muted video.
-      v.muted = true;
-      v.loop = true;
-      v.playsInline = true;
-      v.setAttribute("playsinline", "");
-      this._appVidIo.observe(v);
-    });
-  }
-
-  // (03) Apps showcase: template values for the selected app (palette, tabs, explainer video, steps).
-  axVals(c, lang) {
-    const i = this.state.axApp, th = APP_THEMES[i], a = c.apps[i], paused = this.state.axPaused;
-    const groupStart = { 0: 0, 4: 1, 9: 2 }; // rubros list: Rinde 0-3, Tero 4-8, Tiza 9-11
-    const mq = c.axRubros.map((r, k) => ({ text: r, logo: k in groupStart ? "app-" + APP_THEMES[groupStart[k]].id + "-logo.png" : "" }));
-    return {
-      axVars: "--ax-a: " + th.a + "; --ax-b: " + th.b + "; --ax-bg: " + th.bg + ";",
-      axPillStyle: "transform: translateX(" + (i * 100) + "%);",
-      axTabs: c.apps.map((ap, k) => ({
-        i: k, name: ap.name, logo: "app-" + APP_THEMES[k].id + "-logo.png",
-        on: k === i ? "true" : "false",
-        cls: "ax-tab" + (k === i ? " ax-tab--on" : ""),
-        pick: () => this.axSelect(k)
-      })),
-      ax: {
-        name: a.name, tag: a.tag, desc: a.desc, who: a.who,
-        logo: "app-" + th.id + "-logo.png", logoAlt: (lang === "es" ? "Logo de " : "Logo of ") + a.name,
-        url: "https://gc-micro-apps.vercel.app/suscribir/?app=" + th.id,
-        video: "app-" + th.id + "-demo.mp4", poster: "app-" + th.id + "-demo.jpg",
-        videoAria: lang === "es" ? "Video: cómo se usa " + a.name : "Video: how " + a.name + " works",
-        steps: a.steps.map((s, k) => ({ n: "0" + (k + 1), title: s[0], text: s[1] }))
-      },
-      axBadges: c.axBadges.map((text, k) => ({ text, cls: "ax-badge ax-badge--" + k })),
-      axMarquee: mq.concat(mq), // two copies: gcmarquee slides by 50% for a seamless loop
-      axPlayLabel: paused ? c.axPlay : c.axPause,
-      axPlayIcon: paused ? "▶" : "❚❚",
-      axTogglePlay: (e) => this.axTogglePlay(e)
-    };
-  }
-
-  // Switching apps: content and phone leave, state changes (palette, video, text), then axEnter brings them back.
-  axSelect(i) {
-    if (this._axBusy) return;
-    const v = document.getElementById("ax-video");
-    if (i === this.state.axApp) {
-      if (v) { v.currentTime = 0; if (!this.state.axPaused) v.play().catch(() => {}); }
-      return;
-    }
-    const swap = () => { this._axBusy = false; this.setState({ axApp: i }); };
-    if (this._reduce || !window.gsap) return swap();
-    this._axBusy = true;
-    gsap.to("#ax-phone", { opacity: 0, scale: .9, rotateY: -28, duration: .3, ease: "power2.in" });
-    gsap.to('#apps [data-ax="badge"]', { opacity: 0, scale: .7, duration: .25, ease: "power2.in" });
-    gsap.to('#apps [data-ax="swap"]', { opacity: 0, y: -12, duration: .24, stagger: .025, ease: "power2.in", onComplete: swap });
-  }
-
-  axEnter() {
-    const v = document.getElementById("ax-video");
-    if (v && this._axVisible && !this.state.axPaused) v.play().catch(() => {});
-    if (this._reduce || !window.gsap) return;
-    const clear = "transform,opacity";
-    gsap.fromTo("#ax-phone", { opacity: 0, scale: .9, rotateY: 28 }, { opacity: 1, scale: 1, rotateY: 0, duration: .8, ease: "power3.out", clearProps: clear });
-    gsap.fromTo('#apps [data-ax="swap"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .55, stagger: .06, ease: "power3.out", clearProps: clear });
-    gsap.fromTo('#apps [data-ax="badge"]', { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .55, stagger: .09, delay: .25, ease: "back.out(2.2)", clearProps: clear });
-  }
-
-  axTogglePlay(e) {
-    if (e) e.preventDefault();
-    const v = document.getElementById("ax-video");
-    const paused = !this.state.axPaused;
-    this.setState({ axPaused: paused });
-    if (v) { if (paused) v.pause(); else v.play().catch(() => {}); }
-  }
-
-  // Entrance choreography, play/pause by visibility, progress bars, auto-advance, phone tilt and card spotlight.
-  mountApps() {
-    const sec = document.getElementById("apps");
-    if (!sec) return;
-    const reduce = this._reduce;
-    if (reduce) this.setState({ axPaused: true });
-    this._axShown = this.state.axApp;
-    const q = (s) => Array.from(sec.querySelectorAll(s));
-    const gs = window.gsap && !reduce ? window.gsap : null;
-
-    // Hide what will animate in, only if the section starts below the fold (same rule as data-reveal).
-    const below = sec.getBoundingClientRect().top > window.innerHeight * 0.9;
-    if (gs && below) {
-      gs.set(q('[data-ax="head"]'), { opacity: 0, y: 34 });
-      gs.set(q('[data-ax="tabs"]'), { opacity: 0, y: 24 });
-      gs.set(q('[data-ax="swap"]'), { opacity: 0, x: -28 });
-      gs.set(q('[data-ax="ring"], .ax-glow'), { opacity: 0 });
-      gs.set("#ax-phone", { opacity: 0, y: 140, rotateX: 22, scale: .88 });
-      gs.set(q('[data-ax="badge"]'), { opacity: 0, scale: .5 });
-      gs.set(q('[data-ax="card"]'), { opacity: 0, y: 60, transition: "none" });
-      gs.set(q('[data-ax="foot"]'), { opacity: 0, y: 24 });
-      this._axIntro = new IntersectionObserver((entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        this._axIntro.disconnect();
-        const clear = "transform,opacity";
-        gs.timeline({ defaults: { ease: "power3.out" } })
-          .to(q('[data-ax="head"]'), { opacity: 1, y: 0, duration: .9, stagger: .12, clearProps: clear })
-          .to(q('[data-ax="tabs"]'), { opacity: 1, y: 0, duration: .7, clearProps: clear }, "-=.55")
-          .to("#ax-phone", { opacity: 1, y: 0, rotateX: 0, scale: 1, duration: 1.4, ease: "expo.out", clearProps: clear }, "-=.6")
-          .to(q('[data-ax="ring"], .ax-glow'), { opacity: 1, duration: 1.2, clearProps: "opacity" }, "<.1")
-          .to(q('[data-ax="swap"]'), { opacity: 1, x: 0, duration: .7, stagger: .08, clearProps: clear }, "<.1")
-          .to(q('[data-ax="badge"]'), { opacity: 1, scale: 1, duration: .6, stagger: .14, ease: "back.out(2.2)", clearProps: clear }, "-=.6");
-      }, { rootMargin: "0px 0px -18% 0px" });
-      this._axIntro.observe(sec);
-      const grid = sec.querySelector(".gc-apps");
-      this._axCards = new IntersectionObserver((entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        this._axCards.disconnect();
-        gs.timeline({ defaults: { ease: "power3.out" } })
-          .to(q('[data-ax="card"]'), { opacity: 1, y: 0, duration: .9, stagger: .14, clearProps: "transform,opacity,transition" })
-          .to(q('[data-ax="foot"]'), { opacity: 1, y: 0, duration: .7, clearProps: "transform,opacity" }, "-=.5");
-      }, { rootMargin: "0px 0px -12% 0px" });
-      if (grid) this._axCards.observe(grid);
-    }
-
-    // Explainer video plays only while the phone is on screen; the active tab shows its progress.
-    const tick = () => {
-      this._axRaf = requestAnimationFrame(tick);
-      const v = document.getElementById("ax-video");
-      const p = v && v.duration ? v.currentTime / v.duration : 0;
-      sec.querySelectorAll("[data-ax-bar]").forEach((b) => {
-        b.style.transform = "scaleX(" + (+b.getAttribute("data-ax-bar") === this.state.axApp ? p : 0) + ")";
-      });
-    };
-    this._axVis = new IntersectionObserver((entries) => {
-      const vis = entries.some((e) => e.isIntersecting);
-      this._axVisible = vis;
-      const v = document.getElementById("ax-video");
-      if (vis) {
-        if (v && !this.state.axPaused) v.play().catch(() => {});
-        if (!this._axRaf) tick();
-      } else {
-        if (v) v.pause();
-        cancelAnimationFrame(this._axRaf); this._axRaf = 0;
-      }
-    }, { threshold: 0.3 });
-    const stage = document.getElementById("ax-stage");
-    if (stage) this._axVis.observe(stage);
-
-    // When an explainer ends, move on to the next app (media events don't bubble, so listen in the capture phase).
-    this._axEnded = (e) => { if (e.target && e.target.id === "ax-video") this.axSelect((this.state.axApp + 1) % APP_THEMES.length); };
-    document.addEventListener("ended", this._axEnded, true);
-
-    if (reduce || !window.matchMedia("(pointer: fine)").matches) return;
-    // Phone tilts toward the pointer; cards get a spotlight that follows it.
-    this._axMove = (e) => {
-      const st = e.target.closest && e.target.closest("#ax-stage");
-      const tilt = sec.querySelector(".ax-tilt");
-      if (tilt) {
-        if (st) {
-          const r = st.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-          tilt.style.setProperty("--ry", (x * 16).toFixed(2) + "deg");
-          tilt.style.setProperty("--rx", (-y * 12).toFixed(2) + "deg");
-        } else if (tilt.style.getPropertyValue("--ry")) {
-          tilt.style.setProperty("--ry", "0deg"); tilt.style.setProperty("--rx", "0deg");
-        }
-      }
-      const card = e.target.closest && e.target.closest(".gc-app");
-      if (card) {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        card.style.setProperty("--my", (e.clientY - r.top) + "px");
-      }
-    };
-    document.addEventListener("pointermove", this._axMove, { passive: true });
-  }
-
   componentDidUpdate() {
-    if (this._axShown !== undefined && this._axShown !== this.state.axApp) {
-      this._axShown = this.state.axApp;
-      this.axEnter();
-    }
     // The reel only downloads once the panel section is on screen (preload="none"). Played after the
     // re-render so it targets the live <video>; re-checked on later renders in case it gets replaced.
     if (this.state.panelIn) {
@@ -1763,7 +1245,6 @@ class Component extends DCLogic {
         reel.play().catch(() => {});
       }
     }
-    this.watchAppVideos();
     if (this._fan && this.state.fanCenter !== this._fanShown) {
       this._fanShown = this.state.fanCenter;
       this._fan.update(this.state.fanCenter, this._fanDir);
@@ -1789,9 +1270,7 @@ class Component extends DCLogic {
     window.addEventListener("resize", this._onResize);
     this._onResize();
     this.mountFan();
-    this.watchAppVideos();
     this._reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    this.mountApps();
     // Panel demo: numbers, line and donut animate once when the mockup scrolls into view.
     const demo = document.getElementById("gc-panel-demo");
     if (demo) {
@@ -1844,13 +1323,6 @@ class Component extends DCLogic {
     if (this._fanIo) this._fanIo.disconnect();
     if (this._panelIo) this._panelIo.disconnect();
     if (this._mantIo) this._mantIo.disconnect();
-    if (this._appVidIo) this._appVidIo.disconnect();
-    if (this._axIntro) this._axIntro.disconnect();
-    if (this._axCards) this._axCards.disconnect();
-    if (this._axVis) this._axVis.disconnect();
-    cancelAnimationFrame(this._axRaf);
-    if (this._axEnded) document.removeEventListener("ended", this._axEnded, true);
-    if (this._axMove) document.removeEventListener("pointermove", this._axMove);
     if (this._fan) this._fan.destroy();
   }
 
@@ -1889,7 +1361,7 @@ class Component extends DCLogic {
       barTopStyle: "display: block; width: 18px; height: 1.5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "3.25px" : "0") + ") rotate(" + (this.state.menu ? "45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       barBotStyle: "display: block; width: 18px; height: 1.5px; margin-top: 5px; background: " + (this.state.menu ? "#0A0F1F" : "#E8EDF7") + "; transform: translateY(" + (this.state.menu ? "-3.25px" : "0") + ") rotate(" + (this.state.menu ? "-45deg" : "0deg") + "); transition: all .35s cubic-bezier(.2,.7,.3,1);",
       drawerStyle: "position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: safe center; gap: 4px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 100px clamp(24px, 7vw, 56px) 44px; background: rgba(10,15,31,.97); backdrop-filter: blur(22px); opacity: " + (this.state.menu ? "1" : "0") + "; pointer-events: " + (this.state.menu ? "auto" : "none") + "; transition: opacity .4s cubic-bezier(.2,.7,.3,1);",
-      menuItems: [["#servicio", c.navService], ["#apps", c.navApps], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
+      menuItems: [["#servicio", c.navService], ["#tero", c.navApps], ["#proyectos", c.navWork], ["#planes", c.navPlans], ["#faq", c.navFaq], ["#contacto", c.navContact]].map((m, i) => ({
         href: m[0], label: m[1],
         hoverStyle: "color: " + ["#8FA9CF", "#C9D4E6", "#FFFFFF", "#8FA9CF", "#C9D4E6", "#8FA9CF"][i % 6] + ";",
         style: "padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: clamp(30px, 8.5vw, 46px); font-weight: 600; letter-spacing: -.03em; color: #E8EDF7; opacity: " + (this.state.menu ? "1" : "0") + "; transform: translateY(" + (this.state.menu ? "0" : "26px") + "); transition: opacity .5s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s, transform .6s cubic-bezier(.2,.7,.3,1) " + (this.state.menu ? (0.08 + i * 0.06) : 0) + "s;"
@@ -1940,25 +1412,12 @@ class Component extends DCLogic {
       projectTypes: c.projectTypes.map((text) => ({ text })),
 
       appsWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(lang === "es" ? "Hola Gonzalo, quiero una app a medida para mi negocio." : "Hi Gonzalo, I'd like a custom app for my business."),
-      appsList: c.apps.map((a, i) => Object.assign({}, a, {
-        url: "https://gc-micro-apps.vercel.app/suscribir/?app=" + APP_THEMES[i].id,
-        video: "app-" + APP_THEMES[i].id + ".mp4",
-        poster: "app-" + APP_THEMES[i].id + ".jpg",
-        logo: "app-" + APP_THEMES[i].id + "-logo.png",
-        videoAria: lang === "es" ? "Video: " + a.name + " en el celular" : "Video: " + a.name + " on a phone",
-        cardVars: "--c: " + APP_THEMES[i].a + ";"
-      })),
-      ...this.axVals(c, lang),
       // Tero (#tero): las UTM del anuncio pasan a la página de suscripción para saber de qué anuncio vino cada prueba.
       tero: c.tero,
       teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
         try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
       })(),
-      teroPains: c.tero.pains.map((text) => ({ text })),
-      teroBenefits: c.tero.benefits.map((b, i) => ({ n: "0" + (i + 1), title: b[0], text: b[1] })),
-      teroSteps: c.tero.steps.map((s, i) => ({ n: i + 1, title: s[0], text: s[1] })),
-      teroPriceList: c.tero.priceList.map((text) => ({ text })),
-      teroFaq: c.tero.faq.map((f) => ({ q: f[0], a: f[1] })),
+      teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;
         const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];

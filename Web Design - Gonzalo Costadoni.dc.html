@@ -291,6 +291,11 @@
   @media (min-width: 900px) { .tm--zafra .tm-in { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } .tm--zafra .tm-media { order: -1; } }
   @media (prefers-reduced-motion: reduce) { .tm-ave, .tero-ala { animation: none; } .tm-ave { display: none; } .tm-cta, .tm-media img { transition: none; } }
 </style>
+<style id="apps-ocultas">
+  /* Apps en pausa hasta el lanzamiento: Tero y Zafra no se muestran en la web (las landings siguen por link directo). Para volver a mostrarlas, borrá este bloque. */
+  #tero, #zafra, .hero-tero, a[href="#tero"] { display: none !important; }
+  @media (min-width: 1180px) { #inicio h1, #inicio h1 + p { max-width: none !important; } }
+</style>
 </helmet>
 
 <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; background: #0A0F1F; overflow-x: hidden; position: relative;">

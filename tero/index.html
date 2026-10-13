@@ -193,6 +193,12 @@ section{position:relative}
 .mod--pronto::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.06) 50%,transparent 60%);transform:translateX(-100%);animation:brillo 3.2s ease-in-out infinite}
 @keyframes brillo{to{transform:translateX(100%)}}
 .mods-nota{margin-top:18px;font-size:13.5px;color:var(--ink3)}
+.mod{text-align:left}
+@media(max-width:560px){.mod{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"i t" "d d";gap:12px 14px;padding:16px}.mod__ico{grid-area:i;width:44px;height:44px;font-size:21px}.mod>span:nth-child(2){display:contents}.mod b{grid-area:t;align-self:center;padding-right:96px}.mod p{grid-area:d}.mod .pill{position:absolute;top:16px;right:16px}}
+.idioma{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.idioma a{display:grid;place-items:center;min-width:36px;min-height:30px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--ink3)}
+.idioma a[aria-current=true]{background:var(--ta);color:#06210F}
+@media(max-width:420px){.idioma a{min-width:30px;padding:0 6px}}
 
 /* ---------- beneficios ---------- */
 .beneficios{padding:clamp(90px,13vh,150px) 0;background:linear-gradient(180deg,var(--bg),#0B1A28)}
@@ -300,6 +306,7 @@ section{position:relative}
       <a class="menu__web" href="../">← Volver a GC Web Design</a>
     </nav>
     <div class="barra__acc">
+      <span class="idioma" role="group" aria-label="Idioma / Language"><a href="?lang=es" data-lang="es" lang="es" aria-current="true">ES</a><a href="?lang=en" data-lang="en" lang="en">EN</a></span>
       <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
       <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
     </div>
@@ -535,6 +542,101 @@ section{position:relative}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script>
+/* Inglés: cada texto de la página en español tiene su versión en inglés. El idioma sale de ?lang=, de lo último elegido o del navegador. */
+var LANG = (function () {
+  var q = new URLSearchParams(location.search).get('lang'), g = null;
+  try { if (q === 'en' || q === 'es') localStorage.setItem('gc_lang', q); g = localStorage.getItem('gc_lang'); } catch (e) { /* sin almacenamiento */ }
+  return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
+})();
+var EN = {
+  'Tero · La app para manejar tu negocio': 'Tero · The app to run your business',
+  'Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. 7 días gratis.': 'Tero tells you who to message today, with the WhatsApp already written, and grows so you can run your whole business from your phone. 7 days free.',
+  'Volver a GC Web Design': 'Back to GC Web Design', 'Secciones': 'Sections', 'A tu medida': 'Built for you', 'Cómo funciona': 'How it works', 'Herramientas': 'Tools', 'Precio': 'Pricing', 'Preguntas': 'FAQ',
+  '← Volver a GC Web Design': '← Back to GC Web Design', 'Probar gratis': 'Try free', 'Abrir menú': 'Open menu', 'Cerrar menú': 'Close menu',
+  'Tero · La app de tu negocio': 'Tero · Your business app',
+  'Que tus clientes': 'Get your customers to', 'vuelvan.': 'come back.', 'Sin acordarte de escribirles.': 'Without having to remember to message them.',
+  'El tero grita cuando alguien se acerca al nido. Esta app te avisa cuando un cliente tiene que volver: te dice a quién escribirle hoy y te deja el WhatsApp ya armado.': 'The southern lapwing (tero) cries out when someone nears its nest. This app warns you when a customer is due back: it tells you who to message today and leaves the WhatsApp ready to send.',
+  'Probar 7 días gratis': 'Try 7 days free', 'Ver cómo funciona': 'See how it works',
+  'Hoy no pagás nada · Después USD 10 por mes · Cancelás cuando quieras': 'Nothing to pay today · Then USD 10 per month · Cancel anytime',
+  'Video: Tero en el celular': 'Video: Tero on a phone', 'Bajar': 'Scroll down', 'Bajá': 'Scroll',
+  'Rubros que usan Tero': 'Businesses that use Tero',
+  'Peluquerías': 'Hair salons', 'Consultorios': 'Clinics', 'Veterinarias': 'Vets', 'Talleres': 'Auto shops', 'Gimnasios': 'Gyms', 'Estéticas': 'Beauty studios', 'Nutricionistas': 'Nutritionists', 'Estudios contables': 'Accountants', 'Profesores': 'Teachers', 'Lavaderos': 'Car washes',
+  '¿Te pasa esto?': 'Sound familiar?', 'Tu negocio vive de los clientes que vuelven. Y a veces se te pasan.': 'Your business lives on returning customers. And sometimes they slip through.',
+  'Se te pasó avisarle a un cliente y el turno quedó vacío.': 'You forgot to remind a customer and the slot sat empty.',
+  'Los recordatorios están en tu cabeza, en un cuaderno y en el WhatsApp, todo mezclado.': 'Your reminders live in your head, a notebook and WhatsApp, all mixed up.',
+  'Hay clientes que dejaron de venir y nadie les escribió.': 'Some customers stopped coming and nobody reached out.',
+  'Tero hace de memoria por vos:': 'Tero remembers for you:', 'te avisa a quién escribirle, cada día.': 'it tells you who to message, every day.',
+  'Se arma a tu medida': 'Set up around you', 'Elegís para qué la querés. Tero prende solo lo que te sirve.': 'Pick what you need it for. Tero turns on only what helps you.',
+  'La primera vez que la abrís, Tero te pregunta qué querés resolver. Con eso prende las herramientas justas, usa las palabras de tu rubro y te deja una guía de primeros pasos.': 'The first time you open it, Tero asks what you want to solve. Then it turns on the right tools, speaks the language of your trade and leaves you a getting-started guide.',
+  'Contás qué necesitás:': 'Tell it what you need:', 'turnos, clientes que no vuelven, fiado, cuotas, costos o tu lista de precios.': 'appointments, customers who stopped coming, tabs, monthly fees, costs or your price list.',
+  'Elegís tu rubro:': 'Pick your trade:', 'peluquería, consultorio, almacén, taller, gimnasio, elaboración o el tuyo.': 'salon, clinic, shop, auto shop, gym, homemade goods or your own.',
+  'Tero se ordena solo:': 'Tero sets itself up:', 'en la barra aparece lo que usás y una guía te lleva paso a paso.': 'the menu shows what you use and a guide walks you through step by step.',
+  'Paso 1 de 3': 'Step 1 of 3', '¿Para qué vas a usar Tero?': 'What will you use Tero for?', 'Listo': 'Done', 'Tu Tero, a tu medida': 'Your Tero, your way',
+  'Recordar turnos y avisar a mis clientes': 'Remember appointments and remind my customers', 'Que vuelvan los que dejaron de venir': 'Win back customers who stopped coming',
+  'Anotar lo que me deben (fiado)': 'Track what people owe me (tabs)', 'Calcular costos y ponerle precio': 'Work out costs and set prices', 'Saludar en los cumpleaños': 'Send birthday wishes',
+  'Avisos y recordatorios': 'Reminders and follow-ups', 'A quién escribirle hoy': 'Who to message today', 'Prendida': 'On',
+  'Cuentas y fiado': 'Tabs and payments owed', 'Quién te debe y cuánto': 'Who owes you and how much', 'Precios y costos': 'Prices and costs', 'Costo real y precio sugerido': 'Real cost and suggested price',
+  'Tres pasos y te olvidás de acordarte.': 'Three steps and you stop having to remember.',
+  'Cargás a tus clientes una sola vez': 'Add your customers once', 'Desde los contactos del teléfono, un Excel o de a uno. Y cuándo les toca volver: turno, control, cuota o vencimiento.': 'From your phone contacts, a spreadsheet or one by one. Plus when they are due back: appointment, check-up, fee or deadline.',
+  'Cada mañana, Tero te dice a quién avisar': 'Every morning, Tero tells you who to remind', 'Los de hoy primero y los vencidos bien a la vista. En Android te llega una notificación y el ícono muestra cuántos tenés.': "Today's first, and overdue ones clearly visible. On Android you get a notification and the icon shows how many you have.",
+  'Avisás por WhatsApp con un toque': 'Remind them on WhatsApp with one tap', 'El mensaje ya está escrito con el nombre, la fecha y tu alias o link de turnos. Lo mandás y lo marcás como avisado.': 'The message is already written with their name, the date and your payment alias or booking link. Send it and mark it as done.',
+  'Y ves cuántos volvieron': 'And see how many came back', 'Cada mes sabés a cuántos avisaste y cuántos volvieron. Así ves que funciona.': 'Every month you know how many you reminded and how many came back. That is how you see it works.',
+  'Clientes': 'Customers', 'Corte y color · cada 45 días': 'Cut and color · every 45 days', 'Nueva': 'New', 'Control anual': 'Yearly check-up', 'Cuota del gimnasio': 'Gym fee',
+  'Traer de mis contactos': 'Import from my contacts', 'Elegí varios de una vez': 'Pick several at once', 'Hoy': 'Today', 'Tenés 3 avisos': 'You have 3 reminders', 'Corte y color': 'Cut and color',
+  'Hace 4 meses que no viene': "Hasn't come in 4 months", 'Volver': 'Win back', 'Mensaje para Marcela': 'Message for Marcela',
+  '¡Hola Marcela! Te escribimos de Estudio Bella 💇‍♀️ Ya pasaron 45 días de tu último color. ¿Te reservo un turno esta semana? Podés elegir el horario acá: estudiobella.com/turnos': "Hi Marcela! It's Estudio Bella 💇‍♀️ It's been 45 days since your last color. Shall I book you in this week? Pick a time here: estudiobella.com/turnos",
+  'Abrir WhatsApp': 'Open WhatsApp', 'Resultados del mes': 'This month', 'Avisaste a 24 clientes y 16 volvieron.': 'You reminded 24 customers and 16 came back.',
+  'Volvió el martes': 'Came back on Tuesday', 'Volvió': 'Came back', 'Confirmó para el jueves': 'Confirmed for Thursday', 'Confirmó': 'Confirmed', 'Datos de ejemplo': 'Sample data',
+  'Una sola app para todo': 'One app for everything', 'Tero crece con tu negocio.': 'Tero grows with your business.',
+  'Avisos, cuentas y precios: todo lo que necesitás para manejar tu negocio desde el celular, en una sola app y por el mismo precio. Prendés solo lo que usás.': 'Reminders, tabs and prices: everything you need to run your business from your phone, in one app for one price. Turn on only what you use.',
+  'Avisos y clientes': 'Reminders and customers', 'A quién escribirle hoy, con el WhatsApp ya armado.': 'Who to message today, with the WhatsApp ready to send.', 'Disponible': 'Available',
+  'Quién te debe, cuánto y desde cuándo. Cobrás por WhatsApp con tu alias y mandás el estado de cuenta.': 'Who owes you, how much and since when. Collect over WhatsApp with your alias and send account statements.',
+  'Costo real de cada producto, precio sugerido y tu lista de precios lista para mandar.': 'Real cost of each product, a suggested price and your price list ready to send.',
+  'Todo incluido en USD 10 por mes. Lo que sumemos después también llega solo, sin pagar más.': 'All included for USD 10 per month. Anything we add later arrives automatically, at no extra cost.',
+  'Pensada para el día a día': 'Made for everyday use', 'Simple, rápida y tuya.': 'Simple, fast and yours.',
+  'Funciona sin internet': 'Works offline', 'La usás en el local aunque no haya señal. Se instala como cualquier app.': 'Use it at your shop even with no signal. Installs like any app.',
+  'Tus datos son tuyos': 'Your data is yours', 'Los datos de tus clientes quedan en tu teléfono, no en un servidor.': "Your customers' data stays on your phone, not on a server.",
+  'Cumpleaños y reactivación': 'Birthdays and win-backs', 'Te recuerda saludar a cada cliente y te muestra quién hace mucho que no viene.': "Reminds you to greet each customer and shows who hasn't come in a while.",
+  'Hecha a tu medida': 'Made to fit', 'Tus tipos de aviso, tus datos y tus mensajes, para cualquier rubro.': 'Your reminder types, your fields and your messages, for any business.',
+  'días gratis para probarla': 'days free to try it', 'toque para avisar a cada cliente': 'tap to remind each customer', 'por mes, todo incluido': 'per month, all included',
+  'volvieron': 'came back', 'Así lo ves en la app': 'What you see in the app', 'Sabés cuántos clientes volvieron gracias a tus avisos.': 'Know how many customers came back thanks to your reminders.',
+  'Cada mes Tero te muestra a cuántos avisaste y cuántos volvieron. Cuando un cliente te confirma, lo marcás y sabés a quién esperar.': 'Every month Tero shows how many you reminded and how many came back. When a customer confirms, mark it and you know who to expect.',
+  'Ejemplo ilustrativo: tus números salen de tus propios avisos.': 'Illustrative example: your numbers come from your own reminders.',
+  'Un precio simple': 'One simple price', 'por mes': 'per month', 'o USD 100 por año (2 meses gratis)': 'or USD 100 per year (2 months free)',
+  '7 días gratis para probarla': '7 days free to try it', 'Se cobra en pesos por Mercado Pago': 'Charged in Argentine pesos via Mercado Pago', 'Avisos, cuentas y precios incluidos': 'Reminders, tabs and prices included',
+  'Sin permanencia: cancelás cuando quieras': 'No lock-in: cancel anytime', 'Empezar gratis': 'Start free',
+  'Preguntas frecuentes': 'Frequently asked questions', 'Lo que más nos preguntan.': 'What people ask us most.', '¿Te quedó otra duda?': 'Still have a question?', 'Escribime por WhatsApp': 'Message me on WhatsApp',
+  '¿Los mensajes se mandan solos?': 'Are messages sent automatically?', 'No. Tero arma el mensaje y abre WhatsApp con el texto listo, y vos tocás enviar. Así salen de tu número y tus clientes te reconocen.': 'No. Tero writes the message and opens WhatsApp with the text ready, and you tap send. That way it comes from your number and customers recognize you.',
+  '¿Sirve para mi negocio?': 'Will it work for my business?', 'Sirve para cualquier negocio: atiendas con turnos, vendas en un local, fíes, cobres cuotas o fabriques lo que vendés. Elegís qué querés resolver y Tero se arma con las herramientas que necesitás.': 'It works for any business: whether you take appointments, run a shop, give credit, charge monthly fees or make what you sell. Pick what you want to solve and Tero sets itself up with the tools you need.',
+  '¿Dónde quedan mis datos?': 'Where is my data stored?', 'En tu teléfono. No hay cuentas ni servidores con la información de tus clientes. Podés descargar una copia cuando quieras.': "On your phone. No accounts or servers holding your customers' information. You can download a copy anytime.",
+  '¿Funciona en iPhone?': 'Does it work on iPhone?', 'Sí, en iPhone y en Android, desde el navegador o instalada como app. La notificación diaria por ahora funciona solo en Android.': 'Yes, on iPhone and Android, in the browser or installed as an app. The daily notification currently works on Android only.',
+  '¿Tengo que usar todas las herramientas?': 'Do I have to use every tool?', 'No. Al empezar elegís para qué vas a usar Tero y la app prende solo lo que te sirve. Las demás las prendés cuando quieras desde Ajustes, sin perder nada.': 'No. When you start you pick what you will use Tero for and the app turns on only what helps you. Turn on the rest anytime in Settings, without losing anything.',
+  '¿Cómo cancelo?': 'How do I cancel?', 'Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.': 'From Mercado Pago or the cancellation button, no questions asked. If you change your mind within the first 10 days, we refund everything.',
+  'Tero · La libreta que avisa': 'Tero · The notebook that reminds you', 'Que ningún cliente se te pase de nuevo.': 'Never let a customer slip through again.',
+  'Probala 7 días gratis. Si no te sirve, cancelás y no pagás nada.': "Try it free for 7 days. If it doesn't work for you, cancel and pay nothing.", 'Probar Tero gratis': 'Try Tero free',
+  '© 2026 Gonzalo Costadoni ·': '© 2026 Gonzalo Costadoni ·', '· General Roca, Río Negro': '· General Roca, Río Negro, Argentina',
+  'Términos': 'Terms', 'Privacidad': 'Privacy', 'Botón de arrepentimiento': 'Withdrawal button', 'Baja de suscripción': 'Cancel subscription', '¡Tero, tero!': 'Tero, tero!'
+};
+function tx(s) { return LANG === 'en' && EN[s] ? EN[s] : s; }
+(function traducir() {
+  document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
+    var u = new URL(location.href); u.searchParams.set('lang', a.dataset.lang); a.href = u.pathname + u.search + u.hash;
+    a.setAttribute('aria-current', String(a.dataset.lang === LANG));
+  });
+  if (LANG !== 'en') return;
+  document.documentElement.lang = 'en';
+  document.title = tx(document.title);
+  var md = document.querySelector('meta[name="description"]'); if (md) md.content = tx(md.content);
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { return n.parentNode.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  for (var n; (n = w.nextNode());) {
+    var t = n.nodeValue, k = t.trim();
+    if (k && EN[k]) n.nodeValue = t.slice(0, t.indexOf(k)) + EN[k] + t.slice(t.indexOf(k) + k.length);
+  }
+  document.querySelectorAll('[aria-label],[alt]').forEach(function (el) { ['aria-label', 'alt'].forEach(function (a) { var v = el.getAttribute(a); if (v && EN[v]) el.setAttribute(a, EN[v]); }); });
+  /* La app y la suscripción también arrancan en inglés. */
+  document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href += '&lang=en'; });
+  document.querySelectorAll('a[href="../"]').forEach(function (a) { a.href = '../?lang=en'; });
+})();
 (function () {
   /* Las UTM del anuncio viajan a la página de suscripción. */
   try {
@@ -546,8 +648,8 @@ section{position:relative}
   var barra = document.getElementById('barra');
   /* Menú del celular */
   var hamb = document.getElementById('hamb'), menu = document.getElementById('menu');
-  function cerrarMenu() { menu.classList.remove('is-open'); hamb.setAttribute('aria-expanded', 'false'); hamb.setAttribute('aria-label', 'Abrir menú'); }
-  hamb.addEventListener('click', function () { var abrir = !menu.classList.contains('is-open'); menu.classList.toggle('is-open', abrir); hamb.setAttribute('aria-expanded', String(abrir)); hamb.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú'); });
+  function cerrarMenu() { menu.classList.remove('is-open'); hamb.setAttribute('aria-expanded', 'false'); hamb.setAttribute('aria-label', tx('Abrir menú')); }
+  hamb.addEventListener('click', function () { var abrir = !menu.classList.contains('is-open'); menu.classList.toggle('is-open', abrir); hamb.setAttribute('aria-expanded', String(abrir)); hamb.setAttribute('aria-label', tx(abrir ? 'Cerrar menú' : 'Abrir menú')); });
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) cerrarMenu(); });
   addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrarMenu(); });
 
@@ -618,7 +720,7 @@ section{position:relative}
 
   /* "¡Tero, tero!": cada tanto un tero de la bandada grita. */
   function gritos(cont, teros) {
-    var g = document.createElement('span'); g.className = 'grito'; g.textContent = '¡Tero, tero!'; cont.appendChild(g);
+    var g = document.createElement('span'); g.className = 'grito'; g.textContent = tx('¡Tero, tero!'); cont.appendChild(g);
     function gritar() {
       var t = teros[Math.floor(Math.random() * teros.length)], x = gsap.getProperty(t, 'x'), y = gsap.getProperty(t, 'y');
       if (x > 40 && x < cont.clientWidth - 180) {
@@ -692,14 +794,14 @@ section{position:relative}
     var eti = document.getElementById('md-eti'), tit = document.getElementById('md-titulo');
     gsap.set(res, { autoAlpha: 0, y: 20 });
     var md = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 1.4, defaults: { ease: 'power2.out' } });
-    md.call(function () { ops.forEach(function (li) { li.classList.remove('on'); }); eti.textContent = 'Paso 1 de 3'; tit.textContent = '¿Para qué vas a usar Tero?'; })
+    md.call(function () { ops.forEach(function (li) { li.classList.remove('on'); }); eti.textContent = tx('Paso 1 de 3'); tit.textContent = tx('¿Para qué vas a usar Tero?'); })
       .fromTo('#md-ops', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .4 });
     elegidas.forEach(function (li, k) {
       md.call(function () { li.classList.add('on'); }, null, '+=' + (k ? .5 : .7))
         .fromTo(li, { scale: 1 }, { scale: .96, duration: .12, yoyo: true, repeat: 1 }, '<');
     });
     md.to('#md-ops', { autoAlpha: 0, y: -12, duration: .4 }, '+=.8')
-      .call(function () { eti.textContent = 'Listo'; tit.textContent = 'Tu Tero, a tu medida'; })
+      .call(function () { eti.textContent = tx('Listo'); tit.textContent = tx('Tu Tero, a tu medida'); })
       .to(res, { autoAlpha: 1, y: 0, duration: .5, stagger: .18, ease: 'back.out(1.8)' })
       .to(res, { autoAlpha: 0, y: 20, duration: .3 }, '+=2.4');
     ScrollTrigger.create({ trigger: '#md-card', start: 'top 85%', end: 'bottom 10%', onToggle: function (st) { if (st.isActive) md.play(); else md.pause(); } });

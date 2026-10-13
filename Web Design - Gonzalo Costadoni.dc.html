@@ -280,6 +280,8 @@
   .tm-media:hover video { transform: translateY(-6px) rotate(-1deg); }
   .tm-media__go { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); padding: 10px 18px; border-radius: 999px; background: rgba(10,15,31,.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #FFFFFF; font-size: 13.5px; font-weight: 500; white-space: nowrap; border: 1px solid rgba(255,255,255,.12); }
   @media (max-width: 899px) { .tm-copy { text-align: center; } .tm-label, .tm-ctas { justify-content: center; } .tm-sub, .tm-mods { margin-left: auto; margin-right: auto; } .tm-mod { text-align: left; } }
+  /* Celular: los teros vuelan por encima del texto sin taparlo, pastillas más chicas y botones a lo ancho. */
+  @media (max-width: 599px) { .tm-ave:nth-child(1) { top: 6px; width: 72px; } .tm-ave:nth-child(2) { display: none; } .tm-ave:nth-child(3) { top: auto; bottom: 46px; width: 72px; } .tm-ave:nth-child(4) { top: auto; bottom: 8px; width: 52px; } .tm-label { font-size: 10.5px; letter-spacing: .12em; } .tm-mod { padding: 13px 14px; gap: 4px 10px; } .tm-mod b { font-size: 15px; } .tm-pill { font-size: 9.5px; padding: 3px 8px; } .tm-ctas { flex-direction: column; align-items: stretch; gap: 10px; } .tm-cta { justify-content: space-between; } .tm-cta2 { justify-content: center; } .tm-media { width: min(100%, 340px); } }
   @media (prefers-reduced-motion: reduce) { .tm-ave, .tero-ala { animation: none; } .tm-ave { display: none; } .tm-cta, .tm-media img { transition: none; } }
 </style>
 </helmet>
@@ -351,7 +353,7 @@
       </div>
     </div>
     <!-- Tero en el inicio: tarjeta con el video que abre la landing animada -->
-    <a class="hero-tero" href="tero/" target="_blank" rel="noopener" data-reveal="1">
+    <a class="hero-tero" href="{{ teroLanding }}" target="_blank" rel="noopener" data-reveal="1">
       <span class="hero-tero__tag"><img src="app-tero-logo.png" alt="" width="22" height="22">{{ t.heroTeroTag }}</span>
       <video class="hero-tero__vid" src="app-tero.mp4" poster="app-tero.jpg" muted loop playsinline preload="metadata" aria-label="{{ t.heroTeroAria }}"></video>
       <span class="hero-tero__txt"><b>{{ t.heroTeroTitle }}</b><span>{{ t.heroTeroSub }} ↗</span></span>
@@ -653,13 +655,13 @@
           </sc-for>
         </ul>
         <div class="tm-ctas">
-          <a class="tm-cta" href="tero/" target="_blank" rel="noopener">{{ tero.cta }}<span class="tm-cta__ico">↗</span></a>
+          <a class="tm-cta" href="{{ teroLanding }}" target="_blank" rel="noopener">{{ tero.cta }}<span class="tm-cta__ico">↗</span></a>
           <a class="tm-cta2" href="{{ teroUrl }}" target="_blank" rel="noopener">{{ tero.cta2 }}</a>
         </div>
         <p class="tm-note">{{ tero.note }}</p>
         <p class="tm-medida">{{ tero.medida }} <a href="{{ appsWaLink }}" target="_blank" rel="noopener">{{ tero.medidaLink }}</a></p>
       </div>
-      <a class="tm-media" href="tero/" target="_blank" rel="noopener" aria-label="{{ tero.cta }}">
+      <a class="tm-media" href="{{ teroLanding }}" target="_blank" rel="noopener" aria-label="{{ tero.cta }}">
         <video class="tm-vid" src="app-tero.mp4" poster="app-tero.jpg" muted loop playsinline preload="metadata" aria-label="{{ tero.imgAlt }}"></video>
         <span class="tm-media__go">{{ tero.mediaGo }}</span>
       </a>
@@ -883,7 +885,7 @@ const COPY = {
       medida: "¿Necesitás una app a medida para tu negocio?", medidaLink: "Escribime",
       imgAlt: "Tero en el celular: la pantalla Hoy con los avisos del día"
     },
-    s5Label: "Proyectos",    s5Label: "Proyectos",
+    s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
     s5Hint: "Hay más trabajos detrás, estos son los principales. Toca cada proyecto para abrir el caso completo",
     pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
@@ -1073,7 +1075,7 @@ const COPY = {
       medida: "Need a custom app for your business?", medidaLink: "Message me",
       imgAlt: "Tero on a phone: the Today screen with the day's reminders"
     },
-    s5Label: "Work",    s5Label: "Work",
+    s5Label: "Work",
     s5Title: "A selection of the main projects.",
     s5Hint: "There is more work behind these — these are the main ones. Tap any project to open the full case study",
     pProblem: "The problem", pWork: "What was done", pResult: "Result",
@@ -1226,7 +1228,8 @@ const COPY = {
 };
 
 class Component extends DCLogic {
-  state = { lang: "es", scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
+  // Idioma: ?lang=en en el link (lo usa la landing de Tero) o lo último elegido en esta web.
+  state = { lang: (() => { try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "es") return q; return localStorage.getItem("gc_lang") === "en" ? "en" : "es"; } catch (e) { return "es"; } })(), scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
 
   // (02) card fan: GSAP owns the card transforms; the template only renders content.
   cycleFan(direction) {
@@ -1385,7 +1388,7 @@ class Component extends DCLogic {
       lang,
       langLabel: lang === "es" ? "ES / EN" : "EN / ES",
       waLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg),
-      toggleLang: () => this.setState({ lang: lang === "es" ? "en" : "es" }),
+      toggleLang: () => { const nuevo = lang === "es" ? "en" : "es"; try { localStorage.setItem("gc_lang", nuevo); } catch (e) { /* sin almacenamiento */ } this.setState({ lang: nuevo }); },
       toggleMenu: () => this.setState({ menu: !this.state.menu }),
       closeMenu: () => this.setState({ menu: false }),
 
@@ -1457,9 +1460,10 @@ class Component extends DCLogic {
       appsWaLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(lang === "es" ? "Hola Gonzalo, quiero una app a medida para mi negocio." : "Hi Gonzalo, I'd like a custom app for my business."),
       // Tero (#tero): las UTM del anuncio pasan a la página de suscripción para saber de qué anuncio vino cada prueba.
       tero: c.tero,
+      teroLanding: "tero/?lang=" + lang,
       teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
         try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
-      })(),
+      })() + (lang === "en" ? "&lang=en" : ""),
       teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] === 2 ? c.tero.nuevo : m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] === 2 ? "tm-pill--nuevo" : m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;

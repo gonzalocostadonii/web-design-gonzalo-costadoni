@@ -1388,7 +1388,8 @@ class Component extends DCLogic {
       lang,
       langLabel: lang === "es" ? "ES / EN" : "EN / ES",
       waLink: "https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg),
-      toggleLang: () => { const nuevo = lang === "es" ? "en" : "es"; try { localStorage.setItem("gc_lang", nuevo); } catch (e) { /* sin almacenamiento */ } this.setState({ lang: nuevo }); },
+      // Cambia el idioma sin mover la página: se toma el bloque que está a la vista y después de traducir se corrige el scroll.
+      toggleLang: () => { const nuevo = lang === "es" ? "en" : "es"; try { localStorage.setItem("gc_lang", nuevo); } catch (e) { /* sin almacenamiento */ } const ancla = document.elementFromPoint(innerWidth / 2, innerHeight * 0.45), y0 = ancla ? ancla.getBoundingClientRect().top : 0; this.setState({ lang: nuevo }); const corregir = () => { if (ancla && ancla.isConnected) window.scrollBy(0, ancla.getBoundingClientRect().top - y0); }; requestAnimationFrame(() => requestAnimationFrame(corregir)); },
       toggleMenu: () => this.setState({ menu: !this.state.menu }),
       closeMenu: () => this.setState({ menu: false }),
 

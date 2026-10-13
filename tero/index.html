@@ -618,33 +618,66 @@ var EN = {
   'Términos': 'Terms', 'Privacidad': 'Privacy', 'Botón de arrepentimiento': 'Withdrawal button', 'Baja de suscripción': 'Cancel subscription', '¡Tero, tero!': 'Tero, tero!'
 };
 function tx(s) { return LANG === 'en' && EN[s] ? EN[s] : s; }
-(function traducir() {
-  document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
-    var u = new URL(location.href); u.searchParams.set('lang', a.dataset.lang); a.href = u.pathname + u.search + u.hash;
-    a.setAttribute('aria-current', String(a.dataset.lang === LANG));
+/* Idioma en el lugar: cambia todos los textos sin recargar y deja la página donde estaba. */
+var ES = {}; Object.keys(EN).forEach(function (k) { ES[EN[k]] = k; });
+var TITULO = document.getElementById('titulo'), TITULO_ES = TITULO.innerHTML;
+var UTM = (function () { try { var q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach(function (v, k) { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); return u.toString(); } catch (e) { return ''; } })();
+document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.dataset.base = a.getAttribute('href'); });
+/* El título se parte en palabras para que entren una por una. */
+function partir(el) {
+  Array.from(el.childNodes).forEach(function (n) {
+    if (n.nodeType === 3) {
+      var frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(function (p) {
+        if (!p) return;
+        if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+        var w = document.createElement('span'); w.className = 'w'; var i = document.createElement('span'); i.textContent = p; w.appendChild(i); frag.appendChild(w);
+      });
+      el.replaceChild(frag, n);
+    } else if (n.nodeType === 1) partir(n);
   });
-  if (LANG !== 'en') return;
-  document.documentElement.lang = 'en';
-  document.title = tx(document.title);
-  var md = document.querySelector('meta[name="description"]'); if (md) md.content = tx(md.content);
-  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { return n.parentNode.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+}
+function cambiarTextos(raiz, dic) {
+  var w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { return n.parentNode.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
   for (var n; (n = w.nextNode());) {
     var t = n.nodeValue, k = t.trim();
-    if (k && EN[k]) n.nodeValue = t.slice(0, t.indexOf(k)) + EN[k] + t.slice(t.indexOf(k) + k.length);
+    if (k && dic[k]) n.nodeValue = t.slice(0, t.indexOf(k)) + dic[k] + t.slice(t.indexOf(k) + k.length);
   }
-  document.querySelectorAll('[aria-label],[alt]').forEach(function (el) { ['aria-label', 'alt'].forEach(function (a) { var v = el.getAttribute(a); if (v && EN[v]) el.setAttribute(a, EN[v]); }); });
-  /* La app y la suscripción también arrancan en inglés. */
-  document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href += '&lang=en'; });
-  document.querySelectorAll('a[href="../"]').forEach(function (a) { a.href = '../?lang=en'; });
-})();
+}
+function aplicarIdioma(lang) {
+  LANG = lang;
+  var dic = lang === 'en' ? EN : ES;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es-AR';
+  document.title = dic[document.title] || document.title;
+  var md = document.querySelector('meta[name="description"]'); if (md && dic[md.content]) md.content = dic[md.content];
+  /* El título se arma de nuevo desde su versión original y se vuelve a partir en palabras. */
+  var h = document.createElement('h1'); h.innerHTML = TITULO_ES; if (lang === 'en') cambiarTextos(h, EN);
+  TITULO.innerHTML = h.innerHTML; if (TITULO.dataset.partido) partir(TITULO);
+  cambiarTextos(document.body, dic);
+  document.querySelectorAll('[aria-label],[alt]').forEach(function (el) { ['aria-label', 'alt'].forEach(function (a) { var v = el.getAttribute(a); if (v && dic[v]) el.setAttribute(a, dic[v]); }); });
+  /* La app y la suscripción arrancan en el mismo idioma; el botón de volver lleva el idioma a la web. */
+  document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href = a.dataset.base + (lang === 'en' ? '&lang=en' : '') + (UTM ? '&' + UTM : ''); });
+  document.querySelectorAll('a.volver-web, a.menu__web, .pie a[href^="../"]').forEach(function (a) { a.href = lang === 'en' ? '../?lang=en' : '../?lang=es'; });
+  document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
+    var u = new URL(location.href); u.searchParams.set('lang', a.dataset.lang); a.href = u.pathname + u.search + u.hash;
+    a.setAttribute('aria-current', String(a.dataset.lang === lang));
+  });
+}
+aplicarIdioma(LANG);
+document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var nuevo = a.dataset.lang; if (nuevo === LANG) return;
+    /* Ancla: el bloque que está a la vista; después de traducir se corrige el scroll para que quede en el mismo lugar. */
+    var ancla = document.elementFromPoint(innerWidth / 2, innerHeight * 0.45), y0 = ancla ? ancla.getBoundingClientRect().top : 0;
+    try { localStorage.setItem('gc_lang', nuevo); } catch (err) { /* sin almacenamiento */ }
+    var u = new URL(location.href); u.searchParams.set('lang', nuevo); history.replaceState(null, '', u.pathname + u.search + u.hash);
+    aplicarIdioma(nuevo);
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+    if (ancla && ancla.isConnected) scrollBy(0, ancla.getBoundingClientRect().top - y0);
+  });
+});
 (function () {
-  /* Las UTM del anuncio viajan a la página de suscripción. */
-  try {
-    var q = new URLSearchParams(location.search), u = new URLSearchParams();
-    q.forEach(function (v, k) { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); });
-    if (u.toString()) document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href += '&' + u.toString(); });
-  } catch (e) { /* sin UTM */ }
-
   var barra = document.getElementById('barra');
   /* Menú del celular */
   var hamb = document.getElementById('hamb'), menu = document.getElementById('menu');
@@ -665,21 +698,7 @@ function tx(s) { return LANG === 'en' && EN[s] ? EN[s] : s; }
   });
   addEventListener('scroll', function () { barra.classList.toggle('is-scroll', scrollY > 30); }, { passive: true });
 
-  /* El título se parte en palabras para que entren una por una. */
-  var h1 = document.getElementById('titulo');
-  (function partir(el) {
-    Array.from(el.childNodes).forEach(function (n) {
-      if (n.nodeType === 3) {
-        var frag = document.createDocumentFragment();
-        n.textContent.split(/(\s+)/).forEach(function (p) {
-          if (!p) return;
-          if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
-          var w = document.createElement('span'); w.className = 'w'; var i = document.createElement('span'); i.textContent = p; w.appendChild(i); frag.appendChild(w);
-        });
-        el.replaceChild(frag, n);
-      } else if (n.nodeType === 1) partir(n);
-    });
-  })(h1);
+  var h1 = TITULO; partir(h1); h1.dataset.partido = "1";
 
   if (!window.gsap) return;
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);

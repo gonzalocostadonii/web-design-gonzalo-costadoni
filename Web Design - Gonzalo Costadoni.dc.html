@@ -282,6 +282,13 @@
   @media (max-width: 899px) { .tm-copy { text-align: center; } .tm-label, .tm-ctas { justify-content: center; } .tm-sub, .tm-mods { margin-left: auto; margin-right: auto; } .tm-mod { text-align: left; } }
   /* Celular: los teros vuelan por encima del texto sin taparlo, pastillas más chicas y botones a lo ancho. */
   @media (max-width: 599px) { .tm-ave:nth-child(1) { top: 6px; width: 72px; } .tm-ave:nth-child(2) { display: none; } .tm-ave:nth-child(3) { top: auto; bottom: 46px; width: 72px; } .tm-ave:nth-child(4) { top: auto; bottom: 8px; width: 52px; } .tm-label { font-size: 10.5px; letter-spacing: .12em; } .tm-mod { padding: 13px 14px; gap: 4px 10px; } .tm-mod b { font-size: 15px; } .tm-pill { font-size: 9.5px; padding: 3px 8px; } .tm-ctas { flex-direction: column; align-items: stretch; gap: 10px; } .tm-cta { justify-content: space-between; } .tm-cta2 { justify-content: center; } .tm-media { width: min(100%, 340px); } }
+  /* Zafra (#zafra): app de entrenamiento; la landing completa está en /zafra */
+  .tm--zafra { --ta: #B5E655; background: radial-gradient(800px 520px at 12% 10%, rgba(155,209,58,.16), transparent 70%), radial-gradient(600px 400px at 95% 95%, rgba(227,185,95,.10), transparent 70%), #0E110D; }
+  .tm--zafra .tm-cta { color: #0E110D; }
+  .tm--zafra .tm-media { width: min(100%, 340px); }
+  .tm--zafra .tm-media img { height: auto; aspect-ratio: 390 / 844; object-position: top; border-radius: 34px; }
+  .tm--zafra .tm-pill--ok { background: rgba(181,230,85,.14); color: #C9EE85; }
+  @media (min-width: 900px) { .tm--zafra .tm-in { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } .tm--zafra .tm-media { order: -1; } }
   @media (prefers-reduced-motion: reduce) { .tm-ave, .tero-ala { animation: none; } .tm-ave { display: none; } .tm-cta, .tm-media img { transition: none; } }
 </style>
 </helmet>
@@ -668,6 +675,31 @@
     </div>
   </section>
 
+  <!-- Zafra: app de entrenamiento de GC. "Conocé Zafra" abre la landing /zafra en otra pestaña. -->
+  <section id="zafra" data-reveal="1" class="tm tm--zafra" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
+    <div class="tm-in">
+      <div class="tm-copy">
+        <div class="tm-label"><img src="zafra/img/logo.png" alt="" width="28" height="28">{{ zafra.label }}</div>
+        <h2 class="tm-title">{{ zafra.title }}</h2>
+        <p class="tm-sub">{{ zafra.sub }}</p>
+        <ul class="tm-mods">
+          <sc-for list="{{ zafraMods }}" as="zm" hint-placeholder-count="4">
+            <li class="tm-mod"><b>{{ zm.name }}</b><span>{{ zm.text }}</span><i class="tm-pill tm-pill--ok">{{ zafra.ok }}</i></li>
+          </sc-for>
+        </ul>
+        <div class="tm-ctas">
+          <a class="tm-cta" href="zafra/" target="_blank" rel="noopener">{{ zafra.cta }}<span class="tm-cta__ico">↗</span></a>
+          <a class="tm-cta2" href="{{ zafraUrl }}" target="_blank" rel="noopener">{{ zafra.cta2 }}</a>
+        </div>
+        <p class="tm-note">{{ zafra.note }}</p>
+      </div>
+      <a class="tm-media" href="zafra/" target="_blank" rel="noopener" aria-label="{{ zafra.cta }}">
+        <img src="zafra/img/hoy.webp" alt="{{ zafra.imgAlt }}" width="390" height="844" loading="lazy">
+        <span class="tm-media__go">{{ zafra.mediaGo }}</span>
+      </a>
+    </div>
+  </section>
+
   <section id="proyectos" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; border-top: 1px solid rgba(255,255,255,.06); background: #0D1526; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
     <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
@@ -885,6 +917,15 @@ const COPY = {
       medida: "¿Necesitás una app a medida para tu negocio?", medidaLink: "Escribime",
       imgAlt: "Tero en el celular: la pantalla Hoy con los avisos del día"
     },
+    zafra: {
+      label: "Nuevo · Zafra · Tu entrenamiento",
+      title: "Tu zafra empieza hoy.",
+      sub: "La app de entrenamiento de GC Web Design Studio. Cada rep es una semilla: anotás tus series, comés mejor y ves crecer tus resultados.",
+      mods: [["Entrenamiento", "Series con lo de la vez anterior, descanso con aviso y récords."], ["Ejercicios", "Más de 120 con animación y tips en español."], ["Comidas", "Meta de calorías y proteínas, agua y creatina."], ["Progreso", "Peso, fuerza por ejercicio, volumen y calendario."]],
+      ok: "Incluido", cta: "Conocé Zafra", cta2: "Probar 7 días gratis", mediaGo: "Ver la app ↗",
+      note: "USD 5 por mes, todo incluido · Cancelás cuando quieras",
+      imgAlt: "Zafra en el celular: la pantalla Hoy con la semana, la racha y el entrenamiento del día"
+    },
     s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
     s5Hint: "Hay más trabajos detrás, estos son los principales. Toca cada proyecto para abrir el caso completo",
@@ -1074,6 +1115,15 @@ const COPY = {
       note: "USD 10 per month, everything included · Cancel anytime",
       medida: "Need a custom app for your business?", medidaLink: "Message me",
       imgAlt: "Tero on a phone: the Today screen with the day's reminders"
+    },
+    zafra: {
+      label: "New · Zafra · Your training",
+      title: "Your harvest starts today.",
+      sub: "The training app by GC Web Design Studio. Every rep is a seed: log your sets, eat better and watch your results grow. (App in Spanish.)",
+      mods: [["Workouts", "Sets prefilled from last time, rest timer and personal records."], ["Exercises", "120+ exercises with animation and tips."], ["Nutrition", "Calorie and protein targets, water and creatine."], ["Progress", "Body weight, strength per exercise, volume and calendar."]],
+      ok: "Included", cta: "Discover Zafra", cta2: "Try free for 7 days", mediaGo: "See the app ↗",
+      note: "USD 5 per month, everything included · Cancel anytime",
+      imgAlt: "Zafra on a phone: the Today screen with the week, the streak and today's workout"
     },
     s5Label: "Work",
     s5Title: "A selection of the main projects.",
@@ -1465,6 +1515,11 @@ class Component extends DCLogic {
       teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
         try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
       })() + (lang === "en" ? "&lang=en" : ""),
+      zafra: c.zafra,
+      zafraMods: c.zafra.mods.map((m) => ({ name: m[0], text: m[1] })),
+      zafraUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=zafra" + (() => {
+        try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
+      })(),
       teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] === 2 ? c.tero.nuevo : m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] === 2 ? "tm-pill--nuevo" : m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {
         const open = this.state.open === i;

@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex"><!-- en pausa hasta el lanzamiento -->
 <title>Tero · La app para manejar tu negocio</title>
-<meta name="description" content="Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. 7 días gratis.">
+<meta name="description" content="Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. Gratis hasta 30 clientes.">
 <meta name="theme-color" content="#0A1A26">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Web Design Gonzalo Costadoni">
 <meta property="og:title" content="Tero · Que tus clientes vuelvan">
-<meta property="og:description" content="Te dice a quién avisarle hoy, con el WhatsApp ya escrito. 7 días gratis.">
+<meta property="og:description" content="Te dice a quién avisarle hoy, con el WhatsApp ya escrito. Gratis hasta 30 clientes.">
 <meta property="og:url" content="https://web-design-gonzalo-costadoni.vercel.app/tero/">
 <meta property="og:image" content="https://web-design-gonzalo-costadoni.vercel.app/og-tero.png">
 <meta property="og:image:width" content="1200">
@@ -235,6 +235,16 @@ section{position:relative}
 .precio-big{font-size:16px;color:var(--ink2)}
 .precio-big b{font-size:clamp(46px,6vw,72px);font-weight:700;letter-spacing:-.045em;color:#fff;line-height:1}
 .precio-alt{margin-top:6px;font-size:14px;color:var(--ink2)}
+.planes{display:grid;gap:16px}
+@media(min-width:960px){.planes{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.plan{position:relative;display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3vw,34px);border-radius:24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1)}
+.plan--pro{background:linear-gradient(135deg,rgba(52,200,115,.14),rgba(45,92,150,.18));border-color:rgba(52,200,115,.35)}
+.plan--ia{border-style:dashed;border-color:rgba(160,140,240,.4)}
+.plan .precio-big b{font-size:clamp(40px,4.4vw,56px)}
+.plan .lista{flex:1;align-content:start}.plan .btn{justify-content:center}
+.plan-tag{position:absolute;top:18px;right:18px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(52,200,115,.18);color:var(--ta)}
+.plan-tag--pronto{background:rgba(245,192,101,.16);color:#F5C065}
+.planes-nota{margin-top:18px;font-size:14px;color:var(--ink2);text-align:center}
 .lista{list-style:none;padding:0;display:grid;gap:10px}
 .lista li{position:relative;padding-left:28px;font-size:15.5px;color:#E2E8F2}
 .lista li::before{content:"✓";position:absolute;left:0;color:var(--ta);font-weight:700}
@@ -308,7 +318,7 @@ section{position:relative}
     </nav>
     <div class="barra__acc">
       <span class="idioma" role="group" aria-label="Idioma / Language"><a href="?lang=es" data-lang="es" lang="es" aria-current="true">ES</a><a href="?lang=en" data-lang="en" lang="en">EN</a></span>
-      <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+      <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar gratis<i>↗</i></a>
       <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
     </div>
   </div>
@@ -324,10 +334,10 @@ section{position:relative}
         <h1 id="titulo">Que tus clientes <em>vuelvan.</em> Sin acordarte de escribirles.</h1>
         <p class="lead" data-in>El tero grita cuando alguien se acerca al nido. Esta app te avisa cuando un cliente tiene que volver: te dice a quién escribirle hoy y te deja el WhatsApp ya armado.</p>
         <div class="hero-ctas" data-in>
-          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a>
+          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar Tero gratis<i>↗</i></a>
           <a class="btn btn--ghost" href="#como">Ver cómo funciona</a>
         </div>
-        <p class="hero-nota" data-in>Hoy no pagás nada · Después USD 10 por mes · Cancelás cuando quieras</p>
+        <p class="hero-nota" data-in>Gratis hasta 30 clientes · Sin tarjeta · Tero Pro USD 10 por mes</p>
       </div>
       <div class="hero-media" id="hero-media">
         <video src="../tero-inicio.mp4" poster="../tero-inicio.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Video: Tero en el celular"></video>
@@ -454,7 +464,7 @@ section{position:relative}
           <div class="mod" data-mod><span class="mod__ico">📒</span><span><b>Cuentas y fiado</b><p>Quién te debe, cuánto y desde cuándo. Cobrás por WhatsApp con tu alias y mandás el estado de cuenta.</p></span><span class="pill pill--ok">Disponible</span></div>
           <div class="mod" data-mod><span class="mod__ico">🏷️</span><span><b>Precios y costos</b><p>Costo real de cada producto, precio sugerido y tu lista de precios lista para mandar.</p></span><span class="pill pill--ok">Disponible</span></div>
         </div>
-        <p class="mods-nota" data-rev>Todo incluido en USD 10 por mes. Lo que sumemos después también llega solo, sin pagar más.</p>
+        <p class="mods-nota" data-rev>Avisos y tareas, gratis hasta 30 clientes. Todo lo demás, en Tero Pro por USD 10 por mes. Lo que sumemos después también llega solo.</p>
       </div>
     </div>
   </section>
@@ -471,9 +481,9 @@ section{position:relative}
         <div class="ben" data-ben><span class="ben__ico">✍️</span><b>Hecha a tu medida</b><p>Tus tipos de aviso, tus datos y tus mensajes, para cualquier rubro.</p></div>
       </div>
       <div class="cifras">
-        <div class="cifra" data-rev><b data-num="7">0</b><span>días gratis para probarla</span></div>
+        <div class="cifra" data-rev><b data-num="30">0</b><span>clientes gratis, para siempre</span></div>
         <div class="cifra" data-rev><b data-num="1">0</b><span>toque para avisar a cada cliente</span></div>
-        <div class="cifra" data-rev><b>USD <span data-num="10" style="display:inline;margin:0;font-size:inherit;color:inherit">0</span></b><span>por mes, todo incluido</span></div>
+        <div class="cifra" data-rev><b>USD <span data-num="10" style="display:inline;margin:0;font-size:inherit;color:inherit">0</span></b><span>por mes, Tero Pro con todo</span></div>
       </div>
     </div>
   </section>
@@ -497,11 +507,18 @@ section{position:relative}
   <!-- PRECIO -->
   <section class="precio" id="precio">
     <div class="wrap">
-      <div class="precio-card" id="precio-card">
-        <div><p class="eti">Un precio simple</p><p class="precio-big" style="margin-top:14px"><b>USD 10</b> por mes</p><p class="precio-alt">o USD 100 por año (2 meses gratis)</p></div>
-        <ul class="lista"><li>7 días gratis para probarla</li><li>Se cobra en pesos por Mercado Pago</li><li>Avisos, cuentas y precios incluidos</li><li>Sin permanencia: cancelás cuando quieras</li></ul>
-        <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Empezar gratis<i>↗</i></a>
+      <p class="eti" data-rev>Planes</p><h2 style="margin:16px 0 30px" data-rev>Empezá gratis. Pasate a Pro cuando crezcas.</h2>
+      <div class="planes" id="precio-card">
+        <div class="plan" data-rev><div><p class="eti">Gratis</p><p class="precio-big" style="margin-top:14px"><b>USD 0</b> para siempre</p><p class="precio-alt">Sin tarjeta</p></div>
+          <ul class="lista"><li>Hasta 30 clientes</li><li>Avisos con el WhatsApp armado</li><li>Tareas y calendario</li><li>Mensajes y cumpleaños</li></ul>
+          <a class="btn btn--ghost btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar gratis<i>↗</i></a></div>
+        <div class="plan plan--pro" data-rev><span class="plan-tag">7 días gratis</span><div><p class="eti">Tero Pro</p><p class="precio-big" style="margin-top:14px"><b>USD 10</b> por mes</p><p class="precio-alt">o USD 100 por año (2 meses gratis)</p></div>
+          <ul class="lista"><li>Clientes sin límite</li><li>Ventas, cuentas, fiado, precios y proyectos</li><li>Reportes, remarketing y automatizaciones</li><li>Integraciones y nube en celular y compu</li></ul>
+          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar Pro gratis<i>↗</i></a></div>
+        <div class="plan plan--ia" data-rev><span class="plan-tag plan-tag--pronto">Próximamente</span><div><p class="eti">Tero Pro + IA</p><p class="precio-big" style="margin-top:14px"><b>USD 15</b> por mes</p><p class="precio-alt">o USD 150 por año</p></div>
+          <ul class="lista"><li>Todo lo de Tero Pro</li><li>Tero IA: le pedís cosas con tus palabras</li><li>Te arma los WhatsApp y las campañas</li><li>100 mensajes por mes</li></ul></div>
       </div>
+      <p class="planes-nota" data-rev>Se cobra en pesos por Mercado Pago · Sin permanencia: cancelás cuando quieras</p>
     </div>
   </section>
 
@@ -528,8 +545,8 @@ section{position:relative}
     <div class="wrap">
       <p class="eti" data-rev>Tero · La libreta que avisa</p>
       <h2 style="margin-top:18px" data-rev>Que ningún cliente se te pase de nuevo.</h2>
-      <p class="lead" data-rev>Probala 7 días gratis. Si no te sirve, cancelás y no pagás nada.</p>
-      <div class="hero-ctas" data-rev><a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar Tero gratis<i>↗</i></a></div>
+      <p class="lead" data-rev>Empezá gratis con hasta 30 clientes. Cuando crezcas, pasate a Pro.</p>
+      <div class="hero-ctas" data-rev><a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar Tero gratis<i>↗</i></a></div>
     </div>
   </section>
 </main>
@@ -550,8 +567,19 @@ var LANG = (function () {
   return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
 })();
 var EN = {
+  'Usar gratis': 'Use it free', 'Usar Tero gratis': 'Use Tero free', 'Gratis hasta 30 clientes · Sin tarjeta · Tero Pro USD 10 por mes': 'Free for up to 30 customers · No card · Tero Pro USD 10 per month',
+  'clientes gratis, para siempre': 'customers free, forever', 'por mes, Tero Pro con todo': 'per month, Tero Pro with everything',
+  'Avisos y tareas, gratis hasta 30 clientes. Todo lo demás, en Tero Pro por USD 10 por mes. Lo que sumemos después también llega solo.': 'Reminders and tasks, free for up to 30 customers. Everything else is in Tero Pro for USD 10 per month. Anything we add later arrives automatically.',
+  'Planes': 'Plans', 'Empezá gratis. Pasate a Pro cuando crezcas.': 'Start free. Go Pro when you grow.', 'Gratis': 'Free', 'USD 0': 'USD 0', 'para siempre': 'forever', 'Sin tarjeta': 'No card needed',
+  'Hasta 30 clientes': 'Up to 30 customers', 'Avisos con el WhatsApp armado': 'Reminders with the WhatsApp ready', 'Tareas y calendario': 'Tasks and calendar', 'Mensajes y cumpleaños': 'Messages and birthdays',
+  '7 días gratis': '7 days free', 'Clientes sin límite': 'Unlimited customers', 'Ventas, cuentas, fiado, precios y proyectos': 'Sales, accounts, tabs, prices and projects',
+  'Reportes, remarketing y automatizaciones': 'Reports, remarketing and automations', 'Integraciones y nube en celular y compu': 'Integrations and cloud on phone and computer', 'Probar Pro gratis': 'Try Pro free',
+  'Próximamente': 'Coming soon', 'Tero Pro + IA': 'Tero Pro + AI', 'o USD 150 por año': 'or USD 150 per year', 'Todo lo de Tero Pro': 'Everything in Tero Pro',
+  'Tero IA: le pedís cosas con tus palabras': 'Tero AI: ask in your own words', 'Te arma los WhatsApp y las campañas': 'Writes your WhatsApps and campaigns', '100 mensajes por mes': '100 messages per month',
+  'Se cobra en pesos por Mercado Pago · Sin permanencia: cancelás cuando quieras': 'Charged in Argentine pesos via Mercado Pago · No lock-in: cancel anytime',
+  'Empezá gratis con hasta 30 clientes. Cuando crezcas, pasate a Pro.': 'Start free with up to 30 customers. When you grow, go Pro.',
   'Tero · La app para manejar tu negocio': 'Tero · The app to run your business',
-  'Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. 7 días gratis.': 'Tero tells you who to message today, with the WhatsApp already written, and grows so you can run your whole business from your phone. 7 days free.',
+  'Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. Gratis hasta 30 clientes.': 'Tero tells you who to message today, with the WhatsApp already written, and grows so you can run your whole business from your phone. Free for up to 30 customers.',
   'Volver a GC Web Design': 'Back to GC Web Design', 'Secciones': 'Sections', 'A tu medida': 'Built for you', 'Cómo funciona': 'How it works', 'Herramientas': 'Tools', 'Precio': 'Pricing', 'Preguntas': 'FAQ',
   '← Volver a GC Web Design': '← Back to GC Web Design', 'Probar gratis': 'Try free', 'Abrir menú': 'Open menu', 'Cerrar menú': 'Close menu',
   'Tero · La app de tu negocio': 'Tero · Your business app',
@@ -856,7 +884,7 @@ document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
     /* Precio: entra con rebote y se inclina hacia el mouse. */
     gsap.from('#precio-card', { y: 60, scale: .95, autoAlpha: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '#precio-card', start: 'top 85%', once: true } });
     if (matchMedia('(pointer: fine)').matches) {
-      var card = document.getElementById('precio-card');
+      var card = document.querySelector('#precio-card .plan--pro');
       var rx = gsap.quickTo(card, 'rotationX', { duration: .5, ease: 'power3' }), ry = gsap.quickTo(card, 'rotationY', { duration: .5, ease: 'power3' });
       gsap.set(card, { transformPerspective: 1100 });
       card.addEventListener('pointermove', function (e) { var r = card.getBoundingClientRect(); ry(((e.clientX - r.left) / r.width - .5) * 8); rx(-((e.clientY - r.top) / r.height - .5) * 8); });

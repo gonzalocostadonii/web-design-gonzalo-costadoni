@@ -846,9 +846,9 @@
   </section>
 
   <section id="faq" data-reveal="1" style="scroll-margin-top: 110px; padding: clamp(70px, 10vh, 120px) 0; background: #0A0F1F; width: 100%; max-width: none; margin: 0; padding-left: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); padding-right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2));">
-    <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
-    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch;">{{ t.s6Title }}</h2>
-    <div style="display: flex; flex-direction: column; margin-top: 52px; border-top: 1px solid rgba(255,255,255,.09);">
+    <div style="text-align: center;"><div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #C9D4E6; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #C9D4E6;"></span>(06) {{ t.s6Label }}</div>
+    <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 22ch; margin-left: auto; margin-right: auto; text-wrap: balance;">{{ t.s6Title }}</h2></div>
+    <div style="display: flex; flex-direction: column; margin: 52px auto 0; max-width: 920px; border-top: 1px solid rgba(255,255,255,.09);">
       <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
         <div style="border-bottom: 1px solid rgba(255,255,255,.09);">
           <div onClick="{{ q.toggle }}" style="display: flex; align-items: center; gap: clamp(14px, 2vw, 26px); padding: clamp(20px, 2.2vw, 28px) 4px; cursor: pointer; transition: opacity .25s;" style-hover="opacity: .75;">

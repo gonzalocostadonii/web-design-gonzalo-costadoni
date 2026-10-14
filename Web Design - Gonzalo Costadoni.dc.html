@@ -237,7 +237,20 @@
   .hero-tero__txt b { font-size: 17px; font-weight: 600; letter-spacing: -.015em; color: #FFFFFF; }
   .hero-tero__txt span { font-size: 13.5px; color: #8FA9CF; }
   @media (min-width: 1180px) { .hero-tero { position: absolute; right: max(clamp(20px, 5vw, 72px), calc((100% - 1400px) / 2)); top: 50%; margin: 0; transform: translateY(-42%); width: clamp(280px, 24vw, 340px); } .hero-tero:hover { transform: translateY(calc(-42% - 6px)); } #inicio h1, #inicio h1 + p { max-width: calc(100% - 380px) !important; } }
-  @media (prefers-reduced-motion: reduce) { .hero-tero { transition: none; } }
+  /* Nuevas apps: la tarjeta alterna Tero (video) y Zafra cada 5 segundos. */
+  .hero-apps__vis { position: relative; display: block; }
+  .hero-apps__z { position: absolute; inset: 0; display: grid; place-items: end center; overflow: hidden; border-radius: 18px; background: radial-gradient(320px 260px at 50% 20%, rgba(185,234,78,.28), transparent 70%), #10130C; opacity: 0; animation: hero-rota 10s ease-in-out infinite; }
+  .hero-apps__z img { width: 66%; height: 90%; object-fit: cover; object-position: top; border-radius: 22px 22px 0 0; border: 6px solid #1B2117; border-bottom: 0; box-shadow: 0 -10px 40px rgba(185,234,78,.18); }
+  .hero-apps__tag { display: inline-flex; align-items: center; gap: 6px; justify-self: start; margin-bottom: 6px; padding: 5px 11px 5px 5px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #CFE0F5; }
+  .hero-apps__tag img { border-radius: 6px; }
+  .hero-apps__rot { display: grid; }
+  .hero-apps__rot b { grid-area: 1 / 1; }
+  .hero-apps__r1 { animation: hero-rota-out 10s ease-in-out infinite; }
+  .hero-apps__r2 { opacity: 0; animation: hero-rota 10s ease-in-out infinite; }
+  @keyframes hero-rota { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes hero-rota-out { 0%, 44% { opacity: 1; } 50%, 94% { opacity: 0; } 100% { opacity: 1; } }
+  .hero-apps:hover { border-color: rgba(185,234,78,.45); }
+  @media (prefers-reduced-motion: reduce) { .hero-tero { transition: none; } .hero-apps__z, .hero-apps__r1, .hero-apps__r2 { animation: none; } }
 
   /* Tero (#tero): sección corta de la super app; la landing completa está en /tero */
   .tm { --ta: #34C873; position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(900px 560px at 88% 10%, rgba(45,92,150,.38), transparent 70%), linear-gradient(180deg, #0A1A26, #0A0F1F 85%); }
@@ -384,10 +397,16 @@
       </div>
     </div>
     <!-- Tero en el inicio: tarjeta con el video que abre la landing animada -->
-    <a class="hero-tero" href="{{ teroLanding }}" target="_blank" rel="noopener" data-reveal="1">
-      <span class="hero-tero__tag"><img src="app-tero-logo.png" alt="" width="22" height="22">{{ t.heroTeroTag }}</span>
-      <video class="hero-tero__vid" src="tero-inicio.mp4" poster="tero-inicio.jpg" muted loop playsinline preload="metadata" aria-label="{{ t.heroTeroAria }}"></video>
-      <span class="hero-tero__txt"><b>{{ t.heroTeroTitle }}</b><span>{{ t.heroTeroSub }} ↗</span></span>
+    <a class="hero-tero hero-apps" href="#tero" data-reveal="1" aria-label="{{ t.heroAppsTag }}: Tero y Zafra">
+      <span class="hero-apps__vis">
+        <video class="hero-tero__vid" src="tero-inicio.mp4" poster="tero-inicio.jpg" muted loop playsinline preload="metadata" aria-label="{{ t.heroTeroAria }}"></video>
+        <span class="hero-apps__z" aria-hidden="true"><img src="zafra/img/hoy.webp" alt="" width="390" height="844"></span>
+      </span>
+      <span class="hero-tero__txt">
+        <span class="hero-apps__tag"><img src="app-tero-logo.png" alt="" width="20" height="20"><img src="zafra/img/logo.png" alt="" width="20" height="20">{{ t.heroAppsTag }}</span>
+        <span class="hero-apps__rot"><b class="hero-apps__r1">Tero · {{ t.heroTeroTitle }}</b><b class="hero-apps__r2">Zafra · {{ t.heroZafraTitle }}</b></span>
+        <span>{{ t.heroAppsSub }} ↓</span>
+      </span>
     </a>
   </section>
 
@@ -922,7 +941,7 @@ const COPY = {
     heroL1: "Tu negocio ya es profesional.",
     heroL2: "Ahora, hagamos que tu web lo demuestre.",
     heroSub: "Diseño y desarrollo web a medida para negocios que necesitan una presencia digital moderna, que genere confianza desde el primer clic.",
-    heroTeroTag: "Nuevo · Tero", heroTeroTitle: "La app para manejar tu negocio", heroTeroSub: "Gratis hasta 30 clientes", heroTeroAria: "Video: Tero, la app para manejar tu negocio, en el celular",
+    heroTeroTag: "Nuevo · Tero", heroAppsTag: "Nuevas apps", heroZafraTitle: "Tu app para crecer en el gym", heroAppsSub: "Hechas en la Patagonia · conocelas", heroTeroTitle: "La app para manejar tu negocio", heroTeroSub: "Probala 7 días gratis", heroTeroAria: "Video: Tero, la app para manejar tu negocio, en el celular",
     heroB1: "[placeholder] proyectos entregados",
     heroB2: "[placeholder] rubros distintos",
     heroTrust: "Testimonios validados\nde clientes reales",
@@ -950,8 +969,8 @@ const COPY = {
       sub: "Tus clientes, sus avisos, lo que te deben y cuánto cobrar cada cosa, en un mismo lugar. Al empezar elegís para qué la vas a usar y Tero prende solo lo que te sirve.",
       mods: [["Avisos y clientes", "A quién escribirle hoy, con el WhatsApp ya armado.", 1], ["Cuentas y fiado", "Quién te debe, cuánto y el mensaje para cobrar.", 1], ["Precios y costos", "Cuánto te cuesta cada producto y cuánto cobrarlo.", 1], ["Se arma a tu medida", "Elegís qué querés resolver y Tero se ordena sola.", 2]],
       ok: "Disponible", pronto: "Próximamente", nuevo: "Nuevo",
-      cta: "Conocé Tero", cta2: "Usar gratis", mediaGo: "Ver cómo funciona ↗",
-      note: "Gratis hasta 30 clientes · Tero Pro USD 10 por mes · Con IA, próximamente",
+      cta: "Conocé Tero", cta2: "Probar 7 días gratis", mediaGo: "Ver cómo funciona ↗",
+      note: "USD 5 por mes, todas las funciones · 7 días gratis · Con IA, próximamente",
       medida: "¿Necesitás una app a medida para tu negocio?", medidaLink: "Escribime",
       imgAlt: "Tero en el celular: la pantalla Hoy con los avisos del día",
       chip1: "Avisale a Marta hoy", chip1s: "El WhatsApp ya está armado", chip2: "Caliente · 71", chip2s: "Jorge está por decidir", chip3: "$ 219.500 este mes", chip3s: "Pronóstico de ventas"
@@ -1123,7 +1142,7 @@ const COPY = {
     heroL1: "Your business is already professional.",
     heroL2: "Now let's make your website show it.",
     heroSub: "Custom web design and development for businesses that need a modern digital presence — one that earns trust from the first click.",
-    heroTeroTag: "New · Tero", heroTeroTitle: "The app to run your business", heroTeroSub: "Free for up to 30 customers", heroTeroAria: "Video: Tero, the app to run your business, on a phone",
+    heroTeroTag: "New · Tero", heroAppsTag: "New apps", heroZafraTitle: "Your app to grow at the gym", heroAppsSub: "Made in Patagonia · take a look", heroTeroTitle: "The app to run your business", heroTeroSub: "Try it free for 7 days", heroTeroAria: "Video: Tero, the app to run your business, on a phone",
     heroB1: "[placeholder] projects delivered",
     heroB2: "[placeholder] different industries",
     heroTrust: "Verified testimonials\nfrom real clients",
@@ -1151,8 +1170,8 @@ const COPY = {
       sub: "Your clients, their reminders, who owes you and what to charge for each thing, in one place. When you start you pick what you need and Tero turns on only what helps you.",
       mods: [["Reminders & clients", "Who to message today, with the WhatsApp text ready.", 1], ["Accounts & credit", "Who owes you, how much and the message to collect.", 1], ["Prices & costs", "What each product costs you and what to charge.", 1], ["Built around you", "Pick what you want to solve and Tero sets itself up.", 2]],
       ok: "Available", pronto: "Coming soon", nuevo: "New",
-      cta: "Discover Tero", cta2: "Use it free", mediaGo: "See how it works ↗",
-      note: "Free for up to 30 customers · Tero Pro USD 10 per month · AI coming soon",
+      cta: "Discover Tero", cta2: "Try free for 7 days", mediaGo: "See how it works ↗",
+      note: "USD 5 per month, every feature · 7 days free · AI coming soon",
       medida: "Need a custom app for your business?", medidaLink: "Message me",
       imgAlt: "Tero on a phone: the Today screen with the day's reminders",
       chip1: "Message Marta today", chip1s: "The WhatsApp is ready", chip2: "Hot · 71", chip2s: "Jorge is about to decide", chip3: "$ 219,500 this month", chip3s: "Sales forecast"
@@ -1554,7 +1573,7 @@ class Component extends DCLogic {
       // Tero (#tero): las UTM del anuncio pasan a la página de suscripción para saber de qué anuncio vino cada prueba.
       tero: c.tero,
       teroLanding: "tero/?lang=" + lang,
-      teroUrl: "https://gc-micro-apps.vercel.app/tero/?desde=web" + (() => {
+      teroUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=tero" + (() => {
         try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
       })() + (lang === "en" ? "&lang=en" : ""),
       zafra: c.zafra,

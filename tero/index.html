@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex"><!-- en pausa hasta el lanzamiento -->
 <title>Tero · La app para manejar tu negocio</title>
-<meta name="description" content="Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. Gratis hasta 30 clientes.">
+<meta name="description" content="Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. 7 días gratis, después USD 5 por mes.">
 <meta name="theme-color" content="#0A1A26">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Web Design Gonzalo Costadoni">
 <meta property="og:title" content="Tero · Que tus clientes vuelvan">
-<meta property="og:description" content="Te dice a quién avisarle hoy, con el WhatsApp ya escrito. Gratis hasta 30 clientes.">
+<meta property="og:description" content="Te dice a quién avisarle hoy, con el WhatsApp ya escrito. 7 días gratis, después USD 5 por mes.">
 <meta property="og:url" content="https://web-design-gonzalo-costadoni.vercel.app/tero/">
 <meta property="og:image" content="https://web-design-gonzalo-costadoni.vercel.app/og-tero.png">
 <meta property="og:image:width" content="1200">
@@ -209,7 +209,7 @@ section{position:relative}
 .ben__ico{font-size:30px}
 .ben b{display:block;margin-top:16px;font-size:19px;letter-spacing:-.015em;color:#fff;font-weight:600}
 .ben p{margin-top:8px;font-size:15px;color:var(--ink2)}
-.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:56px}
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:18px}
 .cifra{text-align:center;padding:26px 16px;border-radius:20px;border:1px solid var(--line)}
 .cifra b{display:block;font-size:clamp(40px,5vw,60px);font-weight:700;letter-spacing:-.04em;color:var(--ta);line-height:1}
 .cifra span{display:block;margin-top:10px;font-size:14px;color:var(--ink2)}
@@ -244,6 +244,20 @@ section{position:relative}
 .plan .lista{flex:1;align-content:start}.plan .btn{justify-content:center}
 .plan-tag{position:absolute;top:18px;right:18px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(52,200,115,.18);color:var(--ta)}
 .plan-tag--pronto{background:rgba(245,192,101,.16);color:#F5C065}
+.planes--2{max-width:900px;margin:0 auto}
+@media(min-width:960px){.planes--2{grid-template-columns:repeat(2,1fr)}}
+.precio h2{text-align:center}.precio>.wrap>.eti{display:flex;justify-content:center}
+.plan{padding-top:clamp(30px,3.4vw,40px)}
+/* por qué Tero IA vale USD 15 */
+.porque{padding:clamp(80px,11vh,130px) 0;background:radial-gradient(700px 420px at 50% 0%,rgba(139,108,240,.14),transparent 70%)}
+.porque .cab{text-align:center;max-width:760px;margin:0 auto}.porque .cab .eti{justify-content:center}.porque .cab .lead{margin:16px auto 0}
+.porque-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:46px}
+.porque-c{padding:28px 24px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.porque-c span{font-size:30px}.porque-c b{display:block;margin-top:14px;font-size:19px;color:#fff;font-weight:600;letter-spacing:-.015em}.porque-c p{margin-top:8px;font-size:15px;color:var(--ink2)}
+.porque-cuenta{display:grid;gap:18px;align-items:center;margin-top:18px;padding:clamp(24px,3vw,36px);border-radius:24px;background:linear-gradient(135deg,rgba(139,108,240,.16),rgba(47,143,216,.12));border:1px solid rgba(160,140,240,.3)}
+@media(min-width:900px){.porque-cuenta{grid-template-columns:1fr auto}}
+.porque-cuenta b{font-size:clamp(22px,2.4vw,30px);color:#fff;letter-spacing:-.02em;font-weight:600}.porque-cuenta p{margin-top:8px;color:var(--ink2);font-size:15px}
+.porque-cuenta .chip-pronto{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(245,192,101,.16);color:#F5C065;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .planes-nota{margin-top:18px;font-size:14px;color:var(--ink2);text-align:center}
 .lista{list-style:none;padding:0;display:grid;gap:10px}
 .lista li{position:relative;padding-left:28px;font-size:15.5px;color:#E2E8F2}
@@ -318,7 +332,7 @@ section{position:relative}
     </nav>
     <div class="barra__acc">
       <span class="idioma" role="group" aria-label="Idioma / Language"><a href="?lang=es" data-lang="es" lang="es" aria-current="true">ES</a><a href="?lang=en" data-lang="en" lang="en">EN</a></span>
-      <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar gratis<i>↗</i></a>
+      <a class="btn btn--sm" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
       <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
     </div>
   </div>
@@ -334,10 +348,10 @@ section{position:relative}
         <h1 id="titulo">Que tus clientes <em>vuelvan.</em> Sin acordarte de escribirles.</h1>
         <p class="lead" data-in>El tero grita cuando alguien se acerca al nido. Esta app te avisa cuando un cliente tiene que volver: te dice a quién escribirle hoy y te deja el WhatsApp ya armado.</p>
         <div class="hero-ctas" data-in>
-          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar Tero gratis<i>↗</i></a>
+          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a>
           <a class="btn btn--ghost" href="#como">Ver cómo funciona</a>
         </div>
-        <p class="hero-nota" data-in>Gratis hasta 30 clientes · Sin tarjeta · Tero Pro USD 10 por mes</p>
+        <p class="hero-nota" data-in>Hoy no pagás nada · Después USD 5 por mes · Cancelás cuando quieras</p>
       </div>
       <div class="hero-media" id="hero-media">
         <video src="../tero-inicio.mp4" poster="../tero-inicio.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Video: Tero en el celular"></video>
@@ -465,7 +479,7 @@ section{position:relative}
           <div class="mod" data-mod><span class="mod__ico">🏷️</span><span><b>Precios y costos</b><p>Costo real de cada producto, precio sugerido y tu lista de precios lista para mandar.</p></span><span class="pill pill--ok">Disponible</span></div>
           <div class="mod" data-mod><span class="mod__ico">🔥</span><span><b>Prioridades y pronóstico</b><p>Cada cliente con su puntaje de interés, las ventas que se están enfriando y cuánto podés cerrar este mes.</p></span><span class="pill pill--ok">Disponible</span></div>
         </div>
-        <p class="mods-nota" data-rev>Avisos y tareas, gratis hasta 30 clientes. Todo lo demás, en Tero Pro por USD 10 por mes. Lo que sumemos después también llega solo.</p>
+        <p class="mods-nota" data-rev>Todo incluido en USD 5 por mes. Lo que sumemos después también llega solo, sin pagar más.</p>
       </div>
     </div>
   </section>
@@ -477,14 +491,14 @@ section{position:relative}
         <h2 style="margin-top:16px" data-rev>Simple, rápida y tuya.</h2></div>
       <div class="ben-grid">
         <div class="ben" data-ben><span class="ben__ico">📴</span><b>Funciona sin internet</b><p>La usás en el local aunque no haya señal. Se instala como cualquier app.</p></div>
-        <div class="ben" data-ben><span class="ben__ico">🔒</span><b>Tus datos son tuyos</b><p>Los datos de tus clientes quedan en tu teléfono, no en un servidor.</p></div>
+        <div class="ben" data-ben><span class="ben__ico">🔒</span><b>Tus datos son tuyos</b><p>Quedan en tu teléfono y en tu copia privada en la nube. Nadie más los ve.</p></div>
         <div class="ben" data-ben><span class="ben__ico">🎂</span><b>Cumpleaños y reactivación</b><p>Te recuerda saludar a cada cliente y te muestra quién hace mucho que no viene.</p></div>
         <div class="ben" data-ben><span class="ben__ico">✍️</span><b>Hecha a tu medida</b><p>Tus tipos de aviso, tus datos y tus mensajes, para cualquier rubro.</p></div>
       </div>
       <div class="cifras">
-        <div class="cifra" data-rev><b data-num="30">0</b><span>clientes gratis, para siempre</span></div>
+        <div class="cifra" data-rev><b data-num="7">0</b><span>días gratis para probarla</span></div>
         <div class="cifra" data-rev><b data-num="1">0</b><span>toque para avisar a cada cliente</span></div>
-        <div class="cifra" data-rev><b>USD <span data-num="10" style="display:inline;margin:0;font-size:inherit;color:inherit">0</span></b><span>por mes, Tero Pro con todo</span></div>
+        <div class="cifra" data-rev><b>USD <span data-num="5" style="display:inline;margin:0;font-size:inherit;color:inherit">0</span></b><span>por mes, todo incluido</span></div>
       </div>
     </div>
   </section>
@@ -508,18 +522,31 @@ section{position:relative}
   <!-- PRECIO -->
   <section class="precio" id="precio">
     <div class="wrap">
-      <p class="eti" data-rev>Planes</p><h2 style="margin:16px 0 30px" data-rev>Empezá gratis. Pasate a Pro cuando crezcas.</h2>
-      <div class="planes" id="precio-card">
-        <div class="plan" data-rev><div><p class="eti">Gratis</p><p class="precio-big" style="margin-top:14px"><b>USD 0</b> para siempre</p><p class="precio-alt">Sin tarjeta</p></div>
-          <ul class="lista"><li>Hasta 30 clientes</li><li>Avisos con el WhatsApp armado</li><li>Tareas y calendario</li><li>Mensajes y cumpleaños</li></ul>
-          <a class="btn btn--ghost btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar gratis<i>↗</i></a></div>
-        <div class="plan plan--pro" data-rev><span class="plan-tag">7 días gratis</span><div><p class="eti">Tero Pro</p><p class="precio-big" style="margin-top:14px"><b>USD 10</b> por mes</p><p class="precio-alt">o USD 100 por año (2 meses gratis)</p></div>
-          <ul class="lista"><li>Clientes sin límite</li><li>Ventas, cuentas, fiado, precios y proyectos</li><li>Reportes, remarketing y automatizaciones</li><li>Pronóstico del mes, ventas en riesgo y resumen semanal</li><li>Seguimiento de presupuestos en 3 pasos</li><li>Integraciones y nube en celular y compu</li></ul>
-          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar Pro gratis<i>↗</i></a></div>
-        <div class="plan plan--ia" data-rev><span class="plan-tag plan-tag--pronto">Próximamente</span><div><p class="eti">Tero Pro + IA</p><p class="precio-big" style="margin-top:14px"><b>USD 15</b> por mes</p><p class="precio-alt">o USD 150 por año</p></div>
-          <ul class="lista"><li>Todo lo de Tero Pro</li><li>Tero IA: le pedís cosas con tus palabras</li><li>Te arma los WhatsApp y las campañas</li><li>100 mensajes por mes</li></ul></div>
+      <p class="eti" data-rev>Planes</p><h2 style="margin:16px 0 30px" data-rev>Un precio simple. Probala 7 días gratis.</h2>
+      <div class="planes planes--2" id="precio-card">
+        <div class="plan plan--pro" data-rev><span class="plan-tag">7 días gratis</span><div><p class="eti">Tero</p><p class="precio-big" style="margin-top:14px"><b>USD 5</b> por mes</p><p class="precio-alt">o USD 50 por año (2 meses gratis)</p></div>
+          <ul class="lista"><li>Clientes sin límite y avisos con el WhatsApp armado</li><li>Ventas, cuentas, fiado, precios y proyectos</li><li>Reportes, remarketing y automatizaciones</li><li>Pronóstico del mes, ventas en riesgo y resumen semanal</li><li>Integraciones y nube en celular y compu</li></ul>
+          <a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a></div>
+        <div class="plan plan--ia" data-rev><span class="plan-tag plan-tag--pronto">Próximamente</span><div><p class="eti">Tero + IA</p><p class="precio-big" style="margin-top:14px"><b>USD 15</b> por mes</p><p class="precio-alt">o USD 150 por año</p></div>
+          <ul class="lista"><li>Todo lo de Tero</li><li>Tero IA: le pedís cosas con tus palabras</li><li>Te arma los WhatsApp y las campañas</li><li>Te dice cómo viene tu negocio</li><li>100 mensajes por mes</li></ul>
+          <a class="btn btn--ghost btn--lg" href="#por-que-ia">¿Por qué vale USD 15?<i>↓</i></a></div>
       </div>
       <p class="planes-nota" data-rev>Se cobra en pesos por Mercado Pago · Sin permanencia: cancelás cuando quieras</p>
+    </div>
+  </section>
+
+  <!-- POR QUÉ VALE USD 15 -->
+  <section class="porque" id="por-que-ia">
+    <div class="wrap">
+      <div class="cab"><p class="eti" data-rev>Tero + IA</p><h2 style="margin-top:16px" data-rev>¿Por qué Tero con IA vale USD 15?</h2>
+        <p class="lead" data-rev>Son USD 10 más que Tero solo. A cambio, tenés un asistente que conoce tu negocio y hace el trabajo pesado por vos.</p></div>
+      <div class="porque-grid">
+        <div class="porque-c" data-rev><span>⏱️</span><b>Te ahorra horas cada semana</b><p>Le decís «recordame llamar a Marta el jueves» o «anotá que Juan me debe $20.000» y lo hace. Sin buscar pantallas ni completar formularios.</p></div>
+        <div class="porque-c" data-rev><span>💬</span><b>Escribe por vos</b><p>Arma los WhatsApp de cobro, de seguimiento y las campañas con tu tono. Vos revisás y mandás.</p></div>
+        <div class="porque-c" data-rev><span>📊</span><b>Te dice cómo viene tu negocio</b><p>Preguntale «¿quién me debe más?» o «¿cuánto vendí este mes?» y te responde al instante con tus datos.</p></div>
+        <div class="porque-c" data-rev><span>🛡️</span><b>Vos tenés el control</b><p>Antes de cambiar algo te muestra qué va a hacer y vos confirmás. Tus datos no se usan para entrenar modelos.</p></div>
+      </div>
+      <div class="porque-cuenta" data-rev><div><b>Con recuperar una sola venta por mes, ya se pagó.</b><p>Un cliente que vuelve, un fiado que cobrás a tiempo o un presupuesto que no se enfría valen más que los USD 10 de diferencia. Incluye 100 mensajes por mes.</p></div><span class="chip-pronto">Próximamente</span></div>
     </div>
   </section>
 
@@ -546,8 +573,8 @@ section{position:relative}
     <div class="wrap">
       <p class="eti" data-rev>Tero · La libreta que avisa</p>
       <h2 style="margin-top:18px" data-rev>Que ningún cliente se te pase de nuevo.</h2>
-      <p class="lead" data-rev>Empezá gratis con hasta 30 clientes. Cuando crezcas, pasate a Pro.</p>
-      <div class="hero-ctas" data-rev><a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/tero/?desde=web" target="_blank" rel="noopener">Usar Tero gratis<i>↗</i></a></div>
+      <p class="lead" data-rev>Probala 7 días gratis. Si no te sirve, cancelás y no pagás nada.</p>
+      <div class="hero-ctas" data-rev><a class="btn btn--lg" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=tero" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a></div>
     </div>
   </section>
 </main>
@@ -568,6 +595,21 @@ var LANG = (function () {
   return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
 })();
 var EN = {
+  '7 días gratis, después USD 5 por mes.': '7 days free, then USD 5 per month.', 'Probar gratis': 'Try free', 'Probar 7 días gratis': 'Try 7 days free',
+  'Hoy no pagás nada · Después USD 5 por mes · Cancelás cuando quieras': 'Nothing to pay today · Then USD 5 per month · Cancel anytime',
+  'días gratis para probarla': 'days free to try it', 'por mes, todo incluido': 'per month, all included',
+  'Todo incluido en USD 5 por mes. Lo que sumemos después también llega solo, sin pagar más.': 'All included for USD 5 per month. Anything we add later arrives automatically, at no extra cost.',
+  'Quedan en tu teléfono y en tu copia privada en la nube. Nadie más los ve.': 'It stays on your phone and in your private cloud copy. Nobody else sees it.',
+  'Un precio simple. Probala 7 días gratis.': 'One simple price. Try it free for 7 days.', 'Tero': 'Tero', 'Tero + IA': 'Tero + AI',
+  'Clientes sin límite y avisos con el WhatsApp armado': 'Unlimited customers and reminders with the WhatsApp ready', 'o USD 50 por año (2 meses gratis)': 'or USD 50 per year (2 months free)',
+  'Todo lo de Tero': 'Everything in Tero', 'Te dice cómo viene tu negocio': 'Tells you how your business is doing', '¿Por qué vale USD 15?': 'Why is it worth USD 15?',
+  '¿Por qué Tero con IA vale USD 15?': 'Why is Tero with AI worth USD 15?', 'Son USD 10 más que Tero solo. A cambio, tenés un asistente que conoce tu negocio y hace el trabajo pesado por vos.': "It's USD 10 more than Tero alone. In return you get an assistant that knows your business and does the heavy lifting for you.",
+  'Te ahorra horas cada semana': 'Saves you hours every week', 'Le decís «recordame llamar a Marta el jueves» o «anotá que Juan me debe $20.000» y lo hace. Sin buscar pantallas ni completar formularios.': 'Say "remind me to call Marta on Thursday" or "Juan owes me $20,000" and it does it. No hunting for screens or filling in forms.',
+  'Escribe por vos': 'Writes for you', 'Arma los WhatsApp de cobro, de seguimiento y las campañas con tu tono. Vos revisás y mandás.': 'It drafts your payment reminders, follow-ups and campaigns in your tone. You check and send.',
+  'Preguntale «¿quién me debe más?» o «¿cuánto vendí este mes?» y te responde al instante con tus datos.': 'Ask "who owes me the most?" or "how much did I sell this month?" and it answers right away with your data.',
+  'Vos tenés el control': "You're in control", 'Antes de cambiar algo te muestra qué va a hacer y vos confirmás. Tus datos no se usan para entrenar modelos.': 'Before changing anything it shows you what it will do and you confirm. Your data is not used to train models.',
+  'Con recuperar una sola venta por mes, ya se pagó.': 'Win back a single sale a month and it has paid for itself.',
+  'Un cliente que vuelve, un fiado que cobrás a tiempo o un presupuesto que no se enfría valen más que los USD 10 de diferencia. Incluye 100 mensajes por mes.': "A customer who comes back, a tab you collect on time or a quote that doesn't go cold is worth more than the USD 10 difference. Includes 100 messages per month.",
   'Prioridades y pronóstico': 'Priorities and forecast', 'Cada cliente con su puntaje de interés, las ventas que se están enfriando y cuánto podés cerrar este mes.': 'Every customer with an interest score, the deals going cold and how much you can close this month.',
   'Usar gratis': 'Use it free', 'Usar Tero gratis': 'Use Tero free', 'Gratis hasta 30 clientes · Sin tarjeta · Tero Pro USD 10 por mes': 'Free for up to 30 customers · No card · Tero Pro USD 10 per month',
   'clientes gratis, para siempre': 'customers free, forever', 'por mes, Tero Pro con todo': 'per month, Tero Pro with everything',
@@ -581,7 +623,7 @@ var EN = {
   'Se cobra en pesos por Mercado Pago · Sin permanencia: cancelás cuando quieras': 'Charged in Argentine pesos via Mercado Pago · No lock-in: cancel anytime',
   'Empezá gratis con hasta 30 clientes. Cuando crezcas, pasate a Pro.': 'Start free with up to 30 customers. When you grow, go Pro.',
   'Tero · La app para manejar tu negocio': 'Tero · The app to run your business',
-  'Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. Gratis hasta 30 clientes.': 'Tero tells you who to message today, with the WhatsApp already written, and grows so you can run your whole business from your phone. Free for up to 30 customers.',
+  'Tero te dice a quién avisarle hoy, con el WhatsApp ya escrito, y crece para que manejes todo tu negocio desde el celular. 7 días gratis, después USD 5 por mes.': 'Tero tells you who to message today, with the WhatsApp already written, and grows so you can run your whole business from your phone. Free for 7 days, then USD 5 per month.',
   'Volver a GC Web Design': 'Back to GC Web Design', 'Secciones': 'Sections', 'A tu medida': 'Built for you', 'Cómo funciona': 'How it works', 'Herramientas': 'Tools', 'Precio': 'Pricing', 'Preguntas': 'FAQ',
   '← Volver a GC Web Design': '← Back to GC Web Design', 'Probar gratis': 'Try free', 'Abrir menú': 'Open menu', 'Cerrar menú': 'Close menu',
   'Tero · La app de tu negocio': 'Tero · Your business app',
@@ -870,7 +912,7 @@ document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
     gsap.from('[data-mod]', { x: 80, autoAlpha: 0, duration: .9, stagger: .15, ease: 'power3.out', scrollTrigger: { trigger: '.mods', start: 'top 85%', once: true } });
 
     /* Beneficios en cascada y cifras que cuentan. */
-    gsap.from('[data-ben]', { y: 60, scale: .94, autoAlpha: 0, duration: .9, stagger: .12, ease: 'power3.out', scrollTrigger: { trigger: '.ben-grid', start: 'top 85%', once: true } });
+    gsap.from('[data-ben]', { scale: .96, autoAlpha: 0, duration: .9, stagger: .12, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: '.ben-grid', start: 'top 85%', once: true } });
     gsap.utils.toArray('[data-num]').forEach(function (el) {
       var o = { v: 0 }, fin = +el.getAttribute('data-num');
       gsap.to(o, { v: fin, duration: 1.6, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true }, onUpdate: function () { el.textContent = Math.round(o.v); } });

@@ -45,7 +45,27 @@ h2{font-size:clamp(30px,4.4vw,52px);line-height:1.06}
 .barra__in{display:flex;align-items:center;gap:16px;min-height:70px}
 .volver{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
 .volver img{width:24px;height:24px;border-radius:50%}
-.marca{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;margin-right:auto}
+.marca{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px}
+.menu{display:flex;align-items:center;gap:clamp(14px,2vw,28px);margin-left:auto;font-size:14.5px;color:var(--ink2)}
+.menu a{transition:color .2s}.menu a:hover{color:#fff}.menu__web{display:none}
+.barra__acc{display:flex;align-items:center;gap:10px}
+.idioma{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.idioma a{display:grid;place-items:center;min-width:36px;min-height:30px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--ink3)}
+.idioma a[aria-current=true]{background:var(--lima);color:#10110D}
+.hamb{display:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:transparent;cursor:pointer;place-content:center;gap:6px}
+.hamb span{display:block;width:18px;height:1.5px;background:#fff;transition:transform .3s}
+.hamb[aria-expanded=true] span:first-child{transform:translateY(3.75px) rotate(45deg)}.hamb[aria-expanded=true] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+@media(max-width:1023px){
+  .volver span:last-child{display:none}
+  .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 22px;background:rgba(14,17,13,.97);border-bottom:1px solid var(--line);font-size:20px;font-weight:600;color:#F0EFE6;transform:translateY(-110%);visibility:hidden;transition:transform .35s var(--ease),visibility .35s}
+  .menu.is-open{transform:none;visibility:visible}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu__web{display:block;font-size:15px;font-weight:500;color:var(--lima);border-bottom:0!important}
+  .hamb{display:grid}.barra__acc{margin-left:auto}
+}
+@media(max-width:640px){.volver{display:none}}
+.barra .btn{white-space:nowrap}
+@media(max-width:420px){.barra__in{gap:8px}.barra__acc{gap:6px}.barra .btn{padding:0 14px;min-height:38px;font-size:13px}.barra .btn i{display:none}.marca{font-size:17px}.marca img{width:30px;height:30px}.hamb{width:38px;height:38px}.idioma a{min-width:30px;padding:0 6px}}
 .marca img{width:34px;height:34px;border-radius:10px}
 .barra .btn{padding:5px 5px 5px 18px;font-size:14px}.barra .btn i{width:34px;height:34px}
 @media(max-width:520px){.volver span{display:none}.barra .btn{padding:0 16px;min-height:40px}.barra .btn i{display:none}}
@@ -93,7 +113,8 @@ section{position:relative}
 .precio-big{font-size:clamp(46px,6vw,72px);font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1}
 .precio-big small{font-size:18px;color:var(--ink2);font-weight:400;letter-spacing:0}
 /* faq */
-.faq{display:grid;gap:10px;margin-top:40px;max-width:820px}
+.faq{display:grid;gap:10px;margin:40px auto 0;max-width:820px}
+#preguntas .cab{text-align:center;margin:0 auto}#preguntas .cab .eti{justify-content:center}
 details{border-radius:18px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
 summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:500;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
@@ -126,12 +147,12 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 @media(max-width:899px){.zf-gym .g1{top:3%;left:auto;right:6%;width:110px}.zf-gym .g4,.zf-gym .g5{display:none}}
 /* la barra que se carga: sobrecarga progresiva con el scroll */
 .carga{position:relative;height:320vh;background:linear-gradient(180deg,transparent,rgba(185,234,78,.05) 30%,transparent)}
-.carga__in{position:sticky;top:0;height:100vh;display:grid;align-content:center;justify-items:center;gap:clamp(20px,4vh,40px);padding:80px 20px 40px;text-align:center;overflow:hidden}
-.carga__in h2{max-width:16ch}
+.carga__in{position:sticky;top:0;height:100vh;height:100svh;display:grid;align-content:center;justify-items:center;gap:clamp(10px,2.2vh,26px);padding:84px 20px 24px;text-align:center;overflow:hidden}
+.carga__in h2{max-width:18ch;font-size:clamp(26px,min(5vw,5.4vh),56px)}
 .carga__sem{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--lima);font-weight:600;min-height:1.3em}
-.carga__kg{font-family:'Bricolage Grotesque','Figtree',sans-serif;font-size:clamp(64px,12vw,150px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
+.carga__kg{font-family:'Bricolage Grotesque','Figtree',sans-serif;font-size:clamp(52px,min(12vw,13vh),140px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
 .carga__kg small{font-size:.3em;color:var(--ink2);letter-spacing:0;margin-left:6px}
-.pesa{position:relative;width:min(92vw,820px);height:150px;display:flex;align-items:center;justify-content:center}
+.pesa{position:relative;width:min(92vw,820px);height:clamp(84px,17vh,150px);display:flex;align-items:center;justify-content:center}
 .pesa__eje{position:absolute;left:0;right:0;top:50%;height:14px;margin-top:-7px;border-radius:7px;background:linear-gradient(180deg,#D9DCD3,#8C9086 60%,#5E6259);box-shadow:0 8px 20px -6px rgba(0,0,0,.6)}
 .pesa__agarre{position:absolute;left:30%;right:30%;top:50%;height:16px;margin-top:-8px;border-radius:4px;background:repeating-linear-gradient(90deg,#8C9086 0 3px,#6E726A 3px 6px)}
 .pesa__lado{position:absolute;top:0;bottom:0;display:flex;align-items:center;gap:4px}
@@ -141,16 +162,17 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 .disco{border-radius:8px;flex:none;opacity:0;transition:transform .6s cubic-bezier(.2,.9,.2,1.15),opacity .3s;box-shadow:inset 0 0 0 2px rgba(0,0,0,.25),0 10px 20px -8px rgba(0,0,0,.6)}
 .pesa__lado--i .disco{transform:translateX(-120px)}.pesa__lado--d .disco{transform:translateX(120px)}
 .disco.on{opacity:1;transform:none!important}
-.disco--20{width:30px;height:140px;background:linear-gradient(90deg,#9BD13A,#B9EA4E 50%,#7FB12B)}
-.disco--5{width:22px;height:92px;background:linear-gradient(90deg,#3A3D35,#55594F 50%,#2C2E28)}
-.disco--25{width:16px;height:70px;background:linear-gradient(90deg,#C99A3A,#E6BC5C 50%,#B0832C)}
+.disco--20{width:30px;height:94%;background:linear-gradient(90deg,#9BD13A,#B9EA4E 50%,#7FB12B)}
+.disco--5{width:22px;height:62%;background:linear-gradient(90deg,#3A3D35,#55594F 50%,#2C2E28)}
+.disco--25{width:16px;height:47%;background:linear-gradient(90deg,#C99A3A,#E6BC5C 50%,#B0832C)}
 .carga__chip{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:16px;background:rgba(24,26,20,.92);border:1px solid rgba(185,234,78,.25);font-size:15px;transition:opacity .4s,transform .4s;min-height:52px}
 .carga__chip b{color:var(--lima)}
 .carga__chip.cambia{opacity:0;transform:translateY(8px)}
 .carga__pasos{display:flex;gap:8px}.carga__pasos i{width:34px;height:5px;border-radius:3px;background:rgba(255,255,255,.12);transition:background .3s}.carga__pasos i.on{background:var(--lima)}
 .carga__masc{position:absolute;right:max(4vw,16px);bottom:6vh;width:clamp(90px,12vw,150px);opacity:0;transform:translateY(30px) scale(.9);transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.2,1.3)}
 .carga__masc.on{opacity:1;transform:none}
-@media(max-width:640px){.pesa{height:110px}.disco--20{width:22px;height:104px}.disco--5{width:16px;height:70px}.disco--25{width:12px;height:52px}.pesa__lado--i{right:calc(70% + 4px)}.pesa__lado--d{left:calc(70% + 4px)}.carga__chip{font-size:13px}}
+@media(max-width:640px){.carga__masc{width:72px;bottom:auto;top:96px;right:14px}}
+@media(max-width:640px){.disco--20{width:22px}.disco--5{width:16px}.disco--25{width:12px}.pesa__lado--i{right:calc(70% + 4px)}.pesa__lado--d{left:calc(70% + 4px)}.carga__chip{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.carga{height:auto}.carga__in{position:relative;height:auto;padding:80px 20px}.disco{opacity:1;transform:none!important;transition:none}.zf-gym svg{animation:none}}
 @keyframes masc{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 @media (prefers-reduced-motion:reduce){.masc-hero{animation:none}}
@@ -170,7 +192,12 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 <header class="barra" id="barra"><div class="wrap barra__in">
   <a class="volver" href="../" aria-label="Volver a GC Web Design"><span aria-hidden="true">←</span><img src="../logo-gc.png" alt=""><span>GC Web Design</span></a>
   <a class="marca" href="#inicio"><img src="img/logo.png" alt="">Zafra</a>
-  <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+  <nav class="menu" id="menu" aria-label="Secciones"><a href="#funciones">Qué tiene</a><a href="#zafra-ia">Zafra IA</a><a href="#precio">Precio</a><a href="#preguntas">Preguntas</a><a class="menu__web" href="../">← Volver a GC Web Design</a></nav>
+  <div class="barra__acc">
+    <span class="idioma" role="group" aria-label="Idioma / Language"><a href="?lang=es" data-lang="es" lang="es" aria-current="true">ES</a><a href="?lang=en" data-lang="en" lang="en">EN</a></span>
+    <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+    <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
 </div></header>
 
 <main>
@@ -285,22 +312,140 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
   Fotos de ejercicios: free-exercise-db (dominio público).</div></footer>
 
 <script>
+/* Inglés: igual que en Tero, cada texto en español tiene su versión en inglés. El idioma sale de ?lang=, de lo último elegido o del navegador. */
+var LANG = (function () {
+  var q = new URLSearchParams(location.search).get('lang'), g = null;
+  try { if (q === 'en' || q === 'es') localStorage.setItem('gc_lang', q); g = localStorage.getItem('gc_lang'); } catch (e) { /* sin almacenamiento */ }
+  return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
+})();
+var EN = {
+  'Probar gratis': 'Try free', 'Qué tiene': 'Features', 'Zafra IA': 'Zafra AI', 'Precio': 'Pricing', 'Preguntas': 'FAQ', '← Volver a GC Web Design': '← Back to GC Web Design',
+  'Abrir menú': 'Open menu', 'Cerrar menú': 'Close menu', 'Secciones': 'Sections', 'Volver a GC Web Design': 'Back to GC Web Design',
+  'Hecha en la Patagonia · Zafra': 'Made in Patagonia · Zafra',
+  'La primera app de la Patagonia que te ayuda a': 'The first app from Patagonia that helps you', 'crecer en el gym.': 'grow at the gym.',
+  'Anotás tus series, pesos y repeticiones (o se los mandás a Zafra como un mensaje de WhatsApp), le sacás una foto a tu plato para ver los macros y mirás cómo crece tu fuerza semana a semana.': 'Log your sets, weights and reps (or send them to Zafra like a WhatsApp message), snap your plate to see the macros and watch your strength grow week after week.',
+  'Probar 7 días gratis': 'Try 7 days free', 'Ver qué tiene': 'See features',
+  'Hoy no pagás nada · Después USD 5 por mes · Cancelás cuando quieras': 'Nothing to pay today · Then USD 5 per month · Cancel anytime · App in Spanish',
+  '7 semanas': '7 weeks', 'de racha': 'streak', 'PR nuevo': 'New PR', 'Press inclinado': 'Incline press',
+  'Cada rep es una semilla': 'Every rep is a seed', 'Entrenar sin anotar es sembrar sin mirar la cosecha.': 'Training without logging is sowing without checking the harvest.',
+  'Si no sabés cuánto levantaste la semana pasada, no sabés si estás progresando. Zafra te lo muestra todo el tiempo.': "If you don't know what you lifted last week, you don't know if you're progressing. Zafra shows you all the time.",
+  'Llegás y sabés qué hacer': 'Walk in knowing what to do', 'Zafra te dice qué día de tu rutina toca y qué levantaste la última vez en cada ejercicio.': "Zafra tells you which day of your routine is up and what you lifted last time on every exercise.",
+  'Anotás con un toque': 'Log with one tap', 'Peso, repeticiones y listo. El descanso arranca solo y te avisa cuando volver a la barra.': 'Weight, reps, done. The rest timer starts on its own and tells you when to get back to the bar.',
+  'Ves cómo crecés': 'See yourself grow', 'Récords, fuerza estimada, volumen por semana y tu peso. La constancia se nota en los gráficos.': 'Records, estimated strength, weekly volume and your body weight. Consistency shows up in the charts.',
+  'Sobrecarga progresiva': 'Progressive overload', 'Zafra te dice cuándo subir. Vos solo cargás la barra.': 'Zafra tells you when to go up. You just load the bar.',
+  'Hola, soy Zafra': "Hi, I'm Zafra", 'IA próximamente': 'AI coming soon', 'Tu coach con IA, adentro de la app.': 'Your AI coach, inside the app.',
+  'Zafra crece con vos: arranca como semilla y se hace espiga a medida que subís de nivel. Y te ayuda en lo que más cuesta: anotar y comer bien.': 'Zafra grows with you: it starts as a seed and becomes a full ear of wheat as you level up. And it helps with the hardest part: logging and eating well.',
+  'En todos los planes': 'In every plan', 'Anotás como en WhatsApp': 'Log it like a WhatsApp message',
+  '«Banca 60kg x 8, 8, 7». Pegás o compartís el mensaje y Zafra lo guarda en el día justo de tu rutina, con récords y todo. Funciona sin IA.': '"Bench 60kg x 8, 8, 7". Paste or share the message and Zafra saves it on the right day of your routine, records included. Works without AI.',
+  'Con IA · próximamente': 'With AI · coming soon', 'Foto del plato, macros listos': 'Snap your plate, macros done',
+  'Le sacás una foto a la comida y Zafra estima gramos, calorías, proteínas, carbohidratos y grasas. Vos revisás y se suma.': 'Take a photo of your meal and Zafra estimates grams, calories, protein, carbs and fat. You check it and it adds up.',
+  'Pedile lo que necesites': 'Ask for anything', '«Armame una rutina de 4 días», «¿cómo vengo en sentadilla?», «poneme una meta». Te responde con tus datos.': '"Build me a 4-day routine", "how is my squat going?", "set me a goal". It answers with your data.',
+  'Todo lo que tiene': 'Everything inside', 'Una sola app para tu entrenamiento.': 'One app for your training.',
+  'Entrenamiento': 'Workouts', 'Series, descanso y récords sin pensar.': 'Sets, rest and records on autopilot.',
+  'Zafra mira lo que hiciste la vez pasada y te dice qué peso usar hoy: subí, mantené o bajá. Marcás la serie y arranca el temporizador de descanso.': 'Zafra looks at what you did last time and tells you what weight to use today: go up, stay or drop. Tick the set and the rest timer starts.',
+  'Sobrecarga progresiva automática: el peso de hoy, calculado': "Automatic progressive overload: today's weight, worked out",
+  'Te avisa si te estancás y te propone una semana de descarga': 'Warns you when you plateau and suggests a deload week',
+  '¿Máquina ocupada? Te muestra alternativas para el mismo músculo': 'Machine taken? It shows alternatives for the same muscle',
+  'Temporizador de descanso con aviso y vibración': 'Rest timer with alert and vibration', 'Te marca cuando superás tu récord': 'Flags every new personal record',
+  'Resumen al terminar: tiempo, series y volumen': 'Summary at the end: time, sets and volume',
+  'Ejercicios': 'Exercises', 'Más de 120 ejercicios con animación.': '120+ animated exercises.',
+  'Cada ejercicio muestra el movimiento, cómo hacerlo bien y tu historial. Si alguno no está, lo creás.': "Each exercise shows the movement, how to do it right and your history. If one is missing, you add it.",
+  'Pecho, espalda, hombros, brazos, piernas, glúteos, abdomen y cardio': 'Chest, back, shoulders, arms, legs, glutes, abs, plyometrics and cardio',
+  'Tips claros en español': 'Clear tips (in Spanish)', 'Tu mejor marca y la curva de fuerza de cada uno': 'Your best mark and strength curve for each one',
+  'Comidas': 'Nutrition', 'Tu meta de calorías y proteínas, calculada.': 'Your calorie and protein target, worked out.',
+  'Con tu peso, altura, edad y objetivo, Zafra calcula cuánto comer. Anotás con alimentos de todos los días y ves si llegás.': 'From your weight, height, age and goal, Zafra works out how much to eat. Log everyday foods and see if you hit it.',
+  'Foto del plato: Zafra calcula gramos y macros (con IA, próximamente)': 'Plate photo: Zafra works out grams and macros (with AI, coming soon)',
+  'Calorías, proteínas, carbohidratos y grasas': 'Calories, protein, carbs and fat', 'Agua y una guía de más de 25 suplementos': 'Water and a guide to 25+ supplements',
+  'Progreso y rutinas': 'Progress and routines', 'Tu cosecha, en gráficos.': 'Your harvest, in charts.',
+  'Peso corporal, fuerza por ejercicio, volumen semanal y calendario. Y tus rutinas como quieras: plantillas o la tuya pegada desde un mensaje.': 'Body weight, strength per exercise, weekly volume and a calendar. And routines your way: templates or your own pasted from a message.',
+  'Series por músculo cada semana y aviso si entrenás desparejo': 'Sets per muscle every week and a heads-up if you train unevenly',
+  'Plantillas: Full body, Torso/Pierna, Arnold, Empuje/Tirón/Pierna': 'Templates: Full body, Upper/Lower, Arnold, Push/Pull/Legs',
+  'Pegás tu rutina o tu entrenamiento de WhatsApp y queda cargado': 'Paste your routine or your WhatsApp workout and it is loaded',
+  'Compartí tu rutina con un link: tu amigo la suma en un toque': 'Share your routine with a link: your friend adds it in one tap',
+  'Tu historial en Excel (CSV) cuando quieras': 'Your history in Excel (CSV) whenever you want', 'Funciona sin internet, con nube opcional para no perder nada': 'Works offline, with an optional cloud so you never lose anything',
+  'Un precio simple': 'One simple price', 'por mes': 'per month', 'o USD 50 por año (2 meses gratis)': 'or USD 50 per year (2 months free)',
+  '7 días gratis para probarla': '7 days free to try it', 'Se cobra en pesos por Mercado Pago': 'Charged in Argentine pesos via Mercado Pago',
+  'Todas las funciones: rutinas, ejercicios, comidas, progreso y nube': 'Every feature: routines, exercises, nutrition, progress and cloud',
+  'Sin permanencia: cancelás cuando quieras': 'No lock-in: cancel anytime', 'Empezar gratis': 'Start free', 'por mes · Zafra con IA': 'per month · Zafra with AI', 'Próximamente': 'Coming soon',
+  'Todo lo anterior más Zafra, tu coach con IA: le pasás tu entrenamiento como mensaje y lo anota, foto del plato con macros, rutinas y metas con tus datos. 100 mensajes por mes.': 'Everything above plus Zafra, your AI coach: send your workout as a message and it logs it, plate photos with macros, routines and goals from your data. 100 messages per month.',
+  'Preguntas frecuentes': 'Frequently asked questions', 'Lo que más nos preguntan.': 'What people ask us most.',
+  '¿Sirve si recién empiezo?': 'Does it work for beginners?', 'Sí. En el primer uso elegís tu objetivo, cuántos días entrenás y tu experiencia, y Zafra arma una rutina acorde. Cada ejercicio tiene la animación y tips para hacerlo bien.': 'Yes. On first use you pick your goal, how many days you train and your experience, and Zafra builds a matching routine. Each exercise has the animation and tips to do it right.',
+  '¿Puedo usar mi propia rutina?': 'Can I use my own routine?', 'Sí. Pegás tu rutina como la tenés en WhatsApp o en tus notas («Press inclinado — 3x8-12») y queda cargada. También la podés armar ejercicio por ejercicio.': 'Yes. Paste your routine as you have it in WhatsApp or your notes ("Incline press — 3x8-12") and it is loaded. You can also build it exercise by exercise.',
+  '¿Cómo anoto lo que entrené?': 'How do I log my workout?', 'Como prefieras: serie por serie mientras entrenás, con la planilla rápida de cada día, o pegando el mensaje que escribís en WhatsApp («Sentadilla 80kg x 8, 8, 6»). En Android también podés compartirlo directo desde WhatsApp a Zafra.': 'However you like: set by set while you train, with the quick sheet for each day, or by pasting the message you write in WhatsApp ("Squat 80kg x 8, 8, 6"). On Android you can also share it straight from WhatsApp to Zafra.',
+  '¿Qué hace la IA Zafra?': 'What does Zafra AI do?', 'Es el plan con IA (USD 10 por mes), que se habilita próximamente: anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís, con 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer. Pegar tu entrenamiento de WhatsApp para anotarlo ya funciona en el plan de USD 5, sin IA.': "It's the AI plan (USD 10 per month), coming soon: it logs your workouts from a message, works out your meal's macros from a photo, builds routines and goals and tells you how you're doing, with 100 messages per month. Before changing anything it shows you what it will do. Pasting your WhatsApp workout to log it already works on the USD 5 plan, without AI.",
+  '¿Necesito internet en el gimnasio?': 'Do I need internet at the gym?', 'No para entrenar: una vez instalada funciona sin conexión (la IA y la foto de comida sí necesitan internet). Podés prender la nube para no perder nada si cambiás de celular.': "Not to train: once installed it works offline (the AI and plate photos do need internet). Turn on the cloud so you don't lose anything if you change phones.",
+  '¿Funciona en iPhone?': 'Does it work on iPhone?', 'Sí, en iPhone y en Android, desde el navegador o instalada como app.': 'Yes, on iPhone and Android, in the browser or installed as an app.',
+  '¿Reemplaza a un nutricionista o a un profe?': 'Does it replace a nutritionist or a coach?', 'No. Zafra es una guía para ordenarte y medir tu progreso. Ante dolores, lesiones o necesidades especiales, consultá con un profesional.': 'No. Zafra is a guide to get organised and measure your progress. For pain, injuries or special needs, see a professional.',
+  '¿Cómo cancelo?': 'How do I cancel?', 'Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.': 'From Mercado Pago or with the cancel button, no questions asked. If you change your mind within the first 10 days, we refund everything.',
+  'Zafra · Tu entrenamiento': 'Zafra · Your training', 'Sembrá constancia. Cosechá resultados.': 'Sow consistency. Harvest results.',
+  'Probala 7 días gratis. Si no te sirve, cancelás y no pagás nada.': "Try it free for 7 days. If it doesn't work for you, cancel and pay nothing.", 'Probar Zafra gratis': 'Try Zafra free',
+  'Zafra es una app de': 'Zafra is an app by', '· © 2026 Gonzalo Costadoni · General Roca, Río Negro': '· © 2026 Gonzalo Costadoni · General Roca, Río Negro, Argentina',
+  'Términos': 'Terms', 'Privacidad': 'Privacy', 'Botón de arrepentimiento': 'Withdrawal button', 'Baja de suscripción': 'Cancel subscription',
+  'Fotos de ejercicios: free-exercise-db (dominio público).': 'Exercise photos: free-exercise-db (public domain).',
+  'Pantalla Hoy de Zafra: semana, racha, entrenamiento del día, creatina, agua y peso': "Zafra's Today screen: week, streak, today's workout, creatine, water and weight",
+  'Zafra, la mascota: un brote con vincha de gimnasio': 'Zafra, the mascot: a sprout wearing a gym headband', 'Cómo te ayuda Zafra a subir de peso semana a semana': 'How Zafra helps you add weight week after week',
+  'Zafra con una mancuerna': 'Zafra holding a dumbbell', 'Entrenamiento en curso con series, check y descanso': 'Workout in progress with sets, checks and rest',
+  'Ficha de un ejercicio con la animación y los tips': 'Exercise sheet with the animation and tips', 'Comidas del día con calorías y macros': "Today's meals with calories and macros",
+  'Progreso: peso corporal, fuerza por ejercicio y volumen semanal': 'Progress: body weight, strength per exercise and weekly volume',
+  'Zafra · La primera app de la Patagonia para crecer en el gym': 'Zafra · The first app from Patagonia to grow at the gym',
+  'La primera app de la Patagonia que te ayuda a crecer en el gym: anotás tus series pegando el mensaje de WhatsApp, seguís tu rutina, tus comidas y ves cómo progresás. 7 días gratis, después USD 5 por mes.': 'The first app from Patagonia that helps you grow at the gym: log your sets by pasting your WhatsApp message, follow your routine and meals and watch your progress. 7 days free, then USD 5 per month.'
+};
+var ES = {}; Object.keys(EN).forEach(function (k) { ES[EN[k]] = k; });
+function tx(s) { return LANG === 'en' && EN[s] ? EN[s] : s; }
+function cambiarTextos(raiz, dic) {
+  var w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { return n.parentNode.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  for (var n; (n = w.nextNode());) { var t = n.nodeValue, k = t.trim(); if (k && dic[k]) n.nodeValue = t.slice(0, t.indexOf(k)) + dic[k] + t.slice(t.indexOf(k) + k.length); }
+}
+document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.dataset.base = a.getAttribute('href'); });
+function aplicarIdioma(lang) {
+  LANG = lang; var dic = lang === 'en' ? EN : ES;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es-AR';
+  document.title = dic[document.title] || document.title;
+  var md = document.querySelector('meta[name="description"]'); if (md && dic[md.content]) md.content = dic[md.content];
+  cambiarTextos(document.body, dic);
+  document.querySelectorAll('[aria-label],[alt]').forEach(function (el) { ['aria-label', 'alt'].forEach(function (a) { var v = el.getAttribute(a); if (v && dic[v]) el.setAttribute(a, dic[v]); }); });
+  document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href = a.dataset.base + (lang === 'en' ? '&lang=en' : ''); });
+  document.querySelectorAll('a.volver, a.menu__web').forEach(function (a) { a.href = lang === 'en' ? '../?lang=en' : '../?lang=es'; });
+  document.querySelectorAll('.idioma [data-lang]').forEach(function (a) { var u = new URL(location.href); u.searchParams.set('lang', a.dataset.lang); a.href = u.pathname + u.search + u.hash; a.setAttribute('aria-current', String(a.dataset.lang === lang)); });
+  if (window.cargaIdioma) window.cargaIdioma(lang);
+}
+(function () {
+  /* Menú del celular */
+  var hamb = document.getElementById('hamb'), menu = document.getElementById('menu');
+  function cerrarMenu() { menu.classList.remove('is-open'); hamb.setAttribute('aria-expanded', 'false'); hamb.setAttribute('aria-label', tx('Abrir menú')); }
+  hamb.addEventListener('click', function () { var abrir = !menu.classList.contains('is-open'); menu.classList.toggle('is-open', abrir); hamb.setAttribute('aria-expanded', String(abrir)); hamb.setAttribute('aria-label', tx(abrir ? 'Cerrar menú' : 'Abrir menú')); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) cerrarMenu(); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrarMenu(); });
+  document.querySelectorAll('.idioma [data-lang]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault(); var nuevo = a.dataset.lang; if (nuevo === LANG) return;
+      var ancla = document.elementFromPoint(innerWidth / 2, innerHeight * 0.45), y0 = ancla ? ancla.getBoundingClientRect().top : 0;
+      try { localStorage.setItem('gc_lang', nuevo); } catch (err) { /* sin almacenamiento */ }
+      var u = new URL(location.href); u.searchParams.set('lang', nuevo); history.replaceState(null, '', u.pathname + u.search + u.hash);
+      aplicarIdioma(nuevo);
+      if (ancla && ancla.isConnected) scrollBy(0, ancla.getBoundingClientRect().top - y0);
+    });
+  });
+})();
 (function () {
   /* Las UTM del anuncio viajan a la página de suscripción. */
   try { var q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach(function (v, k) { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); });
-    if (u.toString()) document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href += '&' + u.toString(); }); } catch (e) { /* sin UTM */ }
+    if (u.toString()) document.querySelectorAll('[data-suscribir]').forEach(function (a) { a.href += '&' + u.toString(); a.dataset.base = a.href; }); } catch (e) { /* sin UTM */ }
   var barra = document.getElementById('barra');
   addEventListener('scroll', function () { barra.classList.toggle('on', scrollY > 30); }, { passive: true });
   /* La barra que se carga: 4 pasos según cuánto bajaste por la sección. */
   var carga = document.getElementById('carga');
   if (carga) {
-    var PASOS = [[1, 60, '🎯', '<b>Hoy: 60 kg × 8</b> · Arrancás con lo que podés'], [3, 65, '⬆️', '<b>Hoy: 65 kg × 8</b> · Subí: hiciste 12 en todas'], [6, 70, '⬆️', '<b>Hoy: 70 kg × 8</b> · Otra vez al tope del rango'], [10, 80, '🏆', '<b>PR nuevo: 80 kg × 8</b> · +20 kg en 10 semanas']];
+    var PASOS_ES = [[1, 60, '🎯', '<b>Hoy: 60 kg × 8</b> · Arrancás con lo que podés'], [3, 65, '⬆️', '<b>Hoy: 65 kg × 8</b> · Subí: hiciste 12 en todas'], [6, 70, '⬆️', '<b>Hoy: 70 kg × 8</b> · Otra vez al tope del rango'], [10, 80, '🏆', '<b>PR nuevo: 80 kg × 8</b> · +20 kg en 10 semanas']];
+    var PASOS_EN = [[1, 60, '🎯', '<b>Today: 60 kg × 8</b> · Start with what you can'], [3, 65, '⬆️', '<b>Today: 65 kg × 8</b> · Go up: you hit 12 on every set'], [6, 70, '⬆️', '<b>Today: 70 kg × 8</b> · Top of the range again'], [10, 80, '🏆', '<b>New PR: 80 kg × 8</b> · +20 kg in 10 weeks']];
+    var PASOS = PASOS_ES;
+    window.cargaIdioma = function (l) { PASOS = l === 'en' ? PASOS_EN : PASOS_ES; var i = pasoAct; pasoAct = -1; if (i >= 0) pintarPaso(i); };
     var lados = carga.querySelectorAll('.pesa__lado'), pasoAct = -1, kgEl = document.getElementById('carga-kg'), kgAct = 60;
     var pintarPaso = function (i) {
       if (i === pasoAct) return; pasoAct = i; var p = PASOS[i];
       lados.forEach(function (l) { l.querySelectorAll('.disco').forEach(function (d, j) { d.classList.toggle('on', j <= i); }); });
       carga.querySelectorAll('.carga__pasos i').forEach(function (x, j) { x.classList.toggle('on', j <= i); });
-      document.getElementById('carga-sem').textContent = 'Semana ' + p[0];
+      document.getElementById('carga-sem').textContent = (PASOS === PASOS_EN ? 'Week ' : 'Semana ') + p[0];
       var chip = document.getElementById('carga-chip'); chip.classList.add('cambia');
       setTimeout(function () { chip.firstElementChild.textContent = p[2]; document.getElementById('carga-txt').innerHTML = p[3]; chip.classList.remove('cambia'); }, 200);
       document.getElementById('carga-masc').classList.toggle('on', i === 3);
@@ -317,6 +462,7 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
     document.querySelectorAll('.rev').forEach(function (el) { io.observe(el); });
   } else document.querySelectorAll('.rev').forEach(function (el) { el.classList.add('vis'); });
 })();
+aplicarIdioma(LANG);
 </script>
 </body>
 </html>

@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex"><!-- en pausa hasta el lanzamiento -->
-<title>Zafra · Tu entrenamiento en el celular</title>
-<meta name="description" content="Rutina, series con descanso, ejercicios con animación, comidas y progreso. Tu zafra empieza hoy. 7 días gratis, después USD 5 por mes.">
+<title>Zafra · La primera app de la Patagonia para crecer en el gym</title>
+<meta name="description" content="La primera app de la Patagonia que te ayuda a crecer en el gym: anotás tus series por WhatsApp, Zafra calcula los macros de tu plato con una foto y ves cómo progresás. 7 días gratis, después USD 5 por mes.">
 <meta name="theme-color" content="#10110D">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Web Design Gonzalo Costadoni">
-<meta property="og:title" content="Zafra · Tu zafra empieza hoy">
+<meta property="og:title" content="Zafra · La primera app de la Patagonia que te ayuda a crecer en el gym">
 <meta property="og:description" content="Entrenás, sembrás constancia y cosechás resultados. Rutina, series, comidas y progreso en tu celular.">
 <meta property="og:url" content="https://web-design-gonzalo-costadoni.vercel.app/zafra/">
 <meta property="og:image" content="https://web-design-gonzalo-costadoni.vercel.app/zafra/img/hoy.webp">
@@ -111,6 +111,14 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 .rev.vis{opacity:1;transform:none}
 @media(max-width:959px){.hero .wrap>div:first-child,.cab,.final{text-align:center}.cab,.hero .lead{margin-left:auto;margin-right:auto}.ctas{justify-content:center}.eti{justify-content:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rev{opacity:1;transform:none;transition:none}.flota{animation:none}.btn{transition:none}}
+.masc-hero{position:absolute;left:-58px;bottom:-14px;width:150px;height:auto;filter:drop-shadow(0 14px 24px rgba(0,0,0,.35));animation:masc 4s ease-in-out infinite}
+@keyframes masc{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){.masc-hero{animation:none}}
+@media (max-width:640px){.masc-hero{left:-12px;width:104px;bottom:-24px}}
+.ia-cab{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:34px}
+.ia-cab img{width:170px;height:auto}
+@media (max-width:640px){.ia-cab{grid-template-columns:1fr;justify-items:start}.ia-cab img{width:120px}}
+.zafra-ia .tarj .n{font-size:22px}
 </style>
 </head>
 <body>
@@ -123,9 +131,9 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 <main>
   <section class="hero" id="inicio"><div class="wrap">
     <div>
-      <p class="eti">Nueva · Zafra · Tu entrenamiento</p>
-      <h1>Tu zafra <em>empieza hoy.</em></h1>
-      <p class="lead">Zafra es cosecha. Cada entrenamiento es una semilla: anotás tus series, comés mejor y ves cómo crecen tus resultados. Rutina, ejercicios con animación, comidas y progreso, en tu celular.</p>
+      <p class="eti">Hecha en la Patagonia · Zafra</p>
+      <h1>La primera app de la Patagonia que te ayuda a <em>crecer en el gym.</em></h1>
+      <p class="lead">Anotás tus series, pesos y repeticiones (o se los mandás a Zafra como un mensaje de WhatsApp), le sacás una foto a tu plato para ver los macros y mirás cómo crece tu fuerza semana a semana.</p>
       <div class="ctas"><a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a><a class="btn btn--ghost" href="#funciones">Ver qué tiene</a></div>
       <p class="nota">Hoy no pagás nada · Después USD 5 por mes · Cancelás cuando quieras</p>
     </div>
@@ -133,6 +141,7 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
       <div class="cel__marco"><img src="img/hoy.webp" alt="Pantalla Hoy de Zafra: semana, racha, entrenamiento del día, creatina, agua y peso" width="390" height="844"></div>
       <div class="flota flota--a"><span>🔥</span><span><b>7 semanas</b>de racha</span></div>
       <div class="flota flota--b"><span>🏆</span><span><b>PR nuevo</b>Press inclinado</span></div>
+      <img class="masc-hero" src="img/mascota.svg" alt="Zafra, la mascota: un brote con vincha de gimnasio" width="150" height="163">
     </div>
   </div></section>
 
@@ -143,6 +152,15 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
       <div class="tarj rev"><span class="n">1</span><b>Llegás y sabés qué hacer</b><p>Zafra te dice qué día de tu rutina toca y qué levantaste la última vez en cada ejercicio.</p></div>
       <div class="tarj rev"><span class="n">2</span><b>Anotás con un toque</b><p>Peso, repeticiones y listo. El descanso arranca solo y te avisa cuando volver a la barra.</p></div>
       <div class="tarj rev"><span class="n">3</span><b>Ves cómo crecés</b><p>Récords, fuerza estimada, volumen por semana y tu peso. La constancia se nota en los gráficos.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec zafra-ia" id="zafra-ia"><div class="wrap">
+    <div class="ia-cab rev"><img src="img/mascota-fuerte.svg" alt="Zafra con una mancuerna" width="170" height="184" loading="lazy"><div><p class="eti">Hola, soy Zafra</p><h2 style="margin-top:16px">Tu coach con IA, adentro de la app.</h2><p class="lead">Zafra crece con vos: arranca como semilla y se hace espiga a medida que subís de nivel. Y te ayuda en lo que más cuesta: anotar y comer bien.</p></div></div>
+    <div class="tres">
+      <div class="tarj rev"><span class="n">💬</span><b>Anotás como en WhatsApp</b><p>«Banca 60kg x 8, 8, 7». Pegás o compartís el mensaje y Zafra lo guarda en el día justo de tu rutina, con récords y todo.</p></div>
+      <div class="tarj rev"><span class="n">📷</span><b>Foto del plato, macros listos</b><p>Le sacás una foto a la comida y Zafra estima gramos, calorías, proteínas, carbohidratos y grasas. Vos revisás y se suma.</p></div>
+      <div class="tarj rev"><span class="n">✨</span><b>Pedile lo que necesites</b><p>«Armame una rutina de 4 días», «¿cómo vengo en sentadilla?», «poneme una meta». Te responde con tus datos.</p></div>
     </div>
   </div></section>
 
@@ -157,10 +175,10 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
           <ul class="lista"><li>Pecho, espalda, hombros, brazos, piernas, glúteos, abdomen y cardio</li><li>Tips claros en español</li><li>Tu mejor marca y la curva de fuerza de cada uno</li></ul></div></div>
       <div class="fila"><div class="fila__img rev"><div class="cel__marco"><img src="img/comidas.webp" alt="Comidas del día con calorías y macros" width="390" height="844" loading="lazy"></div></div>
         <div class="rev"><p class="eti">Comidas</p><h3>Tu meta de calorías y proteínas, calculada.</h3><p class="lead">Con tu peso, altura, edad y objetivo, Zafra calcula cuánto comer. Anotás con alimentos de todos los días y ves si llegás.</p>
-          <ul class="lista"><li>Calorías, proteínas, carbohidratos y grasas</li><li>Agua y suplementos (creatina, proteína)</li><li>Racha de días tomando la creatina</li></ul></div></div>
+          <ul class="lista"><li>Foto del plato: Zafra calcula gramos y macros</li><li>Calorías, proteínas, carbohidratos y grasas</li><li>Agua y una guía de más de 25 suplementos</li></ul></div></div>
       <div class="fila"><div class="fila__img rev"><div class="cel__marco"><img src="img/progreso.webp" alt="Progreso: peso corporal, fuerza por ejercicio y volumen semanal" width="390" height="844" loading="lazy"></div></div>
         <div class="rev"><p class="eti">Progreso y rutinas</p><h3>Tu cosecha, en gráficos.</h3><p class="lead">Peso corporal, fuerza por ejercicio, volumen semanal y calendario. Y tus rutinas como quieras: plantillas o la tuya pegada desde un mensaje.</p>
-          <ul class="lista"><li>Plantillas: Full body, Torso/Pierna, Arnold, Empuje/Tirón/Pierna</li><li>Pegás tu rutina de WhatsApp y queda cargada</li><li>Funciona sin internet y tus datos quedan en tu celular</li></ul></div></div>
+          <ul class="lista"><li>Plantillas: Full body, Torso/Pierna, Arnold, Empuje/Tirón/Pierna</li><li>Pegás tu rutina o tu entrenamiento de WhatsApp y queda cargado</li><li>Funciona sin internet, con nube opcional para no perder nada</li></ul></div></div>
     </div>
   </div></section>
 
@@ -177,7 +195,9 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
     <div class="faq">
       <details><summary>¿Sirve si recién empiezo?</summary><p>Sí. En el primer uso elegís tu objetivo, cuántos días entrenás y tu experiencia, y Zafra arma una rutina acorde. Cada ejercicio tiene la animación y tips para hacerlo bien.</p></details>
       <details><summary>¿Puedo usar mi propia rutina?</summary><p>Sí. Pegás tu rutina como la tenés en WhatsApp o en tus notas («Press inclinado — 3x8-12») y queda cargada. También la podés armar ejercicio por ejercicio.</p></details>
-      <details><summary>¿Necesito internet en el gimnasio?</summary><p>No. Una vez instalada funciona sin conexión. Tus datos quedan guardados en tu celular y podés descargar una copia cuando quieras.</p></details>
+      <details><summary>¿Cómo anoto lo que entrené?</summary><p>Como prefieras: serie por serie mientras entrenás, con la planilla rápida de cada día, o pegando el mensaje que escribís en WhatsApp («Sentadilla 80kg x 8, 8, 6»). En Android también podés compartirlo directo desde WhatsApp a Zafra.</p></details>
+      <details><summary>¿Qué hace la IA Zafra?</summary><p>Anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís. Incluye 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer.</p></details>
+      <details><summary>¿Necesito internet en el gimnasio?</summary><p>No para entrenar: una vez instalada funciona sin conexión (la IA y la foto de comida sí necesitan internet). Podés prender la nube para no perder nada si cambiás de celular.</p></details>
       <details><summary>¿Funciona en iPhone?</summary><p>Sí, en iPhone y en Android, desde el navegador o instalada como app.</p></details>
       <details><summary>¿Reemplaza a un nutricionista o a un profe?</summary><p>No. Zafra es una guía para ordenarte y medir tu progreso. Ante dolores, lesiones o necesidades especiales, consultá con un profesional.</p></details>
       <details><summary>¿Cómo cancelo?</summary><p>Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.</p></details>

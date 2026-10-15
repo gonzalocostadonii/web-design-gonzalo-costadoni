@@ -185,6 +185,23 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
 .precio-ia{display:grid;gap:18px;align-items:center;margin-top:16px;padding:22px clamp(22px,4vw,48px);border-radius:22px;background:rgba(255,255,255,.03);border:1px dashed rgba(230,188,92,.35)}
 @media(min-width:900px){.precio-ia{grid-template-columns:auto 1fr}}
 .precio-ia b{font-family:'Bricolage Grotesque','Figtree',sans-serif;font-size:28px;color:#fff}.precio-ia b small{font-size:15px;color:var(--ink2);font-weight:400}
+
+/* instalar como app */
+.instalar{padding:clamp(70px,10vh,120px) 0}
+.instalar .cab{text-align:center;max-width:720px;margin:0 auto}.instalar .cab .eti{justify-content:center}.instalar .cab .lead{margin:16px auto 0}
+.inst-grid{display:grid;gap:18px;margin-top:40px}
+@media(min-width:860px){.inst-grid{grid-template-columns:1fr 1fr}}
+.inst{padding:30px 28px;border-radius:24px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.inst__cab{display:flex;align-items:center;gap:14px}
+.inst__cab svg{width:34px;height:34px;flex:none;color:var(--lima)}
+.inst__cab b{font-size:21px;color:#fff;font-weight:600;letter-spacing:-.015em}
+.inst__cab small{display:block;font-size:13.5px;color:var(--ink2)}
+.inst ol{list-style:none;counter-reset:p;margin-top:22px;display:grid;gap:14px}
+.inst li{counter-increment:p;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:15.5px;line-height:1.5;color:#E2E8F2}
+.inst li::before{content:counter(p);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--lima);color:#0A0F1F;font-weight:700;font-size:15px}
+.inst li b{color:#fff}
+.inst-nota{margin-top:22px;text-align:center;font-size:14.5px;color:var(--ink2)}
+.inst-nota a{color:var(--lima);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -284,7 +301,32 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
     <div class="precio-ia rev"><b>USD 10 <small>por mes · Zafra con IA</small> <span class="chip">Próximamente</span></b><p style="color:var(--ink2)">Todo lo anterior más Zafra, tu coach con IA: le pasás tu entrenamiento como mensaje y lo anota, foto del plato con macros, rutinas y metas con tus datos. 100 mensajes por mes.</p></div>
   </div></section>
 
-  <section class="sec" id="preguntas"><div class="wrap">
+  
+  <section class="instalar" id="instalar">
+    <div class="wrap">
+      <div class="cab"><p class="eti" data-rev>Instalala como app</p>
+        <h2 style="margin-top:16px" data-rev>Tenela en tu celular, como cualquier app.</h2>
+        <p class="lead" data-rev>No hace falta App Store ni Play Store: se instala en segundos desde el navegador, ocupa poco y se actualiza sola.</p></div>
+      <div class="inst-grid">
+        <div class="inst" data-rev>
+          <div class="inst__cab"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.1ZM14 5.1c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5Z"/></svg><span><b>iPhone</b><small>Con Safari</small></span></div>
+          <ol><li><span>Abrí Zafra en <b>Safari</b> con el link que te llegó al suscribirte.</span></li>
+            <li><span>Tocá el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba).</span></li>
+            <li><span>Elegí <b>«Agregar a inicio»</b> y después <b>«Agregar»</b>.</span></li>
+            <li><span>Listo: abrila desde el ícono de tu pantalla de inicio.</span></li></ol>
+        </div>
+        <div class="inst" data-rev>
+          <div class="inst__cab"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.6 9.5 19.4 6.4a.5.5 0 0 0-.9-.5l-1.8 3.2A10.8 10.8 0 0 0 12 8.1c-1.7 0-3.3.4-4.7 1L5.5 5.9a.5.5 0 0 0-.9.5l1.8 3.1A9.8 9.8 0 0 0 1.5 17h21a9.8 9.8 0 0 0-4.9-7.5ZM7 14.2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg><span><b>Android</b><small>Con Chrome</small></span></div>
+          <ol><li><span>Abrí Zafra en <b>Chrome</b> con el link que te llegó al suscribirte.</span></li>
+            <li><span>Si aparece el aviso <b>«Instalar app»</b>, tocalo. Si no, abrí el menú <b>⋮</b> de arriba a la derecha.</span></li>
+            <li><span>Elegí <b>«Instalar app»</b> o <b>«Agregar a la pantalla principal»</b>.</span></li>
+            <li><span>Listo: queda en tu pantalla de inicio y en tus apps.</span></li></ol>
+        </div>
+      </div>
+      <p class="inst-nota" data-rev>¿Ya te suscribiste? <a href="https://gc-micro-apps.vercel.app/zafra/" target="_blank" rel="noopener">Abrí Zafra</a> e instalala desde ahí.</p>
+    </div>
+  </section>
+<section class="sec" id="preguntas"><div class="wrap">
     <div class="cab rev"><p class="eti">Preguntas frecuentes</p><h2 style="margin-top:16px">Lo que más nos preguntan.</h2></div>
     <div class="faq">
       <details><summary>¿Sirve si recién empiezo?</summary><p>Sí. En el primer uso elegís tu objetivo, cuántos días entrenás y tu experiencia, y Zafra arma una rutina acorde. Cada ejercicio tiene la animación y tips para hacerlo bien.</p></details>
@@ -318,6 +360,34 @@ var LANG = (function () {
   return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
 })();
 var EN = {
+  "Instalala como app": "Install it as an app",
+  "Tenela en tu celular, como cualquier app.": "Keep it on your phone, like any other app.",
+  "No hace falta App Store ni Play Store: se instala en segundos desde el navegador, ocupa poco y se actualiza sola.": "No App Store or Play Store needed: it installs in seconds from the browser, takes little space and updates itself.",
+  "iPhone": "iPhone",
+  "Con Safari": "With Safari",
+  "Android": "Android",
+  "Con Chrome": "With Chrome",
+  "Abrí Zafra en": "Open Zafra in",
+  "con el link que te llegó al suscribirte.": "with the link you got when you subscribed.",
+  "Tocá el botón": "Tap the",
+  "Compartir": "Share",
+  "(el cuadrado con la flecha hacia arriba).": "button (the square with the up arrow).",
+  "Elegí": "Choose",
+  "«Agregar a inicio»": "“Add to Home Screen”",
+  "y después": "and then",
+  "«Agregar»": "“Add”",
+  "Listo: abrila desde el ícono de tu pantalla de inicio.": "Done: open it from the icon on your home screen.",
+  "Si aparece el aviso": "If you see the",
+  "«Instalar app»": "“Install app”",
+  ", tocalo. Si no, abrí el menú": "prompt, tap it. If not, open the",
+  "de arriba a la derecha.": "menu at the top right.",
+  "o": "or",
+  "«Agregar a la pantalla principal»": "“Add to Home screen”",
+  "Listo: queda en tu pantalla de inicio y en tus apps.": "Done: it sits on your home screen and in your apps.",
+  "¿Ya te suscribiste?": "Already subscribed?",
+  "Abrí Zafra": "Open Zafra",
+  "e instalala desde ahí.": "and install it from there.",
+
   'Probar gratis': 'Try free', 'Qué tiene': 'Features', 'Zafra IA': 'Zafra AI', 'Precio': 'Pricing', 'Preguntas': 'FAQ', '← Volver a Costadoni Studio': '← Back to Costadoni Studio',
   'Abrir menú': 'Open menu', 'Cerrar menú': 'Close menu', 'Secciones': 'Sections', 'Volver a Costadoni Studio': 'Back to Costadoni Studio',
   'Hecha en la Patagonia · Zafra': 'Made in Patagonia · Zafra',

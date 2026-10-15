@@ -1,18 +1,5 @@
 {
   "outputDirectory": ".",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "web-design-gonzalo-costadoni.vercel.app"
-        }
-      ],
-      "destination": "https://costadonistudio.com/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/",

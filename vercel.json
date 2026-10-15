@@ -7,11 +7,15 @@
     },
     {
       "source": "/admin",
-      "destination": "https://gc-panel-admin.vercel.app/admin/"
+      "destination": "https://gc-panel-admin.vercel.app/admin/index.html"
     },
     {
-      "source": "/admin/:path*",
-      "destination": "https://gc-panel-admin.vercel.app/admin/:path*"
+      "source": "/admin/",
+      "destination": "https://gc-panel-admin.vercel.app/admin/index.html"
+    },
+    {
+      "source": "/admin/:path+",
+      "destination": "https://gc-panel-admin.vercel.app/admin/:path+"
     }
   ]
 }

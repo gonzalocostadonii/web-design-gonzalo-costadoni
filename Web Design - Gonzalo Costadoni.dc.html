@@ -10,6 +10,7 @@
 <script src="./image-slot.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="./card-fan-carousel.js"></script>
+<script src="./coverflow-carousel.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Costadoni Studio</title>
 <meta name="description" content="Diseño y desarrollo web a medida, tiendas online y Tero, la app para manejar tu negocio. General Roca, Río Negro, Argentina.">
@@ -36,6 +37,7 @@
 <script src="./image-slot.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="./card-fan-carousel.js"></script>
+<script src="./coverflow-carousel.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Costadoni Studio</title>
 <style>
@@ -217,9 +219,6 @@
     .pd-feat, #transformacion [style*="display: flex; gap: 12px"], #planes [style*="display: flex; gap: 12px"] { display: block !important; text-align: center !important; }
     .pd-feat .pd-check { display: inline-grid; vertical-align: -5px; margin-right: 8px; }
     #transformacion [style*="display: flex; gap: 12px"] > span:first-child, #planes [style*="display: flex; gap: 12px"] > span:first-child { margin-right: 8px; }
-    /* Proyectos: el número arriba, en su propia línea, para que el título quede centrado */
-    #proyectos [style*="cursor: pointer"][style*="flex-wrap: wrap"] > :first-child { flex-basis: 100%; text-align: center; }
-    #proyectos [style*="cursor: pointer"][style*="flex-wrap: wrap"] { row-gap: 10px !important; }
     .pd, .pd *, .mt, .mt * { text-align: left; }
     .mt-rings, .mt-rings * { text-align: center; }
     .svc-case { justify-content: center; text-align: center; }
@@ -329,6 +328,27 @@
   .zf-masc { position: absolute; z-index: 3; right: -22px; bottom: -18px; width: 110px; height: auto; animation: zf-salta 2.8s ease-in-out infinite; filter: drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
   @keyframes zf-salta { 0%, 100% { transform: translateY(0) rotate(0); } 40% { transform: translateY(-14px) rotate(-4deg); } 55% { transform: translateY(0) rotate(0); } }
   @media (prefers-reduced-motion: reduce) { .tm-ave, .tero-ala { animation: none; } .tm-ave { display: none; } .tm-cta, .tm-media img { transition: none; } .tm-chip { animation: none; opacity: 1; transform: none; } .tm-chip--2, .tm-chip--3 { display: none; } .zf-gym svg, .zf-masc { animation: none; } }
+
+  /* (04) Proyectos — coverflow (lo mueve coverflow-carousel.js) */
+  .cf { position: relative; margin-top: 34px; --cf-card: clamp(200px, 30vw, 400px); }
+  .cf-frame { overflow: hidden; padding: 44px 0; outline: none; cursor: grab; touch-action: pan-y; perspective: calc(var(--cf-card) * 3); border-radius: 18px; }
+  .cf-frame:active { cursor: grabbing; }
+  .cf-frame:focus-visible { box-shadow: 0 0 0 2px #8FA9CF; }
+  .cf-track { position: relative; height: var(--cf-card); transform-style: preserve-3d; user-select: none; -webkit-user-select: none; }
+  .cf-card { position: absolute; left: 50%; top: 0; width: var(--cf-card); aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden; background: #16213A; box-shadow: 0 30px 60px -24px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.07); will-change: transform; transform: translateX(-50%); }
+  .cf-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+  .cf-nav { position: absolute; top: 50%; z-index: 200; transform: translateY(-50%); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); background: rgba(10,15,31,.72); color: #fff; font-size: 20px; cursor: pointer; backdrop-filter: blur(8px); transition: background .25s; }
+  .cf-nav:hover { background: rgba(30,58,110,.9); }
+  .cf-prev { left: 6px; } .cf-next { right: 6px; }
+  .cf-dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+  .cf-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #FFFFFF; opacity: .28; cursor: pointer; transition: opacity .3s, transform .3s; }
+  .cf-dot[aria-current="true"] { opacity: 1; transform: scale(1.25); }
+  .cf-cap { max-width: 1040px; margin: 34px auto 0; animation: cfin .45s cubic-bezier(.2,.7,.3,1); }
+  @keyframes cfin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .cf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .cf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px clamp(22px, 3vw, 44px); margin-top: 30px; text-align: left; }
+  @media (max-width: 700px) { .cf { --cf-card: clamp(190px, 58vw, 300px); } .cf-nav { width: 40px; height: 40px; } .cf-frame { padding: 30px 0; } }
+  @media (prefers-reduced-motion: reduce) { .cf-cap { animation: none; } }
 </style>
 <!-- apps-ocultas: quitado en la rama preview-apps para ver Tero y Zafra -->
 </helmet>
@@ -764,50 +784,43 @@
     <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .16em; font-weight: 500; color: #8FA9CF; text-transform: uppercase;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8FA9CF;"></span>(04) {{ t.s5Label }}</div>
     <h2 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 22px 0 0; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; max-width: 24ch;">{{ t.s5Title }}</h2>
     <p style="margin: 18px 0 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11.5px; letter-spacing: .08em; color: #6E7F9E;">{{ t.s5Hint }}</p>
-    <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 48px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <div style="{{ p.cardStyle }}">
-          <div onClick="{{ p.toggle }}" style="display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding: clamp(22px, 2.4vw, 32px); cursor: pointer; flex-wrap: wrap;">
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #FFFFFF;">{{ p.n }}</div>
-            <div style="flex: 1; min-width: 180px;">
-              <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(21px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.025em;">{{ p.name }}</h3>
-              <div style="margin-top: 8px; font-size: 14px; color: #8E9CB5;">{{ p.sector }}</div>
-            </div>
-            <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 7px 12px; border-radius: 6px; background: rgba(30,58,110,.12);">{{ p.tag }}</div>
-            <div style="{{ p.arrowStyle }}">↓</div>
-          </div>
-          <div style="{{ p.bodyStyle }}">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 48px); padding: 0 clamp(22px, 2.4vw, 32px) clamp(28px, 3vw, 40px);">
-              <div style="display: flex; flex-direction: column; gap: 26px;">
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.problem }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.work }}</p>
-                </div>
-                <div>
-                  <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div>
-                  <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.7; color: #C9D4E6;">{{ p.result }}</p>
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 20px;">
-                <a href="{{ p.url }}" target="_blank" rel="noopener" style="position: relative; display: block; aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s cubic-bezier(.2,.7,.3,1);" style-hover="transform: translateY(-4px) scale(1.012); box-shadow: 0 26px 60px -28px rgba(0,0,0,.85);">
-                  <image-slot id="{{ p.slotId }}" shape="rounded" radius="12" src="{{ p.shotSrc }}" placeholder="{{ p.shot }}"></image-slot>
-                  <span style="position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; color: #FFFFFF; font-size: 12.5px; font-weight: 500; opacity: .95; transition: all .35s cubic-bezier(.2,.7,.3,1); pointer-events: none; background-color: #0A0F1FF0">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 12px;">↗</span></span>
-                </a>
-                <sc-if value="{{ p.hasQuote }}" hint-placeholder-val="{{ true }}">
-                  <blockquote style="margin: 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09);">
-                    <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ p.quote }}”</p>
-                    <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ p.author }}</footer>
-                  </blockquote>
-                </sc-if>
-              </div>
-            </div>
-          </div>
+    <div class="cf" id="gc-cf" role="region" aria-roledescription="carousel" aria-label="{{ t.s5Label }}">
+      <div class="cf-frame" id="gc-cf-frame" tabindex="0">
+        <div class="cf-track">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+            <div class="cf-card" role="group" aria-roledescription="slide" aria-label="{{ p.name }}"><img src="{{ p.img }}" alt="{{ p.alt }}" draggable="false" loading="lazy" width="960" height="960"></div>
+          </sc-for>
         </div>
+      </div>
+      <button type="button" class="cf-nav cf-prev" onClick="{{ cfPrev }}" aria-label="{{ t.cfPrev }}">‹</button>
+      <button type="button" class="cf-nav cf-next" onClick="{{ cfNext }}" aria-label="{{ t.cfNext }}">›</button>
+    </div>
+    <div class="cf-dots">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+        <button type="button" class="cf-dot" onClick="{{ p.go }}" aria-current="{{ p.current }}" aria-label="{{ p.name }}"></button>
       </sc-for>
+    </div>
+    <div class="cf-cap" key="{{ cur.name }}" aria-live="polite">
+      <div class="cf-head">
+        <div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #8FA9CF;">{{ cur.n }} / {{ projTotal }}</div>
+        <h3 style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; margin: 0; font-size: clamp(24px, 2.8vw, 36px); font-weight: 600; letter-spacing: -.025em;">{{ cur.name }}</h3>
+        <div style="font-size: 14px; color: #8E9CB5;">{{ cur.sector }}</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px;">
+          <span style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .1em; font-weight: 500; text-transform: uppercase; color: #7E9BC8; padding: 9px 13px; border-radius: 6px; background: rgba(30,58,110,.14);">{{ cur.tag }}</span>
+          <a href="{{ cur.url }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 6px 6px 16px; border-radius: 999px; background: #FFFFFF; color: #0A0F1F; font-size: 13px; font-weight: 500;" style-hover="background: #DCE6F5; color: #0A0F1F;">{{ t.visitSite }}<span style="display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #0A0F1F; color: #fff; font-size: 11px;">↗</span></a>
+        </div>
+      </div>
+      <div class="cf-grid">
+        <div><div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pProblem }}</div><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.7; color: #C9D4E6;">{{ cur.problem }}</p></div>
+        <div><div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pWork }}</div><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.7; color: #C9D4E6;">{{ cur.work }}</p></div>
+        <div><div style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10.5px; letter-spacing: .14em; font-weight: 500; text-transform: uppercase; color: #4E5D78;">{{ t.pResult }}</div><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.7; color: #C9D4E6;">{{ cur.result }}</p></div>
+      </div>
+      <sc-if value="{{ cur.hasQuote }}" hint-placeholder-val="{{ true }}">
+        <blockquote style="margin: 26px 0 0; padding: 24px 26px; border-radius: 12px; background: rgba(30,58,110,.09); text-align: left;">
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #FFFFFF; letter-spacing: -.01em;">“{{ cur.quote }}”</p>
+          <footer style="margin-top: 14px; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; color: #7E9BC8;">{{ cur.author }}</footer>
+        </blockquote>
+      </sc-if>
     </div>
   </section>
 
@@ -990,9 +1003,17 @@ const COPY = {
     },
     s5Label: "Proyectos",
     s5Title: "Algunos de los proyectos principales.",
-    s5Hint: "Hay más trabajos detrás, estos son los principales. Toca cada proyecto para abrir el caso completo",
+    s5Hint: "Hay más trabajos detrás, estos son los principales. Deslizá o usá las flechas para ver cada caso.",
+    cfPrev: "Proyecto anterior", cfNext: "Proyecto siguiente",
     pProblem: "El problema", pWork: "Qué se hizo", pResult: "Resultado",
     projects: [
+      {
+        name: "Dot Coworking", sector: "Coworking · General Roca, Río Negro", tag: "Landing + panel de contenido",
+        problem: "Un coworking nuevo en el centro de Roca, con cowork, oficinas privadas y una sala para 20 personas, que necesitaba mostrar el espacio y llenar sus lugares sin depender de responder lo mismo una y otra vez por mensaje.",
+        work: "Landing con los servicios, tres planes con precios, galería del espacio, preguntas frecuentes, ubicación con mapa y reservas directas por WhatsApp. Suma un panel propio para que el equipo cambie textos, precios y fotos sin tocar código.",
+        result: "Una web que vende el espacio por sí sola: quien entra entiende qué ofrece, cuánto cuesta y reserva en un toque, y el equipo la mantiene al día desde su panel.",
+        quote: "", author: ""
+      },
       {
         n: "(01)", name: "Patagonia Dental", sector: "Insumos odontológicos · General Roca, Río Negro", tag: "Proveedor odontológico",
         shot: "[imagen] Home Patagonia Dental",
@@ -1191,9 +1212,17 @@ const COPY = {
     },
     s5Label: "Work",
     s5Title: "A selection of the main projects.",
-    s5Hint: "There is more work behind these — these are the main ones. Tap any project to open the full case study",
+    s5Hint: "There is more work behind these — these are the main ones. Swipe or use the arrows to see each case.",
+    cfPrev: "Previous project", cfNext: "Next project",
     pProblem: "The problem", pWork: "What was done", pResult: "Result",
     projects: [
+      {
+        name: "Dot Coworking", sector: "Coworking · General Roca, Río Negro", tag: "Landing + content panel",
+        problem: "A new coworking space in downtown Roca, with hot desks, private offices and a room for 20 people, that needed to show the space and fill its seats without answering the same questions over and over by message.",
+        work: "Landing page with its services, three priced plans, a gallery of the space, FAQ, location with a map and direct bookings via WhatsApp. It adds its own panel so the team can change copy, prices and photos without touching code.",
+        result: "A site that sells the space on its own: visitors understand what it offers and what it costs, and book in one tap, while the team keeps it up to date from its panel.",
+        quote: "", author: ""
+      },
       {
         n: "(01)", name: "Patagonia Dental", sector: "Dental supplies · General Roca, Río Negro", tag: "Institutional site",
         shot: "[image] Patagonia Dental home",
@@ -1341,9 +1370,19 @@ const COPY = {
   }
 };
 
+// Captura (cuadrada, 960 px) y link de cada proyecto del carrusel (04).
+const PROJECT_MEDIA = {
+  "Dot Coworking": { img: "./proyectos/dot-coworking.jpg", url: "https://dotcoworkingr.com/" },
+  "Patagonia Dental": { img: "./proyectos/patagonia-dental.jpg", url: "https://patagoniadentalgr.com/" },
+  "Gustavo Mardones": { img: "./proyectos/gustavo-mardones.jpg", url: "https://gustavomardones.com/" },
+  "Lucio Viamonte": { img: "./proyectos/lucio-viamonte.jpg", url: "https://lucioviamonte.framer.website/" },
+  "Groma Agrimensura": { img: "./proyectos/groma.jpg", url: "https://gromaagrimensura.com/" },
+  "PronoAgro": { img: "./proyectos/pronoagro.jpg", url: "https://pronoagro.com/" }
+};
+
 class Component extends DCLogic {
   // Idioma: ?lang=en en el link (lo usa la landing de Tero) o lo último elegido en esta web.
-  state = { lang: (() => { try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "es") return q; return localStorage.getItem("gc_lang") === "en" ? "en" : "es"; } catch (e) { return "es"; } })(), scrolled: false, open: null, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
+  state = { lang: (() => { try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "es") return q; return localStorage.getItem("gc_lang") === "en" ? "en" : "es"; } catch (e) { return "es"; } })(), scrolled: false, open: null, proj: 0, faq: null, plan: 0, planOpen: {}, menu: false, narrow: false, phone: false, panelIn: false, mantIn: false, fanCenter: window.CardFanCarousel ? window.CardFanCarousel.initialCenter(COPY.es.features.length) : 0 };
 
   // (02) card fan: GSAP owns the card transforms; the template only renders content.
   cycleFan(direction) {
@@ -1352,6 +1391,15 @@ class Component extends DCLogic {
     if (!fan || fan.isBusy() || !window.CardFanCarousel.canPaginate(total)) return;
     this._fanDir = direction;
     this.setState({ fanCenter: direction === "right" ? (this.state.fanCenter + 1) % total : (this.state.fanCenter - 1 + total) % total });
+  }
+
+  // (04) proyectos: el carrusel mueve las tarjetas; la plantilla solo muestra la ficha del que queda al centro.
+  goProject(i) { if (this._cf) this._cf.goTo(i); else this.setState({ proj: i }); }
+
+  mountCoverflow() {
+    const el = document.getElementById("gc-cf-frame");
+    if (!el || !window.CoverflowCarousel) return;
+    this._cf = window.CoverflowCarousel.create(el, { onChange: (i) => this.setState({ proj: i }) });
   }
 
   mountFan() {
@@ -1428,6 +1476,7 @@ class Component extends DCLogic {
     window.addEventListener("resize", this._onResize);
     this._onResize();
     this.mountFan();
+    this.mountCoverflow();
     this.mountTeroVideos();
     this._reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     // Panel demo: numbers, line and donut animate once when the mockup scrolls into view.
@@ -1484,6 +1533,7 @@ class Component extends DCLogic {
     if (this._panelIo) this._panelIo.disconnect();
     if (this._mantIo) this._mantIo.disconnect();
     if (this._fan) this._fan.destroy();
+    if (this._cf) this._cf.destroy();
   }
 
   renderVals() {
@@ -1586,21 +1636,20 @@ class Component extends DCLogic {
       })(),
       teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] === 2 ? c.tero.nuevo : m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] === 2 ? "tm-pill--nuevo" : m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {
-        const open = this.state.open === i;
-        const slotIds = ["proyecto-patagonia-dental", "proyecto-gustavo-mardones", "proyecto-lucio-viamonte", "proyecto-groma-agrimensura", "proyecto-pronoagro"];
-        const siteUrls = ["https://patagoniadentalgr.com/", "https://gustavomardones.com/", "https://lucioviamonte.framer.website/", "https://gromaagrimensura.com/", "https://pronoagro.com/"];
-        const shotSrcs = ["./captura-de-pantalla-2026-07-07-011721-mst4ln4w-icep.png", "./gustavomardones-com-home.jpeg", "", "./captura-de-pantalla-2026-09-02-143538.png", "./pronoagro-com-home.png"];
+        const m = PROJECT_MEDIA[p.name] || {};
         return Object.assign({}, p, {
-          slotId: slotIds[i],
-          url: siteUrls[i],
-          shotSrc: shotSrcs[i],
-          hasQuote: !!p.quote,
-          toggle: () => this.setState({ open: open ? null : i }),
-          cardStyle: "border-radius: 16px; overflow: hidden; background: " + (open ? "rgba(30,58,110,.08)" : "rgba(255,255,255,.028)") + "; transition: background .4s cubic-bezier(.2,.7,.3,1); box-shadow: " + (open ? "0 30px 70px -40px rgba(30,58,110,.8)" : "none") + ";",
-          bodyStyle: "overflow: hidden; max-height: " + (open ? "1600px" : "0px") + "; opacity: " + (open ? "1" : "0") + "; transition: max-height .6s cubic-bezier(.2,.7,.3,1), opacity .45s ease " + (open ? ".1s" : "0s") + ";",
-          arrowStyle: "display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: " + (open ? accent : "rgba(255,255,255,.06)") + "; color: " + (open ? "#fff" : "#A9B6CE") + "; font-size: 14px; transform: rotate(" + (open ? "180deg" : "0deg") + "); transition: all .4s cubic-bezier(.2,.7,.3,1);"
+          img: m.img, url: m.url, alt: (lang === "en" ? "Home page of " : "Inicio de la web de ") + p.name,
+          current: this.state.proj === i ? "true" : "false",
+          go: () => this.goProject(i)
         });
       }),
+      cur: (() => {
+        const i = Math.min(this.state.proj, c.projects.length - 1), p = c.projects[i], m = PROJECT_MEDIA[p.name] || {};
+        return Object.assign({}, p, { n: String(i + 1).padStart(2, "0"), url: m.url, hasQuote: !!p.quote });
+      })(),
+      projTotal: String(c.projects.length).padStart(2, "0"),
+      cfPrev: () => this._cf && this._cf.nudge(-1),
+      cfNext: () => this._cf && this._cf.nudge(1),
 
       selectLanding: () => this.setState({ plan: 0 }),
       selectTienda: () => this.setState({ plan: 1 }),

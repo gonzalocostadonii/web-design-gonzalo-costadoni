@@ -996,8 +996,8 @@ const COPY = {
       title: "La primera app de la Patagonia que te ayuda a crecer en el gym.",
       sub: "Anotás tus series como un mensaje de WhatsApp, seguís tu rutina y tus comidas y ves cómo crecés. Y muy pronto, Zafra, tu coach con IA, con foto del plato y macros.",
       mods: [["Entrenamiento", "Te dice qué peso usar hoy, descanso con aviso, récords y aviso si te estancás."], ["Ejercicios", "Más de 120 con animación y tips en español."], ["Comidas", "Meta de calorías y proteínas, agua y creatina."], ["Progreso", "Peso, fuerza por ejercicio, volumen y calendario."]],
-      ok: "Incluido", cta: "Conocé Zafra", cta2: "Probar 7 días gratis", mediaGo: "Ver la app ↗",
-      note: "USD 5 por mes, todas las funciones · 7 días gratis · Con IA, próximamente",
+      ok: "Incluido", cta: "Conocé Zafra", cta2: "Usar gratis", mediaGo: "Ver la app ↗",
+      note: "Gratis para siempre · Zafra Pro USD 5 por mes, con 7 días de prueba · Con IA, próximamente",
       imgAlt: "Zafra en el celular: la pantalla Hoy con la semana, la racha y el entrenamiento del día",
       chip1: "Hoy: 82,5 kg × 6", chip1s: "Subí: hiciste 8 en todas", chip2: "PR nuevo", chip2s: "Sentadilla 100 kg × 8", chip3: "«Banca 60 x 8, 8, 7»", chip3s: "Anotado en el Día A"
     },
@@ -1205,8 +1205,8 @@ const COPY = {
       title: "The first app from Patagonia that helps you grow at the gym.",
       sub: "Log your sets like a WhatsApp message, follow your routine and meals, and see how you grow. Coming soon: Zafra, your AI coach, with plate photos and macros. (App in Spanish.)",
       mods: [["Workouts", "Tells you what weight to lift today, rest timer, records and a heads-up when you plateau."], ["Exercises", "120+ exercises with animation and tips."], ["Nutrition", "Calorie and protein targets, water and creatine."], ["Progress", "Body weight, strength per exercise, volume and calendar."]],
-      ok: "Included", cta: "Discover Zafra", cta2: "Try free for 7 days", mediaGo: "See the app ↗",
-      note: "USD 5 per month, every feature · 7 days free · AI coming soon",
+      ok: "Included", cta: "Discover Zafra", cta2: "Use it free", mediaGo: "See the app ↗",
+      note: "Free forever · Zafra Pro USD 5 per month, with a 7-day trial · AI coming soon",
       imgAlt: "Zafra on a phone: the Today screen with the week, the streak and today's workout",
       chip1: "Today: 82.5 kg × 6", chip1s: "Go up: you hit 8 on every set", chip2: "New PR", chip2s: "Squat 100 kg × 8", chip3: "“Bench 60 x 8, 8, 7”", chip3s: "Logged on Day A"
     },
@@ -1631,8 +1631,8 @@ class Component extends DCLogic {
       })() + (lang === "en" ? "&lang=en" : ""),
       zafra: c.zafra,
       zafraMods: c.zafra.mods.map((m) => ({ name: m[0], text: m[1] })),
-      zafraUrl: "https://gc-micro-apps.vercel.app/suscribir/?app=zafra" + (() => {
-        try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "&" + s : ""; } catch (e) { return ""; }
+      zafraUrl: "https://gc-micro-apps.vercel.app/zafra/" + (() => {
+        try { const q = new URLSearchParams(location.search), u = new URLSearchParams(); q.forEach((v, k) => { if (/^utm_|^fbclid$/.test(k)) u.set(k, v); }); const s = u.toString(); return s ? "?" + s : ""; } catch (e) { return ""; }
       })(),
       teroMods: c.tero.mods.map((m) => ({ name: m[0], text: m[1], estado: m[2] === 2 ? c.tero.nuevo : m[2] ? c.tero.ok : c.tero.pronto, cls: "tm-pill " + (m[2] === 2 ? "tm-pill--nuevo" : m[2] ? "tm-pill--ok" : "tm-pill--pronto") })),
       projects: c.projects.map((p, i) => {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zafra · La primera app de la Patagonia para crecer en el gym</title>
-<meta name="description" content="La primera app de la Patagonia que te ayuda a crecer en el gym: anotás tus series pegando el mensaje de WhatsApp, seguís tu rutina, tus comidas y ves cómo progresás. 7 días gratis, después USD 5 por mes.">
+<meta name="description" content="La primera app de la Patagonia que te ayuda a crecer en el gym: anotás tus series pegando el mensaje de WhatsApp, seguís tu rutina, tus comidas y ves cómo progresás. Gratis, con Zafra Pro opcional por USD 5 por mes.">
 <meta name="theme-color" content="#10110D">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Costadoni Studio">
@@ -109,6 +109,10 @@ section{position:relative}
 /* precio */
 .precio{display:grid;gap:30px;align-items:center;padding:clamp(28px,4vw,48px);border-radius:28px;background:linear-gradient(140deg,#18200F,#0F130C);border:1px solid rgba(185,234,78,.2)}
 @media(min-width:900px){.precio{grid-template-columns:auto 1fr auto;gap:50px}}
+.planes{display:grid;gap:18px}@media(min-width:900px){.planes{grid-template-columns:1fr 1fr}}
+.plan{display:grid;gap:18px;align-content:start;padding:clamp(26px,3.5vw,40px);border-radius:28px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.plan--pro{background:linear-gradient(140deg,#18200F,#0F130C);border-color:rgba(185,234,78,.35)}
+.plan .lista{margin:0}.plan .btn{justify-self:start}
 .precio-big{font-size:clamp(46px,6vw,72px);font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1}
 .precio-big small{font-size:18px;color:var(--ink2);font-weight:400;letter-spacing:0}
 /* faq */
@@ -211,7 +215,7 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
   <nav class="menu" id="menu" aria-label="Secciones"><a href="#funciones">Qué tiene</a><a href="#zafra-ia">Zafra IA</a><a href="#precio">Precio</a><a href="#preguntas">Preguntas</a><a class="menu__web" href="../">← Volver a Costadoni Studio</a></nav>
   <div class="barra__acc">
     <span class="idioma" role="group" aria-label="Idioma / Language"><a href="?lang=es" data-lang="es" lang="es" aria-current="true">ES</a><a href="?lang=en" data-lang="en" lang="en">EN</a></span>
-    <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar gratis<i>↗</i></a>
+    <a class="btn" href="https://gc-micro-apps.vercel.app/zafra/" target="_blank" rel="noopener">Usar gratis<i>↗</i></a>
     <button type="button" class="hamb" id="hamb" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
 </div></header>
@@ -227,8 +231,8 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
       <p class="eti">Hecha en la Patagonia · Zafra</p>
       <h1>La primera app de la Patagonia que te ayuda a <em>crecer en el gym.</em></h1>
       <p class="lead">Anotás tus series, pesos y repeticiones (o se los mandás a Zafra como un mensaje de WhatsApp), le sacás una foto a tu plato para ver los macros y mirás cómo crece tu fuerza semana a semana.</p>
-      <div class="ctas"><a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar 7 días gratis<i>↗</i></a><a class="btn btn--ghost" href="#funciones">Ver qué tiene</a></div>
-      <p class="nota">Hoy no pagás nada · Después USD 5 por mes · Cancelás cuando quieras</p>
+      <div class="ctas"><a class="btn" href="https://gc-micro-apps.vercel.app/zafra/" target="_blank" rel="noopener">Usar Zafra gratis<i>↗</i></a><a class="btn btn--ghost" href="#precio">Ver Gratis y Pro</a></div>
+      <p class="nota">Gratis para siempre · Sin tarjeta · Zafra Pro opcional, USD 5 por mes</p>
     </div>
     <div class="cel rev">
       <div class="cel__marco"><img src="img/hoy.webp" alt="Pantalla Hoy de Zafra: semana, racha, entrenamiento del día, creatina, agua y peso" width="390" height="844"></div>
@@ -293,12 +297,17 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
   </div></section>
 
   <section class="sec" id="precio"><div class="wrap">
-    <div class="precio rev">
-      <div><p class="eti">Un precio simple</p><p class="precio-big" style="margin-top:14px">USD 5 <small>por mes</small></p><p style="color:var(--ink2);margin-top:8px">o USD 50 por año (2 meses gratis)</p></div>
-      <ul class="lista" style="margin:0"><li>7 días gratis para probarla</li><li>Se cobra en pesos por Mercado Pago</li><li>Todas las funciones: rutinas, ejercicios, comidas, progreso y nube</li><li>Sin permanencia: cancelás cuando quieras</li></ul>
-      <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Empezar gratis<i>↗</i></a>
+    <div class="cab rev" style="text-align:center;max-width:720px;margin:0 auto 34px"><p class="eti" style="justify-content:center">Gratis y Pro</p><h2 style="margin-top:14px">Empezá gratis. Pasate a Pro cuando quieras más.</h2></div>
+    <div class="planes">
+      <div class="plan rev"><p class="eti">Gratis</p><p class="precio-big" style="margin-top:12px">USD 0 <small>para siempre</small></p>
+        <ul class="lista"><li>Tu rutina, armada según los días que entrenás</li><li>Entrenar con cronómetro y descanso</li><li>Anotar series, también pegando el mensaje de WhatsApp</li><li>Todo tu historial, sin límite de tiempo</li><li>Más de 120 ejercicios con animación</li><li>Comidas, macros, agua y suplementos con avisos</li><li>Peso corporal, racha, calendario y récords</li></ul>
+        <a class="btn btn--ghost" href="https://gc-micro-apps.vercel.app/zafra/" target="_blank" rel="noopener">Usar gratis<i>↗</i></a></div>
+      <div class="plan plan--pro rev"><p class="eti">Zafra Pro <span class="chip">7 días gratis</span></p><p class="precio-big" style="margin-top:12px">USD 5 <small>por mes</small></p><p style="color:var(--ink2);margin-top:6px">o USD 50 por año (2 meses gratis)</p>
+        <ul class="lista"><li><b>Todo lo del plan gratis, y además:</b></li><li>Te dice qué peso usar hoy y te avisa si te estancás</li><li>Gráficos de fuerza, volumen y series por músculo</li><li>Rutinas sin límite y todas las plantillas</li><li>Calentamiento, calculadora de discos y semanas de descarga</li><li>Medidas y fotos de progreso con antes y después</li><li>Nube en todos tus dispositivos y exportar a Excel</li></ul>
+        <a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar Pro 7 días gratis<i>↗</i></a>
+        <p class="nota" style="margin-top:10px">Se cobra en pesos por Mercado Pago · Sin permanencia: si cancelás, seguís en el plan gratis</p></div>
     </div>
-    <div class="precio-ia rev"><b>USD 10 <small>por mes · Zafra con IA</small> <span class="chip">Próximamente</span></b><p style="color:var(--ink2)">Todo lo anterior más Zafra, tu coach con IA: le pasás tu entrenamiento como mensaje y lo anota, foto del plato con macros, rutinas y metas con tus datos. 100 mensajes por mes.</p></div>
+    <div class="precio-ia rev" style="margin-top:18px"><b>USD 10 <small>por mes · Zafra con IA</small> <span class="chip">Próximamente</span></b><p style="color:var(--ink2)">Todo Zafra Pro más Zafra, tu coach con IA: le pasás tu entrenamiento como mensaje y lo anota, foto del plato con macros, rutinas y metas con tus datos. 100 mensajes por mes.</p></div>
   </div></section>
 
   
@@ -332,19 +341,20 @@ details p{padding:0 24px 20px;color:var(--ink2);font-size:15px}
       <details><summary>¿Sirve si recién empiezo?</summary><p>Sí. En el primer uso elegís tu objetivo, cuántos días entrenás y tu experiencia, y Zafra arma una rutina acorde. Cada ejercicio tiene la animación y tips para hacerlo bien.</p></details>
       <details><summary>¿Puedo usar mi propia rutina?</summary><p>Sí. Pegás tu rutina como la tenés en WhatsApp o en tus notas («Press inclinado — 3x8-12») y queda cargada. También la podés armar ejercicio por ejercicio.</p></details>
       <details><summary>¿Cómo anoto lo que entrené?</summary><p>Como prefieras: serie por serie mientras entrenás, con la planilla rápida de cada día, o pegando el mensaje que escribís en WhatsApp («Sentadilla 80kg x 8, 8, 6»). En Android también podés compartirlo directo desde WhatsApp a Zafra.</p></details>
-      <details><summary>¿Qué hace la IA Zafra?</summary><p>Es el plan con IA (USD 10 por mes), que se habilita próximamente: anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís, con 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer. Pegar tu entrenamiento de WhatsApp para anotarlo ya funciona en el plan de USD 5, sin IA.</p></details>
+      <details><summary>¿Qué hace la IA Zafra?</summary><p>Es el plan con IA (USD 10 por mes), que se habilita próximamente: anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís, con 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer. Pegar tu entrenamiento de WhatsApp para anotarlo ya funciona en el plan gratis, sin IA.</p></details>
       <details><summary>¿Necesito internet en el gimnasio?</summary><p>No para entrenar: una vez instalada funciona sin conexión (la IA y la foto de comida sí necesitan internet). Podés prender la nube para no perder nada si cambiás de celular.</p></details>
       <details><summary>¿Funciona en iPhone?</summary><p>Sí, en iPhone y en Android, desde el navegador o instalada como app.</p></details>
       <details><summary>¿Reemplaza a un nutricionista o a un profe?</summary><p>No. Zafra es una guía para ordenarte y medir tu progreso. Ante dolores, lesiones o necesidades especiales, consultá con un profesional.</p></details>
-      <details><summary>¿Cómo cancelo?</summary><p>Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Si te arrepentís en los primeros 10 días, te devolvemos todo.</p></details>
+      <details><summary>¿Es gratis de verdad?</summary><p>Sí. El plan gratis no vence y no pide tarjeta: rutina, entrenamientos, historial completo, ejercicios, comidas y progreso básico. Zafra Pro suma lo avanzado (qué peso usar hoy, gráficos, rutinas sin límite, medidas, fotos, nube) y lo probás 7 días sin pagar.</p></details>
+      <details><summary>¿Cómo cancelo Pro?</summary><p>Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Seguís usando Zafra gratis con todos tus datos. Si te arrepentís en los primeros 10 días, te devolvemos todo.</p></details>
     </div>
   </div></section>
 
   <section class="final"><div class="wrap">
     <p class="eti">Zafra · Tu entrenamiento</p>
     <h2>Sembrá constancia. Cosechá resultados.</h2>
-    <p class="lead">Probala 7 días gratis. Si no te sirve, cancelás y no pagás nada.</p>
-    <div class="ctas"><a class="btn" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar Zafra gratis<i>↗</i></a></div>
+    <p class="lead">Empezá gratis hoy. Cuando quieras más, probás Zafra Pro 7 días sin pagar.</p>
+    <div class="ctas"><a class="btn" href="https://gc-micro-apps.vercel.app/zafra/" target="_blank" rel="noopener">Usar Zafra gratis<i>↗</i></a><a class="btn btn--ghost" data-suscribir href="https://gc-micro-apps.vercel.app/suscribir/?app=zafra" target="_blank" rel="noopener">Probar Pro</a></div>
   </div></section>
 </main>
 
@@ -360,6 +370,41 @@ var LANG = (function () {
   return q === 'en' || q === 'es' ? q : g || ((navigator.language || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
 })();
 var EN = {
+  "Usar gratis": "Use it free",
+  "Usar Zafra gratis": "Use Zafra free",
+  "Ver Gratis y Pro": "See Free and Pro",
+  "Gratis para siempre · Sin tarjeta · Zafra Pro opcional, USD 5 por mes": "Free forever · No card · Optional Zafra Pro, USD 5 per month · App in Spanish",
+  "Gratis y Pro": "Free and Pro",
+  "Empezá gratis. Pasate a Pro cuando quieras más.": "Start free. Go Pro when you want more.",
+  "Gratis": "Free",
+  "USD 0": "USD 0",
+  "para siempre": "forever",
+  "Tu rutina, armada según los días que entrenás": "Your routine, built around the days you train",
+  "Entrenar con cronómetro y descanso": "Train with a timer and rest timer",
+  "Anotar series, también pegando el mensaje de WhatsApp": "Log sets, even by pasting your WhatsApp message",
+  "Todo tu historial, sin límite de tiempo": "Your full history, no time limit",
+  "Más de 120 ejercicios con animación": "Over 120 animated exercises",
+  "Comidas, macros, agua y suplementos con avisos": "Meals, macros, water and supplement reminders",
+  "Peso corporal, racha, calendario y récords": "Body weight, streak, calendar and records",
+  "Zafra Pro": "Zafra Pro",
+  "7 días gratis": "7 days free",
+  "Todo lo del plan gratis, y además:": "Everything in Free, plus:",
+  "Te dice qué peso usar hoy y te avisa si te estancás": "Tells you what weight to use today and warns you when you plateau",
+  "Gráficos de fuerza, volumen y series por músculo": "Strength, volume and sets-per-muscle charts",
+  "Rutinas sin límite y todas las plantillas": "Unlimited routines and every template",
+  "Calentamiento, calculadora de discos y semanas de descarga": "Warm-ups, plate calculator and deload weeks",
+  "Medidas y fotos de progreso con antes y después": "Measurements and progress photos with before and after",
+  "Nube en todos tus dispositivos y exportar a Excel": "Cloud on all your devices and Excel export",
+  "Probar Pro 7 días gratis": "Try Pro free for 7 days",
+  "Se cobra en pesos por Mercado Pago · Sin permanencia: si cancelás, seguís en el plan gratis": "Charged in Argentine pesos via Mercado Pago · No lock-in: cancel and you stay on Free",
+  "Todo Zafra Pro más Zafra, tu coach con IA:": "All of Zafra Pro plus Zafra, your AI coach:",
+  "¿Es gratis de verdad?": "Is it really free?",
+  "Sí. El plan gratis no vence y no pide tarjeta: rutina, entrenamientos, historial completo, ejercicios, comidas y progreso básico. Zafra Pro suma lo avanzado (qué peso usar hoy, gráficos, rutinas sin límite, medidas, fotos, nube) y lo probás 7 días sin pagar.": "Yes. The free plan never expires and needs no card: routine, workouts, full history, exercises, meals and basic progress. Zafra Pro adds the advanced tools (today's weight, charts, unlimited routines, measurements, photos, cloud) and you can try it free for 7 days.",
+  "¿Cómo cancelo Pro?": "How do I cancel Pro?",
+  "Desde Mercado Pago o desde el botón de baja, sin dar explicaciones. Seguís usando Zafra gratis con todos tus datos. Si te arrepentís en los primeros 10 días, te devolvemos todo.": "From Mercado Pago or the cancellation button, no questions asked. You keep using Zafra free with all your data. If you change your mind within 10 days, we refund everything.",
+  "Empezá gratis hoy. Cuando quieras más, probás Zafra Pro 7 días sin pagar.": "Start free today. When you want more, try Zafra Pro free for 7 days.",
+  "Probar Pro": "Try Pro",
+
   "Instalala como app": "Install it as an app",
   "Tenela en tu celular, como cualquier app.": "Keep it on your phone, like any other app.",
   "No hace falta App Store ni Play Store: se instala en segundos desde el navegador, ocupa poco y se actualiza sola.": "No App Store or Play Store needed: it installs in seconds from the browser, takes little space and updates itself.",
@@ -441,7 +486,7 @@ var EN = {
   '¿Sirve si recién empiezo?': 'Does it work for beginners?', 'Sí. En el primer uso elegís tu objetivo, cuántos días entrenás y tu experiencia, y Zafra arma una rutina acorde. Cada ejercicio tiene la animación y tips para hacerlo bien.': 'Yes. On first use you pick your goal, how many days you train and your experience, and Zafra builds a matching routine. Each exercise has the animation and tips to do it right.',
   '¿Puedo usar mi propia rutina?': 'Can I use my own routine?', 'Sí. Pegás tu rutina como la tenés en WhatsApp o en tus notas («Press inclinado — 3x8-12») y queda cargada. También la podés armar ejercicio por ejercicio.': 'Yes. Paste your routine as you have it in WhatsApp or your notes ("Incline press — 3x8-12") and it is loaded. You can also build it exercise by exercise.',
   '¿Cómo anoto lo que entrené?': 'How do I log my workout?', 'Como prefieras: serie por serie mientras entrenás, con la planilla rápida de cada día, o pegando el mensaje que escribís en WhatsApp («Sentadilla 80kg x 8, 8, 6»). En Android también podés compartirlo directo desde WhatsApp a Zafra.': 'However you like: set by set while you train, with the quick sheet for each day, or by pasting the message you write in WhatsApp ("Squat 80kg x 8, 8, 6"). On Android you can also share it straight from WhatsApp to Zafra.',
-  '¿Qué hace la IA Zafra?': 'What does Zafra AI do?', 'Es el plan con IA (USD 10 por mes), que se habilita próximamente: anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís, con 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer. Pegar tu entrenamiento de WhatsApp para anotarlo ya funciona en el plan de USD 5, sin IA.': "It's the AI plan (USD 10 per month), coming soon: it logs your workouts from a message, works out your meal's macros from a photo, builds routines and goals and tells you how you're doing, with 100 messages per month. Before changing anything it shows you what it will do. Pasting your WhatsApp workout to log it already works on the USD 5 plan, without AI.",
+  '¿Qué hace la IA Zafra?': 'What does Zafra AI do?', 'Es el plan con IA (USD 10 por mes), que se habilita próximamente: anota tus entrenamientos desde un mensaje, calcula los macros de tu comida con una foto, te arma rutinas y metas y te dice cómo venís, con 100 mensajes por mes. Antes de cambiar algo, te muestra qué va a hacer. Pegar tu entrenamiento de WhatsApp para anotarlo ya funciona en el plan gratis, sin IA.': "It's the AI plan (USD 10 per month), coming soon: it logs your workouts from a message, works out your meal's macros from a photo, builds routines and goals and tells you how you're doing, with 100 messages per month. Before changing anything it shows you what it will do. Pasting your WhatsApp workout to log it already works on the free plan, without AI.",
   '¿Necesito internet en el gimnasio?': 'Do I need internet at the gym?', 'No para entrenar: una vez instalada funciona sin conexión (la IA y la foto de comida sí necesitan internet). Podés prender la nube para no perder nada si cambiás de celular.': "Not to train: once installed it works offline (the AI and plate photos do need internet). Turn on the cloud so you don't lose anything if you change phones.",
   '¿Funciona en iPhone?': 'Does it work on iPhone?', 'Sí, en iPhone y en Android, desde el navegador o instalada como app.': 'Yes, on iPhone and Android, in the browser or installed as an app.',
   '¿Reemplaza a un nutricionista o a un profe?': 'Does it replace a nutritionist or a coach?', 'No. Zafra es una guía para ordenarte y medir tu progreso. Ante dolores, lesiones o necesidades especiales, consultá con un profesional.': 'No. Zafra is a guide to get organised and measure your progress. For pain, injuries or special needs, see a professional.',

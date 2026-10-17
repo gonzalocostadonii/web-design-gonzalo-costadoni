@@ -20,6 +20,7 @@
     var h = a.href;
     if (/wa\.me|api\.whatsapp\.com/.test(h)) fbq("track", "Lead");
     else if (/\/suscribir\//.test(h)) fbq("track", "InitiateCheckout", { content_name: (h.match(/app=(\w+)/) || [])[1] || "app" });
+    else if (/gc-micro-apps\.vercel\.app\/(zafra|tero)\//.test(h)) fbq("track", "CompleteRegistration", { content_name: h.match(/vercel\.app\/(\w+)/)[1] }); // abrir la app gratis
   }, true);
 
   var eleccion = leer();
